@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.task_number_6.ui.main.PlaceholderFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <CheckBox
+                android:id="@+id/checkBox_task16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="Сложение"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView_task16_1" />
+
+            <EditText
+                android:id="@+id/editText1_task16"
+                android:layout_width="366dp"
+                android:layout_height="47dp"
+                android:layout_marginStart="16dp"
+                android:ems="10"
+                android:inputType="number"
+                android:maxLength="15"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView_task16_" />
+
+            <Button
+                android:id="@+id/answerButton_task16"
+                android:layout_width="99dp"
+                android:layout_height="41dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="17dp"
+                android:text="Решить"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox9_task16" />
+
+            <EditText
+                android:id="@+id/editText2_task16"
+                android:layout_width="366dp"
+                android:layout_height="47dp"
+                android:layout_marginStart="16dp"
+                android:ems="10"
+                android:inputType="number"
+                android:maxLength="15"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+            <TextView
+                android:id="@+id/answerText_task16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="Ответ:"
+                android:textSize="18sp"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="@+id/answerButton_task16"
+                app:layout_constraintStart_toEndOf="@+id/answerButton_task16"
+                app:layout_constraintTop_toTopOf="@+id/answerButton_task16" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="Порядок чисел по:"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox7_task16" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="Сколько существует чисел:"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox3_task16" />
+
+            <CheckBox
+                android:id="@+id/checkBox6_task16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:text="Несколько"
+                app:layout_constraintStart_toEndOf="@+id/checkBox5_task16"
+                app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+            <CheckBox
+                android:id="@+id/checkBox2_task16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:text="Умножение"
+                app:layout_constraintStart_toEndOf="@+id/checkBox_task16"
+                app:layout_constraintTop_toTopOf="@+id/checkBox_task16" />
+
+            <CheckBox
+                android:id="@+id/checkBox7_task16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="Четное"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+            <TextView
+                android:id="@+id/textView_task16_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="19dp"
+                android:text="В задании умножение или сложение:"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <CheckBox
+                android:id="@+id/checkBox5_task16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="Одно"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+            <CheckBox
+                android:id="@+id/checkBox9_task16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="Возрастанию"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Выберите какое число должно быть:"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editText2_task16" />
+
+            <CheckBox
+                android:id="@+id/checkBox3_task16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="8dp"
+                android:text="Минимальное"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Какое число должно быть в ответе:"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editText1_task16" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="Четное или нечетное:"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox6_task16" />
+
+            <TextView
+                android:id="@+id/textView_task16_"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="Какие цифры скалдываются/умножаются:"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox_task16" />
+
+            <CheckBox
+                android:id="@+id/checkBox4_task16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:text="Максимальное"
+                app:layout_constraintStart_toEndOf="@+id/checkBox3_task16"
+                app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+            <CheckBox
+                android:id="@+id/checkBox8_task16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:text="Нечетное"
+                app:layout_constraintStart_toEndOf="@+id/checkBox7_task16"
+                app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+            <CheckBox
+                android:id="@+id/checkBox10_task16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:text="Убыванию"
+                app:layout_constraintStart_toEndOf="@+id/checkBox9_task16"
+                app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

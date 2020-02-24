@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.task_number_6.ui.main.PlaceholderFragment">
+
+    <EditText
+        android:id="@+id/editText4_task15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        android:maxLength="15"
+        app:layout_constraintBottom_toBottomOf="@+id/textView1_task4"
+        app:layout_constraintStart_toStartOf="@+id/editText3_task15"
+        app:layout_constraintTop_toTopOf="@+id/textView1_task4" />
+
+    <TextView
+        android:id="@+id/textView1_task4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"
+        android:text="В ответе:"
+        android:textColor="#030303"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView1_task2" />
+
+    <EditText
+        android:id="@+id/editText3_task15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        android:maxLength="15"
+        app:layout_constraintBottom_toBottomOf="@+id/textView1_task2"
+        app:layout_constraintStart_toStartOf="@+id/editText2_task15"
+        app:layout_constraintTop_toTopOf="@+id/textView1_task2" />
+
+    <TextView
+        android:id="@+id/textView1_task3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"
+        android:text="Строится число:"
+        android:textColor="#030303"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView1_task15" />
+
+    <TextView
+        android:id="@+id/textView1_task2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"
+        android:text="Дано число:"
+        android:textColor="#030303"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView1_task3" />
+
+    <EditText
+        android:id="@+id/editText_task15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        android:maxLength="12"
+        app:layout_constraintBottom_toBottomOf="@+id/textView1_task15"
+        app:layout_constraintStart_toStartOf="@+id/editText2_task15"
+        app:layout_constraintTop_toTopOf="@+id/textView1_task15" />
+
+    <TextView
+        android:id="@+id/textView1_task15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Новое число:"
+        android:textColor="#030303"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editText2_task15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:ems="10"
+        android:inputType="number"
+        android:maxLength="15"
+        app:layout_constraintBottom_toBottomOf="@+id/textView1_task3"
+        app:layout_constraintStart_toEndOf="@+id/textView1_task3"
+        app:layout_constraintTop_toTopOf="@+id/textView1_task3"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <Button
+        android:id="@+id/button_task15"
+        android:layout_width="91dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Решить"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView1_task4" />
+
+    <TextView
+        android:id="@+id/answer_task15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Ответ:"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/button_task15"
+        app:layout_constraintStart_toEndOf="@+id/button_task15"
+        app:layout_constraintTop_toTopOf="@+id/button_task15" />
+</androidx.constraintlayout.widget.ConstraintLayout>

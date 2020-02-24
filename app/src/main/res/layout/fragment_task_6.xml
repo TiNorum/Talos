@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/editTextRow_type2"
+        android:layout_width="69dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:digits="234567"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:maxLength="1"
+        android:maxLines="1"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.157"
+        app:layout_constraintStart_toEndOf="@+id/textView_type2"
+        app:layout_constraintTop_toBottomOf="@+id/equation_type2" />
+
+    <EditText
+        android:id="@+id/equation_type2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/bSet_type2"
+        android:layout_width="147dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:text="Set"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_type2" />
+
+    <TableLayout
+        android:id="@+id/table_type2"
+        android:layout_width="378dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="#000000"
+        android:maxWidth="360dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bSet_type2" />
+
+    <Button
+        android:id="@+id/bR_type2"
+        android:layout_width="146dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Решить"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/table_type2" />
+
+    <TextView
+        android:id="@+id/tvO_type2"
+        android:layout_width="68dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="20dp"
+        android:gravity="center_vertical"
+        android:text="Ответ:"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@+id/bR_type2"
+        app:layout_constraintTop_toTopOf="@+id/bR_type2" />
+
+    <TextView
+        android:id="@+id/textView_type2"
+        android:layout_width="301dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:text="Введите количество строк:                                  (2,3,4,5,6,7)"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/equation_type2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
