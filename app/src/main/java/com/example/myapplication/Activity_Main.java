@@ -29,12 +29,14 @@ public class Activity_Main extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // super - обращение к родительскому классу AppCompatActivity
         super.onCreate(savedInstanceState);
+        // выставляем отображение нашего лэйаута
         setContentView(R.layout.activity_main);
 
+        // ищем кнопку с именем из всего списка и задаём ей событий Click
         to_task_1 = findViewById(R.id.buttonType1);
         to_task_1.setOnClickListener(oclBtn);
-
         to_task_2 = findViewById(R.id.buttonType2);
         to_task_2.setOnClickListener(oclBtn);
         to_task_5 = findViewById(R.id.buttonType5);
@@ -43,11 +45,13 @@ public class Activity_Main extends AppCompatActivity {
         to_task_6.setOnClickListener(oclBtn);
 
     }
+    // обработка события нажатия
     View.OnClickListener oclBtn = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
 
+                // вызываем наш Activity конкретного задания
                 case R.id.buttonType1:
                     Intent intent1 = new Intent(Activity_Main.this, Activity_Number_1.class);
                     startActivity(intent1);
