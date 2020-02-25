@@ -19,6 +19,8 @@ public class Activity_Main extends AppCompatActivity {
     Button to_task_6;
     Button to_task_7;
     Button to_task_8;
+    Button to_task_9;
+    Button to_task_10;
 
 
     @Override
