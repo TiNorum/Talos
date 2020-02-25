@@ -28,6 +28,7 @@ public class PlaceholderFragment_Task_1 extends Fragment {
     private PageViewModel pageViewModel;
 
     public static PlaceholderFragment_Task_1 newInstance(int index) {
+        // юзает фрагмент
         PlaceholderFragment_Task_1 fragment = new PlaceholderFragment_Task_1();
         Bundle bundle = new Bundle();
         bundle.putInt(ARG_SECTION_NUMBER, index);
@@ -61,22 +62,24 @@ public class PlaceholderFragment_Task_1 extends Fragment {
             Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_task_1, container, false);
 
+        // находим кнопку с которой работает
         button = root.findViewById(R.id.button);
         button.setOnClickListener(oclBtn);
-
-
+        // находим наш textView
         textView = root.findViewById(R.id.textView2);
         textView.setOnClickListener(oclBtn);
 
+        //
         editText1 = root.findViewById(R.id.editText4);
-        editText1.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
-        editText1.setKeyListener(DigitsKeyListener.getInstance("01234567890.,"));
+        editText1.setInputType(InputType.TYPE_CLASS_NUMBER);
+        editText1.setKeyListener(DigitsKeyListener.getInstance("01234567890"));
         editText2 = root.findViewById(R.id.editText);
-        editText2.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
-        editText2.setKeyListener(DigitsKeyListener.getInstance("01234567890.,"));
+        editText2.setInputType(InputType.TYPE_CLASS_NUMBER);
+        editText2.setKeyListener(DigitsKeyListener.getInstance("01234567890"));
         editText3 = root.findViewById(R.id.editText3);
-        editText3.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
-        editText3.setKeyListener(DigitsKeyListener.getInstance("01234567890.,"));
+        editText3.setInputType(InputType.TYPE_CLASS_NUMBER);
+        editText3.setKeyListener(DigitsKeyListener.getInstance("01234567890"));
+
         tAnswer = root.findViewById(R.id.tAnswer);
 
 
