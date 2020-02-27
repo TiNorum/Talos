@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,8 +7,9 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.myapplication.ui.task_number_5.Activity_Task_05;
-import com.example.myapplication.ui.task_number_6.Activity_Task_06;
+import com.example.myapplication.R;
+import com.example.myapplication.UI.task_number_5.Activity_Task_05;
+import com.example.myapplication.UI.task_number_6.Activity_Task_06;
 
 public class Activity_Main extends AppCompatActivity {
     Button to_task_1;

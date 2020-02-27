@@ -1,7 +1,9 @@
-package com.example.myapplication.ui.task_number_5.ui.main;
+package com.example.myapplication.UI.task_number_5.ui.main;
 
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.InputFilter;
+import android.text.InputType;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,22 +19,18 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.myapplication.R;
-import com.example.myapplication.ui.PageViewModel;
+import com.example.myapplication.UI.PageViewModel;
 
 import java.util.ArrayList;
 
-
-/**
- * A placeholder fragment containing a simple view.
- */
-public class PlaceholderFragment_3 extends Fragment {
+public class PlaceholderFragment_2 extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
 
     private PageViewModel pageViewModel;
 
-    public static PlaceholderFragment_3 newInstance(int index) {
-        PlaceholderFragment_3 fragment = new PlaceholderFragment_3();
+    public static PlaceholderFragment_2 newInstance(int index) {
+        PlaceholderFragment_2 fragment = new PlaceholderFragment_2();
         Bundle bundle = new Bundle();
         bundle.putInt(ARG_SECTION_NUMBER, index);
         fragment.setArguments(bundle);
@@ -43,7 +41,7 @@ public class PlaceholderFragment_3 extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         pageViewModel = ViewModelProviders.of(this).get(PageViewModel.class);
-        int index = 0;
+        int index = 1;
         if (getArguments() != null) {
             index = getArguments().getInt(ARG_SECTION_NUMBER);
         }
@@ -52,32 +50,23 @@ public class PlaceholderFragment_3 extends Fragment {
 
 
     private EditText countCharecter;
-    private EditText firstbit;
-    private EditText lastbit;
-    private EditText lengthNum;
+    private EditText UnkwonCode;
     private Button btOtvet;
     private TextView tvOtvet;
     private ArrayList<NewElements> listCode = new ArrayList<NewElements>();
 
     public View root;
 
-    public void initialization() {
-        btOtvet = root.findViewById(R.id.bOtvet_task14);
-        btOtvet.setOnClickListener(oclBtn);
-        tvOtvet = root.findViewById(R.id.textView_task14);
-        countCharecter = root.findViewById(R.id.editText1_task14);
-        firstbit = root.findViewById(R.id.editText_firstbit_task14);
-        lastbit = root.findViewById(R.id.editText_lastbit_task14);
-        lengthNum = root.findViewById(R.id.editText_length_num_task14);
-    }
-
     @Override
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        root = inflater.inflate(R.layout.fragment_task_0514, container, false);
-        initialization();
 
+        root = inflater.inflate(R.layout.fragment_task_0513, container, false);
+        btOtvet = root.findViewById(R.id.bOtvet_task13);
+        btOtvet.setOnClickListener(oclBtn);
+        tvOtvet = root.findViewById(R.id.textView2_task13);
+        countCharecter = root.findViewById(R.id.editText1_task13);
         countCharecter.addTextChangedListener(new TextWatcher() {
             @Override
             public void afterTextChanged(Editable s) {
@@ -128,6 +117,7 @@ public class PlaceholderFragment_3 extends Fragment {
         });
 
 
+
         return root;
     }
 
@@ -135,17 +125,17 @@ public class PlaceholderFragment_3 extends Fragment {
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
-                case R.id.bOtvet_task14:
+                case R.id.bOtvet_task13:
                     boolean check = true;
                     for (NewElements i : listCode) {
                         if (i.toString() == null)
                             check = false;
                     }
-                    if (check && !firstbit.getText().toString().isEmpty() && !lastbit.getText().toString().isEmpty()  && !lengthNum.getText().toString().isEmpty() && !countCharecter.getText().toString().isEmpty())
+                    if (check && !countCharecter.getText().toString().isEmpty())
                         tvOtvet.setVisibility(View.VISIBLE);
                     else {
                         Toast toast = Toast.makeText(getContext(),
-                                "Заполните все поля!", Toast.LENGTH_SHORT);
+                                "Заполните  поля!", Toast.LENGTH_SHORT);
                         toast.show();
                     }
 
@@ -155,7 +145,7 @@ public class PlaceholderFragment_3 extends Fragment {
     };
 
     private class NewElements {
-        public LinearLayout linearLH = (LinearLayout) root.findViewById(R.id.linear_code_task14);
+        public LinearLayout linearLH = (LinearLayout) root.findViewById(R.id.linear_code_task13);
         public LinearLayout linearLV = new LinearLayout(root.getContext());
         public EditText symbol = new EditText(root.getContext());
         public EditText code = new EditText(root.getContext());
@@ -167,15 +157,17 @@ public class PlaceholderFragment_3 extends Fragment {
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams((int) (84 * scale + 0.5f), (int) (40 * scale + 0.5f), 1f);
             params.setMargins(0, (int) (10 * scale + 0.5f), (int) (25 * scale + 0.5f), 0);
             symbol.setLayoutParams(params);
-
+            symbol.setInputType(InputType.TYPE_CLASS_TEXT);
+            code.setFilters(new InputFilter.LengthFilter[]{new InputFilter.LengthFilter(5)});
+            symbol.setFilters(new InputFilter.LengthFilter[]{new InputFilter.LengthFilter(1)});
             params.setMargins((int) (25 * scale + 0.5f), (int) (10 * scale + 0.5f), 0, 0);
             code.setLayoutParams(params);
 
             linearLV.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f));
 
-            code.setHint("cod");
-            symbol.setHint("char");
-
+            code.setHint("Код");
+            symbol.setHint("Буква");
+            code.setInputType(InputType.TYPE_CLASS_NUMBER );
             linearLV.addView(symbol);
             linearLV.addView(code);
             linearLH.addView(linearLV);
@@ -185,7 +177,7 @@ public class PlaceholderFragment_3 extends Fragment {
         @NonNull
         @Override
         public String toString() {
-            if (symbol.getText().toString().length() > 0 && code.getText().toString().length() > 0)
+            if (symbol.getText().toString().length() > 0)
                 return symbol.getText() + " " + code.getText();
             else
                 return null;

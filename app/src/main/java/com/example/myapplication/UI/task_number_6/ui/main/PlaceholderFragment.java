@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.task_number_6.ui.main;
+package com.example.myapplication.UI.task_number_6.ui.main;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,8 +14,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.myapplication.R;
-import com.example.myapplication.ui.PageViewModel;
-import com.example.myapplication.ui.task_number_5.ui.main.PlaceholderFragment_3;
+import com.example.myapplication.UI.PageViewModel;
 
 /**
  * A placeholder fragment containing a simple view.

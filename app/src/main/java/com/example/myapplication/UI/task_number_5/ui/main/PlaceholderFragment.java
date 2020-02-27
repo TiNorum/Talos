@@ -1,18 +1,16 @@
-package com.example.myapplication.ui.task_number_5.ui.main;
+package com.example.myapplication.UI.task_number_5.ui.main;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.InputType;
-import android.text.Spanned;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Filter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,7 +20,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.myapplication.R;
-import com.example.myapplication.ui.PageViewModel;
+import com.example.myapplication.UI.PageViewModel;
 
 import java.util.ArrayList;
 
@@ -95,26 +93,20 @@ public class PlaceholderFragment extends Fragment {
                         for (int i = countNums; i < listCode.size(); ) {
                             listCode.get(i).remove();
                             listCode.remove(i);
-
                         }
                     }
 
                     if (listCode.size() < countNums) {
-
                         for (; listCode.size() != countNums; ) {
-
-
                             listCode.add(new NewElements());
-
                         }
 
                         unknowCode.setVisibility(View.VISIBLE);
                         btOtvet.setVisibility(View.VISIBLE);
                     }
                 } catch (Exception e) {
-
+                    // тестирование ошибок (ввод)
                 }
-
 
             }
 
@@ -150,9 +142,7 @@ public class PlaceholderFragment extends Fragment {
                                 "Заполните все поля!", Toast.LENGTH_SHORT);
                         toast.show();
                     }
-
             }
-
         }
     };
 
