@@ -1,7 +1,6 @@
-package com.example.myapplication.ui.task_number_6.ui.main;
+package com.example.myapplication.UI.task_number_1;
 
 import android.content.Context;
-import android.graphics.Paint;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
@@ -10,7 +9,6 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.example.myapplication.R;
-
 
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
@@ -31,9 +29,11 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position)
         {
-            case 0: return PlaceholderFragment.newInstance(0);
-            case 1: return PlaceholderFragment_2.newInstance(1);
-            case 2: return PlaceholderFragment_3.newInstance(2);
+            case 0: return PlaceholderFragment_Task_1.newInstance(0);
+            case 1: return PlaceholderFragment_Task_2.newInstance(1);
+            case 2: return PlaceholderFragment_Task_3.newInstance(2);
+
+
         }
         return null;
     }
@@ -46,7 +46,6 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        // Show 2 total pages.
         return 3;
     }
 }

@@ -1,20 +1,14 @@
-package com.example.myapplication.ui.task_number_5;
+package com.example.myapplication.UI.task_number_5;
 
 import android.os.Bundle;
 
 import com.example.myapplication.R;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-
-import com.example.myapplication.ui.task_number_5.ui.main.SectionsPagerAdapter;
+import com.example.myapplication.UI.task_number_5.ui.main.SectionsPagerAdapter;
 
 public class Activity_Task_05 extends AppCompatActivity {
 

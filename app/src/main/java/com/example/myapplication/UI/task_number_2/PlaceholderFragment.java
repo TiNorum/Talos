@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.task_number_2;
+package com.example.myapplication.UI.task_number_2;
 
 import android.os.Bundle;
 import android.text.InputFilter;
@@ -18,8 +18,9 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.myapplication.Instruments.Check_Input;
 import com.example.myapplication.R;
-import com.example.myapplication.ui.PageViewModel;
+import com.example.myapplication.UI.PageViewModel;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -27,8 +28,8 @@ import com.example.myapplication.ui.PageViewModel;
 public class PlaceholderFragment extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
-    private int row=4, col=4;
-    private  TableLayout table;
+    private int row = 4, col = 4;
+    private TableLayout table;
     private PageViewModel pageViewModel;
     private Button bSet;
     private Button bR;
@@ -63,8 +64,7 @@ public class PlaceholderFragment extends Fragment {
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-         root = inflater.inflate(R.layout.fragment_task_5, container, false);
-
+        root = inflater.inflate(R.layout.fragment_task_5, container, false);
 
         bSet = root.findViewById(R.id.bSet);
         bSet.setOnClickListener(oclBtn);
@@ -79,54 +79,32 @@ public class PlaceholderFragment extends Fragment {
         tvRow = root.findViewById(R.id.editTextRow);
         equation = root.findViewById(R.id.equation);
 
-
-
-        equation.setFilters(new InputFilter[]{new InputFilter.LengthFilter(30),new InputFilter() {
+        // фильтр ввода уравнения
+        equation.setFilters(new InputFilter[]{new InputFilter.LengthFilter(30), new InputFilter() {
             @Override
             public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
                 StringBuilder sbText = new StringBuilder(source);
 
                 String text = sbText.toString();
-                text=text.toLowerCase();
-
+                text = text.toLowerCase();
+                // надо подправить
                 char[] newText = new char[50];
 
                 newText = text.toCharArray();
 
                 String blockCharacterSet = "#^|$%*!@/'\":;,?{}!$'`;,?×÷<{}€£¥ 1234567890абвгдеёжзийклмнопрстуфхцчшщъыьэюя";
-                for(int i=0;i<text.length();i++)
-                {
-                      if ((blockCharacterSet.contains(""+newText[i])))
-                      {
-                          return "";
-                      }
+                for (int i = 0; i < text.length(); i++) {
+                    if ((blockCharacterSet.contains("" + newText[i]))) {
+                        return "";
+                    }
                 }
-                return  text;
+                return text;
             }
-
-
 
 
         }});
-
-        /*equation.addTextChangedListener(new TextWatcher(){
-            @Override
-            public void afterTextChanged(Editable s) {
-                // Прописываем то, что надо выполнить после изменения текста
-
-            }
-
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-            }
-        });*/
         return root;
     }
-
 
 
     //обработчик нажатий
@@ -134,14 +112,14 @@ public class PlaceholderFragment extends Fragment {
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
-                //нажатия на кнопку "SET"e
+                //нажатия на кнопку "SET"
                 case R.id.bSet:
                     //очищаем таблицу
-                    row =Integer.parseInt(tvRow.getText().toString());
+                    row = Integer.parseInt(tvRow.getText().toString());
 
                     String temp = equation.getText().toString();
                     equation.setText(temp);
-                    col =fff(temp)+1;
+                    col = Check_Input.CountOfDifferentSymbols(temp) + 1;
 
                     tvO.setVisibility(View.INVISIBLE);
                     table.removeAllViews();
@@ -167,22 +145,14 @@ public class PlaceholderFragment extends Fragment {
 
 
     //создаем таблицу
-    public void  CreateTable()
-    {
-
+    public void CreateTable() {
         final float scale = getResources().getDisplayMetrics().density;
         TableRow.LayoutParams params = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT, 1.0f);
         params.setMargins((int) (0.5 * scale + 0.5f), (int) (0.5 * scale + 0.5f), (int) (0.5 * scale + 0.5f), (int) (0.5 * scale + 0.5f));
 
-
-
-
-
         //создаем строку
-        for(int i=0;i<row;i++) {
+        for (int i = 0; i < row; i++) {
             TableRow tr = new TableRow(root.getContext());
-
-            //tr.setBackgroundColor(ContextCompat.getColor(root.getContext(),R.color.BackgroundTableText));
 
             //создаем поле ввода
             for (int j = 0; j < col; j++) {
@@ -192,8 +162,6 @@ public class PlaceholderFragment extends Fragment {
                 textView.setGravity(Gravity.CENTER);
                 textView.setLayoutParams(params);
                 textView.setOnClickListener(oclBtnTextTable);
-               /* */
-
                 tr.addView(textView);
 
             }
@@ -207,33 +175,10 @@ public class PlaceholderFragment extends Fragment {
         @Override
         public void onClick(View v) {
             TextView textView = (TextView) v;
-            if(textView.getText()=="1")
-            textView.setText("0");
+            if (textView.getText() == "1")
+                textView.setText("0");
             else
                 textView.setText("1");
-
-
-
         }
     };
-
-    // подсчитываем количество различных переменных
-    //дать нормальное название функции
-    public int fff(String s)
-    {
-        String ch="";
-        int count=0;
-        for(byte i=0;i<s.length();i++)
-        {
-            String characterSet = "abcdefghijklmnopqrstuvwxyz";
-            if(characterSet.contains(""+ s.charAt(i)))
-            {
-                if(!(ch.contains("" + s.charAt(i))))
-                {
-                    ch+=s.charAt(i);
-                }
-            }
-        }
-        return ch.length();
-    }
 }

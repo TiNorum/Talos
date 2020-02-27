@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    tools:context=".ui.task_number_2.PlaceholderFragment">
+    tools:context=".UI.task_number_2.PlaceholderFragment">
 
     <EditText
         android:id="@+id/editTextRow"

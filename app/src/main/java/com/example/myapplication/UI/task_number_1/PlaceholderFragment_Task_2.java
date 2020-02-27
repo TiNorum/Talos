@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.task_number_1;
+package com.example.myapplication.UI.task_number_1;
 
 import android.os.Bundle;
 import android.text.InputType;
@@ -16,20 +16,19 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.myapplication.R;
-import com.example.myapplication.ui.PageViewModel;
+import com.example.myapplication.UI.PageViewModel;
 
 /**
  * A placeholder fragment containing a simple view.
  */
-public class PlaceholderFragment_Task_1 extends Fragment {
+public class PlaceholderFragment_Task_2 extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
 
     private PageViewModel pageViewModel;
 
-    public static PlaceholderFragment_Task_1 newInstance(int index) {
-        // юзает фрагмент
-        PlaceholderFragment_Task_1 fragment = new PlaceholderFragment_Task_1();
+    public static PlaceholderFragment_Task_2 newInstance(int index) {
+        PlaceholderFragment_Task_2 fragment = new PlaceholderFragment_Task_2();
         Bundle bundle = new Bundle();
         bundle.putInt(ARG_SECTION_NUMBER, index);
         fragment.setArguments(bundle);
@@ -60,27 +59,25 @@ public class PlaceholderFragment_Task_1 extends Fragment {
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_task_1, container, false);
+        View root = inflater.inflate(R.layout.fragment_task_2, container, false);
 
-        // находим кнопку с которой работает
-        button = root.findViewById(R.id.button);
+        button = root.findViewById(R.id.button_task2);
         button.setOnClickListener(oclBtn);
-        // находим наш textView
-        textView = root.findViewById(R.id.textView2);
+
+
+        textView = root.findViewById(R.id.textView2_task2);
         textView.setOnClickListener(oclBtn);
 
-        //
-        editText1 = root.findViewById(R.id.editText4);
+        editText1 = root.findViewById(R.id.editText4_task2);
         editText1.setInputType(InputType.TYPE_CLASS_NUMBER);
-        editText1.setKeyListener(DigitsKeyListener.getInstance("01234567890"));
-        editText2 = root.findViewById(R.id.editText);
+        editText1.setKeyListener(DigitsKeyListener.getInstance("01234567890.,"));
+        editText2 = root.findViewById(R.id.editText_task2);
         editText2.setInputType(InputType.TYPE_CLASS_NUMBER);
-        editText2.setKeyListener(DigitsKeyListener.getInstance("01234567890"));
-        editText3 = root.findViewById(R.id.editText3);
+        editText2.setKeyListener(DigitsKeyListener.getInstance("01234567890.,"));
+        editText3 = root.findViewById(R.id.editText3_task2);
         editText3.setInputType(InputType.TYPE_CLASS_NUMBER);
-        editText3.setKeyListener(DigitsKeyListener.getInstance("01234567890"));
-
-        tAnswer = root.findViewById(R.id.tAnswer);
+        editText3.setKeyListener(DigitsKeyListener.getInstance("01234567890.,"));
+        tAnswer = root.findViewById(R.id.tAnswer_task2);
 
 
         return root;
@@ -90,8 +87,8 @@ public class PlaceholderFragment_Task_1 extends Fragment {
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
-                //нажатия на кнопку "SET"e
-                case R.id.button:
+                //нажатия на кнопку "SET"
+                case R.id.button_task2:
 
 
                     if (editText1.getText().toString().length() != 0) {
@@ -100,28 +97,28 @@ public class PlaceholderFragment_Task_1 extends Fragment {
                                 tAnswer.setVisibility(View.VISIBLE);
                             } else {
                                 Toast toast = Toast.makeText(getContext(),
-                                        "Введите систему счисления!", Toast.LENGTH_SHORT);
+                                        "Введите количество единиц!", Toast.LENGTH_SHORT);
                                 toast.show();
                             }
 
                         } else {
                             Toast toast = Toast.makeText(getContext(),
-                                    "Введите число!", Toast.LENGTH_SHORT);
+                                    "Введите количество нулей!", Toast.LENGTH_SHORT);
                             toast.show();
                         }
                     } else {
                         Toast toast = Toast.makeText(getContext(),
-                                "Введите систему счисления!", Toast.LENGTH_SHORT);
+                                "Укажите x-значное шестнадцетиричное число!", Toast.LENGTH_SHORT);
                         toast.show();
                     }
                     break;
 
                 //нажатия на кнопку "Решить"
-                case R.id.textView2:
-                    if (textView.getText() == "1")
-                        textView.setText("0");
+                case R.id.textView2_task2:
+                    if (textView.getText() == "наименьшее")
+                        textView.setText("наибольшее");
                     else
-                        textView.setText("1");
+                        textView.setText("наименьшее");
                     break;
 
 

@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.task_number_2;
+package com.example.myapplication.UI.task_number_5.ui.main;
 
 import android.content.Context;
 
@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.example.myapplication.R;
 
+
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
  * one of the sections/tabs/pages.
@@ -17,7 +18,7 @@ import com.example.myapplication.R;
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @StringRes
-    private static final int[] TAB_TITLES = new int[]{R.string.tab_text_1, R.string.tab_text_2};
+    private static final int[] TAB_TITLES = new int[]{R.string.tab_text_1, R.string.tab_text_2,R.string.tab_text_3};
     private final Context mContext;
 
     public SectionsPagerAdapter(Context context, FragmentManager fm) {
@@ -27,11 +28,13 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        switch (position)
-        {
-            case 0: return PlaceholderFragment.newInstance(0);
-            case 1: return PlaceholderFragment_2.newInstance(1);
-
+        switch (position) {
+            case 0:
+                return PlaceholderFragment.newInstance(0);
+            case 1:
+                return PlaceholderFragment_2.newInstance(1);
+            case 2:
+                return PlaceholderFragment_3.newInstance(2);
         }
         return null;
     }
@@ -45,6 +48,6 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     @Override
     public int getCount() {
         // Show 2 total pages.
-        return 2;
+        return 3;
     }
 }
