@@ -21,8 +21,6 @@ import com.google.android.material.snackbar.Snackbar;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
 public class reg extends AppCompatActivity {
-
-
     private Button btnSignIn;
     private Button btnRegister;
     private RelativeLayout root;
@@ -34,7 +32,7 @@ public class reg extends AppCompatActivity {
 
         btnSignIn = findViewById(R.id.btnSignIn);
         btnRegister = findViewById(R.id.btnRegister);
-        root= findViewById(R.id.root_register__element);
+        root = findViewById(R.id.root_register__element);
 
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -146,6 +144,4 @@ public class reg extends AppCompatActivity {
         });
         dialog.show();
     }
-
-
 }
