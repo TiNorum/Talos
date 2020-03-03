@@ -7,41 +7,53 @@
     android:layout_height="match_parent"
     tools:context=".UI.PlaceholderFragmentTasks.PlaceholderFragment_Task_0101">
 
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="86dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="число"
+        android:inputType="textPersonName"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/textView4"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tAnswer"
+        android:layout_width="85dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="24dp"
+        android:gravity="center"
+        android:text="Ответ: "
+        android:textSize="16sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/button"
+        app:layout_constraintStart_toEndOf="@+id/button" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="83dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="48dp"
+        android:text="решить"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="4dp"
         android:gravity="center"
         android:text="в"
-        android:textSize="16sp"
         android:textColor="#0A0A0A"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toTopOf="@+id/textView2" />
-
-    <EditText
-        android:id="@+id/editText3"
-        android:layout_width="34dp"
-        android:layout_height="43dp"
-        android:ems="10"
-        android:hint="сс"
-        android:inputType="number"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/editText"
-        app:layout_constraintTop_toTopOf="@+id/editText" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:textSize="16sp"
-        android:text="Сколько"
-        android:textColor="#0A0A0A"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView2"
@@ -59,6 +71,7 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:gravity="center"
         android:text="-ой записи числа"
         android:textColor="#0A0A0A"
@@ -67,44 +80,36 @@
         app:layout_constraintTop_toTopOf="@+id/textView" />
 
     <EditText
-        android:id="@+id/editText"
-        android:layout_width="86dp"
+        android:id="@+id/editText3"
+        android:layout_width="34dp"
         android:layout_height="43dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginStart="4dp"
         android:ems="10"
-        android:gravity="center"
-        android:hint="число"
-        android:inputType="textPersonName"
+        android:hint="сс"
+        android:inputType="number"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/textView4"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="83dp"
-        android:layout_height="37dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="решить"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintStart_toEndOf="@+id/editText"
+        app:layout_constraintTop_toTopOf="@+id/editText" />
 
     <TextView
-        android:id="@+id/tAnswer"
-        android:layout_width="85dp"
-        android:layout_height="34dp"
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="36dp"
         android:gravity="center"
-        android:text="Ответ: "
+        android:text="Сколько"
+        android:textColor="#0A0A0A"
         android:textSize="16sp"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/button"
-        app:layout_constraintStart_toEndOf="@+id/button" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editText4"
         android:layout_width="37dp"
         android:layout_height="42dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:gravity="center"
         android:hint="сс"
