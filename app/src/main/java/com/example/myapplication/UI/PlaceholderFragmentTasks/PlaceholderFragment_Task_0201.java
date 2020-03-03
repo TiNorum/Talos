@@ -1,4 +1,4 @@
-package com.example.myapplication.UI.task_number_2;
+package com.example.myapplication.UI.PlaceholderFragmentTasks;
 
 import android.os.Bundle;
 import android.text.InputFilter;
@@ -20,12 +20,12 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.myapplication.Instruments.Check_Input;
 import com.example.myapplication.R;
-import com.example.myapplication.UI.PageViewModel;
+import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageViewModel;
 
 /**
  * A placeholder fragment containing a simple view.
  */
-public class PlaceholderFragment extends Fragment {
+public class PlaceholderFragment_Task_0201 extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
     private int row = 4, col = 4;
@@ -39,8 +39,8 @@ public class PlaceholderFragment extends Fragment {
     private TextView tvRow;
     private EditText equation;
 
-    public static PlaceholderFragment newInstance(int index) {
-        PlaceholderFragment fragment = new PlaceholderFragment();
+    public static PlaceholderFragment_Task_0201 newInstance(int index) {
+        PlaceholderFragment_Task_0201 fragment = new PlaceholderFragment_Task_0201();
         Bundle bundle = new Bundle();
         bundle.putInt(ARG_SECTION_NUMBER, index);
         fragment.setArguments(bundle);
@@ -64,7 +64,7 @@ public class PlaceholderFragment extends Fragment {
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        root = inflater.inflate(R.layout.fragment_task_5, container, false);
+        root = inflater.inflate(R.layout.fragment_task_0205, container, false);
 
         bSet = root.findViewById(R.id.bSet);
         bSet.setOnClickListener(oclBtn);

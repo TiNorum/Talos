@@ -1,4 +1,4 @@
-package com.example.myapplication.UI.task_number_1;
+package com.example.myapplication.UI.PlaceholderFragmentTasks;
 
 import android.os.Bundle;
 import android.text.InputType;
@@ -16,20 +16,20 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.myapplication.R;
-import com.example.myapplication.UI.PageViewModel;
+import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageViewModel;
 
 /**
  * A placeholder fragment containing a simple view.
  */
-public class PlaceholderFragment_Task_1 extends Fragment {
+public class PlaceholderFragment_Task_0101 extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
 
     private PageViewModel pageViewModel;
 
-    public static PlaceholderFragment_Task_1 newInstance(int index) {
+    public static PlaceholderFragment_Task_0101 newInstance(int index) {
         // юзает фрагмент
-        PlaceholderFragment_Task_1 fragment = new PlaceholderFragment_Task_1();
+        PlaceholderFragment_Task_0101 fragment = new PlaceholderFragment_Task_0101();
         Bundle bundle = new Bundle();
         bundle.putInt(ARG_SECTION_NUMBER, index);
         fragment.setArguments(bundle);
@@ -60,7 +60,7 @@ public class PlaceholderFragment_Task_1 extends Fragment {
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_task_1, container, false);
+        View root = inflater.inflate(R.layout.fragment_task_0101, container, false);
 
         // находим кнопку с которой работает
         button = root.findViewById(R.id.button);
