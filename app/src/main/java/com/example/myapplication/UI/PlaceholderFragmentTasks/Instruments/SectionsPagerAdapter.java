@@ -1,4 +1,4 @@
-package com.example.myapplication.UI.task_number_1;
+package com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments;
 
 import android.content.Context;
 
@@ -19,23 +19,18 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     @StringRes
     private static final int[] TAB_TITLES = new int[]{R.string.tab_text_1, R.string.tab_text_2,R.string.tab_text_3};
     private final Context mContext;
+    private final Fragment[] fragments;
 
-    public SectionsPagerAdapter(Context context, FragmentManager fm) {
+    public SectionsPagerAdapter(Context context, FragmentManager fm,Fragment[] fragment) {
         super(fm);
+        fragments = fragment;
         mContext = context;
     }
 
     @Override
     public Fragment getItem(int position) {
-        switch (position)
-        {
-            case 0: return PlaceholderFragment_Task_1.newInstance(0);
-            case 1: return PlaceholderFragment_Task_2.newInstance(1);
-            case 2: return PlaceholderFragment_Task_3.newInstance(2);
 
-
-        }
-        return null;
+        return fragments[position];
     }
 
     @Nullable
@@ -46,6 +41,6 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 3;
+        return fragments.length;
     }
 }

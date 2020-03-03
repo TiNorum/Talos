@@ -1,4 +1,4 @@
-package com.example.myapplication.UI.task_number_6.ui.main;
+package com.example.myapplication.UI.PlaceholderFragmentTasks;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,19 +15,19 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.myapplication.R;
-import com.example.myapplication.UI.PageViewModel;
+import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageViewModel;
 
 /**
  * A placeholder fragment containing a simple view.
  */
-public class PlaceholderFragment_2 extends Fragment {
+public class PlaceholderFragment_Task_0602 extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
 
     private PageViewModel pageViewModel;
 
-    public static PlaceholderFragment_2 newInstance(int index) {
-        PlaceholderFragment_2 fragment = new PlaceholderFragment_2();
+    public static PlaceholderFragment_Task_0602 newInstance(int index) {
+        PlaceholderFragment_Task_0602 fragment = new PlaceholderFragment_Task_0602();
         Bundle bundle = new Bundle();
         bundle.putInt(ARG_SECTION_NUMBER, index);
         fragment.setArguments(bundle);
