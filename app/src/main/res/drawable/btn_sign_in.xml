@@ -8,7 +8,7 @@
             <solid android:color="@color/btn_sign_in_stroke"/>
             <stroke android:color="@color/btn_sign_in"
                 android:width="2dp"/>
-            <corners android:radius="2dp"/>
+            <corners android:radius="50dp"/>
         </shape>
     </item>
 
