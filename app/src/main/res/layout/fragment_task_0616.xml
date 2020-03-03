@@ -5,14 +5,14 @@
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.task_number_6.ui.main.PlaceholderFragment">
+    tools:context=".UI.PlaceholderFragmentTasks.PlaceholderFragment_Task_0601">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
@@ -31,16 +31,19 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView_task16_1" />
 
-            <EditText
+            <com.rengwuxian.materialedittext.MaterialEditText
                 android:id="@+id/editText1_task16"
+                style="@style/task_input"
                 android:layout_width="366dp"
                 android:layout_height="47dp"
-                android:layout_marginStart="16dp"
                 android:ems="10"
+                android:hint="Какие цифры складываются/умножаются"
                 android:inputType="number"
                 android:maxLength="15"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.333"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView_task16_" />
+                app:layout_constraintTop_toBottomOf="@+id/checkBox2_task16" />
 
             <Button
                 android:id="@+id/answerButton_task16"
@@ -52,16 +55,20 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/checkBox9_task16" />
 
-            <EditText
+            <com.rengwuxian.materialedittext.MaterialEditText
                 android:id="@+id/editText2_task16"
+                style="@style/task_input"
                 android:layout_width="366dp"
                 android:layout_height="47dp"
-                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
                 android:ems="10"
+                android:hint="Какое число должно быть в ответе"
                 android:inputType="number"
                 android:maxLength="15"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.333"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView8" />
+                app:layout_constraintTop_toBottomOf="@+id/editText1_task16" />
 
             <TextView
                 android:id="@+id/answerText_task16"
@@ -178,16 +185,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
             <TextView
-                android:id="@+id/textView8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:text="Какое число должно быть в ответе:"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText1_task16" />
-
-            <TextView
                 android:id="@+id/textView12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -197,17 +194,6 @@
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/checkBox6_task16" />
-
-            <TextView
-                android:id="@+id/textView_task16_"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:text="Какие цифры скалдываются/умножаются:"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/checkBox_task16" />
 
             <CheckBox
                 android:id="@+id/checkBox4_task16"

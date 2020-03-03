@@ -5,7 +5,7 @@
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.task_number_6.ui.main.PlaceholderFragment">
+    tools:context=".UI.PlaceholderFragmentTasks.PlaceholderFragment_Task_0601">
 
     <TextView
         android:id="@+id/textView19"
@@ -31,31 +31,6 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2_task17" />
 
     <TextView
-        android:id="@+id/textView17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="Какое число нужно преобраовать"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText3_task17" />
-
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:inputType="number"
-        android:text="В какое число нужно преобразовать"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText4_task17" />
-
-    <TextView
         android:id="@+id/textView1_task17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -78,18 +53,6 @@
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkBox1_task17" />
-
-    <TextView
-        android:id="@+id/textView3_task17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="Сколько команд содержит исполнитель:"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText1_task17" />
 
     <CheckBox
         android:id="@+id/checkBox1_task17"
@@ -133,54 +96,56 @@
         app:layout_constraintStart_toEndOf="@+id/textView19"
         app:layout_constraintTop_toBottomOf="@+id/textView2_task17" />
 
-    <EditText
+    <com.rengwuxian.materialedittext.MaterialEditText
         android:id="@+id/editText3_task17"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        style="@style/task_input"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
+        android:hint="Сколько команд содержит исполнитель"
         android:inputType="number"
         android:maxLength="2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3_task17" />
+        app:layout_constraintTop_toBottomOf="@+id/editText2_task17" />
 
-    <EditText
+    <com.rengwuxian.materialedittext.MaterialEditText
         android:id="@+id/editText4_task17"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        style="@style/task_input"
         android:layout_marginEnd="16dp"
         android:ems="10"
+        android:hint="Какое число нужно преобразовать"
         android:inputType="number"
         android:maxLength="15"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+        app:layout_constraintTop_toBottomOf="@+id/editText3_task17" />
 
-    <EditText
+    <com.rengwuxian.materialedittext.MaterialEditText
         android:id="@+id/editText5_task17"
+        style="@style/task_input"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
+        android:hint="В какое число нужно преобразовать"
         android:inputType="number"
         android:maxLength="15"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView16" />
-
-    <Button
-        android:id="@+id/buttonAnswer_task17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="7dp"
-        android:text="Решить"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText5_task17" />
+        app:layout_constraintTop_toBottomOf="@+id/editText4_task17" />
 
     <TextView
         android:id="@+id/answertext_task17"
@@ -192,6 +157,16 @@
         app:layout_constraintBottom_toBottomOf="@+id/buttonAnswer_task17"
         app:layout_constraintStart_toEndOf="@+id/buttonAnswer_task17"
         app:layout_constraintTop_toTopOf="@+id/buttonAnswer_task17"
-        app:layout_constraintVertical_bias="0.517" />
+        app:layout_constraintVertical_bias="0.125" />
+
+    <Button
+        android:id="@+id/buttonAnswer_task17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Решить"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText5_task17" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

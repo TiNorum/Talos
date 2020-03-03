@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:theme="@style/task_buttons_field"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
@@ -28,36 +29,28 @@
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:fontFamily="@font/dunkin"
-                android:text="1"
-                android:textSize="23dp" />
+                android:text="1" />
 
             <Button
                 android:id="@+id/buttonType2"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:fontFamily="@font/dunkin"
-                android:text="2"
-                android:textSize="23dp" />
+                android:text="2" />
 
             <Button
                 android:id="@+id/buttonType3"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:fontFamily="@font/dunkin"
-                android:text="3"
-                android:textSize="23dp" />
+                android:text="3" />
 
             <Button
                 android:id="@+id/buttonType4"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:fontFamily="@font/dunkin"
-                android:text="4"
-                android:textSize="23dp" />
+                android:text="4" />
 
         </LinearLayout>
 
@@ -71,37 +64,98 @@
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:fontFamily="@font/dunkin"
-                android:text="5"
-                android:textSize="23dp" />
+                android:text="5" />
 
             <Button
                 android:id="@+id/buttonType6"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:fontFamily="@font/dunkin"
-                android:text="6"
-                android:textSize="23dp" />
+                android:text="6" />
 
             <Button
                 android:id="@+id/buttonType7"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:fontFamily="@font/dunkin"
-                android:text="7"
-                android:textSize="23dp" />
+                android:text="7" />
 
             <Button
                 android:id="@+id/buttonType8"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:fontFamily="@font/dunkin"
-                android:text="8"
-                android:textSize="23dp" />
+                android:text="8" />
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/buttonType9"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="9" />
+
+            <Button
+                android:id="@+id/buttonType10"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="10" />
+
+            <Button
+                android:id="@+id/buttonType11"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="11" />
+
+            <Button
+                android:id="@+id/buttonType12"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="12" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/buttonType13"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="13" />
+
+            <Button
+                android:id="@+id/buttonType14"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="14" />
+
+            <Button
+                android:id="@+id/buttonType15"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="15" />
+
+            <Button
+                android:id="@+id/buttonType16"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="16" />
         </LinearLayout>
 
     </LinearLayout>
