@@ -9,7 +9,7 @@ import android.widget.Button;
 import com.example.myapplication.R;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
-public class RegistrationApp extends AppCompatActivity {
+public class SignUp extends AppCompatActivity {
 
 
     private Button btnRegister;
@@ -20,7 +20,7 @@ public class RegistrationApp extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.registration_window);
+        setContentView(R.layout.sign_up_window);
 
         btnRegister = findViewById(R.id.btnRegistration);
         email = findViewById(R.id.registration_mail);

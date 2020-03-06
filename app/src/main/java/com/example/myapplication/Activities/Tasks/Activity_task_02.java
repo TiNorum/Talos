@@ -4,8 +4,8 @@ import android.os.Bundle;
 
 import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.SectionsPagerAdapter;
-import com.example.myapplication.UI.PlaceholderFragmentTasks.PlaceholderFragment_Task_0201;
-import com.example.myapplication.UI.PlaceholderFragmentTasks.PlaceholderFragment_Task_0202;
+import com.example.myapplication.UI.PlaceholderFragmentTasks.PlaceholderFragment_Task_0204;
+import com.example.myapplication.UI.PlaceholderFragmentTasks.PlaceholderFragment_Task_0205;
 import com.google.android.material.tabs.TabLayout;
 
 import androidx.fragment.app.Fragment;
@@ -15,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class Activity_task_02 extends AppCompatActivity {
 
 
-    private static final Fragment[] fragments = {PlaceholderFragment_Task_0201.newInstance(0), PlaceholderFragment_Task_0202.newInstance(1)};
+    private static final Fragment[] fragments = {PlaceholderFragment_Task_0204.newInstance(0), PlaceholderFragment_Task_0205.newInstance(1)};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
