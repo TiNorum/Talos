@@ -20,14 +20,14 @@ import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageVie
 /**
  * A placeholder fragment containing a simple view.
  */
-public class PlaceholderFragment_Task_0602 extends Fragment {
+public class PlaceholderFragment_Task_0610 extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
 
     private PageViewModel pageViewModel;
 
-    public static PlaceholderFragment_Task_0602 newInstance(int index) {
-        PlaceholderFragment_Task_0602 fragment = new PlaceholderFragment_Task_0602();
+    public static PlaceholderFragment_Task_0610 newInstance(int index) {
+        PlaceholderFragment_Task_0610 fragment = new PlaceholderFragment_Task_0610();
         Bundle bundle = new Bundle();
         bundle.putInt(ARG_SECTION_NUMBER, index);
         fragment.setArguments(bundle);

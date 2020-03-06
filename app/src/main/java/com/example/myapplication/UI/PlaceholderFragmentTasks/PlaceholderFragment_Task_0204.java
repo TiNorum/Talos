@@ -25,7 +25,7 @@ import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageVie
 /**
  * A placeholder fragment containing a simple view.
  */
-public class PlaceholderFragment_Task_0202 extends Fragment {
+public class PlaceholderFragment_Task_0204 extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
     private int row = 4, col = 4;
@@ -39,8 +39,8 @@ public class PlaceholderFragment_Task_0202 extends Fragment {
     private TextView tvRow;
     private EditText equation;
 
-    public static PlaceholderFragment_Task_0202 newInstance(int index) {
-        PlaceholderFragment_Task_0202 fragment = new PlaceholderFragment_Task_0202();
+    public static PlaceholderFragment_Task_0204 newInstance(int index) {
+        PlaceholderFragment_Task_0204 fragment = new PlaceholderFragment_Task_0204();
         Bundle bundle = new Bundle();
         bundle.putInt(ARG_SECTION_NUMBER, index);
         fragment.setArguments(bundle);
@@ -64,23 +64,22 @@ public class PlaceholderFragment_Task_0202 extends Fragment {
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        root = inflater.inflate(R.layout.fragment_task_0206, container, false);
+        root = inflater.inflate(R.layout.fragment_task_0204, container, false);
 
-
-        bSet = root.findViewById(R.id.bSet_type2);
+        bSet = root.findViewById(R.id.bSet);
         bSet.setOnClickListener(oclBtn);
 
-        bR = root.findViewById(R.id.bR_type2);
+        bR = root.findViewById(R.id.bR);
         bR.setOnClickListener(oclBtn);
 
-        table = root.findViewById(R.id.table_type2);
+        table = root.findViewById(R.id.table);
 
-        tvO = root.findViewById(R.id.tvO_type2);
+        tvO = root.findViewById(R.id.tvO);
 
-        tvRow = root.findViewById(R.id.editTextRow_type2);
-        equation = root.findViewById(R.id.equation_type2);
+        tvRow = root.findViewById(R.id.editTextRow);
+        equation = root.findViewById(R.id.equation);
 
-
+        // фильтр ввода уравнения
         equation.setFilters(new InputFilter[]{new InputFilter.LengthFilter(30), new InputFilter() {
             @Override
             public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
@@ -88,7 +87,7 @@ public class PlaceholderFragment_Task_0202 extends Fragment {
 
                 String text = sbText.toString();
                 text = text.toLowerCase();
-
+                // надо подправить
                 char[] newText = new char[50];
 
                 newText = text.toCharArray();
@@ -104,7 +103,6 @@ public class PlaceholderFragment_Task_0202 extends Fragment {
 
 
         }});
-
         return root;
     }
 
@@ -114,8 +112,8 @@ public class PlaceholderFragment_Task_0202 extends Fragment {
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
-                //нажатия на кнопку "SET"e
-                case R.id.bSet_type2:
+                //нажатия на кнопку "SET"
+                case R.id.bSet:
                     //очищаем таблицу
                     row = Integer.parseInt(tvRow.getText().toString());
 
@@ -132,7 +130,7 @@ public class PlaceholderFragment_Task_0202 extends Fragment {
                     break;
 
                 //нажатия на кнопку "Решить"
-                case R.id.bR_type2:
+                case R.id.bR:
 
                     bR.setVisibility(View.INVISIBLE);
                     //*********
@@ -141,13 +139,13 @@ public class PlaceholderFragment_Task_0202 extends Fragment {
                     tvO.setVisibility(View.VISIBLE);
                     break;
             }
+
         }
     };
 
 
     //создаем таблицу
     public void CreateTable() {
-
         final float scale = getResources().getDisplayMetrics().density;
         TableRow.LayoutParams params = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT, 1.0f);
         params.setMargins((int) (0.5 * scale + 0.5f), (int) (0.5 * scale + 0.5f), (int) (0.5 * scale + 0.5f), (int) (0.5 * scale + 0.5f));
@@ -155,8 +153,6 @@ public class PlaceholderFragment_Task_0202 extends Fragment {
         //создаем строку
         for (int i = 0; i < row; i++) {
             TableRow tr = new TableRow(root.getContext());
-
-            //tr.setBackgroundColor(ContextCompat.getColor(root.getContext(),R.color.BackgroundTableText));
 
             //создаем поле ввода
             for (int j = 0; j < col; j++) {
@@ -166,8 +162,6 @@ public class PlaceholderFragment_Task_0202 extends Fragment {
                 textView.setGravity(Gravity.CENTER);
                 textView.setLayoutParams(params);
                 textView.setOnClickListener(oclBtnTextTable);
-                /* */
-
                 tr.addView(textView);
 
             }
@@ -182,13 +176,9 @@ public class PlaceholderFragment_Task_0202 extends Fragment {
         public void onClick(View v) {
             TextView textView = (TextView) v;
             if (textView.getText() == "1")
-                textView.setText("");
-            else if (textView.getText() == "0")
-                textView.setText("1");
-            else
                 textView.setText("0");
-
-
+            else
+                textView.setText("1");
         }
     };
 }
