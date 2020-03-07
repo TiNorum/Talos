@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/constraintLayout"
@@ -7,115 +7,119 @@
     android:layout_height="match_parent"
     tools:context=".UI.PlaceholderFragmentTasks.PlaceholderFragment_Task_0101">
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="86dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="24dp"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="число"
-        android:inputType="textPersonName"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/textView4"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tAnswer"
-        android:layout_width="85dp"
-        android:layout_height="34dp"
-        android:layout_marginStart="24dp"
-        android:gravity="center"
-        android:text="Ответ: "
-        android:textSize="16sp"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/button"
-        app:layout_constraintStart_toEndOf="@+id/button" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="83dp"
-        android:layout_height="37dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="48dp"
-        android:text="решить"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="4dp"
         android:gravity="center"
-        android:text="в"
-        android:textColor="#0A0A0A"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toTopOf="@+id/textView2" />
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="14dp"
-        android:layout_height="23dp"
-        android:layout_marginStart="8dp"
-        android:gravity="center"
-        android:text="0"
-        android:textColor="#858484"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="@+id/textView" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:gravity="left"
+            android:text="Выберите, что содержит двоичная запись числа нули/единици, их количесвто и сисему счисления искомого числа: "
+            android:textSize="15sp" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:gravity="center"
-        android:text="-ой записи числа"
-        android:textColor="#0A0A0A"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/editText4"
-        app:layout_constraintTop_toTopOf="@+id/textView" />
 
-    <EditText
-        android:id="@+id/editText3"
-        android:layout_width="34dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="4dp"
-        android:ems="10"
-        android:hint="сс"
-        android:inputType="number"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/editText"
-        app:layout_constraintTop_toTopOf="@+id/editText" />
+        <RadioGroup
+            android:id="@+id/task0101_rg_choice_"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="10dp">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="36dp"
-        android:gravity="center"
-        android:text="Сколько"
-        android:textColor="#0A0A0A"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:gravity="center"
+                android:text="Единицы"
+                android:textColor="#0A0A0A"
+                android:textSize="15sp"
+                android:layout_marginRight="8dp"/>
 
-    <EditText
-        android:id="@+id/editText4"
-        android:layout_width="37dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="сс"
-        android:inputType="number"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/textView6"
-        app:layout_constraintTop_toTopOf="@+id/editText" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:gravity="center"
+                android:text="Нули"
+                android:textColor="#0A0A0A"
+                android:textSize="15sp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        </RadioGroup>
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/task0101_edittext_count_values_one_or_zero"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:hint="Введите количество нулей/единиц"
+            android:inputType="number"
+            app:met_floatingLabel="highlight"
+            app:met_floatingLabelText="Количество нулей/единиц"/>
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:hint="Введите систему счисления искомого числа"
+            android:inputType="number"
+            app:met_floatingLabel="highlight"
+            app:met_floatingLabelText="Система счисления"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_margin="5dp"
+            android:layout_height="wrap_content"
+            android:text="Укажите какое искомое число:"
+            android:textSize="15dp"
+            />
+        <RadioGroup
+            android:id="@+id/task0101_rg_choice_min_max"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="10dp">
+
+            <RadioButton
+                android:id="@+id/task0101_rbtn_min_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:gravity="center"
+                android:text="Минимально"
+                android:textSize="15sp"
+                android:layout_marginRight="8dp"/>
+
+            <RadioButton
+                android:id="@+id/task0101_rbtn_max_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:gravity="center"
+                android:text="Максимальное"
+                android:textSize="15sp" />
+
+        </RadioGroup>
+        <TextView
+            android:id="@+id/task0101_textview_answer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"/>
+        <Button
+            android:id="@+id/task0101_btn_answer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="решить"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    </LinearLayout>
+
+</LinearLayout>

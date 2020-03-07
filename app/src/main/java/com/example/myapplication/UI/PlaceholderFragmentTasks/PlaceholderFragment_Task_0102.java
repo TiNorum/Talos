@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,6 +18,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageViewModel;
+import com.rengwuxian.materialedittext.MaterialEditText;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -47,12 +49,11 @@ public class PlaceholderFragment_Task_0102 extends Fragment {
     }
 
 
-    Button button;
+    Button btnAnswer;
     TextView tAnswer;
-    TextView textView;
-    EditText editText1;
-    EditText editText2;
-    EditText editText3;
+    MaterialEditText number;
+    MaterialEditText cc;
+    RadioGroup rg;
 
 
     @Override
@@ -61,23 +62,15 @@ public class PlaceholderFragment_Task_0102 extends Fragment {
             Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_task_0102, container, false);
 
-        button = root.findViewById(R.id.button_task2);
-        button.setOnClickListener(oclBtn);
+        btnAnswer = root.findViewById(R.id.task0102_btn_answer);
+        btnAnswer.setOnClickListener(oclBtn);
+
+        cc =(MaterialEditText) root.findViewById(R.id.task0102_edittext_cc);
+        number =(MaterialEditText) root.findViewById(R.id.task0102_edittext_number);
 
 
-        textView = root.findViewById(R.id.textView2_task2);
-        textView.setOnClickListener(oclBtn);
 
-        editText1 = root.findViewById(R.id.editText4_task2);
-        editText1.setInputType(InputType.TYPE_CLASS_NUMBER);
-        editText1.setKeyListener(DigitsKeyListener.getInstance("01234567890.,"));
-        editText2 = root.findViewById(R.id.editText_task2);
-        editText2.setInputType(InputType.TYPE_CLASS_NUMBER);
-        editText2.setKeyListener(DigitsKeyListener.getInstance("01234567890.,"));
-        editText3 = root.findViewById(R.id.editText3_task2);
-        editText3.setInputType(InputType.TYPE_CLASS_NUMBER);
-        editText3.setKeyListener(DigitsKeyListener.getInstance("01234567890.,"));
-        tAnswer = root.findViewById(R.id.tAnswer_task2);
+        tAnswer = root.findViewById(R.id.task0102_txt_answer);
 
 
         return root;
@@ -86,43 +79,21 @@ public class PlaceholderFragment_Task_0102 extends Fragment {
     View.OnClickListener oclBtn = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            switch (v.getId()) {
-                //нажатия на кнопку "SET"
-                case R.id.button_task2:
-
-
-                    if (editText1.getText().toString().length() != 0) {
-                        if (editText2.getText().toString().length() != 0) {
-                            if (editText3.getText().toString().length() != 0) {
+                                if (number.getText().toString().length() != 0) {
+                        if (cc.getText().toString().length() != 0) {
                                 tAnswer.setVisibility(View.VISIBLE);
-                            } else {
-                                Toast toast = Toast.makeText(getContext(),
-                                        "Введите количество единиц!", Toast.LENGTH_SHORT);
-                                toast.show();
-                            }
 
                         } else {
                             Toast toast = Toast.makeText(getContext(),
-                                    "Введите количество нулей!", Toast.LENGTH_SHORT);
+                                    "Введите систему счисления!", Toast.LENGTH_SHORT);
                             toast.show();
                         }
                     } else {
                         Toast toast = Toast.makeText(getContext(),
-                                "Укажите x-значное шестнадцетиричное число!", Toast.LENGTH_SHORT);
+                                "Введите число!", Toast.LENGTH_SHORT);
                         toast.show();
                     }
-                    break;
 
-                //нажатия на кнопку "Решить"
-                case R.id.textView2_task2:
-                    if (textView.getText() == "наименьшее")
-                        textView.setText("наибольшее");
-                    else
-                        textView.setText("наименьшее");
-                    break;
-
-
-            }
         }
     };
 }
