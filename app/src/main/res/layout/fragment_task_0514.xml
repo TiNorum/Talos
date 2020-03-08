@@ -9,14 +9,16 @@
 
     <com.rengwuxian.materialedittext.MaterialEditText
         android:id="@+id/editText1_task14"
-        android:layout_width="55dp"
-        android:layout_height="43dp"
+        android:layout_width="293dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
+        style="@style/task_input"
         android:gravity="center_horizontal"
         android:inputType="number"
         android:maxLength="2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.044"
+        app:layout_constraintHorizontal_bias="0.135"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -39,6 +41,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
         android:text="Решить"
+        style="@style/task_buttons_field"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linear_code_task14" />
 
@@ -49,7 +52,7 @@
         android:layout_marginStart="16dp"
         android:text="Последний:"
         android:textColor="#2B2424"
-        android:textSize="18sp"
+        style="@style/task_question"
         app:layout_constraintStart_toEndOf="@+id/editText1_task4"
         app:layout_constraintTop_toTopOf="@+id/textView2_task3" />
 
@@ -100,7 +103,7 @@
         android:layout_marginTop="36dp"
         android:text="Первый:"
         android:textColor="#2B2424"
-        android:textSize="18sp"
+        style="@style/task_question"
         app:layout_constraintStart_toStartOf="@+id/textView2_task"
         app:layout_constraintTop_toBottomOf="@+id/textView2_task" />
 
@@ -119,13 +122,13 @@
 
     <TextView
         android:id="@+id/textView2_task14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/task_question"
+        android:layout_width="241dp"
+        android:layout_height="13dp"
         android:text="Введите количество битов в букве:"
         android:textColor="#2B2424"
-        android:textSize="18sp"
-        tools:layout_editor_absoluteX="23dp"
-        tools:layout_editor_absoluteY="78dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText1_task14" />
 
     <TextView
         android:id="@+id/textView2_task"
@@ -134,7 +137,7 @@
         android:layout_marginTop="28dp"
         android:text="Введите первый и последний символ"
         android:textColor="#2B2424"
-        android:textSize="18sp"
+        style="@style/task_question"
         app:layout_constraintStart_toStartOf="@+id/textView2_task14"
         app:layout_constraintTop_toBottomOf="@+id/textView2_task14" />
 

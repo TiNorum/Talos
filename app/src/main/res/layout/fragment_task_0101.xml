@@ -11,7 +11,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
+        android:gravity="left"
         android:orientation="vertical">
 
         <TextView
@@ -20,44 +20,47 @@
             android:layout_marginEnd="5dp"
             android:layout_marginStart="5dp"
             android:layout_marginTop="10dp"
+            style="@style/task_question"
             android:gravity="left"
-            android:text="Выберите, что содержит двоичная запись числа нули/единици, их количесвто и сисему счисления искомого числа: "
-            android:textSize="15sp" />
+            android:text="Что содержит двоичная запись числа нули/единицы:" />
 
-
-        <RadioGroup
-            android:id="@+id/task0101_rg_choice_"
-            android:layout_width="wrap_content"
+    <!-- Доделать! -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_margin="10dp">
+            android:gravity="center"
+            android:layout_margin="10dp"
+            android:orientation="horizontal">>
 
-            <RadioButton
-                android:layout_width="wrap_content"
+            <CheckBox
+                android:id="@+id/checkBox_task0101_one"
+                style="@style/task_question"
+                android:layout_width="181dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
                 android:gravity="center"
-                android:text="Единицы"
-                android:textColor="#0A0A0A"
-                android:textSize="15sp"
-                android:layout_marginRight="8dp"/>
+                android:text="Единицы" />
 
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:gravity="center"
-                android:text="Нули"
-                android:textColor="#0A0A0A"
-                android:textSize="15sp" />
 
-        </RadioGroup>
+        <CheckBox
+            android:id="@+id/checkBox_task0101_null"
+            style="@style/task_question"
+            android:layout_width="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft = "8dp"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:text="Единицы" />
+        </LinearLayout>
+
 
         <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/task0101_edittext_count_values_one_or_zero"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            style="@style/task_input"
             android:hint="Введите количество нулей/единиц"
             android:inputType="number"
             app:met_floatingLabel="highlight"
@@ -68,6 +71,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            style="@style/task_input"
             android:hint="Введите систему счисления искомого числа"
             android:inputType="number"
             app:met_floatingLabel="highlight"
@@ -78,7 +82,7 @@
             android:layout_margin="5dp"
             android:layout_height="wrap_content"
             android:text="Укажите какое искомое число:"
-            android:textSize="15dp"
+            style="@style/task_question"
             />
         <RadioGroup
             android:id="@+id/task0101_rg_choice_min_max"
@@ -93,8 +97,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:gravity="center"
-                android:text="Минимально"
-                android:textSize="15sp"
+                android:text="Минимальное"
+                style="@style/task_question"
                 android:layout_marginRight="8dp"/>
 
             <RadioButton
@@ -103,8 +107,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:gravity="center"
-                android:text="Максимальное"
-                android:textSize="15sp" />
+                style="@style/task_question"
+                android:text="Максимальное" />
 
         </RadioGroup>
         <TextView
@@ -116,6 +120,7 @@
             android:id="@+id/task0101_btn_answer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            style="@style/task_buttons_field"
             android:text="решить"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView" />

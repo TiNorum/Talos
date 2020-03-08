@@ -38,6 +38,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="28dp"
         android:text="Решить"
+        style="@style/task_buttons_field"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText2" />
 

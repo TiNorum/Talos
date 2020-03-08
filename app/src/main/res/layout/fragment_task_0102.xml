@@ -11,10 +11,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
+        style="@style/task_question"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="5dp"
-        android:text="Укажите число, систему счисления:"
-        android:textSize="15sp" />
+        android:text="Укажите число и систему счисления:"
+         />
 
     <com.rengwuxian.materialedittext.MaterialEditText
         android:id="@+id/task0102_edittext_number"
@@ -23,7 +24,7 @@
         android:layout_margin="5dp"
         android:hint="Введите число"
         android:inputType="number"
-        android:textSize="15sp"
+        style="@style/task_input"
         app:met_floatingLabel="highlight"
         app:met_floatingLabelText="Число" />
 
@@ -34,7 +35,7 @@
         android:layout_margin="5dp"
         android:hint="Введите систему счисления"
         android:inputType="number"
-        android:textSize="15sp"
+        style="@style/task_input"
         app:met_floatingLabel="highlight"
         app:met_floatingLabelText="Система счисления" />
 
@@ -43,8 +44,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:text="Выберите, что нужно найти:"
-        android:textSize="15sp" />
+        style="@style/task_question"
+        android:text="Выберите, что нужно найти:" />
 
     <RadioGroup
         android:layout_width="match_parent"
@@ -56,12 +57,14 @@
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/task_question"
             android:text="Количество единиц" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Количество значищие нулей" />
+            style="@style/task_question"
+            android:text="Количество значащих нулей" />
     </RadioGroup>
 
             <TextView
@@ -75,6 +78,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:text="решить"
+        style="@style/task_buttons_field"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText3_task2" />
 

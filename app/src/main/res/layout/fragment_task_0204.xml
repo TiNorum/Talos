@@ -51,9 +51,10 @@
 
     <Button
         android:id="@+id/bSet"
-        android:layout_width="136dp"
-        android:layout_height="37dp"
-        android:text="Set"
+        style="@style/task_buttons_field"
+        android:layout_width="169dp"
+        android:layout_height="45dp"
+        android:text="Задать значения"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.523"
         app:layout_constraintStart_toStartOf="parent"
