@@ -51,7 +51,7 @@
             android:layout_marginLeft = "8dp"
             android:gravity="center"
             android:layout_height="wrap_content"
-            android:text="Единицы" />
+            android:text="Нули" />
         </LinearLayout>
 
 
