@@ -7,9 +7,11 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.myapplication.Activities.Tasks.Activity_task_01;
+import com.example.myapplication.Activities.Tasks.Activity_task_02;
 import com.example.myapplication.R;
-import com.example.myapplication.UI.task_number_5.Activity_Task_05;
-import com.example.myapplication.UI.task_number_6.Activity_Task_06;
+import com.example.myapplication.Activities.Tasks.Activity_Task_05;
+import com.example.myapplication.Activities.Tasks.Activity_Task_06;
 
 public class Activity_Main extends AppCompatActivity {
     Button to_task_1;
@@ -55,19 +57,19 @@ public class Activity_Main extends AppCompatActivity {
 
                 // вызываем наш Activity конкретного задания
                 case R.id.buttonType1:
-                    Intent intent1 = new Intent(Activity_Main.this, Activity_Number_1.class);
+                    Intent intent1 = new Intent(Activity_Main.this, Activity_task_01.class);
                     startActivity(intent1);
                     break;
                 case R.id.buttonType2:
-                    Intent intent2 = new Intent(Activity_Main.this, Activity_Number_2.class);
+                    Intent intent2 = new Intent(Activity_Main.this, Activity_task_02.class);
                     startActivity(intent2);
                     break;
                 case R.id.buttonType3:
-                    Intent intent3 = new Intent(Activity_Main.this, Activity_Number_2.class);
+                    Intent intent3 = new Intent(Activity_Main.this, Activity_task_02.class);
                     startActivity(intent3);
                     break;
                 case R.id.buttonType4:
-                    Intent intent4 = new Intent(Activity_Main.this, Activity_Number_2.class);
+                    Intent intent4 = new Intent(Activity_Main.this, Activity_task_02.class);
                     startActivity(intent4);
                     break;
                 case R.id.buttonType5:

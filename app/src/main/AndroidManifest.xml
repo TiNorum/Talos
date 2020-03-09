@@ -9,21 +9,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UI.auth.RegistrationApp"></activity>
         <activity
-            android:name=".UI.task_number_6.Activity_Task_06"
+            android:name=".UI.auth.SignUp"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
+        <activity
+            android:name=".Activities.Tasks.Activity_Task_06"
             android:label="@string/title_activity_task_06"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".UI.task_number_5.Activity_Task_05"
+            android:name=".Activities.Tasks.Activity_Task_05"
             android:label="@string/title_activity_task_05"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Activities.Activity_Number_1"
+            android:name=".Activities.Tasks.Activity_task_01"
             android:label="@string/title_activity_number1"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Activities.Activity_Number_2"
+            android:name=".Activities.Tasks.Activity_task_02"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
@@ -31,7 +34,7 @@
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".UI.auth.SignInApp"
+            android:name=".UI.auth.SignIn"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
