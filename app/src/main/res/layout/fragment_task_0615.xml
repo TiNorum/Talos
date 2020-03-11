@@ -1,91 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UI.PlaceholderFragmentTasks.PlaceholderFragment_Task_0609">
+    android:orientation="vertical"
+    tools:context=".UI.PlaceholderFragmentTasks.PlaceholderFragment_Task_0615">
 
-    <Button
-        android:id="@+id/button_task15"
-        android:layout_width="91dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="6dp"
-        android:text="Решить"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText4_task15" />
-
-    <com.rengwuxian.materialedittext.MaterialEditText
-        android:id="@+id/editText2_task15"
-        style="@style/task_input"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:ems="10"
-        android:hint="Строится число"
-        android:inputType="number"
-        android:maxLength="15"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.236"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_task15" />
+        android:gravity="center"
+        android:orientation="vertical">
 
-    <com.rengwuxian.materialedittext.MaterialEditText
-        android:id="@+id/editText_task15"
-        style="@style/task_input"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
-        android:ems="10"
-        android:hint="Новое число"
-        android:inputType="number"
-        android:maxLength="12"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.236"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:text="Дима, напиши тут про ввод(как в первом таске)"/>
 
-    <com.rengwuxian.materialedittext.MaterialEditText
-        android:id="@+id/editText3_task15"
-        style="@style/task_input"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="Дано число"
-        android:inputType="number"
-        android:maxLength="15"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.236"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2_task15" />
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/task0615_edittext_first_num"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:hint="Дано число"
+            android:inputType="number"
 
-    <com.rengwuxian.materialedittext.MaterialEditText
-        android:id="@+id/editText4_task15"
-        style="@style/task_input"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:ems="10"
-        android:hint="В ответе"
-        android:inputType="number"
-        android:maxLength="15"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.236"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText3_task15" />
+            android:maxLength="15"
+            app:met_floatingLabel="highlight"
+            app:met_floatingLabelText="Дано число" />
 
-    <TextView
-        android:id="@+id/answer_task15"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="Ответ:"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/button_task15"
-        app:layout_constraintStart_toEndOf="@+id/button_task15"
-        app:layout_constraintTop_toTopOf="@+id/button_task15"
-        app:layout_constraintVertical_bias="0.521" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/task0615_edittext_second_num"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:hint="Новое число"
+            android:inputType="number"
+            app:met_floatingLabel="highlight"
+            app:met_floatingLabelText="Новое число" />
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/task0615_edittext_biuld_num"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:hint="Строится число"
+            android:inputType="number"
+            android:maxLength="15"
+            app:met_floatingLabel="highlight"
+            app:met_floatingLabelText="Строится число" />
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/task0615_editext_answer_num"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:hint="В ответе"
+            android:inputType="number"
+            android:maxLength="15"
+            app:met_floatingLabel="highlight"
+            app:met_floatingLabelText="В ответе" />
+
+        <TextView
+            android:id="@+id/task0615_text_answer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/task0615_btn_answer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Решить" />
+    </LinearLayout>
+</LinearLayout>
