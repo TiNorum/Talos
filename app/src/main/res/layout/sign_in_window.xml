@@ -6,7 +6,7 @@
     style="@style/Theme.AppCompat.DayNight.NoActionBar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UI.auth.SignInApp">
+    tools:context=".UI.auth.SignIn">
 
 
     <LinearLayout
@@ -39,12 +39,19 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_marginLeft="40dp"
-
+        android:gravity="center"
         android:layout_marginRight="40dp"
         android:orientation="vertical"
         android:weightSum="2">
 
-
+        <TextView
+            android:id="@+id/signIn_warning_notification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:visibility="gone"
+            android:textColor="@android:color/holo_red_light"
+            />
         <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/sign_in_login"
             android:layout_width="match_parent"
@@ -69,7 +76,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="20dp"
         android:gravity="center"
         android:orientation="vertical"
         android:weightSum="2">

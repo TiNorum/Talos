@@ -1,140 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".UI.PlaceholderFragmentTasks.PlaceholderFragment_Task_0102">
 
     <TextView
-        android:id="@+id/textView4_task2"
-        android:layout_width="349dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:gravity="center"
-        android:text="шестнадцатеричное число двочиная запись которого содержит ровно"
-        android:textAlignment="viewStart"
-        android:textColor="#0A0A0A"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText4_task2" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        style="@style/task_question"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="5dp"
+        android:text="Укажите число и систему счисления:"
+         />
 
-    <EditText
-        android:id="@+id/editText_task2"
-        android:layout_width="86dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="12dp"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="n-едениц"
-        android:inputType="textPersonName"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/textView6_task"
-        app:layout_constraintTop_toBottomOf="@+id/textView4_task2" />
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/task0102_edittext_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:hint="Введите число"
+        android:inputType="number"
+        style="@style/task_input"
+        app:met_floatingLabel="highlight"
+        app:met_floatingLabelText="Число" />
 
-    <TextView
-        android:id="@+id/tAnswer_task2"
-        android:layout_width="85dp"
-        android:layout_height="34dp"
-        android:layout_marginStart="12dp"
-        android:gravity="center"
-        android:text="Ответ: "
-        android:textSize="16sp"
-        android:visibility="invisible"
-        app:layout_constraintStart_toEndOf="@+id/button_task2"
-        app:layout_constraintTop_toTopOf="@+id/button_task2" />
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/task0102_edittext_cc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:hint="Введите систему счисления"
+        android:inputType="number"
+        style="@style/task_input"
+        app:met_floatingLabel="highlight"
+        app:met_floatingLabelText="Система счисления" />
 
     <TextView
         android:id="@+id/textView6_task"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="12dp"
+        android:layout_margin="5dp"
+        style="@style/task_question"
+        android:text="Выберите, что нужно найти:" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="и"
-        android:textColor="#0A0A0A"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/editText3_task2"
-        app:layout_constraintTop_toTopOf="@+id/editText_task2" />
+        android:orientation="horizontal">
 
-    <EditText
-        android:id="@+id/editText3_task2"
-        android:layout_width="64dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="12dp"
-        android:ems="10"
-        android:hint="n-нулей"
-        android:inputType="number"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4_task2" />
 
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/task_question"
+            android:text="Количество единиц" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/task_question"
+            android:text="Количество значащих нулей" />
+    </RadioGroup>
+
+            <TextView
+                android:id="@+id/task0102_txt_answer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"/>
     <Button
-        android:id="@+id/button_task2"
-        android:layout_width="83dp"
-        android:layout_height="37dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="12dp"
+        android:id="@+id/task0102_btn_answer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:text="решить"
+        style="@style/task_buttons_field"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText3_task2" />
 
-    <EditText
-        android:id="@+id/editText4_task2"
-        android:layout_width="42dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="24dp"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="x"
-        android:inputType="number"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/textView2_task2"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView6_task2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:gravity="center"
-        android:text="значное"
-        android:textColor="#0A0A0A"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/editText4_task2"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView_task2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="32dp"
-        android:gravity="center"
-        android:text="Укажите"
-        android:textColor="#0A0A0A"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView2_task2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:gravity="center"
-        android:text="наименьшее"
-        android:textColor="#858484"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView_task2"
-        app:layout_constraintStart_toEndOf="@+id/textView_task2" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

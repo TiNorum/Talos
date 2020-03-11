@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,6 +18,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageViewModel;
+import com.rengwuxian.materialedittext.MaterialEditText;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -48,13 +50,13 @@ public class PlaceholderFragment_Task_0101 extends Fragment {
     }
 
 
-    Button button;
+    Button btnAnswer;
     TextView tAnswer;
-    TextView textView;
-    EditText editText1;
-    EditText editText2;
-    EditText editText3;
 
+    MaterialEditText countZeroOrNum;
+    MaterialEditText cc;
+    RadioGroup rgChoiceZeroOrNum;
+    RadioGroup rgChoiceMaxorMin;
 
     @Override
     public View onCreateView(
@@ -62,67 +64,55 @@ public class PlaceholderFragment_Task_0101 extends Fragment {
             Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_task_0101, container, false);
 
-        // находим кнопку с которой работает
-        button = root.findViewById(R.id.button);
-        button.setOnClickListener(oclBtn);
-        // находим наш textView
-        textView = root.findViewById(R.id.textView2);
-        textView.setOnClickListener(oclBtn);
+      // находим кнопку с которой работает
+        btnAnswer = root.findViewById(R.id.task0101_btn_answer);
+        btnAnswer.setOnClickListener(oclBtn);
 
-        // создание клавиатуры для каждого ввода поля
-        editText1 = root.findViewById(R.id.editText4);
-        editText1.setInputType(InputType.TYPE_CLASS_NUMBER);
-        editText1.setKeyListener(DigitsKeyListener.getInstance("01234567890"));
-        editText2 = root.findViewById(R.id.editText);
-        editText2.setInputType(InputType.TYPE_CLASS_NUMBER);
-        editText2.setKeyListener(DigitsKeyListener.getInstance("01234567890"));
-        editText3 = root.findViewById(R.id.editText3);
-        editText3.setInputType(InputType.TYPE_CLASS_NUMBER);
-        editText3.setKeyListener(DigitsKeyListener.getInstance("01234567890"));
+        countZeroOrNum = (MaterialEditText) root.findViewById(R.id.task0101_edittext_count_values_one_or_zero);
+        cc = (MaterialEditText) root.findViewById(R.id.task0101_edittext_count_values_one_or_zero);
 
-        tAnswer = root.findViewById(R.id.tAnswer);
+//        rgChoiceMaxorMin = root.findViewById(R.id.task0101_rg_choice_min_max);
+//        rgChoiceZeroOrNum = root.findViewById(R.id.task0101_edittext_count_values_one_or_zero);
+        tAnswer = root.findViewById(R.id.task0101_textview_answer);
 
 
         return root;
     }
 
+//    RadioGroup.OnCheckedChangeListener rgListener = new RadioGroup.OnCheckedChangeListener()
+//    {
+//
+//        @Override
+//        public void onCheckedChanged(RadioGroup group, int checkedId) {
+//            switch ()
+//        }
+//    }
+
     View.OnClickListener oclBtn = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
-                //нажатия на кнопку "SET"
-                case R.id.button:
 
-                    if (editText1.getText().toString().length() != 0) {
-                        if (editText2.getText().toString().length() != 0) {
-                            if (editText3.getText().toString().length() != 0) {
+                case R.id.task0101_btn_answer:
+
+                    if (countZeroOrNum.getText().toString().length() != 0) {
+                        if (cc.getText().toString().length() != 0) {
+
                                 tAnswer.setVisibility(View.VISIBLE);
-                            } else {
-                                Toast toast = Toast.makeText(getContext(),
-                                        "Введите систему счисления!", Toast.LENGTH_SHORT);
-                                toast.show();
-                            }
+
 
                         } else {
                             Toast toast = Toast.makeText(getContext(),
-                                    "Введите число!", Toast.LENGTH_SHORT);
+                                    "Введите систему счисления!", Toast.LENGTH_SHORT);
                             toast.show();
                         }
                     } else {
                         Toast toast = Toast.makeText(getContext(),
-                                "Введите систему счисления!", Toast.LENGTH_SHORT);
+                                "Введите количество нулей/единиц!", Toast.LENGTH_SHORT);
                         toast.show();
                     }
                     break;
-                    // Toast. - всплывающее сообщение (уведомление)
 
-                //нажатия на кнопку "Решить"
-                case R.id.textView2:
-                    if (textView.getText() == "1")
-                        textView.setText("0");
-                    else
-                        textView.setText("1");
-                    break;
             }
         }
     };

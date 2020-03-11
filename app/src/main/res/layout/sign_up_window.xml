@@ -6,7 +6,7 @@
     style="@style/Theme.AppCompat.DayNight.NoActionBar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UI.auth.RegistrationApp"
+    tools:context=".UI.auth.SignUp"
     >
 
 
@@ -45,6 +45,14 @@
         android:orientation="vertical"
         android:weightSum="2">
 
+        <TextView
+            android:id="@+id/signUp_warning_notification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:visibility="gone"
+            android:textColor="@android:color/holo_red_light"
+            />
 
         <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/registration_login"
@@ -90,7 +98,7 @@
             android:id="@+id/btnRegistration"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="6dp"
+            android:layout_marginBottom="20dp"
             android:layout_weight="1"
             android:background="@drawable/btn_sign_in"
             android:fontFamily="@font/montserrat"
