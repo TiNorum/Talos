@@ -15,112 +15,110 @@
         android:orientation="vertical">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="5dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="10dp"
             style="@style/task_question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
             android:gravity="left"
             android:text="Что содержит двоичная запись числа нули/единицы:" />
 
-    <!-- Доделать! -->
+        <!-- Доделать! -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_margin="10dp"
-            android:orientation="horizontal">>
+            android:orientation="horizontal"
+            android:layout_margin="5dp">
 
             <CheckBox
                 android:id="@+id/checkBox_task0101_one"
                 style="@style/task_question"
-                android:layout_width="181dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:gravity="center"
-                android:text="Единицы" />
+                android:text="Единицы"
+                android:layout_weight="1"/>
 
 
-        <CheckBox
-            android:id="@+id/checkBox_task0101_null"
-            style="@style/task_question"
-            android:layout_width="match_parent"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft = "8dp"
-            android:gravity="center"
-            android:layout_height="wrap_content"
-            android:text="Нули" />
+            <CheckBox
+                android:id="@+id/checkBox_task0101_null"
+                style="@style/task_question"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Нули"
+                android:layout_weight="1"
+             />
+
         </LinearLayout>
 
 
         <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/task0101_edittext_count_values_one_or_zero"
+            style="@style/task_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            style="@style/task_input"
             android:hint="Введите количество нулей/единиц"
             android:inputType="number"
             app:met_floatingLabel="highlight"
-            app:met_floatingLabelText="Количество нулей/единиц"/>
+            app:met_floatingLabelText="Количество нулей/единиц" />
 
         <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/editText"
+            style="@style/task_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            style="@style/task_input"
             android:hint="Введите систему счисления искомого числа"
             android:inputType="number"
             app:met_floatingLabel="highlight"
-            app:met_floatingLabelText="Система счисления"/>
+            app:met_floatingLabelText="Система счисления" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_margin="5dp"
-            android:layout_height="wrap_content"
-            android:text="Укажите какое искомое число:"
             style="@style/task_question"
-            />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Укажите какое искомое число:" />
+
         <RadioGroup
             android:id="@+id/task0101_rg_choice_min_max"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_margin="10dp">
+            android:layout_margin="5dp"
+            android:orientation="horizontal">
 
             <RadioButton
                 android:id="@+id/task0101_rbtn_min_number"
+                style="@style/task_question"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:gravity="center"
                 android:text="Минимальное"
-                style="@style/task_question"
-                android:layout_marginRight="8dp"/>
+                android:layout_weight="1"/>
 
             <RadioButton
                 android:id="@+id/task0101_rbtn_max_number"
+                style="@style/task_question"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:gravity="center"
-                style="@style/task_question"
-                android:text="Максимальное" />
+                android:text="Максимальное"
+                android:layout_weight="1"/>
 
         </RadioGroup>
+
         <TextView
             android:id="@+id/task0101_textview_answer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="gone"/>
+            android:visibility="gone" />
+
         <Button
             android:id="@+id/task0101_btn_answer"
+            style="@style/task_buttons_field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/task_buttons_field"
             android:text="решить"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView" />

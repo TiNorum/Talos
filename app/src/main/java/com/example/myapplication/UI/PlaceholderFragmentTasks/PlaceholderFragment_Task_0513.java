@@ -23,14 +23,14 @@ import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageVie
 
 import java.util.ArrayList;
 
-public class PlaceholderFragment_Task_0507 extends Fragment {
+public class PlaceholderFragment_Task_0513 extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
 
     private PageViewModel pageViewModel;
 
-    public static PlaceholderFragment_Task_0507 newInstance(int index) {
-        PlaceholderFragment_Task_0507 fragment = new PlaceholderFragment_Task_0507();
+    public static PlaceholderFragment_Task_0513 newInstance(int index) {
+        PlaceholderFragment_Task_0513 fragment = new PlaceholderFragment_Task_0513();
         Bundle bundle = new Bundle();
         bundle.putInt(ARG_SECTION_NUMBER, index);
         fragment.setArguments(bundle);
