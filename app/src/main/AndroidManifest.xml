@@ -14,11 +14,11 @@
             android:theme="@style/AppTheme.NoActionBar"
             />
         <activity
-            android:name=".Activities.Tasks.Activity_Task_06"
+            android:name=".Activities.Tasks.Activity_task_06"
             android:label="@string/title_activity_task_06"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Activities.Tasks.Activity_Task_05"
+            android:name=".Activities.Tasks.Activity_task_05"
             android:label="@string/title_activity_task_05"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
