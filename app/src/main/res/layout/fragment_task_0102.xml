@@ -5,15 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:paddingTop="20dp"
+    android:paddingRight="15dp"
+    android:paddingLeft="15dp"
     tools:context=".UI.PlaceholderFragmentTasks.PlaceholderFragment_Task_0102">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
         style="@style/task_question"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="5dp"
         android:text="Укажите число и систему счисления:"
          />
 
@@ -21,7 +21,6 @@
         android:id="@+id/task0102_edittext_number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
         android:hint="Введите число"
         android:inputType="number"
         style="@style/task_input"
@@ -32,7 +31,6 @@
         android:id="@+id/task0102_edittext_cc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
         android:hint="Введите систему счисления"
         android:inputType="number"
         style="@style/task_input"
@@ -43,13 +41,14 @@
         android:id="@+id/textView6_task"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
+        android:layout_marginTop="15dp"
         style="@style/task_question"
         android:text="Выберите, что нужно найти:" />
 
     <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:gravity="center"
         android:orientation="horizontal">
 
@@ -76,7 +75,7 @@
         android:id="@+id/task0102_btn_answer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_marginTop="15dp"
         android:text="решить"
         style="@style/task_buttons_field"
         app:layout_constraintStart_toStartOf="parent"

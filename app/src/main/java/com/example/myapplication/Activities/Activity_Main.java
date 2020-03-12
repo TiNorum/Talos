@@ -10,8 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.myapplication.Activities.Tasks.Activity_task_01;
 import com.example.myapplication.Activities.Tasks.Activity_task_02;
 import com.example.myapplication.R;
-import com.example.myapplication.Activities.Tasks.Activity_Task_05;
-import com.example.myapplication.Activities.Tasks.Activity_Task_06;
+import com.example.myapplication.Activities.Tasks.Activity_task_05;
+import com.example.myapplication.Activities.Tasks.Activity_task_06;
 
 public class Activity_Main extends AppCompatActivity {
     Button to_task_1;
@@ -73,11 +73,11 @@ public class Activity_Main extends AppCompatActivity {
                     startActivity(intent4);
                     break;
                 case R.id.buttonType5:
-                    Intent intent5 = new Intent(Activity_Main.this, Activity_Task_05.class);
+                    Intent intent5 = new Intent(Activity_Main.this, Activity_task_05.class);
                     startActivity(intent5);
                     break;
                 case R.id.buttonType6:
-                    Intent intent6 = new Intent(Activity_Main.this, Activity_Task_06.class);
+                    Intent intent6 = new Intent(Activity_Main.this, Activity_task_06.class);
                     startActivity(intent6);
                     break;
             }
