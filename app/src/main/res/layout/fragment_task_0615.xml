@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="15dp"
-    app:layout_goneMarginRight="15dp"
     android:orientation="vertical"
     tools:context=".UI.PlaceholderFragmentTasks.PlaceholderFragment_Task_0615">
 
@@ -14,13 +12,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_margin="15dp"
+        >
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="5dp"
             android:text="Дима, напиши тут про ввод(как в первом таске)"/>
 
         <com.rengwuxian.materialedittext.MaterialEditText
@@ -80,4 +78,4 @@
             android:layout_margin="5dp"
             android:text="Решить" />
     </LinearLayout>
-</LinearLayout>
+</RelativeLayout>

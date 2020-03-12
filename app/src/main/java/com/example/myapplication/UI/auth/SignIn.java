@@ -94,53 +94,55 @@ public class SignIn extends AppCompatActivity {
             return;
         }
 
-//        Single.fromCallable(() -> {
-//            try {
-//                Log.d(LOG_TAG, "Установка соединения");
-//                Socket mSocket = new Socket(Constants.HOST, Constants.PORT);
-//                Log.d(LOG_TAG, "Соединение установленно");
-//                if (mSocket.isClosed()) {
-//                    throw new Exception("Ошибка отправки данных. " +
-//                            "Сокет не создан или закрыт ");
-//                }
-//
-//                InputStream sin = mSocket.getInputStream();
-//                DataInputStream dis = new DataInputStream(sin);
-//                OutputStream send = mSocket.getOutputStream();
-//                DataOutputStream dos = new DataOutputStream(send);
-//                Log.d(LOG_TAG, "Идет отправка сообщения на сервер...");
-//                try {
-//                    dos.writeUTF("test");
-//                    dos.flush();
-//                    Log.d(LOG_TAG, "Отправленно сообщение на сервер");
-//                } catch (Exception e)
-//                {
-//                    throw e;
-//                }
-//
-//                String answer = "text";
-//
-//                try { Log.d(LOG_TAG, "Отправленно сообщение на сервер");
-//                     answer = dis.readUTF();
-//
-//                } catch (Exception e)
-//                {
-//                    throw e;
-//                }
-//                mSocket.close();
-//                return answer;
-//            } catch (Exception ex) {
-//                throw ex;
-//            }
-//
-//        })
-//                .subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribe(text ->Log.d(LOG_TAG,text),
-//                        e ->{
-//                            Log.e(LOG_TAG, e.getMessage());
-//                            return;
-//                        });
+
+
+        Single.fromCallable(() -> {
+            try {
+                Log.d(LOG_TAG, "Установка соединения");
+                Socket mSocket = new Socket(Constants.HOST, Constants.PORT);
+                Log.d(LOG_TAG, "Соединение установленно");
+                if (mSocket.isClosed()) {
+                    throw new Exception("Ошибка отправки данных. " +
+                            "Сокет не создан или закрыт ");
+                }
+
+                InputStream sin = mSocket.getInputStream();
+                DataInputStream dis = new DataInputStream(sin);
+                OutputStream send = mSocket.getOutputStream();
+                DataOutputStream dos = new DataOutputStream(send);
+                Log.d(LOG_TAG, "Идет отправка сообщения на сервер...");
+                try {
+                    dos.writeUTF("test");
+                    dos.flush();
+                    Log.d(LOG_TAG, "Отправленно сообщение на сервер");
+                } catch (Exception e)
+                {
+                    throw e;
+                }
+
+                String answer = "text";
+
+                try { Log.d(LOG_TAG, "Отправленно сообщение на сервер");
+                     answer = dis.readUTF();
+
+                } catch (Exception e)
+                {
+                    throw e;
+                }
+                mSocket.close();
+                return answer;
+            } catch (Exception ex) {
+                throw ex;
+            }
+
+        })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(text ->Log.d(LOG_TAG,text),
+                        e ->{
+                            Log.e(LOG_TAG, e.getMessage());
+                           return;
+                        });
 
        startActivity(new Intent(SignIn.this, Activity_Main.class));
       finish();

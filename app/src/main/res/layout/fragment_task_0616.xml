@@ -19,7 +19,6 @@
             android:orientation="vertical"
             android:padding="5dp">
 
-
             <TextView
                 android:id="@+id/textView_task16_1"
                 android:layout_width="wrap_content"
@@ -30,22 +29,23 @@
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_margin="5dp">
+                android:layout_margin="5dp"
+                android:orientation="horizontal">
 
                 <RadioButton
                     android:id="@+id/checkBox2_task16"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Умножение"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:text="Умножение" />
 
                 <RadioButton
                     android:id="@+id/checkBox_task16"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Сложение"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:text="Сложение" />
+
             </RadioGroup>
 
             <com.rengwuxian.materialedittext.MaterialEditText
@@ -55,20 +55,20 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:hint="Какие цифры складываются/умножаются"
-                app:met_floatingLabel="highlight"
                 android:inputType="number"
-                android:maxLength="15" />
+                android:maxLength="15"
+                app:met_floatingLabel="highlight" />
 
             <com.rengwuxian.materialedittext.MaterialEditText
                 android:id="@+id/editText2_task16"
                 style="@style/task_input"
                 android:layout_width="match_parent"
-                android:layout_margin="5dp"
                 android:layout_height="wrap_content"
+                android:layout_margin="5dp"
                 android:hint="Какое число должно быть в ответе"
-                app:met_floatingLabel="highlight"
                 android:inputType="number"
-                android:maxLength="15" />
+                android:maxLength="15"
+                app:met_floatingLabel="highlight" />
 
             <TextView
                 android:id="@+id/textView10"
@@ -82,22 +82,22 @@
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_margin="5dp">
+                android:layout_margin="5dp"
+                android:orientation="horizontal">
 
                 <RadioButton
                     android:id="@+id/checkBox4_task16"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Максимальное"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:text="Максимальное" />
 
                 <RadioButton
                     android:id="@+id/checkBox3_task16"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Минимальное"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:text="Минимальное" />
 
             </RadioGroup>
 
@@ -111,20 +111,20 @@
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_margin="5dp">
+                android:layout_margin="5dp"
+                android:orientation="horizontal">
 
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Возрастанию"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:text="Возрастанию" />
 
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Убыванию"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:text="Убыванию" />
 
             </RadioGroup>
 
@@ -147,14 +147,14 @@
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Несколько"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:text="Несколько" />
 
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Одно"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:text="Одно" />
 
             </RadioGroup>
 
@@ -163,7 +163,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Четное или нечетное:"
-                android:textSize="18sp"/>
+                android:textSize="18sp" />
 
 
             <RadioGroup
@@ -172,32 +172,31 @@
                 android:layout_margin="5dp"
                 android:orientation="horizontal">
 
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Четное"
-                android:layout_weight="1"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Четное" />
 
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Нечетное"
-                android:layout_weight="1"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Нечетное" />
             </RadioGroup>
 
             <TextView
                 android:id="@+id/task0616_text_answer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
                 android:layout_gravity="center"
-              />
+                android:visibility="gone" />
 
             <Button
-                android:layout_marginTop="5dp"
                 android:id="@+id/task0616_btn_answer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:text="Решить" />
         </LinearLayout>
     </ScrollView>
