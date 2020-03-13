@@ -62,19 +62,19 @@ public class PlaceholderFragment_Task_0617 extends Fragment {
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_task_0617, container, false);
-
-        text1 = root.findViewById(R.id.editText1_task17);
-        text2 = root.findViewById(R.id.editText2_task17);
-        text3 = root.findViewById(R.id.editText3_task17);
-        text4 = root.findViewById(R.id.editText4_task17);
-        text5 = root.findViewById(R.id.editText5_task17);
-        answertext = root.findViewById(R.id.answertext_task17);
-        checkBox1 = root.findViewById(R.id.checkBox1_task17);
-        checkBox1.setOnClickListener(oclBtn);
-        checkBox2 = root.findViewById(R.id.checkBox2_task17);
-        checkBox2.setOnClickListener(oclBtn);
-        btOtvet = root.findViewById(R.id.buttonAnswer_task17);
-        btOtvet.setOnClickListener(oclBtn);
+//
+//        text1 = root.findViewById(R.id.editText1_task17);
+//        text2 = root.findViewById(R.id.editText2_task17);
+//        text3 = root.findViewById(R.id.editText3_task17);
+//        text4 = root.findViewById(R.id.editText4_task17);
+//        text5 = root.findViewById(R.id.editText5_task17);
+//        answertext = root.findViewById(R.id.answertext_task17);
+//        checkBox1 = root.findViewById(R.id.checkBox1_task17);
+//        checkBox1.setOnClickListener(oclBtn);
+//        checkBox2 = root.findViewById(R.id.checkBox2_task17);
+//        checkBox2.setOnClickListener(oclBtn);
+//        btOtvet = root.findViewById(R.id.buttonAnswer_task17);
+//        btOtvet.setOnClickListener(oclBtn);
         return root;
     }
 
@@ -83,7 +83,7 @@ public class PlaceholderFragment_Task_0617 extends Fragment {
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
-                case R.id.buttonAnswer_task17:
+                case R.id.task0617_btn_answer:
                     boolean check = true;
 
                     if (!text1.getText().toString().isEmpty() && !text2.getText().toString().isEmpty() && !text3.getText().toString().isEmpty() && !text4.getText().toString().isEmpty() & !text5.getText().toString().isEmpty() && check1)
