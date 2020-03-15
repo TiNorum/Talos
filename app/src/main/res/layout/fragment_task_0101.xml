@@ -64,7 +64,7 @@
             app:met_floatingLabelText="Количество нулей/единиц" />
 
         <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/editText"
+            android:id="@+id/task0101_edittext_cc"
             style="@style/task_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

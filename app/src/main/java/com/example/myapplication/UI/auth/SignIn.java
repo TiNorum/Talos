@@ -54,9 +54,6 @@ public class SignIn extends AppCompatActivity {
         warning = findViewById(R.id.signIn_warning_notification);
 
 
-
-
-
         tvRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -95,7 +92,6 @@ public class SignIn extends AppCompatActivity {
         }
 
 
-
         Single.fromCallable(() -> {
             try {
                 Log.d(LOG_TAG, "Установка соединения");
@@ -110,26 +106,31 @@ public class SignIn extends AppCompatActivity {
                 DataInputStream dis = new DataInputStream(sin);
                 OutputStream send = mSocket.getOutputStream();
                 DataOutputStream dos = new DataOutputStream(send);
+
+                String data = getData();
+
                 Log.d(LOG_TAG, "Идет отправка сообщения на сервер...");
                 try {
-                    dos.writeUTF("test");
+                    dos.writeUTF(data);
                     dos.flush();
                     Log.d(LOG_TAG, "Отправленно сообщение на сервер");
-                } catch (Exception e)
-                {
+                } catch (Exception e) {
                     throw e;
                 }
 
-                String answer = "text";
+                String answer  ="103";
 
-                try { Log.d(LOG_TAG, "Отправленно сообщение на сервер");
-                     answer = dis.readUTF();
+                try {
+                    answer = dis.readUTF();
 
-                } catch (Exception e)
-                {
+                } catch (Exception e) {
                     throw e;
                 }
                 mSocket.close();
+
+                if (answer.isEmpty())
+                    throw new Exception("Ошибка получения данных. ");
+
                 return answer;
             } catch (Exception ex) {
                 throw ex;
@@ -138,14 +139,27 @@ public class SignIn extends AppCompatActivity {
         })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(text ->Log.d(LOG_TAG,text),
-                        e ->{
+                .subscribe(text ->
+                        {
+                            if (Integer.parseInt(text) == 103) {
+                                startActivity(new Intent(SignIn.this, Activity_Main.class));
+                                finish();
+                            }
+                        },
+                        e -> {
                             Log.e(LOG_TAG, e.getMessage());
-                           return;
+//                            return;
+                            startActivity(new Intent(SignIn.this, Activity_Main.class));
+                            finish();
                         });
 
-       startActivity(new Intent(SignIn.this, Activity_Main.class));
-      finish();
+
+
+    }
+
+    private String getData() {
+
+        return "102" + "\n\r" + login.getText().toString() + "\n\r" + password.getText().toString();
 
     }
 
