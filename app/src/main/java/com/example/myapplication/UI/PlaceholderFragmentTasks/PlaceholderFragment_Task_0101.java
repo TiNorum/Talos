@@ -7,7 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -50,13 +52,14 @@ public class PlaceholderFragment_Task_0101 extends Fragment {
     }
 
 
-    Button btnAnswer;
-    TextView tAnswer;
-
-    MaterialEditText countZeroOrNum;
-    MaterialEditText cc;
-    RadioGroup rgChoiceZeroOrNum;
-    RadioGroup rgChoiceMaxorMin;
+    private Button btnAnswer;
+    private TextView tAnswer;
+    private MaterialEditText countZeroOrNum;
+    private MaterialEditText cc;
+    private CheckBox zero;
+    private CheckBox one;
+    private RadioButton max;
+    private RadioButton min;
 
     @Override
     public View onCreateView(
@@ -64,56 +67,105 @@ public class PlaceholderFragment_Task_0101 extends Fragment {
             Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_task_0101, container, false);
 
-      // находим кнопку с которой работает
+        // находим кнопку с которой работает
         btnAnswer = root.findViewById(R.id.task0101_btn_answer);
         btnAnswer.setOnClickListener(oclBtn);
 
         countZeroOrNum = (MaterialEditText) root.findViewById(R.id.task0101_edittext_count_values_one_or_zero);
-        cc = (MaterialEditText) root.findViewById(R.id.task0101_edittext_count_values_one_or_zero);
+        cc = (MaterialEditText) root.findViewById(R.id.task0101_edittext_cc);
 
-//        rgChoiceMaxorMin = root.findViewById(R.id.task0101_rg_choice_min_max);
-//        rgChoiceZeroOrNum = root.findViewById(R.id.task0101_edittext_count_values_one_or_zero);
+        zero = root.findViewById(R.id.checkBox_task0101_null);
+        one = root.findViewById(R.id.checkBox_task0101_one);
+
+        max = root.findViewById(R.id.task0101_rbtn_max_number);
+        min = root.findViewById(R.id.task0101_rbtn_min_number);
+
         tAnswer = root.findViewById(R.id.task0101_textview_answer);
-
-
         return root;
     }
 
-//    RadioGroup.OnCheckedChangeListener rgListener = new RadioGroup.OnCheckedChangeListener()
-//    {
-//
-//        @Override
-//        public void onCheckedChanged(RadioGroup group, int checkedId) {
-//            switch ()
-//        }
-//    }
 
     View.OnClickListener oclBtn = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            switch (v.getId()) {
-
-                case R.id.task0101_btn_answer:
-
-                    if (countZeroOrNum.getText().toString().length() != 0) {
-                        if (cc.getText().toString().length() != 0) {
-
-                                tAnswer.setVisibility(View.VISIBLE);
 
 
-                        } else {
-                            Toast toast = Toast.makeText(getContext(),
-                                    "Введите систему счисления!", Toast.LENGTH_SHORT);
-                            toast.show();
-                        }
-                    } else {
-                        Toast toast = Toast.makeText(getContext(),
-                                "Введите количество нулей/единиц!", Toast.LENGTH_SHORT);
-                        toast.show();
-                    }
-                    break;
+            if (checkData()) return;
 
+            String data = getData();
+
+            Toast toast = Toast.makeText(getContext(),
+                    data, Toast.LENGTH_SHORT);
+            toast.show();
+            //отправка на сервер
+            //*****************
+            //*****************
+            ///////////////////
+
+
+            tAnswer.setVisibility(View.VISIBLE);
+
+
+        }
+
+        private String getData() {
+            String data = "100" + "\n\r" + "1" + "\n\r";
+
+            if (one.isChecked() && zero.isChecked()) {
+                data += "2" + "\n\r";
+            } else if (one.isChecked()) {
+                data += "1" + "\n\r";
+            } else {
+                data += "0" + "\n\r";
             }
+
+
+            data += countZeroOrNum.getText().toString() + "\n\r";
+
+            data += cc.getText().toString() + "\n\r";
+
+
+            if (min.isChecked())
+                data += "0";
+            else
+                data += "1";
+
+
+            return data;
+        }
+
+        private boolean checkData() {
+            if (countZeroOrNum.getText().toString().isEmpty()) {
+                Toast toast = Toast.makeText(getContext(),
+                        "Введите количество нулей/единиц!", Toast.LENGTH_SHORT);
+                toast.show();
+                return true;
+            }
+
+            if (cc.getText().toString().isEmpty()) {
+                Toast toast = Toast.makeText(getContext(),
+                        "Введите систему счисления!", Toast.LENGTH_SHORT);
+                toast.show();
+                return true;
+            }
+
+            if (!(zero.isChecked() || one.isChecked())) {
+                Toast toast = Toast.makeText(getContext(),
+                        "Выберите что содержит двоичная запись числа!", Toast.LENGTH_SHORT);
+                toast.show();
+                return true;
+            }
+
+            if (!(max.isChecked() || min.isChecked())) {
+                Toast toast = Toast.makeText(getContext(),
+                        "Выберите максимальное/минимальное число!", Toast.LENGTH_SHORT);
+                toast.show();
+                return true;
+            }
+
+            return false;
         }
     };
+
+
 }
