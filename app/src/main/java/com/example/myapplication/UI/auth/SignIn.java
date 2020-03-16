@@ -54,9 +54,6 @@ public class SignIn extends AppCompatActivity {
         warning = findViewById(R.id.signIn_warning_notification);
 
 
-
-
-
         tvRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,56 +91,75 @@ public class SignIn extends AppCompatActivity {
             return;
         }
 
-//        Single.fromCallable(() -> {
-//            try {
-//                Log.d(LOG_TAG, "Установка соединения");
-//                Socket mSocket = new Socket(Constants.HOST, Constants.PORT);
-//                Log.d(LOG_TAG, "Соединение установленно");
-//                if (mSocket.isClosed()) {
-//                    throw new Exception("Ошибка отправки данных. " +
-//                            "Сокет не создан или закрыт ");
-//                }
-//
-//                InputStream sin = mSocket.getInputStream();
-//                DataInputStream dis = new DataInputStream(sin);
-//                OutputStream send = mSocket.getOutputStream();
-//                DataOutputStream dos = new DataOutputStream(send);
-//                Log.d(LOG_TAG, "Идет отправка сообщения на сервер...");
-//                try {
-//                    dos.writeUTF("test");
-//                    dos.flush();
-//                    Log.d(LOG_TAG, "Отправленно сообщение на сервер");
-//                } catch (Exception e)
-//                {
-//                    throw e;
-//                }
-//
-//                String answer = "text";
-//
-//                try { Log.d(LOG_TAG, "Отправленно сообщение на сервер");
-//                     answer = dis.readUTF();
-//
-//                } catch (Exception e)
-//                {
-//                    throw e;
-//                }
-//                mSocket.close();
-//                return answer;
-//            } catch (Exception ex) {
-//                throw ex;
-//            }
-//
-//        })
-//                .subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribe(text ->Log.d(LOG_TAG,text),
-//                        e ->{
-//                            Log.e(LOG_TAG, e.getMessage());
-//                            return;
-//                        });
 
-       startActivity(new Intent(SignIn.this, Activity_Main.class));
-      finish();
+        Single.fromCallable(() -> {
+            try {
+                Log.d(LOG_TAG, "Установка соединения");
+                Socket mSocket = new Socket(Constants.HOST, Constants.PORT);
+                Log.d(LOG_TAG, "Соединение установленно");
+                if (mSocket.isClosed()) {
+                    throw new Exception("Ошибка отправки данных. " +
+                            "Сокет не создан или закрыт ");
+                }
+
+                InputStream sin = mSocket.getInputStream();
+                DataInputStream dis = new DataInputStream(sin);
+                OutputStream send = mSocket.getOutputStream();
+                DataOutputStream dos = new DataOutputStream(send);
+
+                String data = getData();
+
+                Log.d(LOG_TAG, "Идет отправка сообщения на сервер...");
+                try {
+                    dos.writeUTF(data);
+                    dos.flush();
+                    Log.d(LOG_TAG, "Отправленно сообщение на сервер");
+                } catch (Exception e) {
+                    throw e;
+                }
+
+                String answer  ="103";
+
+                try {
+                    answer = dis.readUTF();
+
+                } catch (Exception e) {
+                    throw e;
+                }
+                mSocket.close();
+
+                if (answer.isEmpty())
+                    throw new Exception("Ошибка получения данных. ");
+
+                return answer;
+            } catch (Exception ex) {
+                throw ex;
+            }
+
+        })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(text ->
+                        {
+                            if (Integer.parseInt(text) == 103) {
+                                startActivity(new Intent(SignIn.this, Activity_Main.class));
+                                finish();
+                            }
+                        },
+                        e -> {
+                            Log.e(LOG_TAG, e.getMessage());
+//                            return;
+                            startActivity(new Intent(SignIn.this, Activity_Main.class));
+                            finish();
+                        });
+
+
+
+    }
+
+    private String getData() {
+
+        return "102" + "\n\r" + login.getText().toString() + "\n\r" + password.getText().toString();
 
     }
 

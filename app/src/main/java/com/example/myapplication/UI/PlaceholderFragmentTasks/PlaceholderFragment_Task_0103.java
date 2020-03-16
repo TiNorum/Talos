@@ -56,11 +56,11 @@ public class PlaceholderFragment_Task_0103 extends Fragment {
             Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_task_0103,container, false);
 
-        button = root.findViewById(R.id.button3);
-        button.setOnClickListener(oclBtn);
+      //  button = root.findViewById(R.id.button3);
+       // button.setOnClickListener(oclBtn);
 
-        tAnswer = root.findViewById(R.id.textView3);
-        editText = root.findViewById(R.id.editText2);
+     //   tAnswer = root.findViewById(R.id.textView3);
+      //  editText = root.findViewById(R.id.editText2);
 
 
         return root;
@@ -71,7 +71,7 @@ public class PlaceholderFragment_Task_0103 extends Fragment {
         public void onClick(View v) {
             switch (v.getId()) {
                 //нажатия на кнопку "SET"
-                case R.id.button3:
+                case R.id.task0103_btn_answer:
                             if (editText.getText().toString().length() != 0) {
                                 tAnswer.setVisibility(View.VISIBLE);
                             } else {

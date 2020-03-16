@@ -5,6 +5,9 @@
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingTop="20dp"
+    android:paddingRight="15dp"
+    android:paddingLeft="15dp"
     tools:context=".UI.PlaceholderFragmentTasks.PlaceholderFragment_Task_0101">
 
 
@@ -18,9 +21,6 @@
             style="@style/task_question"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
             android:layout_marginBottom="5dp"
             android:gravity="left"
             android:text="Что содержит двоичная запись числа нули/единицы:" />
@@ -29,8 +29,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_margin="5dp">
+            android:orientation="horizontal">
 
             <CheckBox
                 android:id="@+id/checkBox_task0101_one"
@@ -59,18 +58,16 @@
             style="@style/task_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
             android:hint="Введите количество нулей/единиц"
             android:inputType="number"
             app:met_floatingLabel="highlight"
             app:met_floatingLabelText="Количество нулей/единиц" />
 
         <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/editText"
+            android:id="@+id/task0101_edittext_cc"
             style="@style/task_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
             android:hint="Введите систему счисления искомого числа"
             android:inputType="number"
             app:met_floatingLabel="highlight"
@@ -80,14 +77,12 @@
             style="@style/task_question"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
             android:text="Укажите какое искомое число:" />
 
         <RadioGroup
             android:id="@+id/task0101_rg_choice_min_max"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
             android:orientation="horizontal">
 
             <RadioButton
