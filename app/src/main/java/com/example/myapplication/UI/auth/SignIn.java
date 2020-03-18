@@ -17,6 +17,7 @@ import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
+import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.File;
@@ -25,6 +26,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.Socket;
 import java.util.concurrent.atomic.AtomicReference;
@@ -34,7 +36,7 @@ import io.reactivex.rxjava3.core.Single;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class SignIn extends AppCompatActivity {
-    private static final String LOG_TAG = AppCompatActivity.class.getSimpleName();
+    private static final String LOG_TAG = "SOCKET";  //AppCompatActivity.class.getSimpleName();
     private Button btnSignIn;
     private TextView tvRegister;
     private MaterialEditText login;
@@ -102,30 +104,32 @@ public class SignIn extends AppCompatActivity {
                             "Сокет не создан или закрыт ");
                 }
 
-                InputStream sin = mSocket.getInputStream();
-                DataInputStream dis = new DataInputStream(sin);
-                OutputStream send = mSocket.getOutputStream();
-                DataOutputStream dos = new DataOutputStream(send);
+                BufferedReader inFromServer =
+                        new BufferedReader(new InputStreamReader(mSocket.getInputStream()));
+                DataOutputStream outToServer =
+                        new DataOutputStream(mSocket.getOutputStream());
 
                 String data = getData();
 
                 Log.d(LOG_TAG, "Идет отправка сообщения на сервер...");
                 try {
-                    dos.writeUTF(data);
-                    dos.flush();
-                    Log.d(LOG_TAG, "Отправленно сообщение на сервер");
+                    outToServer.writeBytes(data);
+                    outToServer.flush();
+                    Log.d(LOG_TAG, "Отправлено сообщение на сервер");
                 } catch (Exception e) {
                     throw e;
                 }
 
-                String answer  ="103";
+                String answer = "";
 
                 try {
-                    answer = dis.readUTF();
+                    answer = inFromServer.readLine();
+                    Log.d(LOG_TAG, answer + "сообщение с сервера");
 
                 } catch (Exception e) {
                     throw e;
                 }
+
                 mSocket.close();
 
                 if (answer.isEmpty())
@@ -141,20 +145,16 @@ public class SignIn extends AppCompatActivity {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(text ->
                         {
-                            if (Integer.parseInt(text) == 103) {
+                            if (text.equals("103")) {
                                 startActivity(new Intent(SignIn.this, Activity_Main.class));
                                 finish();
                             }
                         },
                         e -> {
                             Log.e(LOG_TAG, e.getMessage());
-//                            return;
-                            startActivity(new Intent(SignIn.this, Activity_Main.class));
-                            finish();
+                             return;
+
                         });
-
-
-
     }
 
     private String getData() {
