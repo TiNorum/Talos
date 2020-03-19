@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.myapplication.Instruments.Check_Input;
 import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageViewModel;
 
@@ -45,22 +46,22 @@ public class PlaceholderFragment_Task_0103 extends Fragment {
     }
 
 
-    Button button;
-    TextView tAnswer;
-    EditText editText;
+    private Button btnAnswer;
+    private TextView tAnswer;
+    private EditText equation;
 
 
     @Override
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_task_0103,container, false);
+        View root = inflater.inflate(R.layout.fragment_task_0103, container, false);
 
-      //  button = root.findViewById(R.id.button3);
-       // button.setOnClickListener(oclBtn);
+        btnAnswer = root.findViewById(R.id.task0103_btn_answer);
+        btnAnswer.setOnClickListener(oclBtn);
 
-     //   tAnswer = root.findViewById(R.id.textView3);
-      //  editText = root.findViewById(R.id.editText2);
+        tAnswer = root.findViewById(R.id.task0103_text_answer);
+        equation = root.findViewById(R.id.task0103_edittext_equation);
 
 
         return root;
@@ -69,19 +70,43 @@ public class PlaceholderFragment_Task_0103 extends Fragment {
     View.OnClickListener oclBtn = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            switch (v.getId()) {
-                //нажатия на кнопку "SET"
-                case R.id.task0103_btn_answer:
-                            if (editText.getText().toString().length() != 0) {
-                                tAnswer.setVisibility(View.VISIBLE);
-                            } else {
-                                Toast toast = Toast.makeText(getContext(),
-                                        "Введите пример!", Toast.LENGTH_SHORT);
-                                toast.show();
-                            }
-                    break;
 
-            }
+                if( checkData()) return;
+
+                String data = getData();
+
+                tAnswer.setText(data);
+                tAnswer.setVisibility(View.VISIBLE);
+
         }
+
+        private boolean checkData() {
+            if (equation.getText().toString().isEmpty()) {
+                Toast toast = Toast.makeText(getContext(),
+                        "Введите уравнение!", Toast.LENGTH_SHORT);
+                toast.show();
+                return true;
+            }
+
+            if (!Check_Input.Check_Equation_Number2(equation.getText().toString())) {
+                Toast toast = Toast.makeText(getContext(),
+                        "Проверьте уравнение!", Toast.LENGTH_SHORT);
+                toast.show();
+                return true;
+            }
+
+
+            return false;
+        }
+
+        private String getData() {
+            String data = "100" + "\n\r" + "3" + "\n\r";
+
+            data += equation.getText().toString();
+
+            return data;
+        }
+
+
     };
 }

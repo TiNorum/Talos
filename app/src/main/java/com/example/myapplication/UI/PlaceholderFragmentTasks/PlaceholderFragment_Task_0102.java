@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -53,7 +54,8 @@ public class PlaceholderFragment_Task_0102 extends Fragment {
     TextView tAnswer;
     MaterialEditText number;
     MaterialEditText cc;
-    RadioGroup rg;
+    RadioButton zero;
+    RadioButton one;
 
 
     @Override
@@ -62,12 +64,13 @@ public class PlaceholderFragment_Task_0102 extends Fragment {
             Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_task_0102, container, false);
 
+        zero = root.findViewById(R.id.task0102_rbtn_zero);
+        one = root.findViewById(R.id.task0102_rbtn_one);
+        cc = (MaterialEditText) root.findViewById(R.id.task0102_edittext_cc);
+        number = (MaterialEditText) root.findViewById(R.id.task0102_edittext_number);
+
         btnAnswer = root.findViewById(R.id.task0102_btn_answer);
         btnAnswer.setOnClickListener(oclBtn);
-
-        cc =(MaterialEditText) root.findViewById(R.id.task0102_edittext_cc);
-        number =(MaterialEditText) root.findViewById(R.id.task0102_edittext_number);
-
 
 
         tAnswer = root.findViewById(R.id.task0102_txt_answer);
@@ -79,21 +82,59 @@ public class PlaceholderFragment_Task_0102 extends Fragment {
     View.OnClickListener oclBtn = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-                                if (number.getText().toString().length() != 0) {
-                        if (cc.getText().toString().length() != 0) {
-                                tAnswer.setVisibility(View.VISIBLE);
 
-                        } else {
-                            Toast toast = Toast.makeText(getContext(),
-                                    "Введите систему счисления!", Toast.LENGTH_SHORT);
-                            toast.show();
-                        }
-                    } else {
-                        Toast toast = Toast.makeText(getContext(),
-                                "Введите число!", Toast.LENGTH_SHORT);
-                        toast.show();
-                    }
+            if( checkData()) return;
 
+            String data = getData();
+            Toast toast = Toast.makeText(getContext(),
+                    data, Toast.LENGTH_SHORT);
+            toast.show();
+
+            tAnswer.setVisibility(View.VISIBLE);
+            tAnswer.setText(data);
+
+        }
+
+        private String getData() {
+            String data = "100" + "\n\r" + "2" + "\n\r";
+
+            data += number.getText().toString() + "\n\r";
+
+            data += cc.getText().toString() + "\n\r";
+
+            if (zero.isChecked())
+                data += '0';
+            else
+                data += '1' ;
+
+
+            return data;
+        }
+
+        private boolean checkData() {
+            if (number.getText().toString().isEmpty()) {
+                Toast toast = Toast.makeText(getContext(),
+                        "Введите число!", Toast.LENGTH_SHORT);
+                toast.show();
+                return true;
+            }
+
+            if (cc.getText().toString().isEmpty()) {
+                Toast toast = Toast.makeText(getContext(),
+                        "Введите систему счисления!", Toast.LENGTH_SHORT);
+                toast.show();
+                return true;
+            }
+
+            if (!(zero.isChecked() || one.isChecked())) {
+                Toast toast = Toast.makeText(getContext(),
+                        "Выберите что нужно найти единицы/нули!", Toast.LENGTH_SHORT);
+                toast.show();
+                return true;
+            }
+
+
+            return false;
         }
     };
 }

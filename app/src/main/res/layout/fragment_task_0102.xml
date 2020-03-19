@@ -48,7 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:text="Выберите, что нужно найти:" />
+            android:text="Что нужно найти:" />
 
         <RadioGroup
             android:layout_width="match_parent"
@@ -59,12 +59,14 @@
 
 
             <RadioButton
+                android:id="@+id/task0102_rbtn_one"
                 style="@style/task_question"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Количество единиц" />
 
             <RadioButton
+                android:id="@+id/task0102_rbtn_zero"
                 style="@style/task_question"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
