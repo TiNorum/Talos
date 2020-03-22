@@ -6,10 +6,10 @@
     <color name="BackgroundTable">#000</color>
     <color name="BackgroundTableText">#fff</color>
     <color name="ripple_effect">#aa5353</color>
-    <color name="btn_sign_in">#ed7171</color>
+    <color name="btn_sign_in">#EEE</color>
     <color name="btn_sign_in_stroke">#d66060</color>
     <color name="btn_register_stroke">#d16e53</color>
-    <color name="btn_register">#e27a5d</color>
+    <color name="btn_register">#EEE</color>
     <color name="white">#EEE</color>
     <color name="black">#000000</color>
     <color name="turquoise">#00D3B4</color>
