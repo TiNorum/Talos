@@ -20,7 +20,6 @@
             android:padding="5dp">
 
             <TextView
-                android:id="@+id/textView_task16_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="В задании умножение или сложение:"
@@ -33,14 +32,14 @@
                 android:orientation="horizontal">
 
                 <RadioButton
-                    android:id="@+id/checkBox2_task16"
+                    android:id="@+id/task0616_rbtn_multiplication"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Умножение" />
 
                 <RadioButton
-                    android:id="@+id/checkBox_task16"
+                    android:id="@+id/task0616_rbtn_addition"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -49,7 +48,7 @@
             </RadioGroup>
 
             <com.rengwuxian.materialedittext.MaterialEditText
-                android:id="@+id/editText1_task16"
+                android:id="@+id/task0616_edittext_numbers"
                 style="@style/task_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -60,7 +59,7 @@
                 app:met_floatingLabel="highlight" />
 
             <com.rengwuxian.materialedittext.MaterialEditText
-                android:id="@+id/editText2_task16"
+                android:id="@+id/task0616_edittext_num_answer"
                 style="@style/task_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -86,14 +85,14 @@
                 android:orientation="horizontal">
 
                 <RadioButton
-                    android:id="@+id/checkBox4_task16"
+                    android:id="@+id/task0616_rbtn_max"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Максимальное" />
 
                 <RadioButton
-                    android:id="@+id/checkBox3_task16"
+                    android:id="@+id/task0616_rbtn_min"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -115,12 +114,14 @@
                 android:orientation="horizontal">
 
                 <RadioButton
+                    android:id="@+id/task0616_rbtn_increase"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Возрастанию" />
 
                 <RadioButton
+                    android:id="@+id/task0616_rbtn_decrease"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -145,12 +146,14 @@
                 >
 
                 <RadioButton
+                    android:id="@+id/task0616_rbtn_some_num"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Несколько" />
 
                 <RadioButton
+                    android:id="@+id/task0616_rbtn_one_num"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -173,12 +176,14 @@
                 android:orientation="horizontal">
 
                 <RadioButton
+                    android:id="@+id/task0616_rbtn_even"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Четное" />
 
                 <RadioButton
+                    android:id="@+id/task0616_rbtn_odd"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"

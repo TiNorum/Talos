@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,6 +18,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageViewModel;
+import com.rengwuxian.materialedittext.MaterialEditText;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -46,71 +49,134 @@ public class PlaceholderFragment_Task_0617 extends Fragment {
     }
 
 
-    private EditText text1;
-    private EditText text2;
-    private EditText text3;
-    private EditText text4;
-    private EditText text5;
-    private CheckBox checkBox1;
-    private CheckBox checkBox2;
+    private EditText firstCommand;
+    private EditText secondCommand;
+    private EditText thirdCommand;
+    private MaterialEditText countCommands;
+    private MaterialEditText firstNumber;
+    private MaterialEditText secondNumber;
+    private RadioButton twoCmd;
+    private RadioButton threeCmd;
+    private RadioGroup cmd;
 
-    private Button btOtvet;
-    private TextView answertext;
+
+    private Button bAnswer;
+    private TextView tAnswer;
 
     @Override
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_task_0617, container, false);
-//
-//        text1 = root.findViewById(R.id.editText1_task17);
-//        text2 = root.findViewById(R.id.editText2_task17);
-//        text3 = root.findViewById(R.id.editText3_task17);
-//        text4 = root.findViewById(R.id.editText4_task17);
-//        text5 = root.findViewById(R.id.editText5_task17);
-//        answertext = root.findViewById(R.id.answertext_task17);
-//        checkBox1 = root.findViewById(R.id.checkBox1_task17);
-//        checkBox1.setOnClickListener(oclBtn);
-//        checkBox2 = root.findViewById(R.id.checkBox2_task17);
-//        checkBox2.setOnClickListener(oclBtn);
-//        btOtvet = root.findViewById(R.id.buttonAnswer_task17);
-//        btOtvet.setOnClickListener(oclBtn);
+
+        firstCommand = root.findViewById(R.id.task0617_edittext_first_command);
+        secondCommand = root.findViewById(R.id.task0617_edittext_second_command);
+        thirdCommand = root.findViewById(R.id.task0617_edittext_third_command);
+
+        countCommands = root.findViewById(R.id.task0617_edittext_count_commands);
+
+        firstNumber = root.findViewById(R.id.task0617_edittext_first_number);
+        secondNumber = root.findViewById(R.id.task0617_edittext_second_number);
+
+        cmd = root.findViewById(R.id.task0617_rg_count_command);
+        cmd.setOnCheckedChangeListener((group, checkedId) -> {
+            if (checkedId == R.id.task0617_rbtn_three_command) {
+                thirdCommand.setVisibility(View.VISIBLE);
+                root.findViewById(R.id.task0617_text_third_command).setVisibility(View.VISIBLE);
+            } else {
+
+                thirdCommand.setVisibility(View.GONE);
+                root.findViewById(R.id.task0617_text_third_command).setVisibility(View.GONE);
+
+            }
+
+        });
+
+        tAnswer = root.findViewById(R.id.task0617_text_answer);
+        threeCmd = root.findViewById(R.id.task0617_rbtn_three_command);
+        twoCmd = root.findViewById(R.id.task0617_rbtn_two_command);
+
+
+        bAnswer = root.findViewById(R.id.task0617_btn_answer);
+        bAnswer.setOnClickListener(oclBtn);
         return root;
     }
 
-    boolean check1=false;
+
     View.OnClickListener oclBtn = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            switch (v.getId()) {
-                case R.id.task0617_btn_answer:
-                    boolean check = true;
 
-                    if (!text1.getText().toString().isEmpty() && !text2.getText().toString().isEmpty() && !text3.getText().toString().isEmpty() && !text4.getText().toString().isEmpty() & !text5.getText().toString().isEmpty() && check1)
-                        answertext.setVisibility(View.VISIBLE);
-                    else {
-                        Toast toast = Toast.makeText(getContext(),
-                                "Заполните все поля!", Toast.LENGTH_SHORT);
-                        toast.show();
-                    }
-                    break;
-                case R.id.checkBox1_task17:
-                    checkBox1.setChecked(true);
-                    checkBox2.setChecked(false);
-                    checkBox2.setClickable(true);
-                    checkBox1.setClickable(false);
-                    answertext.setVisibility(View.INVISIBLE);
-                    check1 = true;
-                    break;
-                case R.id.checkBox2_task17:
-                    checkBox2.setChecked(true);
-                    checkBox2.setClickable(false);
-                    checkBox1.setChecked(false);
-                    checkBox1.setClickable(true);
-                    answertext.setVisibility(View.INVISIBLE);
-                    check1 = true;
-                    break;
+            if (checkData()) return;
+
+            String data = getData();
+
+            tAnswer.setVisibility(View.VISIBLE);
+            tAnswer.setText(data);
+
+        }
+
+        private boolean checkData() {
+            if (firstCommand.getText().toString().isEmpty() || secondCommand.getText().toString().isEmpty() || (thirdCommand.getVisibility()==View.VISIBLE && thirdCommand.getText().toString().isEmpty())) {
+                Toast toast = Toast.makeText(getContext(),
+                        "Введите действия с командами!", Toast.LENGTH_SHORT);
+                toast.show();
+                return true;
             }
+
+            if (countCommands.getText().toString().isEmpty()) {
+                Toast toast = Toast.makeText(getContext(),
+                        "Введите количество команд!", Toast.LENGTH_SHORT);
+                toast.show();
+                return true;
+            }
+
+            if (firstNumber.getText().toString().isEmpty()) {
+                Toast toast = Toast.makeText(getContext(),
+                        "Введите исходное число!", Toast.LENGTH_SHORT);
+                toast.show();
+                return true;
+            }
+
+            if (secondCommand.getText().toString().isEmpty()) {
+                Toast toast = Toast.makeText(getContext(),
+                        "Введите конечное число!", Toast.LENGTH_SHORT);
+                toast.show();
+                return true;
+            }
+
+            if (!threeCmd.isChecked() && !twoCmd.isChecked()) {
+                Toast toast = Toast.makeText(getContext(),
+                        "Выберите количество команд!", Toast.LENGTH_SHORT);
+                toast.show();
+                return true;
+            }
+
+            return false;
+        }
+
+
+        private String getData() {
+            String data = "100" + "\n\r" + "17" + "\n\r";
+
+            if (twoCmd.isChecked())
+                data += '0' + "\n\r";
+            else
+                data += '1' + "\n\r";
+
+            data += firstCommand.getText().toString() + '\\';
+            data += secondCommand.getText().toString();
+
+
+            if (thirdCommand.getVisibility() == View.VISIBLE)
+                data += '\\' + secondCommand.getText().toString();
+            data += "\n\r";
+
+            data += countCommands.getText().toString() + "\n\r";
+            data += firstNumber.getText().toString() + "\n\r";
+            data += secondNumber.getText().toString() + "\n\r";
+
+            return data;
         }
     };
 }
