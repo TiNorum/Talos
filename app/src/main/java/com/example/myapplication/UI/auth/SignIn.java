@@ -87,8 +87,8 @@ public class SignIn extends AppCompatActivity {
             return;
         }
 
-        if ((login.getText().length() < 6 && login.getText().length() > 12) || password.getText().length() < 6) {
-            warning.setText("Неправильно логин или пароль!\n (p.s 6<login<12 и password>6)");
+        if ((login.getText().length() < 4 && login.getText().length() > 20) || password.getText().length() < 6) {
+            warning.setText("Неправильный логин или пароль!");
             warning.setVisibility(View.VISIBLE);
             return;
         }
