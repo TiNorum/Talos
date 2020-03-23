@@ -5,7 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -13,7 +13,6 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.example.myapplication.Instruments.Check_Input;
 import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageViewModel;
 import com.rengwuxian.materialedittext.MaterialEditText;
@@ -21,14 +20,14 @@ import com.rengwuxian.materialedittext.MaterialEditText;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class PlaceholderFragment_Task_0103 extends Fragment {
+public class PlaceholderFragment_Task_1240 extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
 
     private PageViewModel pageViewModel;
 
-    public static PlaceholderFragment_Task_0103 newInstance(int index) {
-        PlaceholderFragment_Task_0103 fragment = new PlaceholderFragment_Task_0103();
+    public static PlaceholderFragment_Task_1240 newInstance(int index) {
+        PlaceholderFragment_Task_1240 fragment = new PlaceholderFragment_Task_1240();
         Bundle bundle = new Bundle();
         bundle.putInt(ARG_SECTION_NUMBER, index);
         fragment.setArguments(bundle);
@@ -47,67 +46,73 @@ public class PlaceholderFragment_Task_0103 extends Fragment {
     }
 
 
-    private Button btnAnswer;
-    private TextView tAnswer;
-    private MaterialEditText equation;
+    private MaterialEditText IP;
+    private MaterialEditText mask;
 
+
+    private Button bAnswer;
+    private TextView tAnswer;
 
     @Override
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_task_0103, container, false);
+        View root = inflater.inflate(R.layout.fragment_task_1240, container, false);
 
-        btnAnswer = root.findViewById(R.id.task0103_btn_answer);
-        btnAnswer.setOnClickListener(oclBtn);
 
-        tAnswer = root.findViewById(R.id.task0103_text_answer);
-        equation = root.findViewById(R.id.task0103_edittext_equation);
+        IP = root.findViewById(R.id.task1240_edittext_IP);
+        mask = root.findViewById(R.id.task1240_edittext_address);
 
+        tAnswer = root.findViewById(R.id.task1240_text_answer);
+
+        bAnswer = root.findViewById(R.id.task1240_btn_answer);
+       bAnswer.setOnClickListener(oclBtn);
 
         return root;
     }
+
 
     View.OnClickListener oclBtn = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
 
-                if( checkData()) return;
+            if (checkData()) return;
 
-                String data = getData();
+            String data = getData();
 
-                tAnswer.setText(data);
-                tAnswer.setVisibility(View.VISIBLE);
+            tAnswer.setVisibility(View.VISIBLE);
+            tAnswer.setText(data);
 
         }
 
         private boolean checkData() {
-            if (equation.getText().toString().isEmpty()) {
+            if (IP.getText().toString().isEmpty()) {
                 Toast toast = Toast.makeText(getContext(),
-                        "Введите уравнение!", Toast.LENGTH_SHORT);
+                        "Введите IP!", Toast.LENGTH_SHORT);
                 toast.show();
                 return true;
             }
 
-            if (!Check_Input.Check_Equation_Number2(equation.getText().toString())) {
+            if (mask.getText().toString().isEmpty()) {
                 Toast toast = Toast.makeText(getContext(),
-                        "Проверьте уравнение!", Toast.LENGTH_SHORT);
+                        "Введите маску сети!", Toast.LENGTH_SHORT);
                 toast.show();
                 return true;
             }
-
 
             return false;
         }
 
-        private String getData() {
-            String data = "100" + "\n\r" + "3" + "\n\r";
 
-            data += equation.getText().toString();
+        private String getData() {
+            String data = "100" + "\n\r" + "40" + "\n\r";
+
+
+            data += IP.getText().toString() + "\n\r";
+            data += mask.getText().toString();
+
 
             return data;
         }
-
-
     };
 }

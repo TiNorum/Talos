@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.myapplication.Instruments.Check_Input;
 import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageViewModel;
 
@@ -64,41 +65,72 @@ public class PlaceholderFragment_Task_0615 extends Fragment {
         num4 = root.findViewById(R.id.task0615_editext_answer_num);
         answertext = root.findViewById(R.id.task0615_text_answer);
         answerButton = root.findViewById(R.id.task0615_btn_answer);
-        answerButton.setOnClickListener(v -> {
-            switch (v.getId()) {
-                case R.id.task0615_btn_answer:
-                    boolean check = true;
 
-                    if (!num1.getText().toString().isEmpty() && !num2.getText().toString().isEmpty()  && !num3.getText().toString().isEmpty() && !num4.getText().toString().isEmpty())
-                        answertext.setVisibility(View.VISIBLE);
-                    else {
-                        Toast toast = Toast.makeText(getContext(),
-                                "Заполните все поля!", Toast.LENGTH_SHORT);
-                        toast.show();
-                    }
-            }
-        });
+       answerButton.setOnClickListener(oclBtn);
+
         return root;
     }
 
     View.OnClickListener oclBtn = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            switch (v.getId()) {
-                case R.id.task0615_btn_answer:
-                    boolean check = true;
 
-                    if (!num1.getText().toString().isEmpty() && !num2.getText().toString().isEmpty()  && !num3.getText().toString().isEmpty() && !num4.getText().toString().isEmpty())
-                        answertext.setVisibility(View.VISIBLE);
-                    else {
-                        Toast toast = Toast.makeText(getContext(),
-                                "Заполните все поля!", Toast.LENGTH_SHORT);
-                        toast.show();
-                    }
+            if( checkData()) return;
 
-            }
+            String data = getData();
+
+            answertext.setText(data);
+            answertext.setVisibility(View.VISIBLE);
 
         }
+
+        private boolean checkData() {
+            if (num1.getText().toString().isEmpty()) {
+                Toast toast = Toast.makeText(getContext(),
+                        "Введите число!", Toast.LENGTH_SHORT);
+                toast.show();
+                return true;
+            }
+
+            if (num2.getText().toString().isEmpty()) {
+                Toast toast = Toast.makeText(getContext(),
+                        "Введите новое число!", Toast.LENGTH_SHORT);
+                toast.show();
+                return true;
+            }
+
+            if (num3.getText().toString().isEmpty()) {
+                Toast toast = Toast.makeText(getContext(),
+                        "Введите  число!", Toast.LENGTH_SHORT);
+                toast.show();
+                return true;
+            }
+
+            if (num4.getText().toString().isEmpty()) {
+                Toast toast = Toast.makeText(getContext(),
+                        "Введите число!", Toast.LENGTH_SHORT);
+                toast.show();
+                return true;
+            }
+
+
+
+            return false;
+        }
+
+        private String getData () {
+            String data = "100" + "\n\r" + "15" + "\n\r";
+
+            data += num1.getText().toString() + "\n\r";
+            data += num2.getText().toString() + "\n\r";
+            data += num3.getText().toString() + "\n\r";
+            data += num4.getText().toString();
+
+
+            return data;
+        }
+
+
     };
 
 }
