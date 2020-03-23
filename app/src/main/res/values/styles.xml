@@ -16,6 +16,7 @@
     </style>
 
     // Task styles
+
     <style name="task_buttons_field">
         <item name="android:textSize">17sp</item>
     </style>
