@@ -5,7 +5,7 @@
     <color name="colorAccent">#D81B60</color>
     <color name="BackgroundTable">#000</color>
     <color name="BackgroundTableText">#fff</color>
-    <color name="ripple_effect">#aa5353</color>
+    <color name="ripple_effect">#8df7df</color>
     <color name="btn_sign_in">#EEE</color>
     <color name="btn_sign_in_stroke">#d66060</color>
     <color name="btn_register_stroke">#d16e53</color>
