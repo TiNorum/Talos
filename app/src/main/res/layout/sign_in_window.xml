@@ -42,7 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:textColor="@color/white"
+            app:met_baseColor="@color/white"
             app:met_textColorHint="@color/white"
             android:hint="Login/Email"
             android:inputType="textEmailAddress" />
@@ -54,7 +54,7 @@
             android:layout_marginTop="15dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:textColor="@color/white"
+            app:met_baseColor="@color/white"
             app:met_textColorHint="@color/white"
             android:hint="Password"
             android:inputType="textEmailAddress" />
