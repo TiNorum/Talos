@@ -51,6 +51,8 @@ public class Activity_Main extends AppCompatActivity {
         to_task_6.setOnClickListener(oclBtn);
         to_task_12 = findViewById(R.id.buttonType12);
         to_task_12.setOnClickListener(oclBtn);
+        to_task_13 = findViewById(R.id.buttonType13);
+        to_task_13.setOnClickListener(oclBtn);
 
     }
     // обработка события нажатия
@@ -87,6 +89,10 @@ public class Activity_Main extends AppCompatActivity {
                 case R.id.buttonType12:
                     Intent intent12 = new Intent(Activity_Main.this, Activity_task_12.class);
                     startActivity(intent12);
+                    break;
+                case R.id.buttonType13:
+                    Intent intent13 = new Intent(Activity_Main.this, Activity_task_13.class);
+                    startActivity(intent13);
                     break;
             }
 
