@@ -5,9 +5,9 @@
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingLeft="15dp"
     android:paddingTop="20dp"
     android:paddingRight="15dp"
-    android:paddingLeft="15dp"
     tools:context=".UI.PlaceholderFragmentTasks.PlaceholderFragment_Task_0101">
 
 
@@ -36,8 +36,8 @@
                 style="@style/task_question"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Единицы"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:text="Единицы" />
 
 
             <CheckBox
@@ -46,29 +46,40 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Нули"
                 android:layout_weight="1"
-             />
+                android:text="Нули" />
 
         </LinearLayout>
 
 
         <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/task0101_edittext_count_values_one_or_zero"
+            android:id="@+id/task0101_edittext_count_values_one"
             style="@style/task_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Введите количество нулей/единиц"
+            android:hint="Введите количество единиц"
             android:inputType="number"
             app:met_floatingLabel="highlight"
-            app:met_floatingLabelText="Количество нулей/единиц" />
+            app:met_floatingLabelText="Количество единиц"
+            android:visibility="gone"/>
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/task0101_edittext_count_values_zero"
+            style="@style/task_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Введите количество нулей"
+            android:inputType="number"
+            app:met_floatingLabel="highlight"
+            app:met_floatingLabelText="Количество нулей"
+            android:visibility="gone"/>
 
         <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/task0101_edittext_cc"
             style="@style/task_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Введите систему счисления искомого числа"
+            android:hint="Введите систему счисления конечного числа"
             android:inputType="number"
             app:met_floatingLabel="highlight"
             app:met_floatingLabelText="Система счисления" />
@@ -90,16 +101,16 @@
                 style="@style/task_question"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Минимальное"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:text="Минимальное" />
 
             <RadioButton
                 android:id="@+id/task0101_rbtn_max_number"
                 style="@style/task_question"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Максимальное"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:text="Максимальное" />
 
         </RadioGroup>
 
@@ -114,9 +125,7 @@
             style="@style/task_buttons_field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="решить"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            android:text="решить" />
 
     </LinearLayout>
 

@@ -54,7 +54,8 @@ public class PlaceholderFragment_Task_0101 extends Fragment {
 
     private Button btnAnswer;
     private TextView tAnswer;
-    private MaterialEditText countZeroOrNum;
+    private MaterialEditText countZero;
+    private MaterialEditText countOne;
     private MaterialEditText cc;
     private CheckBox zero;
     private CheckBox one;
@@ -71,11 +72,30 @@ public class PlaceholderFragment_Task_0101 extends Fragment {
         btnAnswer = root.findViewById(R.id.task0101_btn_answer);
         btnAnswer.setOnClickListener(oclBtn);
 
-        countZeroOrNum = (MaterialEditText) root.findViewById(R.id.task0101_edittext_count_values_one_or_zero);
+        countOne = (MaterialEditText) root.findViewById(R.id.task0101_edittext_count_values_one);
+        countZero = (MaterialEditText) root.findViewById(R.id.task0101_edittext_count_values_zero);
         cc = (MaterialEditText) root.findViewById(R.id.task0101_edittext_cc);
 
         zero = root.findViewById(R.id.checkBox_task0101_null);
+        zero.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (zero.isChecked())
+                    countZero.setVisibility(View.VISIBLE);
+                else
+                    countZero.setVisibility(View.GONE);
+            }
+        });
         one = root.findViewById(R.id.checkBox_task0101_one);
+        one.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (one.isChecked())
+                    countOne.setVisibility(View.VISIBLE);
+                else
+                    countOne.setVisibility(View.GONE);
+            }
+        });
 
         max = root.findViewById(R.id.task0101_rbtn_max_number);
         min = root.findViewById(R.id.task0101_rbtn_min_number);
@@ -119,8 +139,16 @@ public class PlaceholderFragment_Task_0101 extends Fragment {
                 data += "0" + "\n\r";
             }
 
+            if (one.isChecked())
+                data += countOne.getText().toString() + "\n\r";
+            else
+                data += "0" + "\n\r";
 
-            data += countZeroOrNum.getText().toString() + "\n\r";
+            if (zero.isChecked())
+                data += countZero.getText().toString() + "\n\r";
+            else
+                data += "0" + "\n\r";
+
 
             data += cc.getText().toString() + "\n\r";
 
@@ -135,9 +163,16 @@ public class PlaceholderFragment_Task_0101 extends Fragment {
         }
 
         private boolean checkData() {
-            if (countZeroOrNum.getText().toString().isEmpty()) {
+            if (countZero.getText().toString().isEmpty() && zero.isChecked()) {
                 Toast toast = Toast.makeText(getContext(),
-                        "Введите количество нулей/единиц!", Toast.LENGTH_SHORT);
+                        "Введите количество нулей!", Toast.LENGTH_SHORT);
+                toast.show();
+                return true;
+            }
+
+            if (countOne.getText().toString().isEmpty() && one.isChecked()) {
+                Toast toast = Toast.makeText(getContext(),
+                        "Введите количество единиц!", Toast.LENGTH_SHORT);
                 toast.show();
                 return true;
             }
