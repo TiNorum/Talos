@@ -59,9 +59,10 @@
             android:layout_height="wrap_content"
             android:hint="Введите количество единиц"
             android:inputType="number"
+            android:maxLength="2"
+            android:visibility="gone"
             app:met_floatingLabel="highlight"
-            app:met_floatingLabelText="Количество единиц"
-            android:visibility="gone"/>
+            app:met_floatingLabelText="Количество единиц" />
 
         <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/task0101_edittext_count_values_zero"
@@ -70,17 +71,20 @@
             android:layout_height="wrap_content"
             android:hint="Введите количество нулей"
             android:inputType="number"
+            android:maxLength="2"
+            android:visibility="gone"
             app:met_floatingLabel="highlight"
-            app:met_floatingLabelText="Количество нулей"
-            android:visibility="gone"/>
+            app:met_floatingLabelText="Количество нулей" />
 
         <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/task0101_edittext_cc"
             style="@style/task_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:digits="1234567890"
             android:hint="Введите систему счисления конечного числа"
             android:inputType="number"
+            android:maxLength="2"
             app:met_floatingLabel="highlight"
             app:met_floatingLabelText="Система счисления" />
 

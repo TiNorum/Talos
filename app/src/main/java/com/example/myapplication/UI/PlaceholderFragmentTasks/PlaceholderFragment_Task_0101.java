@@ -62,6 +62,9 @@ public class PlaceholderFragment_Task_0101 extends Fragment {
     private RadioButton max;
     private RadioButton min;
 
+
+
+
     @Override
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,
@@ -177,12 +180,23 @@ public class PlaceholderFragment_Task_0101 extends Fragment {
                 return true;
             }
 
+
+
             if (cc.getText().toString().isEmpty()) {
                 Toast toast = Toast.makeText(getContext(),
                         "Введите систему счисления!", Toast.LENGTH_SHORT);
                 toast.show();
                 return true;
             }
+            int c = Integer.parseInt(cc.getText().toString());
+            if(!(c>1 && c<11 || c==16))
+            {
+                Toast toast = Toast.makeText(getContext(),
+                        "Введите систему счисления (2-10 и 16)", Toast.LENGTH_SHORT);
+                toast.show();
+                return true;
+            }
+
 
             if (!(zero.isChecked() || one.isChecked())) {
                 Toast toast = Toast.makeText(getContext(),
