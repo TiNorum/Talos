@@ -44,6 +44,7 @@
             android:layout_margin="15dp"
             app:met_baseColor="@color/white"
             app:met_textColorHint="@color/white"
+            app:met_underlineColor="@color/white"
             android:hint="Login/Email"
             android:inputType="textEmailAddress" />
 
@@ -56,6 +57,7 @@
             android:layout_marginRight="15dp"
             app:met_baseColor="@color/white"
             app:met_textColorHint="@color/white"
+            app:met_underlineColor="@color/white"
             android:hint="Password"
             android:inputType="textEmailAddress" />
     </LinearLayout>

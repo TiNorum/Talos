@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.myapplication.Activities.Tasks.Activity_task_01;
 import com.example.myapplication.Activities.Tasks.Activity_task_02;
 import com.example.myapplication.Activities.Tasks.Activity_task_12;
+import com.example.myapplication.Activities.Tasks.Activity_task_13;
 import com.example.myapplication.R;
 import com.example.myapplication.Activities.Tasks.Activity_task_05;
 import com.example.myapplication.Activities.Tasks.Activity_task_06;
@@ -54,6 +55,8 @@ public class Activity_Main extends AppCompatActivity {
         to_task_9.setOnClickListener(oclBtn);
         to_task_12 = findViewById(R.id.buttonType12);
         to_task_12.setOnClickListener(oclBtn);
+        to_task_13 = findViewById(R.id.buttonType13);
+        to_task_13.setOnClickListener(oclBtn);
 
     }
     // обработка события нажатия
@@ -94,6 +97,10 @@ public class Activity_Main extends AppCompatActivity {
                 case R.id.buttonType12:
                     Intent intent12 = new Intent(Activity_Main.this, Activity_task_12.class);
                     startActivity(intent12);
+                    break;
+                case R.id.buttonType13:
+                    Intent intent13 = new Intent(Activity_Main.this, Activity_task_13.class);
+                    startActivity(intent13);
                     break;
             }
 
