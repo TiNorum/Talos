@@ -62,7 +62,6 @@ public class PlaceholderFragment_Task_0923 extends Fragment {
         btOtvet.setOnClickListener(oclBtn);
         return root;
     }
-
     View.OnClickListener oclBtn = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
