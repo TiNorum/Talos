@@ -6,6 +6,7 @@
     <string name="title_activity_number1">Number1Activity</string>
     <string name="title_activity_task_05">Talos</string>
     <string name="title_activity_task_06">Activity_task_06</string>
+    <string name="title_activity_task_09">Activity_task_09</string>
     <string name="answer">Ответ:</string>
     <string name="title_activity_task_12">Activity_task_12</string>
 </resources>

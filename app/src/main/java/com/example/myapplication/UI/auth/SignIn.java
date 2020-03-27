@@ -115,7 +115,7 @@ public class SignIn extends AppCompatActivity {
                 try {
                     outToServer.writeBytes(data);
                     outToServer.flush();
-                    Log.d(LOG_TAG, "Отправлено сообщение на сервер");
+                    Log.d(LOG_TAG, data +" Отправлено сообщение на сервер");
                 } catch (Exception e) {
                     throw e;
                 }
@@ -124,7 +124,7 @@ public class SignIn extends AppCompatActivity {
 
                 try {
                     answer = inFromServer.readLine();
-                    Log.d(LOG_TAG, answer + "сообщение с сервера");
+                    Log.d(LOG_TAG, answer + " сообщение с сервера");
 
                 } catch (Exception e) {
                     throw e;
@@ -159,7 +159,7 @@ public class SignIn extends AppCompatActivity {
 
     private String getData() {
 
-        return "102" + "\n\r" + login.getText().toString() + "\n\r" + password.getText().toString();
+        return "102" + " " + login.getText().toString() + " " + password.getText().toString();
 
     }
 
