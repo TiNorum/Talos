@@ -46,6 +46,8 @@ public class Activity_Main extends AppCompatActivity {
         to_task_5.setOnClickListener(oclBtn);
         to_task_6 = findViewById(R.id.buttonType6);
         to_task_6.setOnClickListener(oclBtn);
+        to_task_9 = findViewById(R.id.buttonType9);
+        to_task_9.setOnClickListener(oclBtn);
         to_task_12 = findViewById(R.id.buttonType12);
         to_task_12.setOnClickListener(oclBtn);
         to_task_13 = findViewById(R.id.buttonType13);
@@ -82,6 +84,10 @@ public class Activity_Main extends AppCompatActivity {
                 case R.id.buttonType6:
                     Intent intent6 = new Intent(Activity_Main.this, Activity_task_06.class);
                     startActivity(intent6);
+                    break;
+                case R.id.buttonType9:
+                    Intent intent9 = new Intent(Activity_Main.this, Activity_task_09.class);
+                    startActivity(intent9);
                     break;
                 case R.id.buttonType12:
                     Intent intent12 = new Intent(Activity_Main.this, Activity_task_12.class);
