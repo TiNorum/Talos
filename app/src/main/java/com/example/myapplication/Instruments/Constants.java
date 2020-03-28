@@ -4,6 +4,6 @@ public class Constants {
 
     private Constants(){};
 
-    public static final String HOST = "192.168.0.103";
+    public static final String HOST = "193.87.234.126";
     public static final int PORT = 8080;
 }
