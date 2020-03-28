@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:background="@drawable/bg_sign_in"
     android:layout_height="match_parent"
-    tools:context=".UI.auth.SignIn">
+    tools:context=".UI.auth.SignUp">
 
 
     <LinearLayout
@@ -102,6 +102,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:paddingTop="50dp"
+            android:textSize="16dp"
             android:clickable="true"
             android:text="Создать аккаунт"
             android:textColor="@color/white"
@@ -109,6 +111,20 @@
             android:textAllCaps="false"
             android:textStyle="italic" />
     </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#FFFFFF"
+        android:layout_marginTop="590dp"
+        android:layout_marginLeft="280dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#FFFFFF"
+        android:layout_marginTop="590dp"
+        android:layout_marginRight="280dp" />
 
     <TextView
         android:id="@+id/textView2"
