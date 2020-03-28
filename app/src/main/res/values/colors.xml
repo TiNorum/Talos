@@ -12,7 +12,10 @@
     <color name="btn_register">#EEE</color>
     <color name="white">#EEE</color>
     <color name="black">#000000</color>
-    <color name="turquoise">#00D3B4</color>
+    <color name="crimson">#A2377A</color>
+    <color name="blue">#024B94</color>
+    <color name="turquoise">#1FFBFF</color>
+    <color name="turquoise_light">#16B9A9</color>
     <color name="ripple_effect_number_list">#f2fffc</color>
 
 </resources>

@@ -10,22 +10,67 @@
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
 
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            style="@style/task_bar"
-            android:minHeight="?actionBarSize"
-            android:padding="@dimen/appbar_padding"
-            android:text="@string/app_name"
-            android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/app_bar"
+            >
+
+            <TextView
+                android:id="@+id/title"
+                style="@style/task_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:minHeight="?actionBarSize"
+                android:text="T"
+                android:textAllCaps="true"
+                android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title" />
+
+            <TextView
+                android:id="@+id/title2"
+                style="@style/task_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:minHeight="?actionBarSize"
+                android:text="a"
+                android:textAllCaps="true"
+                android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
+                android:textColor="@color/turquoise" />
+
+            <TextView
+                android:id="@+id/title3"
+                style="@style/task_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:minHeight="?actionBarSize"
+                android:text="los"
+                android:textAllCaps="true"
+                android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title" />
+
+            <TextView
+                android:id="@+id/title4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="18dp"
+                android:minHeight="?actionBarSize"
+                android:fontFamily="@font/comfortaa_bold"
+                android:text="  ЕГЭ Информатика"
+                android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title" />
+
+        </LinearLayout>
+
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabs"
+            app:tabInlineLabel="true"
+            app:tabBackground="@drawable/app_bar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary" />
+            app:tabIndicatorColor="@color/turquoise"
+            android:layout_height="wrap_content" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.viewpager.widget.ViewPager
