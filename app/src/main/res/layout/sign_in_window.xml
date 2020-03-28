@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/Theme.AppCompat.DayNight.NoActionBar"
     android:layout_width="match_parent"
-
+    android:background="@drawable/bg_sign_in"
     android:layout_height="match_parent"
-    tools:context=".UI.auth.SignUp">
+    tools:context=".UI.auth.SignIn">
 
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:gravity="center"
+        android:orientation="vertical"/>
 
     <LinearLayout
         android:id="@+id/sign_in_edit_input"
@@ -62,7 +69,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="100dp"
         android:layout_marginRight="100dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="20dp"
         android:gravity="center"
         android:orientation="vertical"
         android:weightSum="2">
@@ -75,7 +82,7 @@
             android:layout_marginBottom="6dp"
             android:layout_weight="1"
             android:background="@drawable/btn_sign_in"
-            android:fontFamily="@font/montserrat"
+            android:fontFamily="@font/comfortaa_bold"
             android:text="Войти"
             android:textColor="@color/black" />
 
@@ -86,7 +93,7 @@
             android:layout_marginTop="6dp"
             android:layout_weight="1"
             android:background="@drawable/btn_register"
-            android:fontFamily="@font/montserrat"
+            android:fontFamily="@font/comfortaa_bold"
             android:text="Войти с помощью"
             android:textColor="@color/black" />
 
@@ -94,9 +101,9 @@
             android:id="@+id/tv_register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:paddingTop="50dp"
+            android:layout_marginBottom="40dp"
             android:textSize="16dp"
+            android:layout_marginTop="20dp"
             android:clickable="true"
             android:text="Создать аккаунт"
             android:textColor="@color/white"
