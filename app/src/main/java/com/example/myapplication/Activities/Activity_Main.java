@@ -7,14 +7,9 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.myapplication.Activities.Tasks.Activity_task_01;
-import com.example.myapplication.Activities.Tasks.Activity_task_02;
-import com.example.myapplication.Activities.Tasks.Activity_task_12;
-import com.example.myapplication.Activities.Tasks.Activity_task_13;
+
+import com.example.myapplication.Activities.Tasks.*;
 import com.example.myapplication.R;
-import com.example.myapplication.Activities.Tasks.Activity_task_05;
-import com.example.myapplication.Activities.Tasks.Activity_task_06;
-import com.example.myapplication.Activities.Tasks.Activity_task_09;
 
 
 public class Activity_Main extends AppCompatActivity {
