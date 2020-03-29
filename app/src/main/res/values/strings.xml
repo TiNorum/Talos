@@ -9,5 +9,7 @@
     <string name="title_activity_task_06">Activity_task_06</string>
     <string name="title_activity_task_09">Activity_task_09</string>
     <string name="answer">Ответ:</string>
+    <string name="decide">Решить</string>
+    <string name="set">Задать значения</string>
     <string name="title_activity_task_12">Activity_task_12</string>
 </resources>

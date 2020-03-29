@@ -38,10 +38,13 @@
 
     <Button
         android:id="@+id/bSet_type2"
-        android:layout_width="147dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="8dp"
-        android:text="Задать значения"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"
+        android:background="@drawable/btn_task_send"
+        android:text="@string/set"
         style="@style/task_buttons_field"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
