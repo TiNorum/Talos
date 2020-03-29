@@ -163,7 +163,7 @@ public class SignIn extends AppCompatActivity {
 
     private String getData() {
 
-        return "102" + "\n\r" + login.getText().toString() + "\n\r" + password.getText().toString();
+        return "102" + Constants.NEXT_LINE + login.getText().toString() + Constants.NEXT_LINE + password.getText().toString();
 
     }
 
