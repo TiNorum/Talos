@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -10,8 +10,9 @@
         android:layout_margin="15dp"
         android:orientation="vertical">
 
+
         <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/task1031_edittext_count_symbols_in_word"
+            android:id="@+id/task1035_edittext_count_symbols_in_word"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Укажите длину слова"
@@ -21,7 +22,7 @@
             app:met_floatingLabelText="Длина слова" />
 
         <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/task1031_edittext_symbols"
+            android:id="@+id/task1035_edittext_symbols"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:digits="йцукенгшщзхфывапролджэячсмитьбюЙЦУКЕНГШЩЗФЫВАПРОЛДЯЧСМИТЬ"
@@ -34,61 +35,41 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
+            android:layout_marginBottom="5dp"
             android:text="Пример: АБВД"
-            android:textSize="10sp" />
-
+            android:textSize="10sp"/>
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Слово должно начинаться:" />
-
-
-        <androidx.appcompat.widget.AppCompatSpinner
-            android:id="@+id/task1031_spinner_first_char"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:entries="@array/task1031_spinner" />
-
-        <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/task1031_edittext_first_char"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Первая буква"
-            android:visibility="gone" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Слово должнозаканчиваться:" />
-
-        <androidx.appcompat.widget.AppCompatSpinner
-            android:id="@+id/task1031_spinner_last_char"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:entries="@array/task1031_spinner" />
-
-
-        <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/task1031_edittext_last_char"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Последня буква"
-            android:visibility="gone" />
-
-        <TextView
-            android:id="@+id/task1031_text_answer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:visibility="gone" />
 
-        <Button
-            android:id="@+id/task1031_btn_answer"
+            android:text="Введите букву и через '-' ее количество повторений "
+            android:textSize="10sp"/>
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/task1035_edittext_count_symbols"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="Решить" />
+            android:hint="У скольких букв ограничено чилсо повторений"/>
+
+        <LinearLayout
+            android:id="@+id/task1035_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:orientation="vertical" />
+
+        <TextView
+            android:id="@+id/task1035_text_answer"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/task1035_btn_answer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Решить"/>
 
     </LinearLayout>
 </RelativeLayout>

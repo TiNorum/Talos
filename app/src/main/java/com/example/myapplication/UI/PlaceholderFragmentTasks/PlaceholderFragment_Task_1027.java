@@ -300,7 +300,7 @@ public class PlaceholderFragment_Task_1027 extends Fragment {
             public int idFromListItem;
 
             public item(int i) {
-                idFromListItem = R.layout.task1027_fragment_list;
+                idFromListItem = R.layout.task10_fragment_list;
 
                 LayoutInflater inflater = LayoutInflater.from(getContext());
                 View view = inflater.inflate(idFromListItem, list, false);

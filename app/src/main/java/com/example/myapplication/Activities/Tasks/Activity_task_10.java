@@ -10,10 +10,11 @@ import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.SectionsPagerAdapter;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.PlaceholderFragment_Task_1027;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.PlaceholderFragment_Task_1031;
+import com.example.myapplication.UI.PlaceholderFragmentTasks.PlaceholderFragment_Task_1035;
 import com.google.android.material.tabs.TabLayout;
 
 public class Activity_task_10 extends AppCompatActivity {
-    private static final Fragment[] fragments = {PlaceholderFragment_Task_1027.newInstance(0), PlaceholderFragment_Task_1031.newInstance(0)};
+    private static final Fragment[] fragments = {PlaceholderFragment_Task_1027.newInstance(0), PlaceholderFragment_Task_1031.newInstance(1), PlaceholderFragment_Task_1035.newInstance(2)};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
