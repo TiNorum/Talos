@@ -40,16 +40,25 @@ public class Activity_Main extends AppCompatActivity {
         // ищем кнопку с именем из всего списка и задаём ей событий Click
         to_task_1 = findViewById(R.id.buttonType1);
         to_task_1.setOnClickListener(oclBtn);
+
         to_task_2 = findViewById(R.id.buttonType2);
         to_task_2.setOnClickListener(oclBtn);
+
         to_task_5 = findViewById(R.id.buttonType5);
         to_task_5.setOnClickListener(oclBtn);
+
         to_task_6 = findViewById(R.id.buttonType6);
         to_task_6.setOnClickListener(oclBtn);
+
         to_task_9 = findViewById(R.id.buttonType9);
         to_task_9.setOnClickListener(oclBtn);
+
+        to_task_10 = findViewById(R.id.buttonType10);
+        to_task_10.setOnClickListener(oclBtn);
+
         to_task_12 = findViewById(R.id.buttonType12);
         to_task_12.setOnClickListener(oclBtn);
+
         to_task_13 = findViewById(R.id.buttonType13);
         to_task_13.setOnClickListener(oclBtn);
 
@@ -62,12 +71,10 @@ public class Activity_Main extends AppCompatActivity {
 
                 // вызываем наш Activity конкретного задания
                 case R.id.buttonType1:
-                    Intent intent1 = new Intent(Activity_Main.this, Activity_task_01.class);
-                    startActivity(intent1);
+                    startActivity(new Intent(Activity_Main.this, Activity_task_01.class));
                     break;
                 case R.id.buttonType2:
-                    Intent intent2 = new Intent(Activity_Main.this, Activity_task_02.class);
-                    startActivity(intent2);
+                    startActivity(new Intent(Activity_Main.this, Activity_task_02.class));
                     break;
                 case R.id.buttonType3:
                     Intent intent3 = new Intent(Activity_Main.this, Activity_task_02.class);
@@ -78,24 +85,22 @@ public class Activity_Main extends AppCompatActivity {
                     startActivity(intent4);
                     break;
                 case R.id.buttonType5:
-                    Intent intent5 = new Intent(Activity_Main.this, Activity_task_05.class);
-                    startActivity(intent5);
+                    startActivity(new Intent(Activity_Main.this, Activity_task_05.class));
                     break;
                 case R.id.buttonType6:
-                    Intent intent6 = new Intent(Activity_Main.this, Activity_task_06.class);
-                    startActivity(intent6);
+                    startActivity(new Intent(Activity_Main.this, Activity_task_06.class));
                     break;
                 case R.id.buttonType9:
-                    Intent intent9 = new Intent(Activity_Main.this, Activity_task_09.class);
-                    startActivity(intent9);
+                    startActivity(new Intent(Activity_Main.this, Activity_task_09.class));
+                    break;
+                case R.id.buttonType10:
+                   startActivity(new Intent(Activity_Main.this,Activity_task_10.class));
                     break;
                 case R.id.buttonType12:
-                    Intent intent12 = new Intent(Activity_Main.this, Activity_task_12.class);
-                    startActivity(intent12);
+                    startActivity(new Intent(Activity_Main.this, Activity_task_12.class));
                     break;
                 case R.id.buttonType13:
-                    Intent intent13 = new Intent(Activity_Main.this, Activity_task_13.class);
-                    startActivity(intent13);
+                    startActivity(new Intent(Activity_Main.this, Activity_task_13.class));
                     break;
             }
 
