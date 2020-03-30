@@ -16,15 +16,15 @@ import com.example.myapplication.R;
  */
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
-    @StringRes
-    private static final int[] TAB_TITLES = new int[]{R.string.tab_text_1, R.string.tab_text_2,R.string.tab_text_3};
+    private String[] TAB_TITLES;
     private final Context mContext;
     private final Fragment[] fragments;
 
-    public SectionsPagerAdapter(Context context, FragmentManager fm,Fragment[] fragment) {
+    public SectionsPagerAdapter(Context context, FragmentManager fm,Fragment[] fragment, String[] tab_tittles) {
         super(fm);
         fragments = fragment;
         mContext = context;
+        TAB_TITLES = tab_tittles;
     }
 
     @Override
@@ -36,7 +36,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
-        return mContext.getResources().getString(TAB_TITLES[position]);
+        return TAB_TITLES[position];
     }
 
     @Override
