@@ -42,10 +42,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            app:met_baseColor="@color/white"
-            app:met_textColorHint="@color/white"
-            app:met_underlineColor="@color/white"
-            android:hint="Login/Email"
+            style="@style/authreg_input"
+            android:hint="Логин/Эмэйл"
             android:inputType="textEmailAddress" />
 
         <com.rengwuxian.materialedittext.MaterialEditText
@@ -55,11 +53,9 @@
             android:layout_marginTop="15dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            app:met_baseColor="@color/white"
-            app:met_textColorHint="@color/white"
-            app:met_underlineColor="@color/white"
-            android:hint="Password"
-            android:inputType="textEmailAddress" />
+            style="@style/authreg_input"
+            android:hint="Пароль"
+            android:inputType="textPassword" />
     </LinearLayout>
 
     <LinearLayout
@@ -93,7 +89,6 @@
             android:layout_marginTop="6dp"
             android:layout_weight="1"
             android:background="@drawable/btn_register"
-            android:fontFamily="@font/comfortaa_bold"
             android:text="Войти с помощью"
             android:textColor="@color/black" />
 
@@ -110,6 +105,7 @@
         android:layout_marginTop="20dp"
         android:clickable="true"
         android:text="Создать аккаунт"
+        android:fontFamily="@font/comfortaa_bold"
         android:textColor="@color/white"
         android:textAlignment="center"
         android:textAllCaps="false"
@@ -143,7 +139,7 @@
         android:layout_width="wrap_content"
         android:layout_alignRight="@id/sign_in_edit_input"
         android:layout_marginRight="15dp"
-        android:textColor="@color/white"
+        style="@style/authreg_input"
         android:layout_height="wrap_content"
         android:text="Забыли пароль?" />
 
