@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="task1027_spinner">
+        <item>Какое слово находиться между словами</item>
+        <item>Слово, стоящее на N месте</item>
+        <item>На каком месте стоит слово</item>
+        <item>Номер слова, которое начинается на…</item>
+    </string-array>
+    <string-array name="task1031_spinner">
+        <item>Любая буква</item>
+        <item>Согласная</item>
+        <item>Гласня</item>
+        <item>Другая буква</item>
+    </string-array>
+</resources>
