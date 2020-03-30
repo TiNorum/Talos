@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,43 +42,127 @@ public class PlaceholderFragment_Task_0923 extends Fragment {
         pageViewModel.setIndex(index);
     }
 
-    private EditText text1;
-    private EditText text2;
-    private EditText text3;
-    private EditText text4;
+    private EditText numberOfSeconds1;
+    private EditText numberOfTimes1;
+    private EditText numberOfTimes2;
+    private EditText numberOfSeconds2;
     private TextView answertext;
     private Button btOtvet;
+    private RadioButton higher1;
+    private RadioButton below1;
+    private RadioButton higher2;
+    private RadioButton below2;
+
     @Override
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_task_0923, container, false);
 
-        text1 = root.findViewById(R.id.editText1_task23);
-        text2 = root.findViewById(R.id.editText2_task23);
-        text3 = root.findViewById(R.id.editText3_task23);
-        text4 = root.findViewById(R.id.editText4_task23);
-        answertext = root.findViewById(R.id.answertext_task23);
-        btOtvet = root.findViewById(R.id.buttonAnswer_task23);
+        numberOfSeconds1 = root.findViewById(R.id.task0923_edittext_second1);
+        numberOfTimes1 = root.findViewById(R.id.task0923_edittext_numberOfTimes1);
+        numberOfTimes2 = root.findViewById(R.id.task0923_edittext_numberOfTimes2);
+        numberOfSeconds2 = root.findViewById(R.id.task0923_edittext_second2);
+        answertext = root.findViewById(R.id.task0923_textview_answer);
+        btOtvet = root.findViewById(R.id.task0923_btn_answer);
         btOtvet.setOnClickListener(oclBtn);
+
+        higher1 = root.findViewById(R.id.task0923_rbtn_higher1);
+        below1 = root.findViewById(R.id.task0923_rbtn_below1);
+
+        higher2 = root.findViewById(R.id.task0923_rbtn_higher2);
+        below2 = root.findViewById(R.id.task0923_rbtn_below2);
+
         return root;
     }
+
+
     View.OnClickListener oclBtn = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            switch (v.getId()) {
-                case R.id.buttonAnswer_task23:
-                    boolean check = true;
 
-                    if (!text1.getText().toString().isEmpty() && !text2.getText().toString().isEmpty() && !text3.getText().toString().isEmpty() && !text4.getText().toString().isEmpty())
-                        answertext.setVisibility(View.VISIBLE);
-                    else {
-                        Toast toast = Toast.makeText(getContext(),
-                                "Заполните все поля!", Toast.LENGTH_SHORT);
-                        toast.show();
-                    }
-                    break;
+
+            if (checkData()) return;
+
+            String data = getData();
+
+            Toast toast = Toast.makeText(getContext(),
+                    data, Toast.LENGTH_SHORT);
+            toast.show();
+            //отправка на сервер
+            //*****************
+            //*****************
+            ///////////////////
+
+
+            answertext.setVisibility(View.VISIBLE);
+        }
+
+        private String getData() {
+            String data = "100" + "\n\r" + "23" + "\n\r";
+
+            data += numberOfSeconds1.getText().toString() + "\n\r";
+            data += numberOfTimes1.getText().toString() + "\n\r";
+
+            if (higher1.isChecked()){
+                data += "2" + "\n\r";
+            } else
+                data += "1" + "\n\r";
+            data += numberOfTimes2.getText().toString() + "\n\r";
+
+            if (higher2.isChecked()){
+                data += "2" + "\n\r";
+            } else
+                data += "1" + "\n\r";
+
+            data += numberOfSeconds2.getText().toString() + "\n\r";
+
+            return data;
+        }
+
+        private boolean checkData() {
+            if (numberOfSeconds1.getText().toString().isEmpty()) {
+                Toast toast = Toast.makeText(getContext(),
+                        "Введите время, за которое был передан файл!", Toast.LENGTH_SHORT);
+                toast.show();
+                return true;
             }
+
+            if (numberOfTimes1.getText().toString().isEmpty()) {
+                Toast toast = Toast.makeText(getContext(),
+                        "Введите разрешение повторной оцифрации!", Toast.LENGTH_SHORT);
+                toast.show();
+                return true;
+            }
+
+            if (!(higher1.isChecked() || below1.isChecked())) {
+                Toast toast = Toast.makeText(getContext(),
+                        "Выберите в какую сторону была произведена оцифрация!", Toast.LENGTH_SHORT);
+                toast.show();
+                return true;
+            }
+
+            if (numberOfTimes2.getText().toString().isEmpty()) {
+                Toast toast = Toast.makeText(getContext(),
+                        "Введите частоту, повторной дискретизации!", Toast.LENGTH_SHORT);
+                toast.show();
+                return true;
+            }
+
+
+            if (!(higher2.isChecked() || below2.isChecked())) {
+                Toast toast = Toast.makeText(getContext(),
+                        "Выберите в какую сторону была произведена дискретизации!", Toast.LENGTH_SHORT);
+                toast.show();
+                return true;
+            }
+            if (numberOfSeconds2.getText().toString().isEmpty()) {
+                Toast toast = Toast.makeText(getContext(),
+                        "Введите время, за которое был передан файл!", Toast.LENGTH_SHORT);
+                toast.show();
+                return true;
+            }
+            return false;
         }
     };
 }

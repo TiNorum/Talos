@@ -1,171 +1,162 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:paddingLeft="15dp"
+    android:paddingTop="20dp"
+    android:paddingRight="15dp"
+    tools:context=".UI.PlaceholderFragmentTasks.PlaceholderFragment_Task_0101">
 
-    <com.rengwuxian.materialedittext.MaterialEditText
-        android:id="@+id/editText2_task23"
-        style="@style/task_input"
-        android:layout_width="110dp"
-        android:layout_height="47dp"
-        android:layout_margin="5dp"
-        android:hint="Введите число раз"
-        android:inputType="number"
-        android:maxLength="15"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2_task23"
-        app:met_floatingLabel="highlight" />
-    <com.rengwuxian.materialedittext.MaterialEditText
-        android:id="@+id/editText3_task23"
-        style="@style/task_input"
-        android:layout_width="110dp"
-        android:layout_height="47dp"
-        android:layout_margin="5dp"
-        android:hint="Введите число раз"
-        android:inputType="number"
-        android:maxLength="15"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3_task23"
-        app:met_floatingLabel="highlight" />
 
-    <com.rengwuxian.materialedittext.MaterialEditText
-        android:id="@+id/editText1_task23"
-        style="@style/task_input"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:layout_marginTop="8dp"
-        android:hint="Введите число секунд"
-        android:inputType="number"
-        android:maxLength="15"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView1_task23"
-        app:met_floatingLabel="highlight" />
+        android:gravity="left"
+        android:orientation="vertical">
 
-    <com.rengwuxian.materialedittext.MaterialEditText
-        android:id="@+id/editText4_task23"
-        style="@style/task_input"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:hint="Введите число секунд"
-        android:inputType="number"
-        android:maxLength="15"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4_task23"
-        app:met_floatingLabel="highlight" />
-
-    <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="276dp"
-        android:layout_height="35dp"
-        android:layout_margin="5dp"
-        android:layout_marginStart="16dp"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toEndOf="@+id/editText2_task23"
-        app:layout_constraintTop_toBottomOf="@+id/textView2_task23">
-
-        <RadioButton
-            android:id="@+id/checkBox1_task23"
-            android:layout_width="100dp"
+        <TextView
+            style="@style/task_question"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Выше" />
+            android:layout_marginBottom="5dp"
+            android:gravity="left"
+            android:text="Укажите время, за которое был передан файл:" />
 
-        <RadioButton
-            android:id="@+id/checkBox2_task23"
-            android:layout_width="100dp"
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/task0923_edittext_second1"
+            style="@style/task_input"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Ниже" />
+            android:digits="1234567890"
+            android:hint="Введите количество секунд"
+            android:inputType="number"
+            android:maxLength="2"
+            app:met_floatingLabel="highlight"
+            app:met_floatingLabelText="Система счисления" />
 
-    </RadioGroup>
-
-    <RadioGroup
-        android:layout_width="276dp"
-        android:layout_height="35dp"
-        android:layout_margin="5dp"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toEndOf="@+id/editText3_task23"
-        app:layout_constraintTop_toBottomOf="@+id/textView3_task23">
-
-        <RadioButton
-            android:id="@+id/checkBox3_task23"
-            android:layout_width="100dp"
+        <TextView
+            style="@style/task_question"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Выше" />
+            android:text="Укажите разрешение повторной оцифрации:" />
 
-        <RadioButton
-            android:id="@+id/checkBox4_task23"
-            android:layout_width="100dp"
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/task0923_edittext_numberOfTimes1"
+            style="@style/task_input"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Ниже" />
+            android:digits="1234567890"
+            android:hint="Введите количество раз"
+            android:inputType="number"
+            android:maxLength="2"
+            app:met_floatingLabel="highlight"
+            app:met_floatingLabelText="Система счисления" />
 
-    </RadioGroup>
-    <TextView
-        android:id="@+id/answertext_task23"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="Ответ"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/buttonAnswer_task23"
-        app:layout_constraintStart_toEndOf="@+id/buttonAnswer_task23"
-        app:layout_constraintTop_toTopOf="@+id/buttonAnswer_task23"
-        app:layout_constraintVertical_bias="0.161" />
+        <RadioGroup
+            android:id="@+id/task0923_rg_choice1_below_higher"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/buttonAnswer_task23"
-        android:layout_width="102dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="36dp"
-        android:text="Решить"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText4_task23" />
+            <RadioButton
+                android:id="@+id/task0923_rbtn_higher1"
+                style="@style/task_question"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Выше" />
 
-    <TextView
-        android:id="@+id/textView1_task23"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="20dp"
-        style="@style/task_question"
-        android:text="Укажите время, за которое был передан файл:"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <RadioButton
+                android:id="@+id/task0923_rbtn_below1"
+                style="@style/task_question"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Ниже" />
 
-    <TextView
-        android:id="@+id/textView3_task23"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="Укажите частоту, повторной дискретизации:"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2_task23" />
-    <TextView
-        android:id="@+id/textView4_task23"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="Укажите время, за которое был передан файл:"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText3_task23" />
+        </RadioGroup>
 
-    <TextView
-        android:id="@+id/textView2_task23"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:text="Введите разрешение повторной оцифрации:"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText1_task23" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            style="@style/task_question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Укажите частоту, повторной дискретизации:" />
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/task0923_edittext_numberOfTimes2"
+            style="@style/task_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:digits="1234567890"
+            android:hint="Введите количество раз"
+            android:inputType="number"
+            android:maxLength="2"
+            app:met_floatingLabel="highlight"
+            app:met_floatingLabelText="Система счисления" />
+
+        <RadioGroup
+            android:id="@+id/task0923_rg_choice2_below_higher"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/task0923_rbtn_higher2"
+                style="@style/task_question"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Выше" />
+
+            <RadioButton
+                android:id="@+id/task0923_rbtn_below2"
+                style="@style/task_question"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Ниже" />
+
+        </RadioGroup>
+
+        <TextView
+            style="@style/task_question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Укажите время, за которое был передан файл:" />
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/task0923_edittext_second2"
+            style="@style/task_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:digits="1234567890"
+            android:hint="Введите количество секунд"
+            android:inputType="number"
+            android:maxLength="2"
+            app:met_floatingLabel="highlight"
+            app:met_floatingLabelText="Система счисления" />
+        <TextView
+            android:id="@+id/task0923_textview_answer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/task0923_btn_answer"
+            style="@style/task_buttons_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="80dp"
+            android:background="@drawable/btn_task_send"
+            android:gravity="center"
+            android:text="@string/decide" />
+
+    </LinearLayout>
+
+</LinearLayout>
