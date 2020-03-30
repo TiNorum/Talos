@@ -1,6 +1,7 @@
 package com.example.myapplication.Activities.Tasks;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.SectionsPagerAdapter;
@@ -17,6 +18,7 @@ public class Activity_task_06 extends AppCompatActivity {
 
     private static final Fragment[] fragments = {PlaceholderFragment_Task_0615.newInstance(0), PlaceholderFragment_Task_0616.newInstance(1), PlaceholderFragment_Task_0617.newInstance(2)};
 
+    private TextView type_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,8 @@ public class Activity_task_06 extends AppCompatActivity {
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
 
-
+        // заменяем имя в app:bar
+        type_name = findViewById(R.id.textview_task_all);
+        type_name.setText("  Задание №6");
     }
 }

@@ -52,7 +52,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:text="Решить"
+        style="@style/task_buttons_field"
+        android:background="@drawable/btn_task_send"
+        android:text="@string/decide"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
