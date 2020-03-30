@@ -8,12 +8,13 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.SectionsPagerAdapter;
-import com.example.myapplication.UI.PlaceholderFragmentTasks.PlaceholderFragment_Task_0923;
+import com.example.myapplication.UI.PlaceholderFragmentTasks.PlaceholderFragment_Task_1027;
+import com.example.myapplication.UI.PlaceholderFragmentTasks.PlaceholderFragment_Task_1031;
 import com.google.android.material.tabs.TabLayout;
 
-public class Activity_task_09 extends AppCompatActivity {
-    private static final Fragment[] fragments = {PlaceholderFragment_Task_0923.newInstance(0)};
-    private static final String[] tab_titles = {"Передача файла", "Звук", "Изображение общий объём", "Изображение преобразование"};
+public class Activity_task_10 extends AppCompatActivity {
+    private static final Fragment[] fragments = {PlaceholderFragment_Task_1027.newInstance(0), PlaceholderFragment_Task_1031.newInstance(0)};
+    private static final String[] tab_titles = {"Список слов", "Комбинаторика 1", "Комбинаторика 2"};
 
 
     @Override
@@ -22,7 +23,6 @@ public class Activity_task_09 extends AppCompatActivity {
         setContentView(R.layout.activity_tasks);
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager(),fragments, tab_titles);
         ViewPager viewPager = findViewById(R.id.view_pager);
-
         viewPager.setAdapter(sectionsPagerAdapter);
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);

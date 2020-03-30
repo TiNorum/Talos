@@ -6,13 +6,14 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="fontFamily">@font/roboto_medium</item>
+        <item name="fontFamily">@font/comfortaa_bold</item>
         <item name="android:textSize">12sp</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="fontFamily">@font/roboto_medium</item>
     </style>
 
     // Task styles
@@ -32,6 +33,16 @@
         <item name="android:textColor">@color/turquoise_light</item>
         <item name="android:layout_marginRight">5dp</item>
         <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="authreg_input">
+        <item name="backgroundTint">@color/white</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textColorHint">@color/white</item>
+        <item name="met_textColorHint">@color/white</item>
+        <item name="met_baseColor">@color/white</item>
+        <item name="met_underlineColor">@color/white</item>
+        <item name="fontFamily">@font/comfortaa_bold</item>
     </style>
 
     <style name="task_input">

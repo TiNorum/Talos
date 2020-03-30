@@ -44,32 +44,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            app:met_baseColor="@color/white"
-            app:met_textColorHint="@color/white"
-            app:met_underlineColor="@color/white"
-            android:hint="Email"
+            style="@style/authreg_input"
+            android:hint="Эмэйл"
             android:inputType="textEmailAddress" />
 
         <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/registration_mail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:met_baseColor="@color/white"
-            app:met_textColorHint="@color/white"
-            app:met_underlineColor="@color/white"
+            style="@style/authreg_input"
             android:layout_margin="15dp"
-            android:hint="Login"
+            android:hint="Логин"
             android:inputType="textPersonName"/>
 
         <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/registration_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:met_baseColor="@color/white"
-            app:met_textColorHint="@color/white"
-            app:met_underlineColor="@color/white"
+            style="@style/authreg_input"
             android:layout_margin="15dp"
-            android:hint="Password"
+            android:hint="Пароль"
             android:inputType="textPassword" />
 
 
@@ -94,13 +88,10 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="50dp"
             android:layout_weight="1"
+            style="@style/authreg_input"
             android:background="@drawable/btn_sign_in"
-            android:fontFamily="@font/comfortaa_bold"
             android:text="Зарегистрироваться"
             android:textColor="@color/black" />
-
-
-
 
     </LinearLayout>
 

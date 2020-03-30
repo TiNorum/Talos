@@ -1,6 +1,7 @@
 package com.example.myapplication.Activities.Tasks;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.SectionsPagerAdapter;
@@ -16,17 +17,23 @@ import androidx.appcompat.app.AppCompatActivity;
 public class Activity_task_05 extends AppCompatActivity {
 
     private static final Fragment[] fragments = {PlaceholderFragment_Task_0512.newInstance(0), PlaceholderFragment_Task_0513.newInstance(1), PlaceholderFragment_Task_0514.newInstance(2)};
+    private static final String[] tab_titles = {"Кодовое слово для одной буквы", "Сумма всех", "Отличия с ошибкой"};
+
+
+    private TextView type_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tasks);
-        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager(),fragments);
+        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager(),fragments, tab_titles);
         ViewPager viewPager = findViewById(R.id.view_pager);
         viewPager.setAdapter(sectionsPagerAdapter);
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
 
-
+        // заменяем имя в app:bar
+        type_name = findViewById(R.id.textview_task_all);
+        type_name.setText("  Задание №5");
     }
 }

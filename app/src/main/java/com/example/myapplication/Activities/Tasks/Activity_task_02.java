@@ -1,6 +1,7 @@
 package com.example.myapplication.Activities.Tasks;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.SectionsPagerAdapter;
@@ -16,6 +17,9 @@ public class Activity_task_02 extends AppCompatActivity {
 
 
     private static final Fragment[] fragments = {PlaceholderFragment_Task_0204.newInstance(0), PlaceholderFragment_Task_0205.newInstance(1)};
+    private static final String[] tab_titles = {"Таблица истинности без пропусков", "Таблица истинности с пропусками"};
+
+    private TextView type_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,10 +27,14 @@ public class Activity_task_02 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tasks);
         // объявляем адаптер для того, чтобы отображать наш view_pager
-        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager(),fragments);
+        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager(),fragments, tab_titles);
         ViewPager viewPager = findViewById(R.id.view_pager);
         viewPager.setAdapter(sectionsPagerAdapter);
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
+
+        // заменяем имя в app:bar
+        type_name = findViewById(R.id.textview_task_all);
+        type_name.setText("  Задание №2");
     }
 }

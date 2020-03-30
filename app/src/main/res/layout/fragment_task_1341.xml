@@ -14,6 +14,7 @@
             android:id="@+id/task1341_count_symbol_in_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            style="@style/task_input"
             android:hint="Количество символов в пароле"
             app:met_floatingLabel="highlight" />
 
@@ -21,12 +22,14 @@
             android:id="@+id/task1341_count_symbol"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            style="@style/task_input"
             android:hint="Количество используемых символов"
             app:met_floatingLabel="highlight" />
 
         <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/task1341_count_users"
             android:layout_width="match_parent"
+            style="@style/task_input"
             android:layout_height="wrap_content"
             android:hint="Количество пользователей"
             app:met_floatingLabel="highlight" />
@@ -35,7 +38,8 @@
             android:id="@+id/task1341_add_inf"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Доп. сведенья"
+            style="@style/task_input"
+            android:hint="Дополнительные сведения"
             app:met_floatingLabel="highlight" />
 
 
@@ -44,6 +48,7 @@
             android:id="@+id/task1341_count_all_byte"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            style="@style/task_input"
             android:hint="Всего байт"
             app:met_floatingLabel="highlight" />
 
@@ -54,7 +59,14 @@
         <Button
             android:id="@+id/task1341_btn_answer"
             android:layout_width="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginRight="80dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:background="@drawable/btn_task_send"
             android:layout_height="wrap_content"
+            style="@style/task_buttons_field"
             android:text="Решить"
             />
     </LinearLayout>

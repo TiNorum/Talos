@@ -19,11 +19,14 @@ import com.rengwuxian.materialedittext.MaterialEditText;
 
 public class Activity_task_13 extends AppCompatActivity {
 
+
+    private static final String[] tab_titles = {"Передача файла", "Звук", "Изображение общий объём", "Изображение преобразование"};
     private MaterialEditText countSymbolInPass;
     private MaterialEditText countSymbol;
     private MaterialEditText countUsers;
     private MaterialEditText countAllByte;
     private MaterialEditText addInf;
+    private TextView type_name;
 
 
     private Button bAnswer;
@@ -43,6 +46,10 @@ public class Activity_task_13 extends AppCompatActivity {
         bAnswer = findViewById(R.id.task1341_btn_answer);
         bAnswer.setOnClickListener(oclBtn);
 
+        // заменяем имя в app:bar
+        //type_name = findViewById(R.id.textview_task_all);
+        //type_name.setText("  Задание №13");
+
     }
 
     View.OnClickListener oclBtn = new View.OnClickListener() {
@@ -55,27 +62,40 @@ public class Activity_task_13 extends AppCompatActivity {
 
             tAnswer.setVisibility(View.VISIBLE);
             tAnswer.setText(data);
-
         }
 
         private boolean checkData(Context context) {
             if (countSymbol.getText().toString().isEmpty()) {
                 Toast toast = Toast.makeText(context,
-                        "Введите колиество символов в пароле!", Toast.LENGTH_SHORT);
+                        "Введите количество символов в пароле.", Toast.LENGTH_SHORT);
                 toast.show();
                 return true;
             }
 
             if (countSymbolInPass.getText().toString().isEmpty()) {
                 Toast toast = Toast.makeText(context,
-                        "Введите колиество используемых символов!", Toast.LENGTH_SHORT);
+                        "Введите количество используемых символов.", Toast.LENGTH_SHORT);
                 toast.show();
                 return true;
             }
 
             if (countUsers.getText().toString().isEmpty()) {
                 Toast toast = Toast.makeText(context,
-                        "Введите колиество пользователей!", Toast.LENGTH_SHORT);
+                        "Введите количество пользователей.", Toast.LENGTH_SHORT);
+                toast.show();
+                return true;
+            }
+
+            if (countAllByte.getText().toString().isEmpty()) {
+                Toast toast = Toast.makeText(context,
+                        "Введите количество байтов, которые потребовались для ВСЕХ пользователей. Если значение неизвестно, то напишите X.", Toast.LENGTH_SHORT);
+                toast.show();
+                return true;
+            }
+
+            if (addInf.getText().toString().isEmpty()) {
+                Toast toast = Toast.makeText(context,
+                        "Введите количетсво дополнительных сведений для одного пользователя. Если значение неизвестно, то напишите X.", Toast.LENGTH_SHORT);
                 toast.show();
                 return true;
             }
