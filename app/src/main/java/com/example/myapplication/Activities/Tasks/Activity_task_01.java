@@ -18,6 +18,7 @@ import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.Section
 public class Activity_task_01 extends AppCompatActivity {
 
     private static final Fragment[] fragments = {PlaceholderFragment_Task_0101.newInstance(0), PlaceholderFragment_Task_0102.newInstance(1), PlaceholderFragment_Task_0103.newInstance(2)};
+    private static final String[] tab_titles = {"Мин/Макс", "Поиск 0/1", "Решить уравнение"};
 
     private TextView type_name;
 
@@ -27,7 +28,7 @@ public class Activity_task_01 extends AppCompatActivity {
         // вывставляю layout для отображения
         setContentView(R.layout.activity_tasks);
         // объявляем адаптер для того, чтобы отображать наш view_pager
-        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager(),fragments);
+        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager(),fragments, tab_titles);
         ViewPager viewPager = findViewById(R.id.view_pager);
         viewPager.setAdapter(sectionsPagerAdapter);
         TabLayout tabs = findViewById(R.id.tabs);

@@ -88,6 +88,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="50dp"
             android:layout_weight="1"
+            style="@style/authreg_input"
             android:background="@drawable/btn_sign_in"
             android:text="Зарегистрироваться"
             android:textColor="@color/black" />

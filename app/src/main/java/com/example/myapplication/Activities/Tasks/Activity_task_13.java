@@ -19,6 +19,8 @@ import com.rengwuxian.materialedittext.MaterialEditText;
 
 public class Activity_task_13 extends AppCompatActivity {
 
+
+    private static final String[] tab_titles = {"Передача файла", "Звук", "Изображение общий объём", "Изображение преобразование"};
     private MaterialEditText countSymbolInPass;
     private MaterialEditText countSymbol;
     private MaterialEditText countUsers;

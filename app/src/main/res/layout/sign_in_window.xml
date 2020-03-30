@@ -79,6 +79,7 @@
             android:layout_weight="1"
             android:background="@drawable/btn_sign_in"
             android:fontFamily="@font/comfortaa_bold"
+            style="@style/authreg_input"
             android:text="Войти"
             android:textColor="@color/black" />
 
@@ -88,6 +89,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             android:layout_weight="1"
+            style="@style/authreg_input"
             android:background="@drawable/btn_register"
             android:text="Войти с помощью"
             android:textColor="@color/black" />
@@ -108,8 +110,7 @@
         android:fontFamily="@font/comfortaa_bold"
         android:textColor="@color/white"
         android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textStyle="italic" />
+        android:textAllCaps="false" />
 
     <View
         android:layout_width="match_parent"
