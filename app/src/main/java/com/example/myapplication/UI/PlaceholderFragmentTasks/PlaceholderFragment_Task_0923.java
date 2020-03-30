@@ -149,6 +149,7 @@ public class PlaceholderFragment_Task_0923 extends Fragment {
                 return true;
             }
 
+            
             if (!(higher2.isChecked() || below2.isChecked())) {
                 Toast toast = Toast.makeText(getContext(),
                         "Выберите в какую сторону была произведена дискретизации!", Toast.LENGTH_SHORT);
