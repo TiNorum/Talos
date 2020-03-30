@@ -19,12 +19,14 @@ import androidx.appcompat.app.AppCompatActivity;
 public class Activity_task_12 extends AppCompatActivity {
 
     private static final Fragment[] fragments = {PlaceholderFragment_Task_1238.newInstance(0), PlaceholderFragment_Task_1239.newInstance(1), PlaceholderFragment_Task_1240.newInstance(2)};
+    private static final String[] tab_titles = {"2 IP (узла)", "IP и Сеть", "IP и Маска"};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tasks);
-        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager(),fragments);
+        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager(),fragments, tab_titles);
         ViewPager viewPager = findViewById(R.id.view_pager);
         viewPager.setAdapter(sectionsPagerAdapter);
         TabLayout tabs = findViewById(R.id.tabs);

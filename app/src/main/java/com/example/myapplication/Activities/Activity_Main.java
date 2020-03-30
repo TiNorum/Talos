@@ -68,7 +68,6 @@ public class Activity_Main extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
-
                 // вызываем наш Activity конкретного задания
                 case R.id.buttonType1:
                     startActivity(new Intent(Activity_Main.this, Activity_task_01.class));

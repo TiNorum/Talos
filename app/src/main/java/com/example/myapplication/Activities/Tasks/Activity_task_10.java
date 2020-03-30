@@ -15,14 +15,15 @@ import com.google.android.material.tabs.TabLayout;
 
 public class Activity_task_10 extends AppCompatActivity {
     private static final Fragment[] fragments = {PlaceholderFragment_Task_1027.newInstance(0), PlaceholderFragment_Task_1031.newInstance(1), PlaceholderFragment_Task_1035.newInstance(2)};
+    private static final String[] tab_titles = {"Список слов", "Комбинаторика 1", "Комбинаторика 2"};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tasks);
-        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager(),fragments);
+        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager(),fragments, tab_titles);
         ViewPager viewPager = findViewById(R.id.view_pager);
-
         viewPager.setAdapter(sectionsPagerAdapter);
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);

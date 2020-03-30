@@ -13,12 +13,14 @@ import com.google.android.material.tabs.TabLayout;
 
 public class Activity_task_09 extends AppCompatActivity {
     private static final Fragment[] fragments = {PlaceholderFragment_Task_0923.newInstance(0)};
+    private static final String[] tab_titles = {"Передача файла", "Звук", "Изображение общий объём", "Изображение преобразование"};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tasks);
-        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager(),fragments);
+        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager(),fragments, tab_titles);
         ViewPager viewPager = findViewById(R.id.view_pager);
 
         viewPager.setAdapter(sectionsPagerAdapter);

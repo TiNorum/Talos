@@ -17,6 +17,8 @@ import androidx.appcompat.app.AppCompatActivity;
 public class Activity_task_06 extends AppCompatActivity {
 
     private static final Fragment[] fragments = {PlaceholderFragment_Task_0615.newInstance(0), PlaceholderFragment_Task_0616.newInstance(1), PlaceholderFragment_Task_0617.newInstance(2)};
+    private static final String[] tab_titles = {"Алгоритм двоичной записи", "Автомат", "Калькулятор"};
+
 
     private TextView type_name;
 
@@ -24,7 +26,7 @@ public class Activity_task_06 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tasks);
-        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager(),fragments);
+        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager(),fragments, tab_titles);
         ViewPager viewPager = findViewById(R.id.view_pager);
         viewPager.setAdapter(sectionsPagerAdapter);
         TabLayout tabs = findViewById(R.id.tabs);
