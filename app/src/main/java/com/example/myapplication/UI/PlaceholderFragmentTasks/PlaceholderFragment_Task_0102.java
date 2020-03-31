@@ -3,6 +3,7 @@ package com.example.myapplication.UI.PlaceholderFragmentTasks;
 import android.os.Bundle;
 import android.text.InputType;
 import android.text.method.DigitsKeyListener;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -115,6 +116,7 @@ public class PlaceholderFragment_Task_0102 extends Fragment {
             if (number.getText().toString().isEmpty()) {
                 Toast toast = Toast.makeText(getContext(),
                         "Введите число!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
                 return true;
             }
@@ -122,6 +124,7 @@ public class PlaceholderFragment_Task_0102 extends Fragment {
             if (cc.getText().toString().isEmpty()) {
                 Toast toast = Toast.makeText(getContext(),
                         "Введите систему счисления!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
                 return true;
             }
@@ -129,6 +132,7 @@ public class PlaceholderFragment_Task_0102 extends Fragment {
             if (!(zero.isChecked() || one.isChecked())) {
                 Toast toast = Toast.makeText(getContext(),
                         "Выберите что нужно найти единицы/нули!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
                 return true;
             }

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.TextWatcher;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -213,6 +214,7 @@ public class PlaceholderFragment_Task_1027 extends Fragment {
             if (countSymbol.getText().toString().isEmpty()) {
                 Toast toast = Toast.makeText(getContext(),
                         "Введите количество символов!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
                 return true;
             }
@@ -220,12 +222,14 @@ public class PlaceholderFragment_Task_1027 extends Fragment {
             if (countSymbolInWord.getText().toString().isEmpty()) {
                 Toast toast = Toast.makeText(getContext(),
                         "Введите количество букв в слове!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
                 return true;
             }
             if (l.isEmpty()) {
                 Toast toast = Toast.makeText(getContext(),
                         "Введите слова!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
                 return true;
             }
@@ -234,6 +238,7 @@ public class PlaceholderFragment_Task_1027 extends Fragment {
                 if (text1.getText().toString().isEmpty()) {
                     Toast toast = Toast.makeText(getContext(),
                             "Введите первое слово!", Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.CENTER,0,0);
                     toast.show();
                     return true;
                 }
@@ -241,6 +246,7 @@ public class PlaceholderFragment_Task_1027 extends Fragment {
                 if (text2.getText().toString().isEmpty()) {
                     Toast toast = Toast.makeText(getContext(),
                             "Введите второе слово!", Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.CENTER,0,0);
                     toast.show();
                     return true;
                 }
@@ -248,6 +254,7 @@ public class PlaceholderFragment_Task_1027 extends Fragment {
                 if (text1.getText().toString().isEmpty()) {
                     Toast toast = Toast.makeText(getContext(),
                             "Введите искомое слово!", Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.CENTER,0,0);
                     toast.show();
                     return true;
                 }

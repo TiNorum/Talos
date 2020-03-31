@@ -1,6 +1,7 @@
 package com.example.myapplication.UI.PlaceholderFragmentTasks;
 
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -124,6 +125,7 @@ public class PlaceholderFragment_Task_0923 extends Fragment {
             if (numberOfSeconds1.getText().toString().isEmpty()) {
                 Toast toast = Toast.makeText(getContext(),
                         "Введите время, за которое был передан файл!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
                 return true;
             }
@@ -131,6 +133,7 @@ public class PlaceholderFragment_Task_0923 extends Fragment {
             if (numberOfTimes1.getText().toString().isEmpty()) {
                 Toast toast = Toast.makeText(getContext(),
                         "Введите разрешение повторной оцифрации!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
                 return true;
             }
@@ -138,6 +141,7 @@ public class PlaceholderFragment_Task_0923 extends Fragment {
             if (!(higher1.isChecked() || below1.isChecked())) {
                 Toast toast = Toast.makeText(getContext(),
                         "Выберите в какую сторону была произведена оцифрация!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
                 return true;
             }
@@ -145,6 +149,7 @@ public class PlaceholderFragment_Task_0923 extends Fragment {
             if (numberOfTimes2.getText().toString().isEmpty()) {
                 Toast toast = Toast.makeText(getContext(),
                         "Введите частоту, повторной дискретизации!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
                 return true;
             }
@@ -153,12 +158,14 @@ public class PlaceholderFragment_Task_0923 extends Fragment {
             if (!(higher2.isChecked() || below2.isChecked())) {
                 Toast toast = Toast.makeText(getContext(),
                         "Выберите в какую сторону была произведена дискретизации!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
                 return true;
             }
             if (numberOfSeconds2.getText().toString().isEmpty()) {
                 Toast toast = Toast.makeText(getContext(),
                         "Введите время, за которое был передан файл!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
                 return true;
             }

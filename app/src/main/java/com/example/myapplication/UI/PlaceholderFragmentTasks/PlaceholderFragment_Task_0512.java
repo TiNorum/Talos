@@ -146,11 +146,11 @@ public class PlaceholderFragment_Task_0512 extends Fragment {
         }
     };
 
-    private class NewElements {
-        public LinearLayout linearLH = (LinearLayout) root.findViewById(R.id.linear_code);
-        public LinearLayout linearLV = new LinearLayout(root.getContext());
-        public EditText symbol = new EditText(root.getContext());
-        public EditText code = new EditText(root.getContext());
+    public class NewElements {
+        private LinearLayout linearLH = (LinearLayout) root.findViewById(R.id.linear_code);
+        private LinearLayout linearLV = new LinearLayout(root.getContext());
+        private EditText symbol = new EditText(root.getContext());
+        private EditText code = new EditText(root.getContext());
 
 
         public NewElements() {
