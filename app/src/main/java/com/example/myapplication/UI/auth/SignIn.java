@@ -150,8 +150,8 @@ public class SignIn extends AppCompatActivity {
                 .subscribe(text ->
                         {
                             if (text.equals("103")) {
-                                startActivity(new Intent(SignIn.this, Activity_Main.class));
-                                finish();
+                               // startActivity(new Intent(SignIn.this, Activity_Main.class));
+                               // finish();
                             }
                         },
                         e -> {
