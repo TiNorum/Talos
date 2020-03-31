@@ -1,6 +1,7 @@
 package com.example.myapplication.UI.PlaceholderFragmentTasks;
 
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -127,6 +128,8 @@ public class PlaceholderFragment_Task_0617 extends Fragment {
             if (countCommands.getText().toString().isEmpty()) {
                 Toast toast = Toast.makeText(getContext(),
                         "Введите количество команд!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
+
                 toast.show();
                 return true;
             }
@@ -134,6 +137,7 @@ public class PlaceholderFragment_Task_0617 extends Fragment {
             if (firstNumber.getText().toString().isEmpty()) {
                 Toast toast = Toast.makeText(getContext(),
                         "Введите исходное число!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
                 return true;
             }
@@ -141,6 +145,7 @@ public class PlaceholderFragment_Task_0617 extends Fragment {
             if (secondCommand.getText().toString().isEmpty()) {
                 Toast toast = Toast.makeText(getContext(),
                         "Введите конечное число!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
                 return true;
             }
@@ -148,6 +153,7 @@ public class PlaceholderFragment_Task_0617 extends Fragment {
             if (!threeCmd.isChecked() && !twoCmd.isChecked()) {
                 Toast toast = Toast.makeText(getContext(),
                         "Выберите количество команд!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
                 return true;
             }

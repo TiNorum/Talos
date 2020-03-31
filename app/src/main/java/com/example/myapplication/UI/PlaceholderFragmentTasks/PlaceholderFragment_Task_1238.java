@@ -1,6 +1,7 @@
 package com.example.myapplication.UI.PlaceholderFragmentTasks;
 
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -104,6 +105,7 @@ public class PlaceholderFragment_Task_1238 extends Fragment {
             if (firstIP.getText().toString().isEmpty()) {
                 Toast toast = Toast.makeText(getContext(),
                         "Введите IP!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
                 return true;
             }
@@ -111,6 +113,7 @@ public class PlaceholderFragment_Task_1238 extends Fragment {
             if (secondIP.getText().toString().isEmpty()) {
                 Toast toast = Toast.makeText(getContext(),
                         "Введите IP!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
                 return true;
             }
@@ -119,6 +122,7 @@ public class PlaceholderFragment_Task_1238 extends Fragment {
             if (!firstByte.isChecked() && !secondByte.isChecked() && !thirdByte.isChecked() && !fourthByte.isChecked()) {
                 Toast toast = Toast.makeText(getContext(),
                         "Выберите байт маски!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
                 return true;
             }
@@ -127,6 +131,7 @@ public class PlaceholderFragment_Task_1238 extends Fragment {
             if (!max.isChecked() && !min.isChecked()) {
                 Toast toast = Toast.makeText(getContext(),
                         "Выберите наибольший/наименьший байт!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
                 return true;
             }

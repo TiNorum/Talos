@@ -1,6 +1,7 @@
 package com.example.myapplication.UI.PlaceholderFragmentTasks;
 
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -85,6 +86,7 @@ public class PlaceholderFragment_Task_0103 extends Fragment {
             if (equation.getText().toString().isEmpty()) {
                 Toast toast = Toast.makeText(getContext(),
                         "Введите уравнение!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
                 return true;
             }
@@ -92,6 +94,7 @@ public class PlaceholderFragment_Task_0103 extends Fragment {
             if (!Check_Input.Check_Equation_Number2(equation.getText().toString())) {
                 Toast toast = Toast.makeText(getContext(),
                         "Проверьте уравнение!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
                 return true;
             }

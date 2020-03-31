@@ -65,11 +65,9 @@
         android:layout_above="@+id/tv_register"
         android:layout_marginLeft="100dp"
         android:layout_marginRight="100dp"
-        android:layout_marginBottom="20dp"
         android:gravity="center"
         android:orientation="vertical"
         android:weightSum="2">
-
 
         <Button
             android:id="@+id/btnSignIn"

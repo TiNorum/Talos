@@ -1,6 +1,7 @@
 package com.example.myapplication.UI.PlaceholderFragmentTasks;
 
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -85,6 +86,7 @@ public class PlaceholderFragment_Task_0615 extends Fragment {
             if (num1.getText().toString().isEmpty()) {
                 Toast toast = Toast.makeText(getContext(),
                         "Введите число!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
                 return true;
             }
@@ -92,6 +94,7 @@ public class PlaceholderFragment_Task_0615 extends Fragment {
             if (num2.getText().toString().isEmpty()) {
                 Toast toast = Toast.makeText(getContext(),
                         "Введите новое число!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
                 return true;
             }
@@ -99,12 +102,14 @@ public class PlaceholderFragment_Task_0615 extends Fragment {
             if (num3.getText().toString().isEmpty()) {
                 Toast toast = Toast.makeText(getContext(),
                         "Введите  число!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
                 return true;
             }
             if (num4.getText().toString().isEmpty()) {
                 Toast toast = Toast.makeText(getContext(),
                         "Введите число!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
                 return true;
             }

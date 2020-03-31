@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.TextWatcher;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -139,6 +140,8 @@ public class PlaceholderFragment_Task_1035 extends Fragment {
             if (countSymbolInWord.getText().toString().isEmpty()) {
                 Toast toast = Toast.makeText(getContext(),
                         "Введите количество букв в слове!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
+
                 toast.show();
                 return true;
             }
@@ -146,6 +149,7 @@ public class PlaceholderFragment_Task_1035 extends Fragment {
             if (symbols.getText().toString().isEmpty()) {
                 Toast toast = Toast.makeText(getContext(),
                         "Введите  буквы!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
                 return true;
             }
@@ -153,12 +157,14 @@ public class PlaceholderFragment_Task_1035 extends Fragment {
             if (countSymbol.getText().toString().isEmpty()) {
                 Toast toast = Toast.makeText(getContext(),
                         "Введите количество ограниченных символов!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
                 return true;
             }
             if (items.isEmpty()) {
                 Toast toast = Toast.makeText(getContext(),
                         "Укажите ограниченные символы!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
                 return true;
             }
