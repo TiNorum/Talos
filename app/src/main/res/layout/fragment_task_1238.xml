@@ -7,7 +7,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="15dp"
+        android:paddingLeft="15dp"
+        android:paddingTop="20dp"
+        android:paddingRight="15dp"
         android:orientation="vertical">
 
         <com.rengwuxian.materialedittext.MaterialEditText
@@ -15,6 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Первый IP"
+            style="@style/task_input"
             app:met_floatingLabel="highlight" />
 
         <com.rengwuxian.materialedittext.MaterialEditText
@@ -22,19 +25,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Второй IP"
+            style="@style/task_input"
             app:met_floatingLabel="highlight" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="5dp"
-            android:text="Укажите номер байта маски сети:"
-            android:textSize="18sp" />
+            style="@style/task_question"
+            android:text="Укажите номер байта маски сети:" />
 
         <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
             android:orientation="horizontal">
 
             <RadioButton
@@ -74,14 +79,15 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
+            style="@style/task_question"
             android:layout_marginBottom="5dp"
-            android:text="Укажите номер байта маски сети:"
-            android:textSize="18sp" />
+            android:text="Укажите номер байта маски сети:" />
 
         <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
             android:orientation="horizontal">
 
             <RadioButton
@@ -89,16 +95,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Наименьшее"
-                android:textSize="18sp" />
+                android:text="Наименьшее" />
 
             <RadioButton
                 android:id="@+id/task1238_rbtn_max"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Наибольшее"
-                android:textSize="18sp" />
+                android:text="Наибольшее" />
 
         </RadioGroup>
 
@@ -112,7 +116,11 @@
             android:id="@+id/task1238_btn_answer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="Решить" />
+            style="@style/task_buttons_field"
+            android:background="@drawable/btn_task_send"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginRight="80dp"
+            android:text="@string/decide" />
     </LinearLayout>
 </RelativeLayout>

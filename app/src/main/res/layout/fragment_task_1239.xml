@@ -14,23 +14,26 @@
             android:id="@+id/task1239_edittext_IP"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Первый IP"
+            style="@style/task_input"
+            android:hint="IP компьютера"
             app:met_floatingLabel="highlight" />
 
         <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/task1239_edittext_address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Адрес"
+            android:layout_marginTop="5dp"
+            style="@style/task_input"
+            android:hint="Адрес сети"
             app:met_floatingLabel="highlight" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="5dp"
-            android:text="Укажите номер байта маски сети:"
-            android:textSize="18sp" />
+            style="@style/task_question"
+            android:text="Укажите номер байта маски сети:" />
 
         <RadioGroup
             android:layout_width="match_parent"
@@ -74,10 +77,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="5dp"
-            android:text="Укажите номер байта маски сети:"
-            android:textSize="18sp" />
+            style="@style/task_question"
+            android:text="Укажите значение маски:" />
 
         <RadioGroup
             android:layout_width="match_parent"
@@ -112,7 +115,11 @@
             android:id="@+id/task1239_btn_answer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="Решить" />
+            style="@style/task_buttons_field"
+            android:background="@drawable/btn_task_send"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginRight="80dp"
+            android:text="@string/decide" />
     </LinearLayout>
 </RelativeLayout>

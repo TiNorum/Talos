@@ -21,7 +21,6 @@
             style="@style/task_question"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
             android:gravity="left"
             android:text="Укажите время, за которое был передан файл:" />
 
@@ -82,6 +81,7 @@
         <TextView
             style="@style/task_question"
             android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
             android:layout_height="wrap_content"
             android:text="Укажите частоту, повторной дискретизации:" />
 
@@ -125,6 +125,7 @@
             style="@style/task_question"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:text="Укажите время, за которое был передан файл:" />
 
         <com.rengwuxian.materialedittext.MaterialEditText

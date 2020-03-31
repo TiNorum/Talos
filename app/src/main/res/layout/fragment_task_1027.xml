@@ -2,12 +2,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:paddingLeft="15dp"
+    android:paddingTop="20dp"
+    android:paddingRight="15dp"
     android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp"
         android:orientation="vertical">
 
         <com.rengwuxian.materialedittext.MaterialEditText
@@ -17,6 +19,7 @@
             android:inputType="number"
             android:singleLine="true"
             android:digits="123456789"
+            style="@style/task_input"
             android:layout_height="wrap_content"
             android:hint="Введите количество букв" />
 
@@ -24,6 +27,7 @@
             android:id="@+id/task1027_edittext_count_symbols_in_word"
             android:inputType="number"
             android:layout_width="match_parent"
+            style="@style/task_input"
             android:layout_height="wrap_content"
             android:hint="Введите количество букв в слове" />
 
@@ -37,14 +41,14 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Выберите что нужно найти:"
-            android:textSize="18sp" />
+            style="@style/task_question"
+            android:layout_marginBottom="5dp"
+            android:text="Выберите что нужно найти:" />
 
         <Spinner
             android:id="@+id/task1027_spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
             android:entries="@array/task1027_spinner" />
 
         <com.rengwuxian.materialedittext.MaterialEditText
@@ -77,7 +81,12 @@
             android:id="@+id/task1027_btn_answer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="решить" />
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginRight="80dp"
+            android:background="@drawable/btn_task_send"
+            style="@style/task_buttons_field"
+            android:text="@string/decide" />
     </LinearLayout>
 
 </RelativeLayout>
