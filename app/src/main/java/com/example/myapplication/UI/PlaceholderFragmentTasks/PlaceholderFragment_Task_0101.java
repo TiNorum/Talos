@@ -3,6 +3,7 @@ package com.example.myapplication.UI.PlaceholderFragmentTasks;
 import android.os.Bundle;
 import android.text.InputType;
 import android.text.method.DigitsKeyListener;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.myapplication.Instruments.Constants;
 import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageViewModel;
 import com.rengwuxian.materialedittext.MaterialEditText;
@@ -132,35 +134,34 @@ public class PlaceholderFragment_Task_0101 extends Fragment {
         }
 
         private String getData() {
-            String data = "100" + "\n\r" + "1" + "\n\r";
+            String data = "100" + Constants.NEXT_LINE + "1" + Constants.NEXT_LINE;
 
             if (one.isChecked() && zero.isChecked()) {
-                data += "2" + "\n\r";
+                data += "2" + Constants.NEXT_LINE;
             } else if (one.isChecked()) {
-                data += "1" + "\n\r";
+                data += "1" + Constants.NEXT_LINE;
             } else {
-                data += "0" + "\n\r";
+                data += "0" + Constants.NEXT_LINE;
             }
 
             if (one.isChecked())
-                data += countOne.getText().toString() + "\n\r";
+                data += countOne.getText().toString() + Constants.NEXT_LINE;
             else
-                data += "0" + "\n\r";
+                data += "0" + Constants.NEXT_LINE;
 
             if (zero.isChecked())
-                data += countZero.getText().toString() + "\n\r";
+                data += countZero.getText().toString() + Constants.NEXT_LINE;
             else
-                data += "0" + "\n\r";
+                data += "0" + Constants.NEXT_LINE;
 
 
-            data += cc.getText().toString() + "\n\r";
+            data += cc.getText().toString() + Constants.NEXT_LINE;
 
 
             if (min.isChecked())
                 data += "0";
             else
                 data += "1";
-
 
             return data;
         }
@@ -169,6 +170,7 @@ public class PlaceholderFragment_Task_0101 extends Fragment {
             if (countZero.getText().toString().isEmpty() && zero.isChecked()) {
                 Toast toast = Toast.makeText(getContext(),
                         "Введите количество нулей!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
                 return true;
             }
@@ -176,6 +178,7 @@ public class PlaceholderFragment_Task_0101 extends Fragment {
             if (countOne.getText().toString().isEmpty() && one.isChecked()) {
                 Toast toast = Toast.makeText(getContext(),
                         "Введите количество единиц!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
                 return true;
             }
@@ -185,6 +188,7 @@ public class PlaceholderFragment_Task_0101 extends Fragment {
             if (cc.getText().toString().isEmpty()) {
                 Toast toast = Toast.makeText(getContext(),
                         "Введите систему счисления!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
                 return true;
             }
@@ -193,6 +197,7 @@ public class PlaceholderFragment_Task_0101 extends Fragment {
             {
                 Toast toast = Toast.makeText(getContext(),
                         "Введите систему счисления (2-10 и 16)", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
                 return true;
             }
@@ -201,6 +206,7 @@ public class PlaceholderFragment_Task_0101 extends Fragment {
             if (!(zero.isChecked() || one.isChecked())) {
                 Toast toast = Toast.makeText(getContext(),
                         "Выберите что содержит двоичная запись числа!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
                 return true;
             }
@@ -208,6 +214,7 @@ public class PlaceholderFragment_Task_0101 extends Fragment {
             if (!(max.isChecked() || min.isChecked())) {
                 Toast toast = Toast.makeText(getContext(),
                         "Выберите максимальное/минимальное число!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
                 return true;
             }

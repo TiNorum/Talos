@@ -1,6 +1,7 @@
 package com.example.myapplication.UI.PlaceholderFragmentTasks;
 
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,11 +60,8 @@ public class PlaceholderFragment_Task_0615 extends Fragment {
             Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_task_0615, container, false);
 
-        num1 = root.findViewById(R.id.task0615_edittext_first_num);
-        num2 = root.findViewById(R.id.task0615_edittext_second_num);
         num3 = root.findViewById(R.id.task0615_edittext_biuld_num);
         num4 = root.findViewById(R.id.task0615_editext_answer_num);
-        answertext = root.findViewById(R.id.task0615_text_answer);
         answerButton = root.findViewById(R.id.task0615_btn_answer);
 
        answerButton.setOnClickListener(oclBtn);
@@ -88,6 +86,7 @@ public class PlaceholderFragment_Task_0615 extends Fragment {
             if (num1.getText().toString().isEmpty()) {
                 Toast toast = Toast.makeText(getContext(),
                         "Введите число!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
                 return true;
             }
@@ -95,6 +94,7 @@ public class PlaceholderFragment_Task_0615 extends Fragment {
             if (num2.getText().toString().isEmpty()) {
                 Toast toast = Toast.makeText(getContext(),
                         "Введите новое число!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
                 return true;
             }
@@ -102,18 +102,17 @@ public class PlaceholderFragment_Task_0615 extends Fragment {
             if (num3.getText().toString().isEmpty()) {
                 Toast toast = Toast.makeText(getContext(),
                         "Введите  число!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
                 return true;
             }
-
             if (num4.getText().toString().isEmpty()) {
                 Toast toast = Toast.makeText(getContext(),
                         "Введите число!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
                 return true;
             }
-
-
 
             return false;
         }
@@ -126,11 +125,7 @@ public class PlaceholderFragment_Task_0615 extends Fragment {
             data += num3.getText().toString() + "\n\r";
             data += num4.getText().toString();
 
-
             return data;
         }
-
-
     };
-
 }

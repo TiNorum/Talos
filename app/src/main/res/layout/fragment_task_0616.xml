@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginLeft="15dp"
+    android:layout_marginTop="20dp"
     android:layout_marginRight="15dp"
     tools:context=".UI.PlaceholderFragmentTasks.PlaceholderFragment_Task_0615">
 
@@ -16,19 +17,19 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="5dp">
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="В задании умножение или сложение:"
-                android:textSize="18sp" />
+                style="@style/task_question"
+                android:layout_marginBottom="5dp"
+                android:text="В задании умножение или сложение:" />
 
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+
                 android:orientation="horizontal">
 
                 <RadioButton
@@ -36,6 +37,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginLeft="5dp"
                     android:text="Умножение" />
 
                 <RadioButton
@@ -52,7 +54,6 @@
                 style="@style/task_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
                 android:hint="Какие цифры складываются/умножаются"
                 android:inputType="number"
                 android:maxLength="15"
@@ -63,7 +64,6 @@
                 style="@style/task_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
                 android:hint="Какое число должно быть в ответе"
                 android:inputType="number"
                 android:maxLength="15"
@@ -73,8 +73,10 @@
                 android:id="@+id/textView10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Выберите какое число должно быть:"
-                android:textSize="18sp"
+                android:text="Какое число должно быть:"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                style="@style/task_question"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editText2_task16" />
 
@@ -103,14 +105,16 @@
             <TextView
                 android:id="@+id/textView9"
                 android:layout_width="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
                 android:layout_height="wrap_content"
-                android:text="Порядок чисел по:"
-                android:textSize="18sp" />
+                style="@style/task_question"
+                android:text="Порядок чисел по:" />
 
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_marginLeft="5dp"
                 android:orientation="horizontal">
 
                 <RadioButton
@@ -134,16 +138,16 @@
                 android:id="@+id/textView11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Сколько существует чисел:"
-                android:textSize="18sp" />
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                style="@style/task_question"
+                android:text="Сколько существует чисел:" />
 
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:orientation="horizontal"
-
-                >
+                android:layout_marginLeft="5dp"
+                android:orientation="horizontal">
 
                 <RadioButton
                     android:id="@+id/task0616_rbtn_some_num"
@@ -165,8 +169,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Четное или нечетное:"
-                android:textSize="18sp" />
+                android:layout_marginBottom="5dp"
+                style="@style/task_question"
+                android:layout_marginTop="10dp"
+                android:text="Четное или нечетное:" />
 
 
             <RadioGroup
@@ -201,7 +207,11 @@
                 android:id="@+id/task0616_btn_answer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                style="@style/task_buttons_field"
+                android:background="@drawable/btn_task_send"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="80dp"
+                android:layout_marginRight="80dp"
                 android:text="Решить" />
         </LinearLayout>
     </ScrollView>

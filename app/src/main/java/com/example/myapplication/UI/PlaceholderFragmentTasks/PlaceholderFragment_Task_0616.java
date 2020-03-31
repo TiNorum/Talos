@@ -1,6 +1,7 @@
 package com.example.myapplication.UI.PlaceholderFragmentTasks;
 
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -108,6 +109,7 @@ public class PlaceholderFragment_Task_0616 extends Fragment {
             if (numbers.getText().toString().isEmpty()) {
                 Toast toast = Toast.makeText(getContext(),
                         "Введите цифры!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
                 return true;
             }
@@ -115,6 +117,8 @@ public class PlaceholderFragment_Task_0616 extends Fragment {
             if (answernum.getText().toString().isEmpty()) {
                 Toast toast = Toast.makeText(getContext(),
                         "Введите число!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
+
                 toast.show();
                 return true;
             }
@@ -122,6 +126,7 @@ public class PlaceholderFragment_Task_0616 extends Fragment {
             if (!addition.isChecked() && !multiplication.isChecked()) {
                 Toast toast = Toast.makeText(getContext(),
                         "Выберите умножение/сложение!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
                 return true;
             }
@@ -129,24 +134,28 @@ public class PlaceholderFragment_Task_0616 extends Fragment {
             if  (!max.isChecked() && !min.isChecked()) {
                 Toast toast = Toast.makeText(getContext(),
                         "Выберите максимальное/минимально число!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
                 return true;
             }
             if  (!odd.isChecked() && !even.isChecked()) {
                 Toast toast = Toast.makeText(getContext(),
                         "Выберите чентное/нечетное!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
                 return true;
             }
             if  (!increase.isChecked() && !decrease.isChecked()) {
                 Toast toast = Toast.makeText(getContext(),
                         "Выберите убывание/возрастание!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
                 return true;
             }
             if  (!someNums.isChecked() && !oneNum.isChecked()) {
                 Toast toast = Toast.makeText(getContext(),
                         "Выберите количесвто чисел!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
                 return true;
             }

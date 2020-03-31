@@ -107,10 +107,8 @@ public class PlaceholderFragment_Task_1240 extends Fragment {
         private String getData() {
             String data = "100" + "\n\r" + "40" + "\n\r";
 
-
             data += IP.getText().toString() + "\n\r";
             data += mask.getText().toString();
-
 
             return data;
         }
