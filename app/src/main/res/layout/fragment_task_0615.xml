@@ -16,40 +16,13 @@
         android:layout_margin="15dp"
         >
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Дима, напиши тут про ввод(как в первом таске)"/>
-
-        <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/task0615_edittext_first_num"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:hint="Дано число"
-            android:inputType="number"
-            android:maxLength="15"
-            app:met_floatingLabel="highlight"
-            app:met_floatingLabelText="Дано число" />
-
-        <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/task0615_edittext_second_num"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:hint="Новое число"
-            android:inputType="number"
-            app:met_floatingLabel="highlight"
-            app:met_floatingLabelText="Новое число" />
-
         <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/task0615_edittext_biuld_num"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:hint="Строится число"
+            android:hint="Укажите такое наименьшее число (N или R)"
+            style="@style/task_input"
             android:inputType="number"
-            android:maxLength="15"
             app:met_floatingLabel="highlight"
             app:met_floatingLabelText="Строится число" />
 
@@ -57,25 +30,21 @@
             android:id="@+id/task0615_editext_answer_num"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:hint="В ответе"
+            style="@style/task_input"
+            android:hint="Число в ответе"
             android:inputType="number"
-            android:maxLength="15"
             app:met_floatingLabel="highlight"
             app:met_floatingLabelText="В ответе" />
-
-        <TextView
-            android:id="@+id/task0615_text_answer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:visibility="gone" />
 
         <Button
             android:id="@+id/task0615_btn_answer"
             android:layout_width="match_parent"
+            style="@style/task_buttons_field"
+            android:background="@drawable/btn_task_send"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:text="Решить" />
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginRight="80dp"
+            android:text="@string/decide" />
     </LinearLayout>
 </RelativeLayout>
