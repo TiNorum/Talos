@@ -32,7 +32,7 @@
             android:digits="1234567890"
             android:hint="Введите количество секунд"
             android:inputType="number"
-            android:maxLength="2"
+            android:maxLength="4"
             app:met_floatingLabel="highlight"
             app:met_floatingLabelText="Система счисления" />
 
@@ -50,7 +50,7 @@
             android:digits="1234567890"
             android:hint="Введите количество раз"
             android:inputType="number"
-            android:maxLength="2"
+            android:maxLength="4"
             app:met_floatingLabel="highlight"
             app:met_floatingLabelText="Система счисления" />
 
@@ -93,7 +93,7 @@
             android:digits="1234567890"
             android:hint="Введите количество раз"
             android:inputType="number"
-            android:maxLength="2"
+            android:maxLength="4"
             app:met_floatingLabel="highlight"
             app:met_floatingLabelText="Система счисления" />
 
@@ -136,7 +136,7 @@
             android:digits="1234567890"
             android:hint="Введите количество секунд"
             android:inputType="number"
-            android:maxLength="2"
+            android:maxLength="4"
             app:met_floatingLabel="highlight"
             app:met_floatingLabelText="Система счисления" />
         <TextView
