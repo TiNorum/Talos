@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.myapplication.Instruments.Constants;
 import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageViewModel;
 
@@ -100,23 +101,23 @@ public class PlaceholderFragment_Task_0923 extends Fragment {
         }
 
         private String getData() {
-            String data = "100" + "\n\r" + "23" + "\n\r";
+            String data = "100" + Constants.NEXT_LINE + "23" + Constants.NEXT_LINE;
 
-            data += numberOfSeconds1.getText().toString() + "\n\r";
-            data += numberOfTimes1.getText().toString() + "\n\r";
+            data += numberOfSeconds1.getText().toString() + Constants.NEXT_LINE;
+            data += numberOfTimes1.getText().toString() + Constants.NEXT_LINE;
 
             if (higher1.isChecked()){
-                data += "2" + "\n\r";
+                data += "2" + Constants.NEXT_LINE;
             } else
-                data += "1" + "\n\r";
-            data += numberOfTimes2.getText().toString() + "\n\r";
+                data += "1" + Constants.NEXT_LINE;
+            data += numberOfTimes2.getText().toString() + Constants.NEXT_LINE;
 
             if (higher2.isChecked()){
-                data += "2" + "\n\r";
+                data += "2" + Constants.NEXT_LINE;
             } else
-                data += "1" + "\n\r";
+                data += "1" + Constants.NEXT_LINE;
 
-            data += numberOfSeconds2.getText().toString() + "\n\r";
+            data += numberOfSeconds2.getText().toString() + Constants.NEXT_LINE;
 
             return data;
         }

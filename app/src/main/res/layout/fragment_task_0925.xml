@@ -8,7 +8,7 @@
     android:paddingLeft="15dp"
     android:paddingTop="20dp"
     android:paddingRight="15dp"
-    tools:context=".UI.PlaceholderFragmentTasks.PlaceholderFragment_Task_0923">
+    tools:context=".UI.PlaceholderFragmentTasks.PlaceholderFragment_Task_0924">
 
 
     <LinearLayout
@@ -21,132 +21,99 @@
             style="@style/task_question"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
             android:gravity="left"
-            android:text="Укажите время, за которое был передан файл:" />
+            android:text="Введите количество цветов графического файла:" />
 
         <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/task0923_edittext_second1"
+            android:id="@+id/task0925_edittext_numberOfColorsFile"
             style="@style/task_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:digits="1234567890"
-            android:hint="Введите количество секунд"
+            android:hint="Введите количество цветов"
             android:inputType="number"
-            android:maxLength="4"
+            android:maxLength="3"
             app:met_floatingLabel="highlight"
-            app:met_floatingLabelText="Количество секунд" />
+            app:met_floatingLabelText="Количество цветов" />
 
         <TextView
             style="@style/task_question"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Укажите разрешение повторной оцифрации:" />
+            android:layout_marginBottom="5dp"
+            android:gravity="left"
+            android:text="Введите количество цветов формата:" />
 
         <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/task0923_edittext_numberOfTimes1"
+            android:id="@+id/task0925_edittext_numberOfColorsFormat"
             style="@style/task_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:digits="1234567890"
-            android:hint="Введите количество раз"
+            android:hint="Введите количество цветов"
             android:inputType="number"
-            android:maxLength="4"
+            android:maxLength="3"
             app:met_floatingLabel="highlight"
-            app:met_floatingLabelText="Количетво раз" />
-
-        <RadioGroup
-            android:id="@+id/task0923_rg_choice1_below_higher"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/task0923_rbtn_higher1"
-                style="@style/task_question"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Выше" />
-
-            <RadioButton
-                android:id="@+id/task0923_rbtn_below1"
-                style="@style/task_question"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Ниже" />
-
-        </RadioGroup>
-
-        <TextView
-            style="@style/task_question"
-            android:layout_width="match_parent"
-            android:layout_marginTop="10dp"
-            android:layout_height="wrap_content"
-            android:text="Укажите частоту, повторной дискретизации:" />
-
-        <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/task0923_edittext_numberOfTimes2"
-            style="@style/task_input"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:digits="1234567890"
-            android:hint="Введите количество раз"
-            android:inputType="number"
-            android:maxLength="4"
-            app:met_floatingLabel="highlight"
-            app:met_floatingLabelText="Количество раз" />
-
-        <RadioGroup
-            android:id="@+id/task0923_rg_choice2_below_higher"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/task0923_rbtn_higher2"
-                style="@style/task_question"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Выше" />
-
-            <RadioButton
-                android:id="@+id/task0923_rbtn_below2"
-                style="@style/task_question"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Ниже" />
-
-        </RadioGroup>
-
+            app:met_floatingLabelText="Количество цветов" />
         <TextView
             style="@style/task_question"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Укажите время, за которое был передан файл:" />
+            android:layout_marginBottom="5dp"
+            android:text="Укажите как изменится файл" />
+
+        <RadioGroup
+            android:id="@+id/task0925_rg_choice_decrease_increase"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/task0925_rbtn_decrease"
+                style="@style/task_question"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Уменьшится" />
+
+            <RadioButton
+                android:id="@+id/task0925_rbtn_increase"
+                style="@style/task_question"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Увеличится" />
+
+        </RadioGroup>
+        <TextView
+            style="@style/task_question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:gravity="left"
+            android:text="Введите на сколько изменился файл (Кбайт):" />
 
         <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/task0923_edittext_second2"
+            android:id="@+id/task0925_edittext_fileChange"
             style="@style/task_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:digits="1234567890"
-            android:hint="Введите количество секунд"
+            android:hint="Введите количество цветов"
             android:inputType="number"
-            android:maxLength="4"
+            android:maxLength="2"
             app:met_floatingLabel="highlight"
-            app:met_floatingLabelText="Количество секунд" />
+            app:met_floatingLabelText="Размер файла" />
         <TextView
-            android:id="@+id/task0923_textview_answer"
+            android:id="@+id/task0925_textview_answer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="gone" />
 
         <Button
-            android:id="@+id/task0923_btn_answer"
+            android:id="@+id/task0925_btn_answer"
             style="@style/task_buttons_field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -157,7 +124,5 @@
             android:background="@drawable/btn_task_send"
             android:gravity="center"
             android:text="@string/decide" />
-
     </LinearLayout>
-
 </LinearLayout>
