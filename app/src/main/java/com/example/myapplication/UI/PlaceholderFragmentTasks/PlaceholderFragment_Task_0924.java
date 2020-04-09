@@ -152,8 +152,6 @@ public class PlaceholderFragment_Task_0924 extends Fragment {
                 data += "0" + Constants.NEXT_LINE;
                 data += numericOfMinuts.getText().toString() + Constants.NEXT_LINE;
             }
-
-
             if (multiple.isChecked())
                 data += numericMultiple.getText().toString() + Constants.NEXT_LINE;
             else
@@ -162,6 +160,7 @@ public class PlaceholderFragment_Task_0924 extends Fragment {
             return data;
         }
 
+        
         private boolean checkData() {
             if (numberOfChannels.getText().toString().isEmpty()) {
                 Toast toast = Toast.makeText(getContext(),
