@@ -78,27 +78,25 @@ public class PlaceholderFragment_Task_0924 extends Fragment {
         numericOfMinuts = (MaterialEditText) root.findViewById(R.id.task0924_edittext_numericOfMinuts);
         fileSyzeEdit = (MaterialEditText) root.findViewById(R.id.task0924_edittext_fileSyze);
 
-        recordingTime = root.findViewById(R.id.task0924_rbtn_recordingTime);
+
         groop1 = root.findViewById(R.id.task0924_rg_choice_recordingTime_fileSyze);
         groop1.setOnCheckedChangeListener((group, checkedId) -> {
             if (checkedId == R.id.task0924_rbtn_recordingTime) {
                 numericOfMinuts.setVisibility(View.VISIBLE);
             } else {
-
                 numericOfMinuts.setVisibility(View.GONE);
             }
             if (checkedId == R.id.task0924_rbtn_fileSyze) {
                 fileSyzeEdit.setVisibility(View.VISIBLE);
             } else {
-
                 fileSyzeEdit.setVisibility(View.GONE);
             }
         });
+        recordingTime = root.findViewById(R.id.task0924_rbtn_recordingTime);
+        fileSyze = root.findViewById(R.id.task0924_rbtn_fileSyze);
 
         numericMultiple = (MaterialEditText) root.findViewById(R.id.task0924_edittext_numericMultiple);
 
-        integer = root.findViewById(R.id.task0924_rbtn_integer);
-        multiple = root.findViewById(R.id.task0924_rbtn_multiple);
 
         groop2 = root.findViewById(R.id.task0924_rg_choice_integer_multiple);
         groop2.setOnCheckedChangeListener((group, checkedId) -> {
@@ -109,7 +107,8 @@ public class PlaceholderFragment_Task_0924 extends Fragment {
                 numericMultiple.setVisibility(View.GONE);
             }
         });
-
+        integer = root.findViewById(R.id.task0924_rbtn_integer);
+        multiple = root.findViewById(R.id.task0924_rbtn_multiple);
         tAnswer = root.findViewById(R.id.task0924_textview_answer);
         return root;
     }
@@ -162,9 +161,18 @@ public class PlaceholderFragment_Task_0924 extends Fragment {
 
 
         private boolean checkData() {
+
             if (numberOfChannels.getText().toString().isEmpty()) {
                 Toast toast = Toast.makeText(getContext(),
                         "Введите количество каналов!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
+                toast.show();
+                return true;
+            }
+            int c = Integer.parseInt(numberOfChannels.getText().toString());
+            if (!(c ==1 ||c ==2 || c ==4 || c ==8)) {
+                Toast toast = Toast.makeText(getContext(),
+                        "Введите количество каналов (1, 2, 4, 8)!", Toast.LENGTH_SHORT);
                 toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
                 return true;
@@ -183,7 +191,7 @@ public class PlaceholderFragment_Task_0924 extends Fragment {
                 toast.show();
                 return true;
             }
-            if (!(fileSyze.isChecked() || recordingTime.isChecked())) {
+            if (!fileSyze.isChecked() && !recordingTime.isChecked()) {
                 Toast toast = Toast.makeText(getContext(),
                         "Выберите известный параметор!", Toast.LENGTH_SHORT);
                 toast.setGravity(Gravity.CENTER,0,0);
