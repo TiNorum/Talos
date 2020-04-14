@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.myapplication.Activities.Tasks.*;
 import com.example.myapplication.R;
 
-
 public class Activity_Main extends AppCompatActivity {
     Button to_task_1;
     Button to_task_2;
@@ -50,6 +49,9 @@ public class Activity_Main extends AppCompatActivity {
         to_task_6 = findViewById(R.id.buttonType6);
         to_task_6.setOnClickListener(oclBtn);
 
+        to_task_8 = findViewById(R.id.buttonType8);
+        to_task_8.setOnClickListener(oclBtn);
+
         to_task_9 = findViewById(R.id.buttonType9);
         to_task_9.setOnClickListener(oclBtn);
 
@@ -61,6 +63,9 @@ public class Activity_Main extends AppCompatActivity {
 
         to_task_13 = findViewById(R.id.buttonType13);
         to_task_13.setOnClickListener(oclBtn);
+
+        to_task_14 = findViewById(R.id.buttonType14);
+        to_task_14.setOnClickListener(oclBtn);
 
     }
     // обработка события нажатия
@@ -89,6 +94,9 @@ public class Activity_Main extends AppCompatActivity {
                 case R.id.buttonType6:
                     startActivity(new Intent(Activity_Main.this, Activity_task_06.class));
                     break;
+                case R.id.buttonType8:
+                    startActivity(new Intent(Activity_Main.this, Activity_task_08.class));
+                    break;
                 case R.id.buttonType9:
                     startActivity(new Intent(Activity_Main.this, Activity_task_09.class));
                     break;
@@ -100,6 +108,9 @@ public class Activity_Main extends AppCompatActivity {
                     break;
                 case R.id.buttonType13:
                     startActivity(new Intent(Activity_Main.this, Activity_task_13.class));
+                    break;
+                case R.id.buttonType14:
+                    startActivity(new Intent(Activity_Main.this, Activity_task_14.class));
                     break;
             }
 
