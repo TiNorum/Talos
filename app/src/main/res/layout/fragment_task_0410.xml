@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="15dp"
+    android:paddingTop="20dp"
+    android:paddingRight="15dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/task0410_edittext_count_row_first_table"
+                style="@style/task_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="123456789"
+                android:hint="Количество строчек в первой таблице"
+                android:inputType="number"
+                android:maxLength="2"
+                android:singleLine="true"
+                app:met_floatingLabel="highlight"
+                app:met_floatingLabelText="Количество строчек в первой таблице" />
+
+            <TableLayout
+                android:id="@+id/task0410_table_1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@color/black"
+                android:padding="1dp"
+                android:visibility="gone">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        style="@style/task_input"
+
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="1dp"
+                        android:layout_weight="1"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:text="TextView" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="1dp"
+                        android:layout_weight="4"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:text="TextView" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:text="TextView" />
+                </TableRow>
+
+            </TableLayout>
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/task0410_edittext_count_row_second_table"
+                style="@style/task_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="123456789"
+                android:hint="Количество строчек во второй таблице"
+                android:inputType="number"
+                android:maxLength="2"
+                app:met_floatingLabel="highlight"
+                app:met_floatingLabelText="Количество строчек во второй таблице" />
+
+            <TableLayout
+                android:id="@+id/task0410_table_2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@color/black"
+                android:padding="1dp"
+                android:visibility="gone">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="1dp"
+                        android:layout_weight="1"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:text="TextView" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="1dp"
+                        android:layout_weight="4"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:text="TextView" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:text="TextView" />
+                </TableRow>
+
+            </TableLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Выберите какого родственика нужно найти:" />
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <RadioButton
+                    android:id="@+id/task0410_rbtn_aunt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Тётю" />
+
+                <RadioButton
+                    android:id="@+id/task0410_rbtn_uncle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Дядю" />
+
+                <RadioButton
+                    android:id="@+id/task0410_rbtn_grandma"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Бабушку" />
+
+                <RadioButton
+                    android:id="@+id/task0410_rbtn_grandpa"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Дедушку" />
+
+            </RadioGroup>
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/task0410_edittext_name"
+                style="@style/task_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="123456789"
+                android:hint="Введите Фамилию И.О."
+                android:inputType="number"
+                android:maxLength="2"
+                app:met_floatingLabel="highlight"
+                app:met_floatingLabelText="Количество строчек во второй таблице" />
+
+            <TextView
+                android:id="@+id/task0410_text_answer"
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" />
+
+            <Button
+                android:id="@+id/task0410_btn_answer"
+                style="@style/task_buttons_field"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="80dp"
+                android:layout_marginRight="80dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/btn_task_send"
+                android:text="@string/decide" />
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</RelativeLayout>
+
+
