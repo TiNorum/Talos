@@ -28,12 +28,15 @@
         <activity android:name=".Activities.Activity_Main" />
         <activity android:name=".Activities.Tasks.Activity_task_01" />
         <activity android:name=".Activities.Tasks.Activity_task_02" />
+        <activity android:name=".Activities.Tasks.Activity_task_03" />
+        <activity android:name=".Activities.Tasks.Activity_task_04" />
         <activity android:name=".Activities.Tasks.Activity_task_05" />
         <activity android:name=".Activities.Tasks.Activity_task_06" />
         <activity android:name=".Activities.Tasks.Activity_task_09" />
         <activity android:name=".Activities.Tasks.Activity_task_10" />
         <activity android:name=".Activities.Tasks.Activity_task_12" />
         <activity android:name=".Activities.Tasks.Activity_task_13" />
+        <activity android:name=".Activities.Tasks.Activity_task_15" />
 
 
 
