@@ -196,7 +196,7 @@ public class PlaceholderFragment_Task_0924 extends Fragment {
                         "Выберите известный параметор!", Toast.LENGTH_SHORT);
                 toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
-                
+
                 return true;
             }
             if (fileSyzeEdit.getText().toString().isEmpty() && fileSyze.isChecked()) {
