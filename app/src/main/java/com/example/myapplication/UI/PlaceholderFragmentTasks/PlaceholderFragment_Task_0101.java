@@ -184,7 +184,6 @@ public class PlaceholderFragment_Task_0101 extends Fragment {
             }
 
 
-
             if (cc.getText().toString().isEmpty()) {
                 Toast toast = Toast.makeText(getContext(),
                         "Введите систему счисления!", Toast.LENGTH_SHORT);

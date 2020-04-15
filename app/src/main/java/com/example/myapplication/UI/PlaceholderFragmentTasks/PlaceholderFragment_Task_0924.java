@@ -96,7 +96,14 @@ public class PlaceholderFragment_Task_0924 extends Fragment {
         fileSyze = root.findViewById(R.id.task0924_rbtn_fileSyze);
 
         numericMultiple = (MaterialEditText) root.findViewById(R.id.task0924_edittext_numericMultiple);
+         fileSyzeEdit.setVisibility(View.GONE);
+            }
+        });
 
+        numericMultiple = (MaterialEditText) root.findViewById(R.id.task0924_edittext_numericMultiple);
+
+        integer = root.findViewById(R.id.task0924_rbtn_integer);
+        multiple = root.findViewById(R.id.task0924_rbtn_multiple);
 
         groop2 = root.findViewById(R.id.task0924_rg_choice_integer_multiple);
         groop2.setOnCheckedChangeListener((group, checkedId) -> {
@@ -196,7 +203,7 @@ public class PlaceholderFragment_Task_0924 extends Fragment {
                         "Выберите известный параметор!", Toast.LENGTH_SHORT);
                 toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
-
+                
                 return true;
             }
             if (fileSyzeEdit.getText().toString().isEmpty() && fileSyze.isChecked()) {
