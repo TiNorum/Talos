@@ -78,7 +78,6 @@ public class PlaceholderFragment_Task_0924 extends Fragment {
         numericOfMinuts = (MaterialEditText) root.findViewById(R.id.task0924_edittext_numericOfMinuts);
         fileSyzeEdit = (MaterialEditText) root.findViewById(R.id.task0924_edittext_fileSyze);
 
-        recordingTime = root.findViewById(R.id.task0924_rbtn_recordingTime);
 
         groop1 = root.findViewById(R.id.task0924_rg_choice_recordingTime_fileSyze);
         groop1.setOnCheckedChangeListener((group, checkedId) -> {
@@ -97,14 +96,7 @@ public class PlaceholderFragment_Task_0924 extends Fragment {
         fileSyze = root.findViewById(R.id.task0924_rbtn_fileSyze);
 
         numericMultiple = (MaterialEditText) root.findViewById(R.id.task0924_edittext_numericMultiple);
-         fileSyzeEdit.setVisibility(View.GONE);
-            }
-        });
 
-        numericMultiple = (MaterialEditText) root.findViewById(R.id.task0924_edittext_numericMultiple);
-
-        integer = root.findViewById(R.id.task0924_rbtn_integer);
-        multiple = root.findViewById(R.id.task0924_rbtn_multiple);
 
         groop2 = root.findViewById(R.id.task0924_rg_choice_integer_multiple);
         groop2.setOnCheckedChangeListener((group, checkedId) -> {
@@ -166,8 +158,10 @@ public class PlaceholderFragment_Task_0924 extends Fragment {
 
             return data;
         }
-        
+
+
         private boolean checkData() {
+
             if (numberOfChannels.getText().toString().isEmpty()) {
                 Toast toast = Toast.makeText(getContext(),
                         "Введите количество каналов!", Toast.LENGTH_SHORT);
@@ -197,11 +191,12 @@ public class PlaceholderFragment_Task_0924 extends Fragment {
                 toast.show();
                 return true;
             }
-            if (!(fileSyze.isChecked() || recordingTime.isChecked())) {
+            if (!fileSyze.isChecked() && !recordingTime.isChecked()) {
                 Toast toast = Toast.makeText(getContext(),
                         "Выберите известный параметор!", Toast.LENGTH_SHORT);
                 toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
+                
                 return true;
             }
             if (fileSyzeEdit.getText().toString().isEmpty() && fileSyze.isChecked()) {
