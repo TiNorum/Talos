@@ -12,23 +12,18 @@ public class Check_Input {
 
         input = input.trim();
         input = input.toLowerCase();
-        for (int i = 0; i < input.length(); i++)
-        {
+        for (int i = 0; i < input.length(); i++) {
             if (i != 0 && input.charAt(i) == double_char)
                 return false;
             else if (i != 0 && input.charAt(i) != double_char)
                 double_char_count = 0;
-            if (input.charAt(i) == '(')
-            {
+            if (input.charAt(i) == '(') {
                 bkt_o++;
-            }
-            else if (input.charAt(i) == ')')
-            {
+            } else if (input.charAt(i) == ')') {
                 bkt_c++;
                 if (bkt_c > bkt_o)
                     return false;
-            }
-            else if (!check_chars.contains("" + input.charAt(i)))
+            } else if (!check_chars.contains("" + input.charAt(i)))
                 return false;
             double_char = input.charAt(i);
             double_char_count++;
@@ -56,8 +51,8 @@ public class Check_Input {
         }
         return chars.length();
     }
-    public static String CheckString(String str)
-    {
+
+    public static String CheckString(String str) {
         String answer = "";
         String invalidCharacter = "";
         String characterSet = "abcdefghijklmnopqrstuvwxyz1234567890'\"()=<>-:/*+ \n\r";
@@ -67,11 +62,11 @@ public class Check_Input {
         int index;
         for (int i = 0; i < masStr.length; i++) {
             index = characterSet.indexOf(masStr[i]);
-            if(index == -1)
+            if (index == -1)
                 invalidCharacter += masStr[i];
         }
         char[] masInv = invalidCharacter.toCharArray();
-        if(masInv.length != 0) {
+        if (masInv.length != 0) {
             answer += "Неверные символы (";
             for (int i = 0; i < masInv.length; i++) {
                 answer += masInv[i];
@@ -92,7 +87,7 @@ public class Check_Input {
             if (str.charAt(i) == '.') {
                 countDot++;
 
-                if (prevIndeDot + 1 == i || i == str.length() || countDot > 3 || Integer.parseInt(num)  > 255)
+                if (prevIndeDot + 1 == i || i == str.length() || countDot > 3 || Integer.parseInt(num) > 255)
                     return true;
 
                 num = "";
