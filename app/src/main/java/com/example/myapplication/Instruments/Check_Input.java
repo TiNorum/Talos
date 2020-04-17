@@ -56,5 +56,31 @@ public class Check_Input {
         }
         return chars.length();
     }
+    public static String CheckString(String str)
+    {
+        String answer = "";
+        String invalidCharacter = "";
+        String characterSet = "abcdefghijklmnopqrstuvwxyz1234567890'\"()=<>-:/*+ \n\r";
+        str = str.toLowerCase();
+
+        char[] masStr = str.toCharArray();
+        int index;
+        for (int i = 0; i < masStr.length; i++) {
+            index = characterSet.indexOf(masStr[i]);
+            if(index == -1)
+                invalidCharacter += masStr[i];
+        }
+        char[] masInv = invalidCharacter.toCharArray();
+        if(masInv.length != 0) {
+            answer += "Неверные символы (";
+            for (int i = 0; i < masInv.length; i++) {
+                answer += masInv[i];
+                if (i != masInv.length - 1)
+                    answer += ", ";
+            }
+            answer += ")!!!";
+        }
+        return answer;
+    }
 
 }

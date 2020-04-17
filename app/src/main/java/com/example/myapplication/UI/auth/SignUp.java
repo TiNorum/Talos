@@ -65,7 +65,7 @@ public class SignUp extends AppCompatActivity {
                         try {
                             outToServer.writeBytes(data);
                             outToServer.flush();
-                            Log.d(LOG_TAG, "Отправлено сообщение на сервер");
+                            Log.d(LOG_TAG, "Отправлено сообщение на сервер\n" + data);
                         } catch (Exception e) {
                             throw e;
                         }
@@ -74,7 +74,7 @@ public class SignUp extends AppCompatActivity {
 
                         try {
                             answer = inFromServer.readLine();
-                            Log.d(LOG_TAG, answer + "сообщение с сервера");
+                            Log.d(LOG_TAG, answer + " сообщение с сервера");
 
                         } catch (Exception e) {
                             throw e;
