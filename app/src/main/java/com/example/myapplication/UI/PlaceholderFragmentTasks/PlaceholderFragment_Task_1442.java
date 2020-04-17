@@ -19,6 +19,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.myapplication.Instruments.Check_Input;
 import com.example.myapplication.Instruments.Constants;
 import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageViewModel;
@@ -55,6 +56,8 @@ public class PlaceholderFragment_Task_1442 extends Fragment {
 
     private Button btnAnswer;
     private TextView tAnswer;
+    private EditText number;
+    private EditText quantity;
 
     @Override
     public View onCreateView(
@@ -66,16 +69,17 @@ public class PlaceholderFragment_Task_1442 extends Fragment {
         btnAnswer = root.findViewById(R.id.task1442_btn_answer);
         btnAnswer.setOnClickListener(oclBtn);
 
+        number = root.findViewById(R.id.task1442_edittext_number);
+        quantity = root.findViewById(R.id.task1442_edittext_quantity);
+
+
         tAnswer = root.findViewById(R.id.task1442_textview_answer);
         return root;
     }
 
-
     View.OnClickListener oclBtn = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-
-
             if (checkData()) return;
 
             String data = getData();
@@ -92,13 +96,28 @@ public class PlaceholderFragment_Task_1442 extends Fragment {
         }
 
         private String getData() {
-            String data = "100" + Constants.NEXT_LINE + "1" + Constants.NEXT_LINE;
-
+            String data = "100" + Constants.NEXT_LINE + "42" + Constants.NEXT_LINE;
+            data += number.getText().toString() + Constants.NEXT_LINE;
+            data += quantity.getText().toString() + Constants.NEXT_LINE;
 
             return data;
         }
 
         private boolean checkData() {
+            if (number.getText().toString().isEmpty()) {
+                Toast toast = Toast.makeText(getContext(),
+                        "Введите из каких цифр состоит строка!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
+                toast.show();
+                return true;
+            }
+            if (quantity.getText().toString().isEmpty()) {
+                Toast toast = Toast.makeText(getContext(),
+                        "Введите количество этих цифр!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
+                toast.show();
+                return true;
+            }
 
             return false;
         }

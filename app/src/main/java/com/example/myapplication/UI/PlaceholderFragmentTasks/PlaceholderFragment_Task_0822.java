@@ -1,5 +1,6 @@
 package com.example.myapplication.UI.PlaceholderFragmentTasks;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.Gravity;
@@ -104,83 +105,81 @@ public class PlaceholderFragment_Task_0822 extends Fragment {
     }
     public static String ColorEdit(String str)
     {
-       // str = "while(n<5)\nif 8 >8\nelse print(\"kek\")\nwhile(true)";
-        String strTmp =str;
-        int index;
-        ArrayList<Integer> indexMas = new ArrayList<>();
-        int i = 0,count;
-        while (true)
-        {
-            count = indexMas.size();
-            index = strTmp.indexOf("while");
-            if(index != -1)
-                indexMas.add(index);
-            if(count == indexMas.size())
-                break;
-            strTmp = strTmp.substring(indexMas.get(i) + 5,strTmp.length());
-            i++;
-        }
-        for (int j = 1; j < indexMas.size(); j++) {
-            indexMas.set(j,indexMas.get(j)+5);
-        }
-        //String html = "<font color='#FFA600'>while()</font>";
-        String html = str.substring(0,indexMas.get(0));
-        for (i = 0; i < indexMas.size(); i++) {
-             html += "<font color='#FFA600'>while</font>";
-             html += str.substring(indexMas.get(i)+5,indexMas.get(i+1));
-             if(i+2 == indexMas.size())
-             {
-                 html += "<font color='#FFA600'>while</font>";
-                 html += str.substring(indexMas.get(i+1) + 5, str.length());
-                 break;
-             }
-        }
+        str = str.replace("\n","<br>");
+        str = str.replace("elif","<font color='#0088FE'>elif</font>");
+        str = str.replace("while","<font color='#FFA600'>while</font>");
+        str = str.replace("if","<font color='#0088FE'>if</font>");
 
-        return html;
+        str = str.replace("else","<font color='#0088FE'>else</font>");
+        str = str.replace("int(input","<font color='#71FF00'>int(input</font>");
+        str = str.replace("print","<font color='#71FF00'>print</font>");
+        return str;
     }
 
     View.OnClickListener oclBtnWhile = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            kod.setText(kod.getText() + "while()");
-            kod.setSelection(kod.length()-1);
-//            String stroka = ColorEdit(kod.getText().toString());
-  //          kod.setText(Html.fromHtml(stroka));
+            int curPos = kod.getSelectionStart();
+            String str  = kod.getText().toString().substring(0,curPos) + "while()";
+            str =kod.getText() + str.substring(curPos,str.length());
+            String stroka = ColorEdit(str);
+            kod.setText(Html.fromHtml(stroka));
+            kod.setSelection(curPos + 6);
         }
     };
     View.OnClickListener oclBtnIf = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            kod.setText(kod.getText() + "if");
-            kod.setSelection(kod.length());
+            int curPos = kod.getSelectionStart();
+            String str  = kod.getText().toString().substring(0,curPos) + "if";
+            str =kod.getText() + str.substring(curPos,str.length());
+            String stroka = ColorEdit(str);
+            kod.setText(Html.fromHtml(stroka));
+            kod.setSelection(curPos + 2);
         }
     };
     View.OnClickListener oclBtnIfElse = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            kod.setText(kod.getText() + "elif");
-            kod.setSelection(kod.length());
+            int curPos = kod.getSelectionStart();
+            String str  = kod.getText().toString().substring(0,curPos) + "elif";
+            str =kod.getText() + str.substring(curPos,str.length());
+            String stroka = ColorEdit(str);
+            kod.setText(Html.fromHtml(stroka));
+            kod.setSelection(curPos + 4);
         }
     };
     View.OnClickListener oclBtnElse = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            kod.setText(kod.getText() + "else");
-            kod.setSelection(kod.length());
+            int curPos = kod.getSelectionStart();
+            String str  = kod.getText().toString().substring(0,curPos) + "else";
+            str =kod.getText() + str.substring(curPos,str.length());
+            String stroka = ColorEdit(str);
+            kod.setText(Html.fromHtml(stroka));
+            kod.setSelection(curPos + 4);
         }
     };
     View.OnClickListener oclBtnPrint = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            kod.setText(kod.getText() + "print()");
-            kod.setSelection(kod.length()-1);
+            int curPos = kod.getSelectionStart();
+            String str  = kod.getText().toString().substring(0,curPos) + "print()";
+            str =kod.getText() + str.substring(curPos,str.length());
+            String stroka = ColorEdit(str);
+            kod.setText(Html.fromHtml(stroka));
+            kod.setSelection(curPos + 6);
         }
     };
     View.OnClickListener oclBtnInput = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            kod.setText(kod.getText() + "int(input())");
-            kod.setSelection(kod.length()-2);
+            int curPos = kod.getSelectionStart();
+            String str  = kod.getText().toString().substring(0,curPos) + "int(input())";
+            str =kod.getText() + str.substring(curPos,str.length());
+            String stroka = ColorEdit(str);
+            kod.setText(Html.fromHtml(stroka));
+            kod.setSelection(curPos + 10);
         }
     };
     View.OnClickListener oclBtn = new View.OnClickListener() {
@@ -239,7 +238,7 @@ public class PlaceholderFragment_Task_0822 extends Fragment {
                 return true;
             }
 
-            String answer = Check_Input.CheckString(kod.getText().toString());
+            String answer = Check_Input.CheckString(kod.getText().toString(),8);
             if(!answer.isEmpty())
             {
                 Toast toast = Toast.makeText(getContext(),
