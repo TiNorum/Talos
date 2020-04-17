@@ -83,4 +83,30 @@ public class Check_Input {
         return answer;
     }
 
+    //проверка ip адреса
+    public static boolean Cheсk_IP(String str) {
+        int countDot = 0, prevIndeDot = -1, countNum = 0;
+        String num = "";
+
+        for (int i = 1; i < str.length(); i++) {
+            if (str.charAt(i) == '.') {
+                countDot++;
+
+                if (prevIndeDot + 1 == i || i == str.length() || countDot > 3 || Integer.parseInt(num)  > 255)
+                    return true;
+
+                num = "";
+                prevIndeDot = i;
+                countNum = 0;
+            } else {
+                countNum++;
+                num += str.charAt(i);
+                if (countNum > 3) return false;
+            }
+
+        }
+        return false;
+    }
+
+
 }
