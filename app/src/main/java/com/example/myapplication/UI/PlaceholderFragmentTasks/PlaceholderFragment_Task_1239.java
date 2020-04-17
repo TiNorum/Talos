@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.myapplication.Instruments.Check_Input;
 import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageViewModel;
 import com.rengwuxian.materialedittext.MaterialEditText;
@@ -109,6 +110,14 @@ public class PlaceholderFragment_Task_1239 extends Fragment {
                 return true;
             }
 
+            if(Check_Input.Cheсk_IP(IP.getText().toString()))
+            {
+                Toast toast = Toast.makeText(getContext(),
+                        "Неправильный IP!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
+                toast.show();
+                return true;
+            }
             if (address.getText().toString().isEmpty()) {
                 Toast toast = Toast.makeText(getContext(),
                         "Введите адрес сети!", Toast.LENGTH_SHORT);
@@ -117,7 +126,14 @@ public class PlaceholderFragment_Task_1239 extends Fragment {
                 toast.show();
                 return true;
             }
-
+            if(Check_Input.Cheсk_IP(address.getText().toString()))
+            {
+                Toast toast = Toast.makeText(getContext(),
+                        "Неправильный адрес!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
+                toast.show();
+                return true;
+            }
 
             if (!firstByte.isChecked() && !secondByte.isChecked() && !thirdByte.isChecked() && !fourthByte.isChecked()) {
                 Toast toast = Toast.makeText(getContext(),
