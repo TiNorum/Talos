@@ -16,20 +16,19 @@ import com.rengwuxian.materialedittext.MaterialEditText;
 public class Activity_task_15 extends AppCompatActivity {
 
 
-    private static final String[] tab_titles = {"Передача файла", "Звук", "Изображение общий объём", "Изображение преобразование"};
-  CanvasView canvasView;
+    CanvasView canvasView;
 
 
     private Button bAnswer;
-    private TextView tAnswer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_task_1544);
 
 
-         canvasView = findViewById(R.id.task1544_graph);
-        tAnswer = findViewById(R.id.task1544_text_answer);
+        canvasView = findViewById(R.id.task1544_graph);
+
         bAnswer = findViewById(R.id.task1544_btn_answer);
         bAnswer.setOnClickListener(oclBtn);
 
@@ -43,26 +42,25 @@ public class Activity_task_15 extends AppCompatActivity {
         @Override
         public void onClick(View v) {
 
-            if (checkData(v.getContext())) return;
+
+            if (canvasView.isEmpty()) {
+                Toast.makeText(getApplicationContext(), "Нарисуйте граф!", Toast.LENGTH_LONG).show();
+                return;
+            }
+
 
             String data = getData();
 
-            tAnswer.setVisibility(View.VISIBLE);
-            tAnswer.setText(data);
-        }
 
-        private boolean checkData(Context context) {
-
-            return false;
+            Toast.makeText(getApplicationContext(), data, Toast.LENGTH_LONG).show();
+            return;
         }
 
 
         private String getData() {
             String data = "100" + "\n\r" + "44" + "\n\r";
 
-
-
-
+            data += canvasView.toString();
 
             return data;
         }
