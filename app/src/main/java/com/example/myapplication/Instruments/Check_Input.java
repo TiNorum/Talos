@@ -83,7 +83,7 @@ public class Check_Input {
         int countDot = 0, prevIndeDot = -1, countNum = 0;
         String num = "";
 
-        for (int i = 1; i < str.length(); i++) {
+        for (int i = 0; i < str.length(); i++) {
             if (str.charAt(i) == '.') {
                 countDot++;
 
@@ -96,10 +96,12 @@ public class Check_Input {
             } else {
                 countNum++;
                 num += str.charAt(i);
-                if (countNum > 3) return false;
+                if (countNum > 3) return true;
             }
 
         }
+
+        if(countDot != 3) return true;
         return false;
     }
 

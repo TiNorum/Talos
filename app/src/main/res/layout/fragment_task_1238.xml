@@ -16,6 +16,7 @@
             android:id="@+id/task1238_edittext_first_IP"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:digits="1234567890."
             android:hint="Первый IP"
             style="@style/task_input"
             app:met_floatingLabel="highlight" />
@@ -24,6 +25,7 @@
             android:id="@+id/task1238_edittext_second_IP"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:digits="1234567890."
             android:hint="Второй IP"
             style="@style/task_input"
             app:met_floatingLabel="highlight" />
