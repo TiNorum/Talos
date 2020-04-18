@@ -44,8 +44,6 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        style="@style/task_input"
-
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="1dp"
@@ -132,25 +130,24 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Выберите какого родственика нужно найти:" />
+                android:text="Выберите кого нужно найти:" />
 
             <RadioGroup
+                android:id="@+id/task0411_rg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center">
 
                 <RadioButton
-                    android:id="@+id/task0410_rbtn_aunt"
+                    android:id="@+id/task0411_rb_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Количество потомков (детей/внуков)" />
+                    android:text="Количество потомков (детей/внуков) " />
 
                 <RadioButton
-                    android:id="@+id/task0410_rbtn_uncle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Количество двоюродных братьев и сестер " />
-
 
 
             </RadioGroup>
@@ -160,9 +157,9 @@
                 style="@style/task_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:digits="123456789"
+                android:digits="йцукенгшщзхъфывапролджэячсмитьбюЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ."
                 android:hint="Введите Фамилию И.О."
-                android:inputType="number"
+                android:inputType="textPersonName"
                 android:maxLength="2"
                 app:met_floatingLabel="highlight"
                 app:met_floatingLabelText="Количество строчек во второй таблице" />

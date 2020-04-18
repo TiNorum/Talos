@@ -269,7 +269,7 @@ public class PlaceholderFragment_Task_1027 extends Fragment {
 
             data += countSymbol.getText().toString() + Constants.NEXT_LINE;
             data += countSymbolInWord.getText().toString() + Constants.NEXT_LINE;
-            data += l.toString();
+            data += l.toString()+Constants.NEXT_LINE;
 
             data += text1.getText().toString();
 

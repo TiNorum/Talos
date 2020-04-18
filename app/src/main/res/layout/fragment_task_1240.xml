@@ -15,6 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/task_input"
+            android:digits="1234567890."
             android:hint="IP компьютера"
             app:met_floatingLabel="highlight" />
 
@@ -23,6 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/task_input"
+            android:digits="1234567890."
             android:hint="Маска сети"
             app:met_floatingLabel="highlight" />
 

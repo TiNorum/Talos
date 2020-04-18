@@ -2,8 +2,8 @@ package com.example.myapplication.UI.PlaceholderFragmentTasks;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.renderscript.ScriptGroup;
 import android.text.Editable;
-import android.text.InputFilter;
 import android.text.TextWatcher;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +27,8 @@ import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageVie
 import com.rengwuxian.materialedittext.MaterialEditText;
 
 import java.util.ArrayList;
+
+import static android.text.InputType.TYPE_CLASS_NUMBER;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -57,12 +61,17 @@ public class PlaceholderFragment_Task_0410 extends Fragment {
 
     private MaterialEditText countRowFirst;
     private MaterialEditText countRowSecond;
+    private MaterialEditText findName;
     private TableItem firstTableItem;
-    private TableItem secondItemItem;
+    private TableItem secondTableItem;
     private Button bAnswer;
     private TextView tAnswer;
     private LinearLayout firstTable;
     private LinearLayout secondTable;
+    private RadioGroup radioGroup;
+    private RadioButton rb_1;
+    private RadioButton rb_2;
+    private RadioButton rb_3;
 
     @Override
     public View onCreateView(
@@ -72,6 +81,11 @@ public class PlaceholderFragment_Task_0410 extends Fragment {
 
         firstTable = root.findViewById(R.id.task0410_table_1);
         secondTable = root.findViewById(R.id.task0410_table_2);
+        findName = root.findViewById(R.id.task0410_edittext_name);
+        radioGroup = root.findViewById(R.id.task0410_rg);
+        rb_1 = root.findViewById(R.id.task0410_rb_1);
+        rb_2 = root.findViewById(R.id.task0410_rb_2);
+        rb_3 = root.findViewById(R.id.task0410_rb_3);
 
         countRowFirst = root.findViewById(R.id.task0410_edittext_count_row_first_table);
         countRowFirst.addTextChangedListener(new TextWatcher() {
@@ -89,27 +103,37 @@ public class PlaceholderFragment_Task_0410 extends Fragment {
             public void afterTextChanged(Editable s) {
 
                 if (s.toString().isEmpty()) {
+
+                    if (firstTableItem == null) return;
+
                     for (TableItem.item item : firstTableItem.listItem)
                         firstTable.removeView(item.view);
+
+                    firstTable.setVisibility(View.GONE);
+
                     return;
                 }
+                if (Integer.parseInt(s.toString()) > 15) return;
+
+                
+                firstTable.setVisibility(View.VISIBLE);
 
                 if (firstTableItem == null)
-                    firstTableItem = new TableItem(Integer.parseInt(s.toString()), getContext(), firstTable);
+                    firstTableItem = new TableItem(Integer.parseInt(s.toString()), getContext(), firstTable, 3);
                 else {
                     for (TableItem.item item : firstTableItem.listItem)
                         firstTable.removeView(item.view);
 
                     firstTableItem = null;
 
-                    firstTableItem = new TableItem(Integer.parseInt(s.toString()), getContext(), firstTable);
+                    firstTableItem = new TableItem(Integer.parseInt(s.toString()), getContext(), firstTable, 3);
                 }
 
             }
         });
 
 
-        countRowSecond= root.findViewById(R.id.task0410_edittext_count_row_second_table);
+        countRowSecond = root.findViewById(R.id.task0410_edittext_count_row_second_table);
         countRowSecond.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -125,21 +149,29 @@ public class PlaceholderFragment_Task_0410 extends Fragment {
             public void afterTextChanged(Editable s) {
 
                 if (s.toString().isEmpty()) {
-                    for (TableItem.item item : secondItemItem.listItem)
+
+                    if (secondTableItem == null) return;
+
+                    for (TableItem.item item : secondTableItem.listItem)
                         secondTable.removeView(item.view);
+
                     secondTable.setVisibility(View.GONE);
+
                     return;
                 }
+                if (Integer.parseInt(s.toString()) > 15) return;
+
                 secondTable.setVisibility(View.VISIBLE);
-                if (secondItemItem == null)
-                    secondItemItem = new TableItem(Integer.parseInt(s.toString()), getContext(), secondTable);
+
+                if (secondTableItem == null)
+                    secondTableItem = new TableItem(Integer.parseInt(s.toString()), getContext(), secondTable, 2);
                 else {
 
-                    for (TableItem.item item : secondItemItem.listItem)
+                    for (TableItem.item item : secondTableItem.listItem)
                         secondTable.removeView(item.view);
 
-                    secondItemItem = null;
-                    secondItemItem = new TableItem(Integer.parseInt(s.toString()), getContext(), secondTable);
+                    secondTableItem = null;
+                    secondTableItem = new TableItem(Integer.parseInt(s.toString()), getContext(), secondTable, 2);
                 }
 
             }
@@ -159,7 +191,7 @@ public class PlaceholderFragment_Task_0410 extends Fragment {
         @Override
         public void onClick(View v) {
 
-//            if (checkData()) return;
+            if (checkData()) return;
 
             String data = getData();
 
@@ -168,51 +200,70 @@ public class PlaceholderFragment_Task_0410 extends Fragment {
 
         }
 
-//        private boolean checkData() {
-//            if (countFile.getText().toString().isEmpty()) {
-//                Toast toast = Toast.makeText(getContext(),
-//                        "Введите количество символов!", Toast.LENGTH_SHORT);
-//                toast.setGravity(Gravity.CENTER, 0, 0);
-//                toast.show();
-//                return true;
-//            }
-//
-//            if (countMask.getText().toString().isEmpty()) {
-//                Toast toast = Toast.makeText(getContext(),
-//                        "Введите количество масок!", Toast.LENGTH_SHORT);
-//                toast.setGravity(Gravity.CENTER, 0, 0);
-//                toast.show();
-//                return true;
-//            }
-//
-//            if (files.isEmpty()) {
-//                Toast toast = Toast.makeText(getContext(),
-//                        "Введите назвайния файлов!", Toast.LENGTH_SHORT);
-//                toast.setGravity(Gravity.CENTER, 0, 0);
-//                toast.show();
-//                return true;
-//            }
-//
-//            if (masks.isEmpty()) {
-//                Toast toast = Toast.makeText(getContext(),
-//                        "Введите маски!", Toast.LENGTH_SHORT);
-//                toast.setGravity(Gravity.CENTER, 0, 0);
-//                toast.show();
-//                return true;
-//            }
-//            return false;
-//        }
+        private boolean checkData() {
+            if (countRowFirst.getText().toString().isEmpty()) {
+                Toast toast = Toast.makeText(getContext(),
+                        "Введите количество строк в первой таблице!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER, 0, 0);
+                toast.show();
+                return true;
+            }
+
+            if (countRowSecond.getText().toString().isEmpty()) {
+                Toast toast = Toast.makeText(getContext(),
+                        "Введите количество строк во второй таблице!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER, 0, 0);
+                toast.show();
+                return true;
+            }
+
+            if (firstTableItem.isEmpty()) {
+                Toast toast = Toast.makeText(getContext(),
+                        "Заполнице первую таблицу!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER, 0, 0);
+                toast.show();
+                return true;
+            }
+
+            if (secondTableItem.isEmpty()) {
+                Toast toast = Toast.makeText(getContext(),
+                        "Заполните вторую таблицу!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER, 0, 0);
+                toast.show();
+                return true;
+            }
+            if (radioGroup.getCheckedRadioButtonId() == -1) {
+                Toast toast = Toast.makeText(getContext(),
+                        "Выберите родственника!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER, 0, 0);
+                toast.show();
+                return true;
+            }
+
+            if (findName.getText().toString().isEmpty()) {
+                Toast toast = Toast.makeText(getContext(),
+                        "Введите имя!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER, 0, 0);
+                toast.show();
+                return true;
+            }
+            return false;
+        }
 
 
         private String getData() {
 
             String data = "100" + Constants.NEXT_LINE + 10 + Constants.NEXT_LINE;
 
-//            data += countFile.getText().toString() + Constants.NEXT_LINE;
-//
-//            data += files.toString() + Constants.NEXT_LINE;
-//            data += masks.toString();
+            data += countRowFirst.getText().toString() + Constants.NEXT_LINE;
+            data += countRowSecond.getText().toString() + Constants.NEXT_LINE;
+            data += firstTableItem.toString();
+            data += secondTableItem.toString();
+            data += rb_1.isChecked() ? 1 :
+                    rb_2.isChecked() ? 2 :
+                            rb_3.isChecked() ? 3 : 4;
 
+            data += Constants.NEXT_LINE + findName.getText().toString();
             return data;
         }
     };
@@ -221,35 +272,44 @@ public class PlaceholderFragment_Task_0410 extends Fragment {
     public class TableItem {
         private int itemCount;
         public ArrayList<item> listItem = new ArrayList<item>();
+        int count_col;
 
-        public TableItem(int n, Context context, LinearLayout list) {
+        public TableItem(int n, Context context, LinearLayout list, int col) {
             itemCount = n;
-
+            count_col = col;
             for (int i = 0; i < 0; i++) {
 
             }
             for (int i = 1; i <= itemCount; i++) {
-                listItem.add(new item(i, list));
+                listItem.add(new item(list, col));
             }
         }
 
         public class item {
 
-            public EditText id;
-            public EditText name;
-            public EditText sex;
+            public EditText col_1;
+            public EditText col_2;
+            public EditText col_3;
             public int idFromListItem;
             View view;
 
-            public item(int i, LinearLayout linearLayout) {
+
+            public item(LinearLayout linearLayout, int col) {
                 idFromListItem = R.layout.task_0410_fragment_table;
+
 
                 LayoutInflater inflater = LayoutInflater.from(getContext());
                 view = inflater.inflate(idFromListItem, linearLayout, false);
 
-                id = view.findViewById(R.id.task0408_edittext_table_1);
-                id = view.findViewById(R.id.task0408_edittext_table_2);
-                id = view.findViewById(R.id.task0408_edittext_table_3);
+                col_1 = view.findViewById(R.id.task04_edittext_table_1);
+                col_2 = view.findViewById(R.id.task04_edittext_table_2);
+
+                col_3 = view.findViewById(R.id.task04_edittext_table_3);
+                if (col == 2) {
+                    col_2.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1));
+                    col_2.setInputType(TYPE_CLASS_NUMBER);
+                    col_3.setVisibility(View.GONE);
+                }
 
                 linearLayout.addView(view);
             }
@@ -259,7 +319,7 @@ public class PlaceholderFragment_Task_0410 extends Fragment {
 
         public boolean isEmpty() {
             for (item i : listItem) {
-                if (i.id.getText().toString().isEmpty() || i.name.getText().toString().isEmpty() || i.sex.getText().toString().isEmpty())
+                if (i.col_1.getText().toString().isEmpty() || i.col_2.getText().toString().isEmpty() || (i.col_3.getText().toString().isEmpty() && count_col == 3))
                     return true;
 
             }
@@ -270,14 +330,17 @@ public class PlaceholderFragment_Task_0410 extends Fragment {
         @Override
         public String toString() {
             String s = "";
-//            for (item i : listItem) {
-//
-//                if (i != listItem.get(itemCount - 1))
-//                    s += i.word.getText().toString() + "\\";
-//                else
-//                    s += i.word.getText().toString() + Constants.NEXT_LINE;
-//
-//            }
+            for (item i : listItem) {
+
+                s += i.col_1.getText().toString() + "\\";
+                s += i.col_2.getText().toString();
+                if (count_col == 3)
+                    s += "\\" + i.col_3.getText().toString() + Constants.NEXT_LINE;
+                else
+                    s += Constants.NEXT_LINE;
+            }
+
+
             return s;
         }
     }
