@@ -86,7 +86,7 @@
                 android:layout_height="match_parent"
                 android:gravity="start"
                 android:hint="Ввидите код"
-                android:inputType="textMultiLine"
+                android:inputType="textMultiLine|textNoSuggestions"
                 android:lines="12"
                 android:maxLength="200"
                 android:maxLines="20"

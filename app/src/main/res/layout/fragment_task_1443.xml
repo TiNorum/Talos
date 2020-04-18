@@ -16,78 +16,32 @@
         android:layout_height="wrap_content"
         android:gravity="left"
         android:orientation="vertical">
-        <TextView
-            style="@style/task_question"
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/task1443_edittext_count_numbers"
+            android:maxLength="1"
             android:layout_width="match_parent"
+            android:inputType="number"
+            android:singleLine="true"
+            android:digits="123456789"
+            style="@style/task_input"
             android:layout_height="wrap_content"
-            android:gravity="left"
-            android:text="Введите количество цифр в строке:" />
+            android:hint="Введите количество цифр" />
 
         <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/task1443_edittext_numberAll"
-            style="@style/task_input"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:digits="1234567890"
-            android:hint="Введите число"
+            android:id="@+id/task1443_edittext_count_numbers_in_word"
             android:inputType="number"
-            android:maxLength="4"
-            app:met_floatingLabel="highlight"
-            app:met_floatingLabelText="Введите число" />
-        <TextView
-            style="@style/task_question"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            android:text="Введите количество первых цифр:" />
-
-        <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/task1443_edittext_numberFirst"
+            android:digits="123456789"
+            android:maxLength="4"
             style="@style/task_input"
+            android:layout_height="wrap_content"
+            android:hint="Введите количество цифр в строке" />
+        <LinearLayout
+            android:id="@+id/task1443_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:digits="1234567890"
-            android:hint="Введите число"
-            android:inputType="number"
-            android:maxLength="4"
-            app:met_floatingLabel="highlight"
-            app:met_floatingLabelText="Введите число" />
-        <TextView
-            style="@style/task_question"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            android:text="Введите эти цифры:" />
-
-        <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/task1443_edittext_number"
-            style="@style/task_input"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:digits="1234567890"
-            android:hint="Введите цифру"
-            android:inputType="number"
-            android:maxLength="4"
-            app:met_floatingLabel="highlight"
-            app:met_floatingLabelText="Введите цифру" />
-        <TextView
-            style="@style/task_question"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            android:text="Введите из каких цтфр состоит остальное число:" />
-
-        <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/task1443_edittext_numberSecond"
-            style="@style/task_input"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:digits="1234567890"
-            android:hint="Введите цифру"
-            android:inputType="number"
-            android:maxLength="4"
-            app:met_floatingLabel="highlight"
-            app:met_floatingLabelText="Введите цифру" />
+            android:layout_margin="15dp"
+            android:orientation="vertical" />
         <TextView
             style="@style/task_question"
             android:layout_width="match_parent"
@@ -107,7 +61,7 @@
                 android:layout_height="match_parent"
                 android:gravity="start"
                 android:hint="Ввидите код"
-                android:inputType="textMultiLine"
+                android:inputType="textMultiLine|textNoSuggestions"
                 android:lines="12"
                 android:maxLength="200"
                 android:maxLines="20"
@@ -120,75 +74,75 @@
                 android:orientation="vertical">
                 <Button
                     android:id="@+id/task1443_btn_begin"
-                    style="@style/task_buttons_field"
-                    android:layout_width="150dp"
-                    android:layout_height="30dp"
+                    style="@style/task_buttons_43"
+                    android:layout_width="140dp"
+                    android:layout_height="20dp"
                     android:background="@drawable/btn_task_send"
                     android:layout_marginBottom="5dp"
                     android:text="НАЧАЛО" />
                 <Button
                     android:id="@+id/task1443_btn_soFarFound"
-                    style="@style/task_buttons_field"
-                    android:layout_width="150dp"
-                    android:layout_height="30dp"
-                    android:layout_marginBottom="5dp"
+                    style="@style/task_buttons_43"
+                    android:layout_width="140dp"
+                    android:layout_height="20dp"
                     android:background="@drawable/btn_task_send"
+                    android:layout_marginBottom="5dp"
                     android:text="ПОКА нашлось" />
                 <Button
                     android:id="@+id/task1443_btn_orFound"
-                    style="@style/task_buttons_field"
-                    android:layout_width="150dp"
-                    android:layout_height="30dp"
-                    android:layout_marginBottom="5dp"
+                    style="@style/task_buttons_43"
+                    android:layout_width="140dp"
+                    android:layout_height="20dp"
                     android:background="@drawable/btn_task_send"
+                    android:layout_marginBottom="5dp"
                     android:text="ИЛИ нашлось" />
                 <Button
-                    android:id="@+id/task1443_btn_else"
-                    style="@style/task_buttons_field"
-                    android:layout_width="150dp"
-                    android:layout_height="30dp"
-                    android:layout_marginBottom="5dp"
+                    android:id="@+id/task1443_btn_ifThereIs"
+                    style="@style/task_buttons_43"
+                    android:layout_width="140dp"
+                    android:layout_height="20dp"
                     android:background="@drawable/btn_task_send"
+                    android:layout_marginBottom="5dp"
                     android:text="ЕСЛИ нашлось" />
                 <Button
                     android:id="@+id/task1443_btn_thenReplace"
-                    style="@style/task_buttons_field"
-                    android:layout_width="150dp"
-                    android:layout_height="30dp"
-                    android:layout_marginBottom="5dp"
+                    style="@style/task_buttons_43"
+                    android:layout_width="140dp"
+                    android:layout_height="20dp"
                     android:background="@drawable/btn_task_send"
+                    android:layout_marginBottom="5dp"
                     android:text="ТО заменить" />
                 <Button
                     android:id="@+id/task1443_btn_otherwiseReplace"
-                    style="@style/task_buttons_field"
-                    android:layout_width="155dp"
-                    android:layout_height="30dp"
-                    android:layout_marginBottom="5dp"
+                    style="@style/task_buttons_43"
+                    android:layout_width="140dp"
+                    android:layout_height="20dp"
                     android:background="@drawable/btn_task_send"
+                    android:layout_marginBottom="5dp"
                     android:text="ИНАЧЕ заменить" />
                 <Button
                     android:id="@+id/task1443_btn_endIf"
-                    style="@style/task_buttons_field"
-                    android:layout_width="150dp"
-                    android:layout_height="30dp"
-                    android:layout_marginBottom="5dp"
+                    style="@style/task_buttons_43"
+                    android:layout_width="140dp"
+                    android:layout_height="20dp"
                     android:background="@drawable/btn_task_send"
+                    android:layout_marginBottom="5dp"
                     android:text="КОНЕЦ если" />
                 <Button
                     android:id="@+id/task1443_btn_endForNow"
-                    style="@style/task_buttons_field"
-                    android:layout_width="150dp"
-                    android:layout_height="30dp"
-                    android:layout_marginBottom="5dp"
+                    style="@style/task_buttons_43"
+                    android:layout_width="140dp"
+                    android:layout_height="20dp"
                     android:background="@drawable/btn_task_send"
+                    android:layout_marginBottom="5dp"
                     android:text="КОНЕЦ пока" />
                 <Button
                     android:id="@+id/task1443_btn_end"
-                    style="@style/task_buttons_field"
-                    android:layout_width="150dp"
-                    android:layout_height="30dp"
-                    android:layout_marginBottom="5dp"
+                    style="@style/task_buttons_43"
+                    android:layout_width="140dp"
+                    android:layout_height="20dp"
                     android:background="@drawable/btn_task_send"
+                    android:layout_marginBottom="5dp"
                     android:text="КОНЕЦ" />
             </LinearLayout>
         </LinearLayout>
