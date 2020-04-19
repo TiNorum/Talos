@@ -51,11 +51,16 @@ public class Check_Input {
         }
         return chars.length();
     }
-
-    public static String CheckString(String str) {
+    public static String CheckString(String str,int typeTask)
+    {
         String answer = "";
         String invalidCharacter = "";
-        String characterSet = "abcdefghijklmnopqrstuvwxyz1234567890'\"()=<>-:/*+ \n\r";
+        String characterSet = "";
+        if(typeTask == 8)
+            characterSet= "abcdefghijklmnopqrstuvwxyz1234567890'\"()=<>-:/*+ \n\r";
+        else
+            characterSet= "абвгдеёжзийклмнопрстуфхцчшщъьыэюя1234567890'\"()=<>-:/*+ \n\r";
+
         str = str.toLowerCase();
 
         char[] masStr = str.toCharArray();
