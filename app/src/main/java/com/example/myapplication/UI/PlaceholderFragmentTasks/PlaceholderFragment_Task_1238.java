@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.myapplication.Instruments.Check_Input;
 import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageViewModel;
 import com.rengwuxian.materialedittext.MaterialEditText;
@@ -110,9 +111,27 @@ public class PlaceholderFragment_Task_1238 extends Fragment {
                 return true;
             }
 
+            if(Check_Input.Cheсk_IP(firstIP.getText().toString()))
+            {
+                Toast toast = Toast.makeText(getContext(),
+                        "Неправильный IP!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
+                toast.show();
+                return true;
+            }
+
             if (secondIP.getText().toString().isEmpty()) {
                 Toast toast = Toast.makeText(getContext(),
                         "Введите IP!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
+                toast.show();
+                return true;
+            }
+
+            if(Check_Input.Cheсk_IP(secondIP.getText().toString()))
+            {
+                Toast toast = Toast.makeText(getContext(),
+                        "Неправильный IP!", Toast.LENGTH_SHORT);
                 toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
                 return true;
@@ -138,6 +157,7 @@ public class PlaceholderFragment_Task_1238 extends Fragment {
 
             return false;
         }
+
 
 
         private String getData() {

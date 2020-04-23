@@ -12,23 +12,18 @@ public class Check_Input {
 
         input = input.trim();
         input = input.toLowerCase();
-        for (int i = 0; i < input.length(); i++)
-        {
+        for (int i = 0; i < input.length(); i++) {
             if (i != 0 && input.charAt(i) == double_char)
                 return false;
             else if (i != 0 && input.charAt(i) != double_char)
                 double_char_count = 0;
-            if (input.charAt(i) == '(')
-            {
+            if (input.charAt(i) == '(') {
                 bkt_o++;
-            }
-            else if (input.charAt(i) == ')')
-            {
+            } else if (input.charAt(i) == ')') {
                 bkt_c++;
                 if (bkt_c > bkt_o)
                     return false;
-            }
-            else if (!check_chars.contains("" + input.charAt(i)))
+            } else if (!check_chars.contains("" + input.charAt(i)))
                 return false;
             double_char = input.charAt(i);
             double_char_count++;
@@ -72,11 +67,11 @@ public class Check_Input {
         int index;
         for (int i = 0; i < masStr.length; i++) {
             index = characterSet.indexOf(masStr[i]);
-            if(index == -1)
+            if (index == -1)
                 invalidCharacter += masStr[i];
         }
         char[] masInv = invalidCharacter.toCharArray();
-        if(masInv.length != 0) {
+        if (masInv.length != 0) {
             answer += "Неверные символы (";
             for (int i = 0; i < masInv.length; i++) {
                 answer += masInv[i];
@@ -138,5 +133,33 @@ public class Check_Input {
         str = str.replace("print","<font color='#71FF00'>print</font>");
         return str;
     }
+
+    //проверка ip адреса
+    public static boolean Cheсk_IP(String str) {
+        int countDot = 0, prevIndeDot = -1, countNum = 0;
+        String num = "";
+
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == '.') {
+                countDot++;
+
+                if (prevIndeDot + 1 == i || i == str.length() || countDot > 3 || Integer.parseInt(num) > 255)
+                    return true;
+
+                num = "";
+                prevIndeDot = i;
+                countNum = 0;
+            } else {
+                countNum++;
+                num += str.charAt(i);
+                if (countNum > 3) return true;
+            }
+
+        }
+
+        if(countDot != 3) return true;
+        return false;
+    }
+
 
 }

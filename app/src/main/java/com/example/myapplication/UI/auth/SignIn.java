@@ -6,30 +6,18 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.Activities.Activity_Main;
 import com.example.myapplication.Instruments.Constants;
 import com.example.myapplication.R;
-import com.opencsv.CSVReader;
-import com.opencsv.CSVWriter;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
 import java.io.BufferedReader;
-import java.io.DataInputStream;
 import java.io.DataOutputStream;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.net.Socket;
-import java.util.concurrent.atomic.AtomicReference;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.core.Single;
@@ -79,6 +67,7 @@ public class SignIn extends AppCompatActivity {
 
         startActivity(new Intent(SignIn.this, Activity_Main.class));
         finish();
+
         if (login.getText().toString().isEmpty()) {
             warning.setText("Введите логин!");
             warning.setVisibility(View.VISIBLE);
@@ -119,7 +108,7 @@ public class SignIn extends AppCompatActivity {
                 try {
                     outToServer.writeBytes(data);
                     outToServer.flush();
-                    Log.d(LOG_TAG, "Отправлено сообщение на сервер"+ data);
+                    Log.d(LOG_TAG, "Отправлено сообщение на сервер" + data);
                 } catch (Exception e) {
                     throw e;
                 }

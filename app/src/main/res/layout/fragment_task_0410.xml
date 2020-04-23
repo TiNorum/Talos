@@ -43,8 +43,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
+
                     <TextView
-                        style="@style/task_input"
 
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -52,7 +52,7 @@
                         android:layout_weight="1"
                         android:background="@color/white"
                         android:gravity="center"
-                        android:text="TextView" />
+                        android:text="id" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -61,7 +61,7 @@
                         android:layout_weight="4"
                         android:background="@color/white"
                         android:gravity="center"
-                        android:text="TextView" />
+                        android:text="Фамилия И.О." />
 
                     <TextView
                         android:layout_width="0dp"
@@ -69,7 +69,7 @@
                         android:layout_weight="1"
                         android:background="@color/white"
                         android:gravity="center"
-                        android:text="TextView" />
+                        android:text="Пол" />
                 </TableRow>
 
             </TableLayout>
@@ -107,16 +107,7 @@
                         android:layout_weight="1"
                         android:background="@color/white"
                         android:gravity="center"
-                        android:text="TextView" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="1dp"
-                        android:layout_weight="4"
-                        android:background="@color/white"
-                        android:gravity="center"
-                        android:text="TextView" />
+                        android:text="id_родителя" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -124,7 +115,8 @@
                         android:layout_weight="1"
                         android:background="@color/white"
                         android:gravity="center"
-                        android:text="TextView" />
+                        android:text="id_ребенка" />
+
                 </TableRow>
 
             </TableLayout>
@@ -135,30 +127,31 @@
                 android:text="Выберите какого родственика нужно найти:" />
 
             <RadioGroup
+                android:id="@+id/task0410_rg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center">
 
                 <RadioButton
-                    android:id="@+id/task0410_rbtn_aunt"
+                    android:id="@+id/task0410_rb_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Тётю" />
 
                 <RadioButton
-                    android:id="@+id/task0410_rbtn_uncle"
+                    android:id="@+id/task0410_rb_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Дядю" />
 
                 <RadioButton
-                    android:id="@+id/task0410_rbtn_grandma"
+                    android:id="@+id/task0410_rb_3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Бабушку" />
 
                 <RadioButton
-                    android:id="@+id/task0410_rbtn_grandpa"
+                    android:id="@+id/task0410_rb_4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Дедушку" />
@@ -170,10 +163,11 @@
                 style="@style/task_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:digits="123456789"
                 android:hint="Введите Фамилию И.О."
-                android:inputType="number"
-                android:maxLength="2"
+                android:inputType="textPersonName"
+                android:digits="йцукенгшщзхъфывапролджэячсмитьбюЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ."
+                android:maxLength="14"
+                android:singleLine="true"
                 app:met_floatingLabel="highlight"
                 app:met_floatingLabelText="Количество строчек во второй таблице" />
 
