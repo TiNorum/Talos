@@ -87,5 +87,56 @@ public class Check_Input {
         }
         return answer;
     }
+    public static String RepleceComparisonSignTask8(String str)
+    {
+        char[] masStr = str.toCharArray();
+        String tmp = "";
+        for (int i = 0; i < masStr.length; i++) {
+            if(masStr[i] == '<')
+            {
+                tmp = "";
+                for (int j = 0; j < i; j++) {
+                    tmp += masStr[j];
+                }
+                tmp += "<span>&#60;</span>";
+
+                for (int j = i + 1; j < masStr.length; j++) {
+                    tmp += masStr[j];
+                }
+                masStr = tmp.toCharArray();
+                i+=18;
+            }
+            else if(masStr[i] == '>')
+            {
+                tmp = "";
+                for (int j = 0; j < i; j++) {
+                    tmp += masStr[j];
+                }
+                tmp += "<span>&#62;</span>";
+
+                for (int j = i + 1; j < masStr.length; j++) {
+                    tmp += masStr[j];
+                }
+                masStr = tmp.toCharArray();
+                i+=18;
+            }
+        }
+        if(tmp.isEmpty())
+            tmp = str;
+        return  tmp;
+    }
+    public static String ColorEditTask8(String str)
+    {
+        str = RepleceComparisonSignTask8(str);
+        str = str.replace("\n","<br>");
+        str = str.replace(" ","<span> </span>");
+        str = str.replace("elif","<font color='#0088FE'>elif</font>");
+        str = str.replace("while","<font color='#FFA600'>while</font>");
+        str = str.replace("if","<font color='#0088FE'>if</font>");
+        str = str.replace("else","<font color='#0088FE'>else</font>");
+        str = str.replace("int(input","<font color='#71FF00'>int(input</font>");
+        str = str.replace("print","<font color='#71FF00'>print</font>");
+        return str;
+    }
 
 }
