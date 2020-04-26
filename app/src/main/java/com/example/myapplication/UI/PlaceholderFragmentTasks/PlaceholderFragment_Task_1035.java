@@ -3,25 +3,21 @@ package com.example.myapplication.UI.PlaceholderFragmentTasks;
 import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
-import android.text.InputFilter;
 import android.text.TextWatcher;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.myapplication.Instruments.Constants;
+import com.example.myapplication.Instruments.ShowTost;
 import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageViewModel;
 import com.rengwuxian.materialedittext.MaterialEditText;
@@ -105,11 +101,10 @@ public class PlaceholderFragment_Task_1035 extends Fragment {
 
 
         countSymbolInWord = root.findViewById(R.id.task1035_edittext_count_symbols_in_word);
-        symbols  = root.findViewById(R.id.task1035_edittext_symbols);
+        symbols = root.findViewById(R.id.task1035_edittext_symbols);
         list = root.findViewById(R.id.task1035_list);
 
         tAnswer = root.findViewById(R.id.task1035_text_answer);
-
 
 
         bAnswer = root.findViewById(R.id.task1035_btn_answer);
@@ -138,40 +133,32 @@ public class PlaceholderFragment_Task_1035 extends Fragment {
 
 
             if (countSymbolInWord.getText().toString().isEmpty()) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Введите количество букв в слове!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER,0,0);
-
-                toast.show();
+                ShowTost.showTost(getContext(),"Введите количество букв в слове!");
                 return true;
             }
 
             if (symbols.getText().toString().isEmpty()) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Введите  буквы!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER,0,0);
-                toast.show();
+                ShowTost.showTost(getContext(),"Введите  буквы!");
                 return true;
             }
 
             if (countSymbol.getText().toString().isEmpty()) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Введите количество ограниченных символов!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER,0,0);
-                toast.show();
+                ShowTost.showTost(getContext(),"Введите количество ограниченных символов!");
                 return true;
             }
+
             if (items.isEmpty()) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Укажите ограниченные символы!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER,0,0);
-                toast.show();
+
+                ShowTost.showTost(getContext(),"Укажите ограниченные символы!");
                 return true;
             }
 
 
             return false;
         }
+
+
+
 
 
         private String getData() {

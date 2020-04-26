@@ -14,7 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.example.myapplication.Instruments.Check_Input;
+import com.example.myapplication.Instruments.ShowTost;
 import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageViewModel;
 
@@ -48,8 +48,7 @@ public class PlaceholderFragment_Task_0615 extends Fragment {
 
     private EditText num1;
     private EditText num2;
-    private EditText num3;
-    private EditText num4;
+
 
     private TextView answertext;
     private Button answerButton;
@@ -60,12 +59,13 @@ public class PlaceholderFragment_Task_0615 extends Fragment {
             Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_task_0615, container, false);
 
-        num3 = root.findViewById(R.id.task0615_edittext_biuld_num);
-        num4 = root.findViewById(R.id.task0615_editext_answer_num);
+        num1 = root.findViewById(R.id.task0615_edittext_biuld_num);
+        num2 = root.findViewById(R.id.task0615_editext_answer_num);
         answerButton = root.findViewById(R.id.task0615_btn_answer);
 
-       answerButton.setOnClickListener(oclBtn);
+        answerButton.setOnClickListener(oclBtn);
 
+        answertext = root.findViewById(R.id.task0615_text_answer);
         return root;
     }
 
@@ -73,7 +73,7 @@ public class PlaceholderFragment_Task_0615 extends Fragment {
         @Override
         public void onClick(View v) {
 
-            if( checkData()) return;
+            if (checkData()) return;
 
             String data = getData();
 
@@ -84,46 +84,23 @@ public class PlaceholderFragment_Task_0615 extends Fragment {
 
         private boolean checkData() {
             if (num1.getText().toString().isEmpty()) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Введите число!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER,0,0);
-                toast.show();
+                ShowTost.showTost(getContext(), "Укажите такое наименьшее число (N или R)");
                 return true;
             }
 
             if (num2.getText().toString().isEmpty()) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Введите новое число!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER,0,0);
-                toast.show();
-                return true;
-            }
-
-            if (num3.getText().toString().isEmpty()) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Введите  число!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER,0,0);
-                toast.show();
-                return true;
-            }
-            if (num4.getText().toString().isEmpty()) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Введите число!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER,0,0);
-                toast.show();
+                ShowTost.showTost(getContext(), "Укажите число в ответе!");
                 return true;
             }
 
             return false;
         }
 
-        private String getData () {
+        private String getData() {
             String data = "100" + "\n\r" + "15" + "\n\r";
 
             data += num1.getText().toString() + "\n\r";
-            data += num2.getText().toString() + "\n\r";
-            data += num3.getText().toString() + "\n\r";
-            data += num4.getText().toString();
+            data += num2.getText().toString();
 
             return data;
         }

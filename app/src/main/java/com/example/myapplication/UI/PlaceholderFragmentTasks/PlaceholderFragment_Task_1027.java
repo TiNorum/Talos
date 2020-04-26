@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.TextWatcher;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,13 +14,13 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.myapplication.Instruments.Constants;
+import com.example.myapplication.Instruments.ShowTost;
 import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageViewModel;
 import com.rengwuxian.materialedittext.MaterialEditText;
@@ -212,50 +211,34 @@ public class PlaceholderFragment_Task_1027 extends Fragment {
 
         private boolean checkData() {
             if (countSymbol.getText().toString().isEmpty()) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Введите количество символов!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER,0,0);
-                toast.show();
+                ShowTost.showTost(getContext(),"Введите количество символов!");
                 return true;
             }
 
             if (countSymbolInWord.getText().toString().isEmpty()) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Введите количество букв в слове!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER,0,0);
-                toast.show();
+                ShowTost.showTost(getContext(),"Введите количество букв в слове!");
                 return true;
             }
             if (l.isEmpty()) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Введите слова!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER,0,0);
-                toast.show();
+                ShowTost.showTost(getContext(),"Введите слова!");
+
                 return true;
             }
 
             if (spinner.getSelectedItemId() == 0) {
                 if (text1.getText().toString().isEmpty()) {
-                    Toast toast = Toast.makeText(getContext(),
-                            "Введите первое слово!", Toast.LENGTH_SHORT);
-                    toast.setGravity(Gravity.CENTER,0,0);
-                    toast.show();
+                    ShowTost.showTost(getContext(),"Введите первое слово!");
                     return true;
                 }
 
                 if (text2.getText().toString().isEmpty()) {
-                    Toast toast = Toast.makeText(getContext(),
-                            "Введите второе слово!", Toast.LENGTH_SHORT);
-                    toast.setGravity(Gravity.CENTER,0,0);
-                    toast.show();
+                    ShowTost.showTost(getContext(),"Введите второе слово!");
+
                     return true;
                 }
             } else {
                 if (text1.getText().toString().isEmpty()) {
-                    Toast toast = Toast.makeText(getContext(),
-                            "Введите искомое слово!", Toast.LENGTH_SHORT);
-                    toast.setGravity(Gravity.CENTER,0,0);
-                    toast.show();
+                    ShowTost.showTost(getContext(),"Введите искомое слово!");
                     return true;
                 }
             }

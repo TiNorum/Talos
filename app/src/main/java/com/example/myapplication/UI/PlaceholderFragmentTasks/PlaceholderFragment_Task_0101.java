@@ -20,6 +20,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.myapplication.Instruments.Constants;
+import com.example.myapplication.Instruments.ShowTost;
 import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageViewModel;
 import com.rengwuxian.materialedittext.MaterialEditText;
@@ -168,53 +169,35 @@ public class PlaceholderFragment_Task_0101 extends Fragment {
 
         private boolean checkData() {
             if (countZero.getText().toString().isEmpty() && zero.isChecked()) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Введите количество нулей!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER,0,0);
-                toast.show();
+                ShowTost.showTost(getContext(), "Введите количество нулей!");
                 return true;
             }
 
             if (countOne.getText().toString().isEmpty() && one.isChecked()) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Введите количество единиц!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER,0,0);
-                toast.show();
+                ShowTost.showTost(getContext(), "Введите количество единиц!");
                 return true;
             }
 
 
             if (cc.getText().toString().isEmpty()) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Введите систему счисления!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER,0,0);
-                toast.show();
+                ShowTost.showTost(getContext(), "Введите систему счисления!");
                 return true;
             }
             int c = Integer.parseInt(cc.getText().toString());
             if(!(c>1 && c<11 || c==16))
             {
-                Toast toast = Toast.makeText(getContext(),
-                        "Введите систему счисления (2-10 и 16)", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER,0,0);
-                toast.show();
+                ShowTost.showTost(getContext(), "Введите систему счисления (2-10 и 16)");
                 return true;
             }
 
 
             if (!(zero.isChecked() || one.isChecked())) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Выберите что содержит двоичная запись числа!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER,0,0);
-                toast.show();
+                ShowTost.showTost(getContext(), "Выберите что содержит двоичная запись числа!");
                 return true;
             }
 
             if (!(max.isChecked() || min.isChecked())) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Выберите максимальное/минимальное число!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER,0,0);
-                toast.show();
+                ShowTost.showTost(getContext(), "Выберите максимальное/минимальное число!");
                 return true;
             }
 

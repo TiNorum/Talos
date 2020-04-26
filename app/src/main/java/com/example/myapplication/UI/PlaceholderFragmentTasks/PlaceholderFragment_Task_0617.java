@@ -17,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.myapplication.Instruments.ShowTost;
 import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageViewModel;
 import com.rengwuxian.materialedittext.MaterialEditText;
@@ -118,43 +119,30 @@ public class PlaceholderFragment_Task_0617 extends Fragment {
         }
 
         private boolean checkData() {
+
             if (firstCommand.getText().toString().isEmpty() || secondCommand.getText().toString().isEmpty() || (thirdCommand.getVisibility()==View.VISIBLE && thirdCommand.getText().toString().isEmpty())) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Введите действия с командами!", Toast.LENGTH_SHORT);
-                toast.show();
+
+                ShowTost.showTost(getContext(), "Введите действия с командами!");
                 return true;
             }
 
             if (countCommands.getText().toString().isEmpty()) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Введите количество команд!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER,0,0);
-
-                toast.show();
+                ShowTost.showTost(getContext(), "Введите количество команд!");
                 return true;
             }
 
             if (firstNumber.getText().toString().isEmpty()) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Введите исходное число!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER,0,0);
-                toast.show();
+                ShowTost.showTost(getContext(), "Введите исходное число!");
                 return true;
             }
 
             if (secondCommand.getText().toString().isEmpty()) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Введите конечное число!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER,0,0);
-                toast.show();
+                ShowTost.showTost(getContext(), "Введите конечное число!");
                 return true;
             }
 
             if (!threeCmd.isChecked() && !twoCmd.isChecked()) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Выберите количество команд!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER,0,0);
-                toast.show();
+                ShowTost.showTost(getContext(), "Выберите количество команд!");
                 return true;
             }
 

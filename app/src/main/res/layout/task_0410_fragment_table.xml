@@ -24,7 +24,7 @@
         android:background="@color/white"
         android:digits="йцукенгшщзхъфывапролджэячсмитьбюЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ."
         android:gravity="center"
-        android:maxLength="12"
+        android:maxLength="15"
         android:singleLine="true" />
 
     <EditText
