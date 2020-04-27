@@ -4,6 +4,9 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -32,22 +35,26 @@
             android:digits="йцукенгшщзхфывапролджэячсмитьбюЙЦУКЕНГШЩЗФЫВАПРОЛДЯЧСМИТЬ"
             android:hint="Введите буквы подряд без пробелов"
             android:singleLine="true"
+            android:maxLength="20"
             app:met_floatingLabel="highlight"
             app:met_floatingLabelText="Буквы" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            style="@style/task_question"
-            android:text="Введите букву и через '-' ее количество повторений " />
 
         <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/task1035_edittext_count_symbols"
             android:layout_width="match_parent"
             style="@style/task_input"
+            android:maxLength="2"
+            android:inputType="number"
             android:layout_height="wrap_content"
             android:hint="У скольких букв ограничено чилсо повторений"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/task_question"
+            android:text="Введите букву и через '-' ее количество повторений " />
+
+
 
         <LinearLayout
             android:id="@+id/task1035_list"
@@ -75,4 +82,5 @@
             android:text="@string/decide" />
 
     </LinearLayout>
+    </ScrollView>
 </RelativeLayout>

@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.myapplication.Instruments.ShowTost;
 import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.CanvasView;
 import com.rengwuxian.materialedittext.MaterialEditText;
@@ -44,7 +45,8 @@ public class Activity_task_15 extends AppCompatActivity {
 
 
             if (canvasView.isEmpty()) {
-                Toast.makeText(getApplicationContext(), "Нарисуйте граф!", Toast.LENGTH_LONG).show();
+                ShowTost.showTost(getApplicationContext(), "Нарисуйте граф!");
+
                 return;
             }
 

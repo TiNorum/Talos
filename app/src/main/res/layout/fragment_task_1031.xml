@@ -18,7 +18,8 @@
             android:layout_height="wrap_content"
             android:hint="Укажите длину слова"
             android:inputType="number"
-            android:maxLength="2"
+
+            android:maxLength="1"
             style="@style/task_input"
             app:met_floatingLabel="highlight"
             app:met_floatingLabelText="Длина слова" />
@@ -29,6 +30,7 @@
             android:layout_height="wrap_content"
             style="@style/task_input"
             android:digits="йцукенгшщзхфывапролджэячсмитьбюЙЦУКЕНГШЩЗФЫВАПРОЛДЯЧСМИТЬ"
+            android:maxLength="20"
             android:hint="Введите буквы подряд без пробелов"
             android:singleLine="true"
             app:met_floatingLabel="highlight"
@@ -51,6 +53,9 @@
             android:id="@+id/task1031_edittext_first_char"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:digits="йцукенгшщзхфывапролджэячсмитьбюЙЦУКЕНГШЩЗФЫВАПРОЛДЯЧСМИТЬ"
+            android:maxLength="1"
+            android:singleLine="true"
             android:hint="Первая буква"
             android:visibility="gone" />
 
@@ -71,6 +76,9 @@
             android:id="@+id/task1031_edittext_last_char"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:digits="йцукенгшщзхфывапролджэячсмитьбюЙЦУКЕНГШЩЗФЫВАПРОЛДЯЧСМИТЬ"
+            android:maxLength="1"
+            android:singleLine="true"
             android:hint="Последня буква"
             android:visibility="gone" />
 

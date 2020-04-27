@@ -3,16 +3,13 @@ package com.example.myapplication.Activities.Tasks;
 import android.content.Context;
 import android.os.Bundle;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+import com.example.myapplication.Instruments.ShowTost;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.myapplication.R;
 import com.rengwuxian.materialedittext.MaterialEditText;
@@ -66,37 +63,29 @@ public class Activity_task_13 extends AppCompatActivity {
 
         private boolean checkData(Context context) {
             if (countSymbol.getText().toString().isEmpty()) {
-                Toast toast = Toast.makeText(context,
-                        "Введите количество символов в пароле.", Toast.LENGTH_SHORT);
-                toast.show();
+                ShowTost.showTost(getApplicationContext(), "Введите количество символов в пароле.");
                 return true;
             }
 
-            if (countSymbolInPass.getText().toString().isEmpty()) {
-                Toast toast = Toast.makeText(context,
-                        "Введите количество используемых символов.", Toast.LENGTH_SHORT);
-                toast.show();
+            if (countSymbolInPass.getText().toString().isEmpty()) {;
+                ShowTost.showTost(getApplicationContext(), "Введите количество используемых символов.");
+
                 return true;
             }
 
             if (countUsers.getText().toString().isEmpty()) {
-                Toast toast = Toast.makeText(context,
-                        "Введите количество пользователей.", Toast.LENGTH_SHORT);
-                toast.show();
+                ShowTost.showTost(getApplicationContext(), "Введите количество пользователей.");
+
                 return true;
             }
 
             if (countAllByte.getText().toString().isEmpty()) {
-                Toast toast = Toast.makeText(context,
-                        "Введите количество байтов, которые потребовались для ВСЕХ пользователей. Если значение неизвестно, то напишите X.", Toast.LENGTH_SHORT);
-                toast.show();
+                ShowTost.showTost(getApplicationContext(), "Введите количество байтов, которые потребовались для ВСЕХ пользователей. Если значение неизвестно, то напишите X.");
                 return true;
             }
 
             if (addInf.getText().toString().isEmpty()) {
-                Toast toast = Toast.makeText(context,
-                        "Введите количетсво дополнительных сведений для одного пользователя. Если значение неизвестно, то напишите X.", Toast.LENGTH_SHORT);
-                toast.show();
+                ShowTost.showTost(getApplicationContext(), "Введите количетсво дополнительных сведений для одного пользователя. Если значение неизвестно, то напишите X.");
                 return true;
             }
             return false;

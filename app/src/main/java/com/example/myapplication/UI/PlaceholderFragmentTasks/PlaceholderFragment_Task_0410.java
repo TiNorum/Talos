@@ -22,6 +22,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.myapplication.Instruments.Constants;
+import com.example.myapplication.Instruments.ShowTost;
 import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageViewModel;
 import com.rengwuxian.materialedittext.MaterialEditText;
@@ -202,49 +203,31 @@ public class PlaceholderFragment_Task_0410 extends Fragment {
 
         private boolean checkData() {
             if (countRowFirst.getText().toString().isEmpty()) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Введите количество строк в первой таблице!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER, 0, 0);
-                toast.show();
+                ShowTost.showTost(getContext(), "Введите количество строк в первой таблице!");
                 return true;
             }
 
             if (countRowSecond.getText().toString().isEmpty()) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Введите количество строк во второй таблице!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER, 0, 0);
-                toast.show();
+                ShowTost.showTost(getContext(), "Введите количество строк во второй таблице!");
                 return true;
             }
 
             if (firstTableItem.isEmpty()) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Заполнице первую таблицу!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER, 0, 0);
-                toast.show();
+                ShowTost.showTost(getContext(), "Заполнице первую таблицу!");
                 return true;
             }
 
             if (secondTableItem.isEmpty()) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Заполните вторую таблицу!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER, 0, 0);
-                toast.show();
+                ShowTost.showTost(getContext(), "Заполните вторую таблицу!");
                 return true;
             }
             if (radioGroup.getCheckedRadioButtonId() == -1) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Выберите родственника!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER, 0, 0);
-                toast.show();
+                ShowTost.showTost(getContext(), "Выберите родственника!");
                 return true;
             }
 
             if (findName.getText().toString().isEmpty()) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Введите имя!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER, 0, 0);
-                toast.show();
+                ShowTost.showTost(getContext(), "Введите имя!");
                 return true;
             }
             return false;
