@@ -15,6 +15,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/task_input"
+            android:maxLength="2"
+            android:singleLine="true"
+            android:inputType="number"
             android:hint="Количество символов в пароле"
             app:met_floatingLabel="highlight" />
 
@@ -23,6 +26,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/task_input"
+            android:maxLength="2"
+            android:singleLine="true"
+            android:inputType="number"
             android:hint="Количество используемых символов"
             app:met_floatingLabel="highlight" />
 
@@ -32,6 +38,9 @@
             style="@style/task_input"
             android:layout_height="wrap_content"
             android:hint="Количество пользователей"
+            android:maxLength="2"
+            android:singleLine="true"
+            android:inputType="number"
             app:met_floatingLabel="highlight" />
 
         <com.rengwuxian.materialedittext.MaterialEditText
@@ -39,16 +48,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/task_input"
+            android:maxLength="10"
+            android:singleLine="true"
+            android:inputType="number"
             android:hint="Дополнительные сведения"
             app:met_floatingLabel="highlight" />
-
-
 
         <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/task1341_count_all_byte"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/task_input"
+            android:maxLength="10"
+            android:singleLine="true"
+            android:inputType="number"
             android:hint="Всего байт"
             app:met_floatingLabel="highlight" />
 
@@ -56,6 +69,7 @@
             android:id="@+id/task1341_text_answer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
+
         <Button
             android:id="@+id/task1341_btn_answer"
             android:layout_width="match_parent"

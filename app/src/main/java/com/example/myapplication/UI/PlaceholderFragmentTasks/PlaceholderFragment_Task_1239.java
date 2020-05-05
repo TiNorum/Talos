@@ -1,20 +1,19 @@
 package com.example.myapplication.UI.PlaceholderFragmentTasks;
 
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.myapplication.Instruments.Check_Input;
+import com.example.myapplication.Instruments.ShowTost;
 import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageViewModel;
 import com.rengwuxian.materialedittext.MaterialEditText;
@@ -102,53 +101,32 @@ public class PlaceholderFragment_Task_1239 extends Fragment {
 
         private boolean checkData() {
             if (IP.getText().toString().isEmpty()) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Введите IP!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER,0,0);
-
-                toast.show();
+                ShowTost.showTost(getContext(), "Введите IP!");
                 return true;
             }
 
-            if(Check_Input.Cheсk_IP(IP.getText().toString()))
-            {
-                Toast toast = Toast.makeText(getContext(),
-                        "Неправильный IP!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER,0,0);
-                toast.show();
+            if (Check_Input.Cheсk_IP(IP.getText().toString())) {
+                ShowTost.showTost(getContext(), "Неправильный IP!");
                 return true;
             }
             if (address.getText().toString().isEmpty()) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Введите адрес сети!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER,0,0);
 
-                toast.show();
+                ShowTost.showTost(getContext(), "Введите адрес сети!");
                 return true;
             }
-            if(Check_Input.Cheсk_IP(address.getText().toString()))
-            {
-                Toast toast = Toast.makeText(getContext(),
-                        "Неправильный адрес!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER,0,0);
-                toast.show();
+            if (Check_Input.Cheсk_IP(address.getText().toString())) {
+                ShowTost.showTost(getContext(), "Неправильный адрес!");
                 return true;
             }
 
             if (!firstByte.isChecked() && !secondByte.isChecked() && !thirdByte.isChecked() && !fourthByte.isChecked()) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Выберите байт маски!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER,0,0);
-                toast.show();
+                ShowTost.showTost(getContext(), "Выберите байт маски!");
                 return true;
             }
 
 
             if (!max.isChecked() && !min.isChecked()) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Выберите наибольший/наименьший байт!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER,0,0);
-                toast.show();
+                ShowTost.showTost(getContext(), "Выберите наибольший/наименьший байт!");
                 return true;
             }
 

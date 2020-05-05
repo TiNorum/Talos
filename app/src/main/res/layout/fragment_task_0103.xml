@@ -18,6 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="text"
+        android:maxLength="25"
         android:hint="Введите уравнение"
         app:met_floatingLabelText="Уравнение"
         style="@style/task_question" />

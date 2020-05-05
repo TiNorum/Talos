@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.myapplication.Instruments.ShowTost;
 import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageViewModel;
 import com.rengwuxian.materialedittext.MaterialEditText;
@@ -93,110 +94,87 @@ public class PlaceholderFragment_Task_0616 extends Fragment {
     }
 
 
-
     View.OnClickListener oclBtn = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-                    if (checkData()) return;
+            if (checkData()) return;
 
-                    String data = getData();
+            String data = getData();
 
-                    tAnswer.setVisibility(View.VISIBLE);
-                    tAnswer.setText(data);
+            tAnswer.setVisibility(View.VISIBLE);
+            tAnswer.setText(data);
         }
 
         private boolean checkData() {
             if (numbers.getText().toString().isEmpty()) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Введите цифры!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER,0,0);
-                toast.show();
+                ShowTost.showTost(getContext(), "Введите цифры!");
                 return true;
             }
 
             if (answernum.getText().toString().isEmpty()) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Введите число!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER,0,0);
-
-                toast.show();
+                ShowTost.showTost(getContext(), "Введите число!");
                 return true;
             }
 
             if (!addition.isChecked() && !multiplication.isChecked()) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Выберите умножение/сложение!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER,0,0);
-                toast.show();
+                ShowTost.showTost(getContext(), "Выберите умножение/сложение!");
                 return true;
             }
 
-            if  (!max.isChecked() && !min.isChecked()) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Выберите максимальное/минимально число!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER,0,0);
-                toast.show();
-                return true;
-            }
-            if  (!odd.isChecked() && !even.isChecked()) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Выберите чентное/нечетное!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER,0,0);
-                toast.show();
-                return true;
-            }
-            if  (!increase.isChecked() && !decrease.isChecked()) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Выберите убывание/возрастание!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER,0,0);
-                toast.show();
-                return true;
-            }
-            if  (!someNums.isChecked() && !oneNum.isChecked()) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Выберите количесвто чисел!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER,0,0);
-                toast.show();
+            if (!max.isChecked() && !min.isChecked()) {
+                ShowTost.showTost(getContext(), "Выберите максимальное/минимально число!");
                 return true;
             }
 
+            if (!odd.isChecked() && !even.isChecked()) {
+                ShowTost.showTost(getContext(), "Выберите чентное/нечетное!");
+                return true;
+            }
 
+            if (!increase.isChecked() && !decrease.isChecked()) {
+                ShowTost.showTost(getContext(), "Выберите убывание/возрастание!");
+                return true;
+            }
 
+            if (!someNums.isChecked() && !oneNum.isChecked()) {
+                ShowTost.showTost(getContext(), "Выберите количесвто чисел!");
+                return true;
+            }
 
             return false;
         }
 
-        private String getData () {
+        private String getData() {
             String data = "100" + "\n\r" + "16" + "\n\r";
 
-            if(multiplication.isChecked())
-                data+= '0' + "\n\r";
+            if (multiplication.isChecked())
+                data += '0' + "\n\r";
             else
-                data+= '1' + "\n\r";
+                data += '1' + "\n\r";
 
             data += numbers.getText().toString() + "\n\r";
             data += answernum.getText().toString() + "\n\r";
 
 
-            if(multiplication.isChecked())
-                data+= '0' + "\n\r";
+            if (multiplication.isChecked())
+                data += '0' + "\n\r";
             else
-                data+= '1' + "\n\r";
+                data += '1' + "\n\r";
 
-            if(min.isChecked())
-                data+= '0' + "\n\r";
+            if (min.isChecked())
+                data += '0' + "\n\r";
             else
-                data+= '1' + "\n\r";
+                data += '1' + "\n\r";
 
-            if(decrease.isChecked())
-                data+= '0' + "\n\r";
+            if (decrease.isChecked())
+                data += '0' + "\n\r";
             else
-                data+= '1' + "\n\r";
+                data += '1' + "\n\r";
 
-            if(even.isChecked())
-                data+= '0';
+            if (even.isChecked())
+                data += '0';
             else
-                data+= '1';
+                data += '1';
 
             return data;
         }

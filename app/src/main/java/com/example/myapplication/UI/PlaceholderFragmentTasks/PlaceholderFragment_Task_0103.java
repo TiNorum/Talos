@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.myapplication.Instruments.Check_Input;
+import com.example.myapplication.Instruments.ShowTost;
 import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageViewModel;
 import com.rengwuxian.materialedittext.MaterialEditText;
@@ -84,18 +85,12 @@ public class PlaceholderFragment_Task_0103 extends Fragment {
 
         private boolean checkData() {
             if (equation.getText().toString().isEmpty()) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Введите уравнение!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER,0,0);
-                toast.show();
+                ShowTost.showTost(getContext(), "Введите уравнение!");
                 return true;
             }
 
             if (!Check_Input.Check_Equation_Number2(equation.getText().toString())) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Проверьте уравнение!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER,0,0);
-                toast.show();
+                ShowTost.showTost(getContext(), "Проверьте уравнение!");
                 return true;
             }
 

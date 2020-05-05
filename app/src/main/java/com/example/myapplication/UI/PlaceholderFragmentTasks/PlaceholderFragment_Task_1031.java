@@ -1,26 +1,20 @@
 package com.example.myapplication.UI.PlaceholderFragmentTasks;
 
-import android.content.Context;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.InputFilter;
-import android.text.TextWatcher;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.myapplication.Instruments.Constants;
+import com.example.myapplication.Instruments.ShowTost;
 import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageViewModel;
 import com.rengwuxian.materialedittext.MaterialEditText;
@@ -142,38 +136,27 @@ public class PlaceholderFragment_Task_1031 extends Fragment {
 
         private boolean checkData() {
             if (countSymbolInWord.getText().toString().isEmpty()) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Введите количество символов!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER,0,0);
-                toast.show();
+                ShowTost.showTost(getContext(),"Введите количество символов!");
                 return true;
             }
 
             if (symbols.getText().toString().isEmpty()) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Введите символы!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER,0,0);
-                toast.show();
+                ShowTost.showTost(getContext(),"Введите символы!");
                 return true;
             }
 
             if (spinnerFirstChar.getSelectedItemId() == 3 && text1.getText().toString().isEmpty()) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Введите букву с которой начинается слово!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER,0,0);
-                toast.show();
+                ShowTost.showTost(getContext(),"Введите букву с которой начинается слово!");
                 return true;
             }
 
             if (spinnerEndChar.getSelectedItemId() == 3 && text2.getText().toString().isEmpty()) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Введите букву с которой заканчивается слово!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER,0,0);
-                toast.show();
+                ShowTost.showTost(getContext(),"Введите букву с которой заканчивается слово!");
                 return true;
             }
             return false;
         }
+
 
 
         private String getData() {

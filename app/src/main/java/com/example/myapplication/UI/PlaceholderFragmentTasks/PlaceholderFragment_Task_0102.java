@@ -18,6 +18,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.myapplication.Instruments.ShowTost;
 import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageViewModel;
 import com.rengwuxian.materialedittext.MaterialEditText;
@@ -114,26 +115,25 @@ public class PlaceholderFragment_Task_0102 extends Fragment {
 
         private boolean checkData() {
             if (number.getText().toString().isEmpty()) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Введите число!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER,0,0);
-                toast.show();
+                ShowTost.showTost(getContext(), "Введите число!");
                 return true;
             }
 
             if (cc.getText().toString().isEmpty()) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Введите систему счисления!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER,0,0);
-                toast.show();
+                ShowTost.showTost(getContext(), "Введите систему счисления!");
+                return true;
+            }
+
+            int c = Integer.parseInt(cc.getText().toString());
+
+            if(!(c>1 && c<=16))
+            {
+                ShowTost.showTost(getContext(), "Введите систему счисления (2-10 и 16)");
                 return true;
             }
 
             if (!(zero.isChecked() || one.isChecked())) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Выберите что нужно найти единицы/нули!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER,0,0);
-                toast.show();
+                ShowTost.showTost(getContext(), "Выберите что нужно найти единицы/нули!");
                 return true;
             }
 

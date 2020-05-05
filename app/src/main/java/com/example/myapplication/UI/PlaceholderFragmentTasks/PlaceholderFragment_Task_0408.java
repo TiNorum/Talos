@@ -20,6 +20,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.myapplication.Instruments.Constants;
+import com.example.myapplication.Instruments.ShowTost;
 import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageViewModel;
 import com.rengwuxian.materialedittext.MaterialEditText;
@@ -196,47 +197,29 @@ public class PlaceholderFragment_Task_0408 extends Fragment {
 
         private boolean checkData() {
             if (countFile.getText().toString().isEmpty()) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Введите количество символов!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER, 0, 0);
-                toast.show();
+                ShowTost.showTost(getContext(), "Введите количество символов!");
                 return true;
             }
 
             if (countFileInGroup.getText().toString().isEmpty()) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Введите количество букв в слове!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER, 0, 0);
-                toast.show();
+                ShowTost.showTost(getContext(), "Введите количество букв в слове!");
                 return true;
             }
             if (countMask.getText().toString().isEmpty()) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Введите количество масок!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER, 0, 0);
-                toast.show();
+                ShowTost.showTost(getContext(), "Введите количество масок!");
                 return true;
             }
             if (files.isEmpty()) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Введите назвайния файлов!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER, 0, 0);
-                toast.show();
+                ShowTost.showTost(getContext(), "Введите назвайния файлов!");
                 return true;
             }
 
             if (groupfile.isEmpty()) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Введите группу файлов!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER, 0, 0);
-                toast.show();
+                ShowTost.showTost(getContext(), "Введите группу файлов!");
                 return true;
             }
             if (masks.isEmpty()) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Введите маски!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER, 0, 0);
-                toast.show();
+                ShowTost.showTost(getContext(), "Введите маски!");
                 return true;
             }
             return false;
