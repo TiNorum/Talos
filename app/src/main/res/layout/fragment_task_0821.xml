@@ -12,7 +12,7 @@
 
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="left"
         android:orientation="vertical">
@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:text="Введите код Python:" />
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="left"
             android:orientation="horizontal">
@@ -36,11 +36,12 @@
                 android:gravity="start"
                 android:hint="Ввидите код"
                 android:inputType="textMultiLine|textNoSuggestions"
-                android:maxLength="200"
                 android:lines="12"
+                android:maxLength="200"
                 android:maxLines="20"
                 app:met_floatingLabel="highlight"
                 app:met_floatingLabelText="Ввидите код" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

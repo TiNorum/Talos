@@ -57,6 +57,14 @@ public class PlaceholderFragment_Task_1442 extends Fragment {
     private Button btnAnswer;
     private TextView tAnswer;
     private EditText number;
+    private EditText number1;
+    private EditText number2;
+    private EditText number3;
+    private EditText number4;
+    private EditText number5;
+    private EditText number6;
+    private EditText number7;
+    private EditText number8;
     private EditText quantity;
 
     @Override
@@ -70,8 +78,15 @@ public class PlaceholderFragment_Task_1442 extends Fragment {
         btnAnswer.setOnClickListener(oclBtn);
 
         number = root.findViewById(R.id.task1442_edittext_number);
+        number1 = root.findViewById(R.id.task1442_edittext_number1);
+        number2 = root.findViewById(R.id.task1442_edittext_number2);
+        number3 = root.findViewById(R.id.task1442_edittext_number3);
+        number4 = root.findViewById(R.id.task1442_edittext_number4);
+        number5 = root.findViewById(R.id.task1442_edittext_number5);
+        number6 = root.findViewById(R.id.task1442_edittext_number6);
+        number7 = root.findViewById(R.id.task1442_edittext_number7);
+        number8 = root.findViewById(R.id.task1442_edittext_number8);
         quantity = root.findViewById(R.id.task1442_edittext_quantity);
-
 
         tAnswer = root.findViewById(R.id.task1442_textview_answer);
         return root;
@@ -99,10 +114,17 @@ public class PlaceholderFragment_Task_1442 extends Fragment {
             String data = "100" + Constants.NEXT_LINE + "42" + Constants.NEXT_LINE;
             data += number.getText().toString() + Constants.NEXT_LINE;
             data += quantity.getText().toString() + Constants.NEXT_LINE;
+            data += number1.getText().toString() + Constants.NEXT_LINE;
+            data += number2.getText().toString() + Constants.NEXT_LINE;
+            data += number3.getText().toString() + Constants.NEXT_LINE;
+            data += number4.getText().toString() + Constants.NEXT_LINE;
+            data += number5.getText().toString() + Constants.NEXT_LINE;
+            data += number6.getText().toString() + Constants.NEXT_LINE;
+            data += number7.getText().toString() + Constants.NEXT_LINE;
+            data += number8.getText().toString();
 
             return data;
         }
-
         private boolean checkData() {
             if (number.getText().toString().isEmpty()) {
                 Toast toast = Toast.makeText(getContext(),
@@ -114,6 +136,15 @@ public class PlaceholderFragment_Task_1442 extends Fragment {
             if (quantity.getText().toString().isEmpty()) {
                 Toast toast = Toast.makeText(getContext(),
                         "Введите количество этих цифр!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
+                toast.show();
+                return true;
+            }
+            if (number1.getText().toString().isEmpty() || number2.getText().toString().isEmpty()||number3.getText().toString().isEmpty() ||
+                    number4.getText().toString().isEmpty() || number5.getText().toString().isEmpty()||number6.getText().toString().isEmpty() ||
+                    number7.getText().toString().isEmpty() || number8.getText().toString().isEmpty()) {
+                Toast toast = Toast.makeText(getContext(),
+                        "Заполните все параметры!", Toast.LENGTH_SHORT);
                 toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
                 return true;
