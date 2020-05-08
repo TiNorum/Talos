@@ -2,11 +2,17 @@ package com.example.myapplication.UI.PlaceholderFragmentTasks;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.Html;
+import android.text.Spannable;
 import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
 import android.text.Spanned;
+import android.text.TextWatcher;
 import android.text.style.ForegroundColorSpan;
+import android.text.style.TextAppearanceSpan;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +31,8 @@ import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageViewModel;
 
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -53,6 +61,8 @@ public class PlaceholderFragment_Task_0821 extends Fragment {
             index = getArguments().getInt(ARG_SECTION_NUMBER);
         }
         pageViewModel.setIndex(index);
+        String dispStr = "I'm the first line\nI'm the second line";
+
     }
 
     private Button btnAnswer;
@@ -65,6 +75,9 @@ public class PlaceholderFragment_Task_0821 extends Fragment {
     private TextView tAnswer;
     private EditText kod;
 
+    private static String strr = "";
+    private  static int Cursor = 0;
+    private boolean flagButton= false;
     @Override
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,
@@ -93,94 +106,111 @@ public class PlaceholderFragment_Task_0821 extends Fragment {
         btnInput = root.findViewById(R.id.task0821_btn_input);
         btnInput.setOnClickListener(oclBtnInput);
 
-        kod = root.findViewById(R.id.task0821_edittext_code);;
+        kod = root.findViewById(R.id.task0821_edittext_code);
+
+        kod.addTextChangedListener(new TextWatcher(){
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                try {
+                    String tmp = kod.getText().toString();
+
+                    if (!strr.equals(tmp)) {
+                        strr = tmp;
+                        String stroka = Check_Input.ColorEditTask8(tmp);
+                        if ( !flagButton) //   false false
+                            Cursor = kod.getSelectionStart();
+                        flagButton = false;
+                        kod.setText(Html.fromHtml(stroka));
+                    }
+
+                    kod.setSelection(Cursor);
+                }
+                catch (Exception e)
+                {
+                    System.out.println(e.getMessage());
+                    Cursor = kod.getText().length();
+                    kod.setSelection(Cursor);
+                }
+            }
+        });
         tAnswer = root.findViewById(R.id.task0821_textview_answer);
+
         return root;
     }
-    public static String ColorEdit(String str)
-    {
-        // str = "while(n<5)\nif 8 >8\nelse print(\"kek\")\nwhile(true)";
-        String html = "";
-        String strTmp =str;
-        int index;
-        ArrayList<Integer> indexMas = new ArrayList<>();
-        int i = 0,count;
 
-        str = str.replace("\n","<br>");
-        str = str.replace("elif","<font color='#0088FE'>elif</font>");
-        str = str.replace("while","<font color='#FFA600'>while</font>");
-        str = str.replace("if","<font color='#0088FE'>if</font>");
-
-        str = str.replace("else","<font color='#0088FE'>else</font>");
-        str = str.replace("int(input","<font color='#71FF00'>int(input</font>");
-        str = str.replace("print","<font color='#71FF00'>print</font>");
-        return str;
-    }
 
     View.OnClickListener oclBtnWhile = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            int curPos = kod.getSelectionStart();
-            String str  = kod.getText().toString().substring(0,curPos) + "while()";
-            str =kod.getText() + str.substring(curPos,str.length());
-            String stroka = ColorEdit(str);
-            kod.setText(Html.fromHtml(stroka));
-            kod.setSelection(curPos + 6);
+        flagButton = true;
+        String tmp = kod.getText().toString();
+        String str = tmp.substring(0,Cursor) + "while :";
+        str += tmp.substring(Cursor,tmp.length());
+        Cursor +=6;
+        kod.setText(str);
         }
     };
     View.OnClickListener oclBtnIf = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            int curPos = kod.getSelectionStart();
-            String str  = kod.getText().toString().substring(0,curPos) + "if";
-            str =kod.getText() + str.substring(curPos,str.length());
-            String stroka = ColorEdit(str);
-            kod.setText(Html.fromHtml(stroka));
-            kod.setSelection(curPos + 2);
+            flagButton = true;
+            String tmp = kod.getText().toString();
+            String str = tmp.substring(0,Cursor) + "if :";
+            str += tmp.substring(Cursor,tmp.length());
+            Cursor +=3;
+            kod.setText(str);
         }
     };
     View.OnClickListener oclBtnIfElse = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            int curPos = kod.getSelectionStart();
-            String str  = kod.getText().toString().substring(0,curPos) + "elif";
-            str =kod.getText() + str.substring(curPos,str.length());
-            String stroka = ColorEdit(str);
-            kod.setText(Html.fromHtml(stroka));
-            kod.setSelection(curPos + 4);
+            flagButton = true;
+            String tmp = kod.getText().toString();
+            String str = tmp.substring(0,Cursor) + "elif :";
+            str += tmp.substring(Cursor,tmp.length());
+            Cursor +=5;
+            kod.setText(str);
         }
     };
     View.OnClickListener oclBtnElse = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            int curPos = kod.getSelectionStart();
-            String str  = kod.getText().toString().substring(0,curPos) + "else";
-            str =kod.getText() + str.substring(curPos,str.length());
-            String stroka = ColorEdit(str);
-            kod.setText(Html.fromHtml(stroka));
-            kod.setSelection(curPos + 4);
+            flagButton = true;
+            String tmp = kod.getText().toString();
+            String str = tmp.substring(0,Cursor) + "else :";
+            str += tmp.substring(Cursor,tmp.length());
+            Cursor +=5;
+            kod.setText(str);
         }
     };
     View.OnClickListener oclBtnPrint = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            int curPos = kod.getSelectionStart();
-            String str  = kod.getText().toString().substring(0,curPos) + "print()";
-            str =kod.getText() + str.substring(curPos,str.length());
-            String stroka = ColorEdit(str);
-            kod.setText(Html.fromHtml(stroka));
-            kod.setSelection(curPos + 6);
+            flagButton = true;
+            String tmp = kod.getText().toString();
+            String str = tmp.substring(0,Cursor) + "print()";
+            str += tmp.substring(Cursor,tmp.length());
+            Cursor +=6;
+            kod.setText(str);
         }
     };
     View.OnClickListener oclBtnInput = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            int curPos = kod.getSelectionStart();
-            String str  = kod.getText().toString().substring(0,curPos) + "int(input())";
-            str =kod.getText() + str.substring(curPos,str.length());
-            String stroka = ColorEdit(str);
-            kod.setText(Html.fromHtml(stroka));
-            kod.setSelection(curPos + 10);
+            flagButton = true;
+            String tmp = kod.getText().toString();
+            String str = tmp.substring(0,Cursor) + "int(input())";
+            str += tmp.substring(Cursor,tmp.length());
+            Cursor +=10;
+            kod.setText(str);
         }
     };
     View.OnClickListener oclBtn = new View.OnClickListener() {

@@ -1,12 +1,19 @@
 package com.example.myapplication.UI.PlaceholderFragmentTasks;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
+import android.text.method.DigitsKeyListener;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,11 +21,22 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.myapplication.Activities.Activity_Main;
 import com.example.myapplication.Instruments.Constants;
-import com.example.myapplication.Instruments.ShowToast;
+import com.example.myapplication.Instruments.ShowTost;
 import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageViewModel;
+import com.example.myapplication.UI.auth.SignIn;
 import com.rengwuxian.materialedittext.MaterialEditText;
+
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.InputStreamReader;
+import java.net.Socket;
+
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Single;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -109,7 +127,7 @@ public class PlaceholderFragment_Task_0101 extends Fragment {
     View.OnClickListener oclBtn = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-
+            final String LOG_TAG = "SOCKET";
 
             if (checkData()) return;
 
@@ -121,7 +139,70 @@ public class PlaceholderFragment_Task_0101 extends Fragment {
             //отправка на сервер
             //*****************
             //*****************
-            ///////////////////
+            Single.fromCallable(() -> {
+                try {
+                    Log.d(LOG_TAG, "Установка соединения");
+                    Socket mSocket = new Socket(Constants.HOST, Constants.PORT);
+                    Log.d(LOG_TAG, "Соединение установленно");
+                    if (mSocket.isClosed()) {
+                        throw new Exception("Ошибка отправки данных. " +
+                                "Сокет не создан или закрыт ");
+                    }
+
+                    BufferedReader inFromServer =
+                            new BufferedReader(new InputStreamReader(mSocket.getInputStream()));
+                    DataOutputStream outToServer =
+                            new DataOutputStream(mSocket.getOutputStream());
+
+                    String data = getData();
+
+                    Log.d(LOG_TAG, "Идет отправка сообщения на сервер...");
+                    try {
+                        outToServer.writeBytes(data);
+                        outToServer.flush();
+                        Log.d(LOG_TAG, "Отправлено сообщение на сервер" + data);
+                    } catch (Exception e) {
+                        throw e;
+                    }
+
+                    String answer = "";
+
+                    try {
+                        answer = inFromServer.readLine();
+                        Log.d(LOG_TAG, answer + "сообщение с сервера");
+
+                    } catch (Exception e) {
+                        throw e;
+                    }
+
+                    mSocket.close();
+
+                    if (answer.isEmpty())
+                        throw new Exception("Ошибка получения данных. ");
+
+                    return answer;
+                } catch (Exception ex) {
+                    throw ex;
+                }
+
+            })
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(text ->
+                            {
+                                //if (text.equals("103")) {
+
+                                //}
+                                //else{
+                                tAnswer.setText(text);
+                                tAnswer.setVisibility(View.VISIBLE);
+                                //}
+                            },
+                            e -> {
+                                Log.e(LOG_TAG, e.getMessage());
+                                return;
+
+                            });
 
 
             tAnswer.setVisibility(View.VISIBLE);
@@ -164,35 +245,35 @@ public class PlaceholderFragment_Task_0101 extends Fragment {
 
         private boolean checkData() {
             if (countZero.getText().toString().isEmpty() && zero.isChecked()) {
-                ShowToast.showToast(getContext(), "Введите количество нулей!");
+                ShowTost.showTost(getContext(), "Введите количество нулей!");
                 return true;
             }
 
             if (countOne.getText().toString().isEmpty() && one.isChecked()) {
-                ShowToast.showToast(getContext(), "Введите количество единиц!");
+                ShowTost.showTost(getContext(), "Введите количество единиц!");
                 return true;
             }
 
 
             if (cc.getText().toString().isEmpty()) {
-                ShowToast.showToast(getContext(), "Введите систему счисления!");
+                ShowTost.showTost(getContext(), "Введите систему счисления!");
                 return true;
             }
             int c = Integer.parseInt(cc.getText().toString());
             if(!(c>1 && c<11 || c==16))
             {
-                ShowToast.showToast(getContext(), "Введите систему счисления (2-10 и 16)");
+                ShowTost.showTost(getContext(), "Введите систему счисления (2-10 и 16)");
                 return true;
             }
 
 
             if (!(zero.isChecked() || one.isChecked())) {
-                ShowToast.showToast(getContext(), "Выберите что содержит двоичная запись числа!");
+                ShowTost.showTost(getContext(), "Выберите что содержит двоичная запись числа!");
                 return true;
             }
 
             if (!(max.isChecked() || min.isChecked())) {
-                ShowToast.showToast(getContext(), "Выберите максимальное/минимальное число!");
+                ShowTost.showTost(getContext(), "Выберите максимальное/минимальное число!");
                 return true;
             }
 
