@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.TextWatcher;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,14 +12,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.myapplication.Instruments.Constants;
-import com.example.myapplication.Instruments.ShowTost;
+import com.example.myapplication.Instruments.ShowToast;
 import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageViewModel;
 import com.rengwuxian.materialedittext.MaterialEditText;
@@ -164,22 +162,22 @@ public class PlaceholderFragment_Task_0409 extends Fragment {
 
         private boolean checkData() {
             if (countFile.getText().toString().isEmpty()) {
-                ShowTost.showTost(getContext(), "Введите количество символов!");
+                ShowToast.showToast(getContext(), "Введите количество символов!");
                 return true;
             }
 
             if (countMask.getText().toString().isEmpty()) {
-                ShowTost.showTost(getContext(), "Введите количество масок!");
+                ShowToast.showToast(getContext(), "Введите количество масок!");
                 return true;
             }
 
             if (files.isEmpty()) {
-                ShowTost.showTost(getContext(), "Введите назвайния файлов!");
+                ShowToast.showToast(getContext(), "Введите назвайния файлов!");
                 return true;
             }
 
             if (masks.isEmpty()) {
-                ShowTost.showTost(getContext(), "Введите маски!");
+                ShowToast.showToast(getContext(), "Введите маски!");
                 return true;
             }
             return false;

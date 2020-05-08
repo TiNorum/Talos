@@ -1,16 +1,11 @@
 package com.example.myapplication.UI.PlaceholderFragmentTasks;
 
 import android.os.Bundle;
-import android.text.InputType;
-import android.text.method.DigitsKeyListener;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,7 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.example.myapplication.Instruments.ShowTost;
+import com.example.myapplication.Instruments.ShowToast;
 import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageViewModel;
 import com.rengwuxian.materialedittext.MaterialEditText;
@@ -115,12 +110,12 @@ public class PlaceholderFragment_Task_0102 extends Fragment {
 
         private boolean checkData() {
             if (number.getText().toString().isEmpty()) {
-                ShowTost.showTost(getContext(), "Введите число!");
+                ShowToast.showToast(getContext(), "Введите число!");
                 return true;
             }
 
             if (cc.getText().toString().isEmpty()) {
-                ShowTost.showTost(getContext(), "Введите систему счисления!");
+                ShowToast.showToast(getContext(), "Введите систему счисления!");
                 return true;
             }
 
@@ -128,12 +123,12 @@ public class PlaceholderFragment_Task_0102 extends Fragment {
 
             if(!(c>1 && c<=16))
             {
-                ShowTost.showTost(getContext(), "Введите систему счисления (2-10 и 16)");
+                ShowToast.showToast(getContext(), "Введите систему счисления (2-10 и 16)");
                 return true;
             }
 
             if (!(zero.isChecked() || one.isChecked())) {
-                ShowTost.showTost(getContext(), "Выберите что нужно найти единицы/нули!");
+                ShowToast.showToast(getContext(), "Выберите что нужно найти единицы/нули!");
                 return true;
             }
 

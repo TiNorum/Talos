@@ -13,7 +13,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.myapplication.Instruments.Check_Input;
-import com.example.myapplication.Instruments.ShowTost;
+import com.example.myapplication.Instruments.ShowToast;
 import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageViewModel;
 import com.rengwuxian.materialedittext.MaterialEditText;
@@ -101,23 +101,23 @@ public class PlaceholderFragment_Task_1238 extends Fragment {
 
         private boolean checkData() {
             if (firstIP.getText().toString().isEmpty()) {
-                ShowTost.showTost(getContext(), "Введите IP!");
+                ShowToast.showToast(getContext(), "Введите IP!");
                 return true;
             }
 
             if (Check_Input.Cheсk_IP(firstIP.getText().toString())) {
-                ShowTost.showTost(getContext(), "Неправильный IP!");
+                ShowToast.showToast(getContext(), "Неправильный IP!");
 
                 return true;
             }
 
             if (secondIP.getText().toString().isEmpty()) {
-                ShowTost.showTost(getContext(), "Введите IP!");
+                ShowToast.showToast(getContext(), "Введите IP!");
                 return true;
             }
 
             if (Check_Input.Cheсk_IP(secondIP.getText().toString())) {
-                ShowTost.showTost(getContext(), "Неправильный IP!");
+                ShowToast.showToast(getContext(), "Неправильный IP!");
 
 
                 return true;
@@ -125,14 +125,14 @@ public class PlaceholderFragment_Task_1238 extends Fragment {
 
 
             if (!firstByte.isChecked() && !secondByte.isChecked() && !thirdByte.isChecked() && !fourthByte.isChecked()) {
-                ShowTost.showTost(getContext(), "Выберите байт маски!");
+                ShowToast.showToast(getContext(), "Выберите байт маски!");
 
                 return true;
             }
 
 
             if (!max.isChecked() && !min.isChecked()) {
-                ShowTost.showTost(getContext(), "Выберите наибольший/наименьший байт!");
+                ShowToast.showToast(getContext(), "Выберите наибольший/наименьший байт!");
                 return true;
             }
 

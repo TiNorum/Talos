@@ -3,7 +3,7 @@ package com.example.myapplication.Activities.Tasks;
 import android.content.Context;
 import android.os.Bundle;
 
-import com.example.myapplication.Instruments.ShowTost;
+import com.example.myapplication.Instruments.ShowToast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -63,29 +63,29 @@ public class Activity_task_13 extends AppCompatActivity {
 
         private boolean checkData(Context context) {
             if (countSymbol.getText().toString().isEmpty()) {
-                ShowTost.showTost(getApplicationContext(), "Введите количество символов в пароле.");
+                ShowToast.showToast(getApplicationContext(), "Введите количество символов в пароле.");
                 return true;
             }
 
             if (countSymbolInPass.getText().toString().isEmpty()) {;
-                ShowTost.showTost(getApplicationContext(), "Введите количество используемых символов.");
+                ShowToast.showToast(getApplicationContext(), "Введите количество используемых символов.");
 
                 return true;
             }
 
             if (countUsers.getText().toString().isEmpty()) {
-                ShowTost.showTost(getApplicationContext(), "Введите количество пользователей.");
+                ShowToast.showToast(getApplicationContext(), "Введите количество пользователей.");
 
                 return true;
             }
 
             if (countAllByte.getText().toString().isEmpty()) {
-                ShowTost.showTost(getApplicationContext(), "Введите количество байтов, которые потребовались для ВСЕХ пользователей. Если значение неизвестно, то напишите X.");
+                ShowToast.showToast(getApplicationContext(), "Введите количество байтов, которые потребовались для ВСЕХ пользователей. Если значение неизвестно, то напишите X.");
                 return true;
             }
 
             if (addInf.getText().toString().isEmpty()) {
-                ShowTost.showTost(getApplicationContext(), "Введите количетсво дополнительных сведений для одного пользователя. Если значение неизвестно, то напишите X.");
+                ShowToast.showToast(getApplicationContext(), "Введите количетсво дополнительных сведений для одного пользователя. Если значение неизвестно, то напишите X.");
                 return true;
             }
             return false;

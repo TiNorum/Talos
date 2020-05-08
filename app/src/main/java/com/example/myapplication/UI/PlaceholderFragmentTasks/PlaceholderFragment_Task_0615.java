@@ -1,20 +1,18 @@
 package com.example.myapplication.UI.PlaceholderFragmentTasks;
 
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.example.myapplication.Instruments.ShowTost;
+import com.example.myapplication.Instruments.ShowToast;
 import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageViewModel;
 
@@ -84,12 +82,12 @@ public class PlaceholderFragment_Task_0615 extends Fragment {
 
         private boolean checkData() {
             if (num1.getText().toString().isEmpty()) {
-                ShowTost.showTost(getContext(), "Укажите такое наименьшее число (N или R)");
+                ShowToast.showToast(getContext(), "Укажите такое наименьшее число (N или R)");
                 return true;
             }
 
             if (num2.getText().toString().isEmpty()) {
-                ShowTost.showTost(getContext(), "Укажите число в ответе!");
+                ShowToast.showToast(getContext(), "Укажите число в ответе!");
                 return true;
             }
 

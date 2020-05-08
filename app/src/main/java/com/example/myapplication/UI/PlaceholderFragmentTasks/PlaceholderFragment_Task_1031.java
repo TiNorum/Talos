@@ -14,7 +14,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.myapplication.Instruments.Constants;
-import com.example.myapplication.Instruments.ShowTost;
+import com.example.myapplication.Instruments.ShowToast;
 import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageViewModel;
 import com.rengwuxian.materialedittext.MaterialEditText;
@@ -136,22 +136,22 @@ public class PlaceholderFragment_Task_1031 extends Fragment {
 
         private boolean checkData() {
             if (countSymbolInWord.getText().toString().isEmpty()) {
-                ShowTost.showTost(getContext(),"Введите количество символов!");
+                ShowToast.showToast(getContext(),"Введите количество символов!");
                 return true;
             }
 
             if (symbols.getText().toString().isEmpty()) {
-                ShowTost.showTost(getContext(),"Введите символы!");
+                ShowToast.showToast(getContext(),"Введите символы!");
                 return true;
             }
 
             if (spinnerFirstChar.getSelectedItemId() == 3 && text1.getText().toString().isEmpty()) {
-                ShowTost.showTost(getContext(),"Введите букву с которой начинается слово!");
+                ShowToast.showToast(getContext(),"Введите букву с которой начинается слово!");
                 return true;
             }
 
             if (spinnerEndChar.getSelectedItemId() == 3 && text2.getText().toString().isEmpty()) {
-                ShowTost.showTost(getContext(),"Введите букву с которой заканчивается слово!");
+                ShowToast.showToast(getContext(),"Введите букву с которой заканчивается слово!");
                 return true;
             }
             return false;

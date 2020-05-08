@@ -2,10 +2,8 @@ package com.example.myapplication.UI.PlaceholderFragmentTasks;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.renderscript.ScriptGroup;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,14 +13,13 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.myapplication.Instruments.Constants;
-import com.example.myapplication.Instruments.ShowTost;
+import com.example.myapplication.Instruments.ShowToast;
 import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageViewModel;
 import com.rengwuxian.materialedittext.MaterialEditText;
@@ -203,31 +200,31 @@ public class PlaceholderFragment_Task_0410 extends Fragment {
 
         private boolean checkData() {
             if (countRowFirst.getText().toString().isEmpty()) {
-                ShowTost.showTost(getContext(), "Введите количество строк в первой таблице!");
+                ShowToast.showToast(getContext(), "Введите количество строк в первой таблице!");
                 return true;
             }
 
             if (countRowSecond.getText().toString().isEmpty()) {
-                ShowTost.showTost(getContext(), "Введите количество строк во второй таблице!");
+                ShowToast.showToast(getContext(), "Введите количество строк во второй таблице!");
                 return true;
             }
 
             if (firstTableItem.isEmpty()) {
-                ShowTost.showTost(getContext(), "Заполнице первую таблицу!");
+                ShowToast.showToast(getContext(), "Заполнице первую таблицу!");
                 return true;
             }
 
             if (secondTableItem.isEmpty()) {
-                ShowTost.showTost(getContext(), "Заполните вторую таблицу!");
+                ShowToast.showToast(getContext(), "Заполните вторую таблицу!");
                 return true;
             }
             if (radioGroup.getCheckedRadioButtonId() == -1) {
-                ShowTost.showTost(getContext(), "Выберите родственника!");
+                ShowToast.showToast(getContext(), "Выберите родственника!");
                 return true;
             }
 
             if (findName.getText().toString().isEmpty()) {
-                ShowTost.showTost(getContext(), "Введите имя!");
+                ShowToast.showToast(getContext(), "Введите имя!");
                 return true;
             }
             return false;

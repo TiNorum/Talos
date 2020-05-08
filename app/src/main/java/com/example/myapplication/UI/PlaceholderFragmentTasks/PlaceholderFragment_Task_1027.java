@@ -20,7 +20,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.myapplication.Instruments.Constants;
-import com.example.myapplication.Instruments.ShowTost;
+import com.example.myapplication.Instruments.ShowToast;
 import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageViewModel;
 import com.rengwuxian.materialedittext.MaterialEditText;
@@ -211,34 +211,34 @@ public class PlaceholderFragment_Task_1027 extends Fragment {
 
         private boolean checkData() {
             if (countSymbol.getText().toString().isEmpty()) {
-                ShowTost.showTost(getContext(),"Введите количество символов!");
+                ShowToast.showToast(getContext(),"Введите количество символов!");
                 return true;
             }
 
             if (countSymbolInWord.getText().toString().isEmpty()) {
-                ShowTost.showTost(getContext(),"Введите количество букв в слове!");
+                ShowToast.showToast(getContext(),"Введите количество букв в слове!");
                 return true;
             }
             if (l.isEmpty()) {
-                ShowTost.showTost(getContext(),"Введите слова!");
+                ShowToast.showToast(getContext(),"Введите слова!");
 
                 return true;
             }
 
             if (spinner.getSelectedItemId() == 0) {
                 if (text1.getText().toString().isEmpty()) {
-                    ShowTost.showTost(getContext(),"Введите первое слово!");
+                    ShowToast.showToast(getContext(),"Введите первое слово!");
                     return true;
                 }
 
                 if (text2.getText().toString().isEmpty()) {
-                    ShowTost.showTost(getContext(),"Введите второе слово!");
+                    ShowToast.showToast(getContext(),"Введите второе слово!");
 
                     return true;
                 }
             } else {
                 if (text1.getText().toString().isEmpty()) {
-                    ShowTost.showTost(getContext(),"Введите искомое слово!");
+                    ShowToast.showToast(getContext(),"Введите искомое слово!");
                     return true;
                 }
             }
