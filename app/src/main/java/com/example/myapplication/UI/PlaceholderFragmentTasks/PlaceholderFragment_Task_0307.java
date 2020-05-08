@@ -60,6 +60,8 @@ public class PlaceholderFragment_Task_0307 extends Fragment {
 
     MaterialEditText countRoads;
     private Table table;
+    private MaterialEditText end_point;
+    private MaterialEditText start_point;
     private Button bAnswer;
     private TextView tAnswer;
     CanvasView canvasView;
@@ -74,6 +76,9 @@ public class PlaceholderFragment_Task_0307 extends Fragment {
         root = inflater.inflate(R.layout.fragment_task_0307, container, false);
 
         table = new Table(root.findViewById(R.id.task0307_table));
+
+        end_point = root.findViewById(R.id.task0306_edittext_stat);
+        start_point = root.findViewById(R.id.task0306_edittext_end);
 
         countRoads = root.findViewById(R.id.task0307_edittext_count_roads);
         countRoads.addTextChangedListener(new TextWatcher() {
@@ -128,6 +133,16 @@ public class PlaceholderFragment_Task_0307 extends Fragment {
             if(countRoads.getText().toString().isEmpty())
             {
                 ShowToast.showToast(getContext(), "Введите количество дорог!");
+                return true;
+
+            }
+            if (start_point.getText().toString().isEmpty()) {
+                ShowToast.showToast(getContext(), "Введите начальную точку!");
+                return true;
+            }
+            if (end_point.getText().toString().isEmpty()) {
+                ShowToast.showToast(getContext(), "Введите конечную точку!");
+                return true;
 
             }
             if (tableGraf == null) {
@@ -144,6 +159,8 @@ public class PlaceholderFragment_Task_0307 extends Fragment {
             String data = "100" + Constants.NEXT_LINE + 7 + Constants.NEXT_LINE;
 
             data += table.size  +Constants.NEXT_LINE;
+            data += start_point.getText().toString() + Constants.NEXT_LINE;
+            data += end_point.getText().toString() + Constants.NEXT_LINE;
             data+= table.toString();
             data += tableGraf ;
 

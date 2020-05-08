@@ -37,10 +37,30 @@
                 android:layout_height="wrap_content"
                 android:background="@color/black" />
 
-            <com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.CanvasView
-                android:id="@+id/task0307_graph"
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/task0307_edittext_start"
+                style="@style/task_input"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:hint="Начальная точка"
+                android:digits="ABCDEFGHIKLMNOPabcdefghiklmnop"
+                android:maxLength="1"
+                android:layout_marginTop="5dp"
+                app:met_floatingLabel="highlight"
+                app:met_floatingLabelText="Начальная точка" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/task0307_edittext_end"
+                style="@style/task_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Конечная точка"
+                android:digits="ABCDEFGHIKLMNOPabcdefghiklmnop"
+                android:maxLength="1"
+                android:layout_marginTop="5dp"
+                app:met_floatingLabel="highlight"
+                app:met_floatingLabelText="Конечная точка" />
+
 
             <TextView
                 android:id="@+id/task0307_text_answer"

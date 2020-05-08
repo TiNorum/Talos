@@ -55,10 +55,12 @@ public class PlaceholderFragment_Task_0306 extends Fragment {
     }
 
 
-    private MaterialEditText countRoads;
+    private MaterialEditText count_roads;
+    private MaterialEditText end_point;
+    private MaterialEditText start_point;
     Table table;
-    private Button bAnswer;
-    private TextView tAnswer;
+    private Button button_answer;
+    private TextView text_answer;
 
     @Override
     public View onCreateView(
@@ -68,8 +70,12 @@ public class PlaceholderFragment_Task_0306 extends Fragment {
 
         table = new Table(root.findViewById(R.id.task0306_table));
 
-        countRoads = root.findViewById(R.id.task0306_edittext_count_roads);
-        countRoads.addTextChangedListener(new TextWatcher() {
+        end_point = root.findViewById(R.id.task0306_edittext_stat);
+        start_point = root.findViewById(R.id.task0306_edittext_end);
+
+
+        count_roads = root.findViewById(R.id.task0306_edittext_count_roads);
+        count_roads.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -87,10 +93,10 @@ public class PlaceholderFragment_Task_0306 extends Fragment {
             }
         });
 
-        tAnswer = root.findViewById(R.id.task0306_text_answer);
+        text_answer = root.findViewById(R.id.task0306_text_answer);
 
-        bAnswer = root.findViewById(R.id.task0306_btn_answer);
-        bAnswer.setOnClickListener(oclBtn);
+        button_answer = root.findViewById(R.id.task0306_btn_answer);
+        button_answer.setOnClickListener(oclBtn);
 
 
         return root;
@@ -108,9 +114,19 @@ public class PlaceholderFragment_Task_0306 extends Fragment {
         }
 
         private boolean checkData() {
-            if (countRoads.getText().toString().isEmpty()) {
+            if (count_roads.getText().toString().isEmpty()) {
                 ShowToast.showToast(getContext(), "Введите количество дорог!");
+                return true;
+            }
 
+            if (start_point.getText().toString().isEmpty()) {
+                ShowToast.showToast(getContext(), "Введите начальную точку!");
+                return true;
+            }
+
+            if (end_point.getText().toString().isEmpty()) {
+                ShowToast.showToast(getContext(), "Введите конечную точку!");
+                return true;
             }
 
             return false;
@@ -120,7 +136,8 @@ public class PlaceholderFragment_Task_0306 extends Fragment {
         private String getData() {
 
             String data = "100" + Constants.NEXT_LINE + 6 + Constants.NEXT_LINE;
-
+            data += start_point.getText().toString() + Constants.NEXT_LINE;
+            data += end_point.getText().toString() + Constants.NEXT_LINE;
             data += table.size + Constants.NEXT_LINE;
             data += table.toString();
 
@@ -131,8 +148,8 @@ public class PlaceholderFragment_Task_0306 extends Fragment {
 
     class Table {
 
-        //final private String chars = "ABCDEFGHIKLMNOP";
-        final private String chars = "123456789";
+        final private String chars = "ABCDEFGHIKLMNOP";
+        //final private String chars = "123456789";
 
         final private TableLayout tableLayout;
         int size;

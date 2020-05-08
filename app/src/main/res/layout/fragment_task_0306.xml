@@ -29,11 +29,37 @@
                 app:met_floatingLabel="highlight"
                 app:met_floatingLabelText="Количество дорог" />
 
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/task0306_edittext_stat"
+                style="@style/task_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Начальная точка"
+                android:digits="ABCDEFGHIKLMNOPabcdefghiklmnop"
+                android:maxLength="1"
+                android:layout_marginTop="5dp"
+                app:met_floatingLabel="highlight"
+                app:met_floatingLabelText="Начальная точка" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/task0306_edittext_end"
+                style="@style/task_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Конечная точка"
+                android:digits="ABCDEFGHIKLMNOPabcdefghiklmnop"
+                android:maxLength="1"
+                android:layout_marginTop="5dp"
+                app:met_floatingLabel="highlight"
+                app:met_floatingLabelText="Конечная точка" />
+
             <TableLayout
                 android:id="@+id/task0306_table"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/black" />
+
 
             <TextView
                 android:id="@+id/task0306_text_answer"
@@ -41,6 +67,7 @@
 
                 android:layout_height="wrap_content"
                 android:layout_gravity="center" />
+
 
             <Button
                 android:id="@+id/task0306_btn_answer"
