@@ -17,7 +17,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.myapplication.Instruments.Constants;
-import com.example.myapplication.Instruments.ShowTost;
+import com.example.myapplication.Instruments.ShowToast;
 import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageViewModel;
 import com.rengwuxian.materialedittext.MaterialEditText;
@@ -133,23 +133,23 @@ public class PlaceholderFragment_Task_1035 extends Fragment {
 
 
             if (countSymbolInWord.getText().toString().isEmpty()) {
-                ShowTost.showTost(getContext(),"Введите количество букв в слове!");
+                ShowToast.showToast(getContext(),"Введите количество букв в слове!");
                 return true;
             }
 
             if (symbols.getText().toString().isEmpty()) {
-                ShowTost.showTost(getContext(),"Введите  буквы!");
+                ShowToast.showToast(getContext(),"Введите  буквы!");
                 return true;
             }
 
             if (countSymbol.getText().toString().isEmpty()) {
-                ShowTost.showTost(getContext(),"Введите количество ограниченных символов!");
+                ShowToast.showToast(getContext(),"Введите количество ограниченных символов!");
                 return true;
             }
 
             if (items.isEmpty()) {
 
-                ShowTost.showTost(getContext(),"Укажите ограниченные символы!");
+                ShowToast.showToast(getContext(),"Укажите ограниченные символы!");
                 return true;
             }
 

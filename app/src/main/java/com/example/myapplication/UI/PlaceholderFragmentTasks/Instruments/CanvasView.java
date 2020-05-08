@@ -18,12 +18,13 @@ import java.util.ArrayList;
 
 public class CanvasView extends View implements Serializable {
 
-    private static final int col = 15, row = 15;
+    private static final long serialVersionUID =1;
+    private  final int col = 15, row = 15;
     private int WIDTH;
     private int HEIGHT;
     private float margin_field, size_line;
     public Field selected_field;
-    private static final String chars = "АБВГДЕКЛМН";
+    private  final String chars = "АБВГДЕКЛМН";
     private String usedChars = "";
 
     private Field[][] field = new Field[row][col];
@@ -37,8 +38,30 @@ public class CanvasView extends View implements Serializable {
     float dragX = 0;
     float dragY = 0;
 
-    public CanvasView(Context context, @Nullable AttributeSet attrs) {
-        super(context, attrs);
+
+    public CanvasView(Context context) {
+        super(context);
+
+        p_selected = new Paint();
+        p_selected.setColor(Color.GRAY);
+
+        p_line = new Paint();
+        p_line.setStrokeWidth(10);
+        p_line.setColor(Color.BLACK);
+
+        p_text = new Paint();
+        p_text.setTextSize(60);
+        p_text.setColor(Color.RED);
+
+        p = new Paint();
+        p.setStrokeWidth(2);
+        p.setColor(Color.BLACK);
+        invalidate();
+
+    }
+
+    public CanvasView(Context context,AttributeSet attrs) {
+        super(context,attrs);
 
         p_selected = new Paint();
         p_selected.setColor(Color.GRAY);

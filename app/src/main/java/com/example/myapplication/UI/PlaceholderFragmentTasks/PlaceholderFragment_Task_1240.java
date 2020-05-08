@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.myapplication.Instruments.Check_Input;
-import com.example.myapplication.Instruments.ShowTost;
+import com.example.myapplication.Instruments.ShowToast;
 import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageViewModel;
 import com.rengwuxian.materialedittext.MaterialEditText;
@@ -87,24 +87,24 @@ public class PlaceholderFragment_Task_1240 extends Fragment {
 
         private boolean checkData() {
             if (IP.getText().toString().isEmpty()) {
-                ShowTost.showTost(getContext(), "Введите IP!");
+                ShowToast.showToast(getContext(), "Введите IP!");
                 return true;
             }
             if(Check_Input.Cheсk_IP(IP.getText().toString()))
             {
-                ShowTost.showTost(getContext(), "Неправильный IP!");
+                ShowToast.showToast(getContext(), "Неправильный IP!");
                 return true;
             }
 
             if (mask.getText().toString().isEmpty()) {
-                ShowTost.showTost(getContext(), "Введите маску сети!");
+                ShowToast.showToast(getContext(), "Введите маску сети!");
                 return true;
             }
 
             if(Check_Input.Cheсk_IP(mask.getText().toString()))
             {
 
-                ShowTost.showTost(getContext(), "Неправильный IP!");
+                ShowToast.showToast(getContext(), "Неправильный IP!");
 
                 return true;
             }

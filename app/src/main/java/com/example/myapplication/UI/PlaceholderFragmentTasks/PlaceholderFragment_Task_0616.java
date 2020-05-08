@@ -1,22 +1,18 @@
 package com.example.myapplication.UI.PlaceholderFragmentTasks;
 
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.example.myapplication.Instruments.ShowTost;
+import com.example.myapplication.Instruments.ShowToast;
 import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageViewModel;
 import com.rengwuxian.materialedittext.MaterialEditText;
@@ -107,37 +103,37 @@ public class PlaceholderFragment_Task_0616 extends Fragment {
 
         private boolean checkData() {
             if (numbers.getText().toString().isEmpty()) {
-                ShowTost.showTost(getContext(), "Введите цифры!");
+                ShowToast.showToast(getContext(), "Введите цифры!");
                 return true;
             }
 
             if (answernum.getText().toString().isEmpty()) {
-                ShowTost.showTost(getContext(), "Введите число!");
+                ShowToast.showToast(getContext(), "Введите число!");
                 return true;
             }
 
             if (!addition.isChecked() && !multiplication.isChecked()) {
-                ShowTost.showTost(getContext(), "Выберите умножение/сложение!");
+                ShowToast.showToast(getContext(), "Выберите умножение/сложение!");
                 return true;
             }
 
             if (!max.isChecked() && !min.isChecked()) {
-                ShowTost.showTost(getContext(), "Выберите максимальное/минимально число!");
+                ShowToast.showToast(getContext(), "Выберите максимальное/минимально число!");
                 return true;
             }
 
             if (!odd.isChecked() && !even.isChecked()) {
-                ShowTost.showTost(getContext(), "Выберите чентное/нечетное!");
+                ShowToast.showToast(getContext(), "Выберите чентное/нечетное!");
                 return true;
             }
 
             if (!increase.isChecked() && !decrease.isChecked()) {
-                ShowTost.showTost(getContext(), "Выберите убывание/возрастание!");
+                ShowToast.showToast(getContext(), "Выберите убывание/возрастание!");
                 return true;
             }
 
             if (!someNums.isChecked() && !oneNum.isChecked()) {
-                ShowTost.showTost(getContext(), "Выберите количесвто чисел!");
+                ShowToast.showToast(getContext(), "Выберите количесвто чисел!");
                 return true;
             }
 

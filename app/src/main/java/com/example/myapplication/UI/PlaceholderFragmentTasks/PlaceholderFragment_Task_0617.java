@@ -1,23 +1,20 @@
 package com.example.myapplication.UI.PlaceholderFragmentTasks;
 
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.example.myapplication.Instruments.ShowTost;
+import com.example.myapplication.Instruments.ShowToast;
 import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageViewModel;
 import com.rengwuxian.materialedittext.MaterialEditText;
@@ -122,27 +119,27 @@ public class PlaceholderFragment_Task_0617 extends Fragment {
 
             if (firstCommand.getText().toString().isEmpty() || secondCommand.getText().toString().isEmpty() || (thirdCommand.getVisibility()==View.VISIBLE && thirdCommand.getText().toString().isEmpty())) {
 
-                ShowTost.showTost(getContext(), "Введите действия с командами!");
+                ShowToast.showToast(getContext(), "Введите действия с командами!");
                 return true;
             }
 
             if (countCommands.getText().toString().isEmpty()) {
-                ShowTost.showTost(getContext(), "Введите количество команд!");
+                ShowToast.showToast(getContext(), "Введите количество команд!");
                 return true;
             }
 
             if (firstNumber.getText().toString().isEmpty()) {
-                ShowTost.showTost(getContext(), "Введите исходное число!");
+                ShowToast.showToast(getContext(), "Введите исходное число!");
                 return true;
             }
 
             if (secondCommand.getText().toString().isEmpty()) {
-                ShowTost.showTost(getContext(), "Введите конечное число!");
+                ShowToast.showToast(getContext(), "Введите конечное число!");
                 return true;
             }
 
             if (!threeCmd.isChecked() && !twoCmd.isChecked()) {
-                ShowTost.showTost(getContext(), "Выберите количество команд!");
+                ShowToast.showToast(getContext(), "Выберите количество команд!");
                 return true;
             }
 

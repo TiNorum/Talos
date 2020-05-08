@@ -1,18 +1,15 @@
 package com.example.myapplication.Activities.Tasks;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.myapplication.Instruments.ShowTost;
+import com.example.myapplication.Instruments.ShowToast;
 import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.CanvasView;
-import com.rengwuxian.materialedittext.MaterialEditText;
 
 public class Activity_task_15 extends AppCompatActivity {
 
@@ -45,14 +42,11 @@ public class Activity_task_15 extends AppCompatActivity {
 
 
             if (canvasView.isEmpty()) {
-                ShowTost.showTost(getApplicationContext(), "Нарисуйте граф!");
-
+                ShowToast.showToast(getApplicationContext(), "Нарисуйте граф!");
                 return;
             }
 
-
             String data = getData();
-
 
             Toast.makeText(getApplicationContext(), data, Toast.LENGTH_LONG).show();
             return;
