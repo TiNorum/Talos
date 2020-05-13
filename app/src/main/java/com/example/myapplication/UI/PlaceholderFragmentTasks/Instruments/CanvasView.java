@@ -71,7 +71,7 @@ public class CanvasView extends View implements Serializable {
         p_line.setColor(Color.BLACK);
 
         p_text = new Paint();
-        p_text.setTextSize(60);
+        p_text.setTextSize(70);
         p_text.setColor(Color.RED);
 
         p = new Paint();
