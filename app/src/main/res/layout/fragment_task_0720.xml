@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="15dp"
+    android:paddingTop="20dp"
+    android:paddingRight="15dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/task0720_edittext_ratio"
+                style="@style/task_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:digits="1234567890:"
+                android:hint="Введите отношение ячеек "
+                android:maxLength="10"
+                app:met_floatingLabel="highlight"
+                app:met_floatingLabelText="" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/task0720_count_col"
+                style="@style/task_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Введите количество столбцов"
+                android:digits="23456789"
+                android:maxLength="1"
+                android:layout_marginTop="5dp"
+                app:met_floatingLabel="highlight"
+                app:met_floatingLabelText="Количество столбцов" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/task0720_count_row"
+                style="@style/task_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Введите количество строк"
+                android:digits="23456789"
+                android:maxLength="1"
+                android:layout_marginTop="5dp"
+                app:met_floatingLabel="highlight"
+                app:met_floatingLabelText="Количество строк" />
+
+            <TableLayout
+                android:id="@+id/task0720_table"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black" />
+
+            <TextView
+                android:id="@+id/task0720_text_answer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" />
+
+            <Button
+                android:id="@+id/task0720_btn_answer"
+                style="@style/task_buttons_field"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="80dp"
+                android:layout_marginRight="80dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/btn_task_send"
+                android:text="@string/decide" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
+
+

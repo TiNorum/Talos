@@ -32,6 +32,7 @@
         <activity android:name=".Activities.Tasks.Activity_task_04" />
         <activity android:name=".Activities.Tasks.Activity_task_05" />
         <activity android:name=".Activities.Tasks.Activity_task_06" />
+        <activity android:name=".Activities.Tasks.Activity_task_07" />
         <activity android:name=".Activities.Tasks.Activity_task_08" />
         <activity android:name=".Activities.Tasks.Activity_task_09" />
         <activity android:name=".Activities.Tasks.Activity_task_10" />

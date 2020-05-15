@@ -128,7 +128,11 @@ public class PlaceholderFragment_Task_0306 extends Fragment {
                 ShowToast.showToast(getContext(), "Введите конечную точку!");
                 return true;
             }
-
+            if(end_point.getText().toString().equals(start_point.getText().toString()))
+            {
+                ShowToast.showToast(getContext(), "Начальная и конечная тока не могут совпадать!");
+                return true;
+            }
             return false;
         }
 
@@ -148,8 +152,8 @@ public class PlaceholderFragment_Task_0306 extends Fragment {
 
     class Table {
 
-        final private String chars = "ABCDEFGHIKLMNOP";
-        //final private String chars = "123456789";
+        //final private String chars = "ABCDEFGHIKLMNOP";
+        final private String chars = "123456789";
 
         final private TableLayout tableLayout;
         int size;
@@ -172,10 +176,11 @@ public class PlaceholderFragment_Task_0306 extends Fragment {
             }
         }
 
-
+        //создаем строку
         private void createRow() {
 
             for (int i = 0; i <= size; i++) {
+                //добавляем строку в список
                 rows.add(new Row(i, size));
                 tableLayout.addView(rows.get(i).getRow());
             }
@@ -192,10 +197,11 @@ public class PlaceholderFragment_Task_0306 extends Fragment {
         public String toString() {
             String s = "";
 
-            for (Row row : rows) {
-                if (row.index == 0) continue;
+            for(Row row: rows)
+            {
+                if(row.index == 0 ) continue;
 
-                s += row.toString();
+                s+=row.toString();
             }
             return s;
         }
@@ -226,11 +232,12 @@ public class PlaceholderFragment_Task_0306 extends Fragment {
             private void createRow() {
                 // Создаем первую строку с одними буквами
                 if (index == 0) {
-
+                    //Делаем пустую ячейку
                     views.add(createTextView("", Color.rgb(238, 238, 238)));
                     tableRow.addView(views.get(0));
 
                     for (int i = 1; i <= size; i++) {
+                        //создаем ячейки  буквами
                         views.add(createTextView("" + chars.charAt(i - 1), Color.rgb(238, 238, 238)));
                         tableRow.addView(views.get(i));
 
@@ -241,24 +248,27 @@ public class PlaceholderFragment_Task_0306 extends Fragment {
 
                     for (int i = 0; i <= size; i++) {
 
+                        //создаем ячейку с буквой
                         if (i == 0) {
                             views.add(createTextView("" + chars.charAt(index - 1), Color.rgb(238, 238, 238)));
                             tableRow.addView(views.get(i));
                             continue;
                         }
 
+                        //создаем пустую ячейку(дорога сама на себя ведет)
                         if (i == index) {
                             views.add(createTextView("", Color.GRAY));
                             tableRow.addView(views.get(i));
                             continue;
                         }
-
+                        //создаем ячейку editText
                         views.add(createEditTextView(Color.rgb(255, 255, 255)));
                         tableRow.addView(views.get(i));
 
                     }
                 }
             }
+
 
 
             TableRow getRow() {
@@ -271,10 +281,10 @@ public class PlaceholderFragment_Task_0306 extends Fragment {
 
                 String s = "";
                 for (int i = 0; i < views.size(); i++) {
-                    if (i == 0)
+                    if ( i == 0)
                         continue;
 
-                    if (i != index) {
+                    if(i != index) {
 
                         EditText editText = (EditText) views.get(i);
 
@@ -282,8 +292,9 @@ public class PlaceholderFragment_Task_0306 extends Fragment {
                             s += '0';
                         else
                             s += editText.getText().toString();
-                    } else
-                        s += '0';
+                    }
+                    else
+                        s+= '0';
                     if (i != views.size() - 1)
                         s += "\\";
                 }
@@ -322,6 +333,7 @@ public class PlaceholderFragment_Task_0306 extends Fragment {
 
                     @Override
                     public void afterTextChanged(Editable s) {
+
                         EditText second = (EditText) rows.get(views.indexOf(editText)).views.get(index);
                         if (!second.getText().toString().equals(s.toString()))
                             second.setText(s.toString());

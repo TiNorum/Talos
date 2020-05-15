@@ -1,6 +1,5 @@
 package com.example.myapplication.UI.PlaceholderFragmentTasks;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
@@ -22,7 +21,6 @@ import androidx.lifecycle.ViewModelProviders;
 import com.example.myapplication.Instruments.Constants;
 import com.example.myapplication.Instruments.ShowToast;
 import com.example.myapplication.R;
-import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.CanvasView;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageViewModel;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
@@ -31,15 +29,14 @@ import java.util.ArrayList;
 /**
  * A placeholder fragment containing a simple view.
  */
-
-public class PlaceholderFragment_Task_0307 extends Fragment {
+public class PlaceholderFragment_Task_0719 extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
-    float density;
+
     private PageViewModel pageViewModel;
 
-    public static PlaceholderFragment_Task_0307 newInstance(int index) {
-        PlaceholderFragment_Task_0307 fragment = new PlaceholderFragment_Task_0307();
+    public static PlaceholderFragment_Task_0719 newInstance(int index) {
+        PlaceholderFragment_Task_0719 fragment = new PlaceholderFragment_Task_0719();
         Bundle bundle = new Bundle();
         bundle.putInt(ARG_SECTION_NUMBER, index);
         fragment.setArguments(bundle);
@@ -58,30 +55,30 @@ public class PlaceholderFragment_Task_0307 extends Fragment {
     }
 
 
-    MaterialEditText countRoads;
-    private Table table;
-    private MaterialEditText end_point;
-    private MaterialEditText start_point;
-    private Button bAnswer;
-    private TextView tAnswer;
-    CanvasView canvasView;
-    private Button graph;
-    private String tableGraf = null;
-    View root;
+    private MaterialEditText cell;
+    private MaterialEditText cell_copy;
+    private MaterialEditText row;
+    private MaterialEditText col;
+    Table table;
+    private Button button_answer;
+    private TextView text_answer;
 
     @Override
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        root = inflater.inflate(R.layout.fragment_task_0307, container, false);
+        View root = inflater.inflate(R.layout.fragment_task_0719, container, false);
 
-        table = new Table(root.findViewById(R.id.task0307_table));
+        table = new Table(root.findViewById(R.id.task0719_table));
 
-        end_point = root.findViewById(R.id.task0307_edittext_end);
-        start_point = root.findViewById(R.id.task0307_edittext_start);
+        cell = root.findViewById(R.id.task0719_edittext_formula_cell);
+        cell_copy = root.findViewById(R.id.task0719_edittext_cell_copy);
 
-        countRoads = root.findViewById(R.id.task0307_edittext_count_roads);
-        countRoads.addTextChangedListener(new TextWatcher() {
+        col = root.findViewById(R.id.task0719_count_col);
+        row = root.findViewById(R.id.task0719_count_row);
+
+
+        col.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -94,25 +91,33 @@ public class PlaceholderFragment_Task_0307 extends Fragment {
 
             @Override
             public void afterTextChanged(Editable s) {
-                if (s.toString().isEmpty()) return;
-                table.setSize(Integer.parseInt(s.toString()));
+                 if (row.getText().toString().isEmpty()) return;
+                table.setSize(Integer.parseInt(row.getText().toString()),Integer.parseInt(s.toString()));
             }
         });
-        canvasView = new CanvasView(getContext());
 
-        graph = root.findViewById(R.id.task0307_btn_graph);
+        row.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-        graph.setOnClickListener(v -> {
-            Intent intent = new Intent(getContext(), GraphView.class);
-            startActivityForResult(intent, 1);
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (col.getText().toString().isEmpty()) return;
+                table.setSize(Integer.parseInt(s.toString()),Integer.parseInt(col.getText().toString()));
+            }
         });
 
+        text_answer = root.findViewById(R.id.task0719_text_answer);
 
-        tAnswer = root.findViewById(R.id.task0307_text_answer);
-
-        bAnswer = root.findViewById(R.id.task0307_btn_answer);
-        bAnswer.setOnClickListener(oclBtn);
-
+        button_answer = root.findViewById(R.id.task0719_btn_answer);
+        button_answer.setOnClickListener(oclBtn);
 
         return root;
     }
@@ -121,38 +126,53 @@ public class PlaceholderFragment_Task_0307 extends Fragment {
     View.OnClickListener oclBtn = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            if (checkData()) return;
 
-           if (checkData()) return;
-
-           String data = getData();
-            ShowToast.showToast(getContext(),data);
+            String data = getData();
+            ShowToast.showToast(getContext(), data);
         }
 
         private boolean checkData() {
+            if (cell.getText().toString().isEmpty()) {
+                ShowToast.showToast(getContext(), "Введите формулу!");
+                return true;
+            }
+            String s1 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            String s2 = "1234567890";
 
-            if(countRoads.getText().toString().isEmpty())
+            if(!(s1.contains(cell.getText().toString().toUpperCase().charAt(0)+"")
+                    && s2.contains(cell.getText().toString().toUpperCase().charAt(1)+"")))
             {
-                ShowToast.showToast(getContext(), "Введите количество дорог!");
+                ShowToast.showToast(getContext(), "Неправильное название ячейки!");
                 return true;
+            }
 
-            }
-            if (start_point.getText().toString().isEmpty()) {
-                ShowToast.showToast(getContext(), "Введите начальную точку!");
+            if (cell_copy.getText().toString().isEmpty()) {
+                ShowToast.showToast(getContext(), "Укажите диапазон!");
                 return true;
             }
-            if (end_point.getText().toString().isEmpty()) {
+
+            if(!(s1.contains(cell_copy.getText().toString().toUpperCase().charAt(0)+"")
+                    && s2.contains(cell_copy.getText().toString().toUpperCase().charAt(1)+"")))
+            {
+                ShowToast.showToast(getContext(), "Неправильное название ячейки!");
+                return true;
+            }
+
+
+            if(!(s1.contains(cell.getText().toString().toUpperCase().charAt(0)+"")
+                    && s2.contains(cell.getText().toString().toUpperCase().charAt(1)+"")))
+            {
+                ShowToast.showToast(getContext(), "Нерпавильная формула! \n   пример: A1:A5");
+                return true;
+            }
+            if (col.getText().toString().isEmpty()) {
                 ShowToast.showToast(getContext(), "Введите конечную точку!");
                 return true;
             }
 
-            if(end_point.getText().toString().equals(start_point.getText().toString()))
-            {
-                ShowToast.showToast(getContext(), "Начальная и конечная тока не могут совпадать!");
-                return true;
-            }
-
-            if (tableGraf == null) {
-                ShowToast.showToast(getContext(), "Постройте граф!");
+            if (row.getText().toString().isEmpty()) {
+                ShowToast.showToast(getContext(), "Введите количество строк!");
                 return true;
             }
 
@@ -162,36 +182,24 @@ public class PlaceholderFragment_Task_0307 extends Fragment {
 
         private String getData() {
 
-            String data = "100" + Constants.NEXT_LINE + 7 + Constants.NEXT_LINE;
-
-            data += table.size  +Constants.NEXT_LINE;
-            data += start_point.getText().toString() + Constants.NEXT_LINE;
-            data += end_point.getText().toString() + Constants.NEXT_LINE;
-            data+= table.toString();
-            data += tableGraf ;
+            String data = "100" + Constants.NEXT_LINE + 19 + Constants.NEXT_LINE;
+            data += cell.getText().toString() + Constants.NEXT_LINE;
+            data += cell_copy.getText().toString() + Constants.NEXT_LINE;
+            data += table.sizeRow + "\\" + table.sizeCol + Constants.NEXT_LINE;
+            data += table.toString();
 
             return data;
         }
     };
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == 1) {
-            if (resultCode == 2) {
-                tableGraf = data.getStringExtra("GRAPH");
-            }
-        } else {
-            super.onActivityResult(requestCode, resultCode, data);
-        }
-    }
 
     class Table {
 
-        //final private String chars = "ABCDEFGHIKLMNOP";
-        final private String chars = "123456789";
+        final private String chars = "ABCDEFGHIKLMNOP";
+        final private String numbers = "123456789";
 
         final private TableLayout tableLayout;
-         int size;
+        int sizeRow,sizeCol;
 
         private ArrayList<Row> rows = new ArrayList<Row>();
 
@@ -202,21 +210,21 @@ public class PlaceholderFragment_Task_0307 extends Fragment {
 
 
         //Задаем количество дорог
-        public void setSize(int size) {
-            if ((size > 0)) {
-                this.size = size;
+        public void setSize(int row,int col) {
+
+                this.sizeCol = col;
+                this.sizeRow = row;
                 tableLayout.removeAllViews();
                 rows.clear();
                 createRow();
-            }
+
         }
 
-        //создаем строку
+
         private void createRow() {
 
-            for (int i = 0; i <= size; i++) {
-                //добавляем строку в список
-                rows.add(new Row(i, size));
+            for (int i = 0; i <= sizeRow; i++) {
+                rows.add(new Row(i, sizeCol));
                 tableLayout.addView(rows.get(i).getRow());
             }
 
@@ -232,11 +240,10 @@ public class PlaceholderFragment_Task_0307 extends Fragment {
         public String toString() {
             String s = "";
 
-            for(Row row: rows)
-            {
-                if(row.index == 0 ) continue;
+            for (Row row : rows) {
+                if (row.index == 0) continue;
 
-                s+=row.toString();
+                s += row.toString();
             }
             return s;
         }
@@ -267,12 +274,11 @@ public class PlaceholderFragment_Task_0307 extends Fragment {
             private void createRow() {
                 // Создаем первую строку с одними буквами
                 if (index == 0) {
-                    //Делаем пустую ячейку
+
                     views.add(createTextView("", Color.rgb(238, 238, 238)));
                     tableRow.addView(views.get(0));
 
                     for (int i = 1; i <= size; i++) {
-                        //создаем ячейки  буквами
                         views.add(createTextView("" + chars.charAt(i - 1), Color.rgb(238, 238, 238)));
                         tableRow.addView(views.get(i));
 
@@ -283,27 +289,18 @@ public class PlaceholderFragment_Task_0307 extends Fragment {
 
                     for (int i = 0; i <= size; i++) {
 
-                        //создаем ячейку с буквой
                         if (i == 0) {
-                            views.add(createTextView("" + chars.charAt(index - 1), Color.rgb(238, 238, 238)));
+                            views.add(createTextView("" + numbers.charAt(index - 1), Color.rgb(238, 238, 238)));
                             tableRow.addView(views.get(i));
                             continue;
                         }
 
-                        //создаем пустую ячейку(дорога сама на себя ведет)
-                        if (i == index) {
-                            views.add(createTextView("", Color.GRAY));
-                            tableRow.addView(views.get(i));
-                            continue;
-                        }
-                        //создаем ячейку editText
                         views.add(createEditTextView(Color.rgb(255, 255, 255)));
                         tableRow.addView(views.get(i));
 
                     }
                 }
             }
-
 
 
             TableRow getRow() {
@@ -316,10 +313,8 @@ public class PlaceholderFragment_Task_0307 extends Fragment {
 
                 String s = "";
                 for (int i = 0; i < views.size(); i++) {
-                    if ( i == 0)
+                    if (i == 0)
                         continue;
-
-                    if(i != index) {
 
                         EditText editText = (EditText) views.get(i);
 
@@ -327,9 +322,7 @@ public class PlaceholderFragment_Task_0307 extends Fragment {
                             s += '0';
                         else
                             s += editText.getText().toString();
-                    }
-                    else
-                        s+= '0';
+
                     if (i != views.size() - 1)
                         s += "\\";
                 }
@@ -353,27 +346,8 @@ public class PlaceholderFragment_Task_0307 extends Fragment {
                 editText.setBackgroundColor(color);// Задаем цвет
                 editText.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);// Выравниваем текст по центру
                 editText.setSingleLine(true);// Только одна строка
-                editText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(3)});// Задаем максимальное количество символов
+                editText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(4)});// Задаем максимальное количество символов
                 editText.setLayoutParams(params_row);
-                editText.addTextChangedListener(new TextWatcher() {
-                    @Override
-                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-                    }
-
-                    @Override
-                    public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-                    }
-
-                    @Override
-                    public void afterTextChanged(Editable s) {
-
-                        EditText second = (EditText) rows.get(views.indexOf(editText)).views.get(index);
-                        if (!second.getText().toString().equals(s.toString()))
-                            second.setText(s.toString());
-                    }
-                });
 
                 return editText;
             }
