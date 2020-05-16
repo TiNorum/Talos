@@ -73,6 +73,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="5dp"
             android:text="Введите код Python:" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -82,8 +83,9 @@
             <com.rengwuxian.materialedittext.MaterialEditText
                 android:id="@+id/task0822_edittext_code"
                 style="@style/task_input"
-                android:layout_width="255dp"
-                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:gravity="start"
                 android:hint="Ввидите код"
                 android:inputType="textMultiLine|textNoSuggestions"
@@ -92,55 +94,63 @@
                 android:maxLines="20"
                 app:met_floatingLabel="highlight"
                 app:met_floatingLabelText="Ввидите код" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_weight="2"
                 android:gravity="left"
                 android:orientation="vertical">
+
                 <Button
                     android:id="@+id/task0822_btn_while"
                     style="@style/task_buttons_field"
-                    android:layout_width="100dp"
+                    android:layout_width="match_parent"
                     android:layout_height="30dp"
-                    android:background="@drawable/btn_task_send"
                     android:layout_marginBottom="5dp"
+                    android:background="@drawable/btn_task_send"
                     android:text="while" />
+
                 <Button
                     android:id="@+id/task0822_btn_if"
                     style="@style/task_buttons_field"
-                    android:layout_width="100dp"
+                    android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:layout_marginBottom="5dp"
                     android:background="@drawable/btn_task_send"
                     android:text="if" />
+
                 <Button
                     android:id="@+id/task0822_btn_ifelse"
                     style="@style/task_buttons_field"
-                    android:layout_width="100dp"
+                    android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:layout_marginBottom="5dp"
                     android:background="@drawable/btn_task_send"
                     android:text="elif" />
+
                 <Button
                     android:id="@+id/task0822_btn_else"
                     style="@style/task_buttons_field"
-                    android:layout_width="100dp"
+                    android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:layout_marginBottom="5dp"
                     android:background="@drawable/btn_task_send"
                     android:text="else" />
+
                 <Button
                     android:id="@+id/task0822_btn_print"
                     style="@style/task_buttons_field"
-                    android:layout_width="100dp"
+                    android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:layout_marginBottom="5dp"
                     android:background="@drawable/btn_task_send"
                     android:text="print" />
+
                 <Button
                     android:id="@+id/task0822_btn_input"
                     style="@style/task_buttons_field"
-                    android:layout_width="100dp"
+                    android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:layout_marginBottom="5dp"
                     android:background="@drawable/btn_task_send"
