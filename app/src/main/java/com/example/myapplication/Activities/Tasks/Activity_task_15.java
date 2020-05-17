@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.myapplication.Instruments.Constants;
 import com.example.myapplication.Instruments.ShowToast;
 import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.CanvasView;
@@ -77,22 +78,48 @@ public class Activity_task_15 extends AppCompatActivity {
         @Override
         public void onClick(View v) {
 
+            if(checkData()) return;
 
-            if (canvasView.isEmpty()) {
-                ShowToast.showToast(getApplicationContext(), "Нарисуйте граф!");
-                return;
-            }
 
             String data = getData();
             ShowToast.showToast(getApplicationContext(), data);
 
         }
 
+        private boolean checkData() {
+            String s1 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            String s2 = "1234567890";
+
+
+
+            if (start_point.getText().toString().isEmpty()) {
+                ShowToast.showToast(getApplicationContext(), "Введите начальную точку!");
+                return true;
+            }
+
+            if (end_point.getText().toString().isEmpty()) {
+                ShowToast.showToast(getApplicationContext(), "Введите конечную точку!");
+                return true;
+            }
+
+            if (canvasView.isEmpty()) {
+                ShowToast.showToast(getApplicationContext(), "Нарисуйте граф!");
+                return true;
+            }
+
+            return false;
+        }
 
         private String getData() {
             String data = "100" + "\n\r" + "44" + "\n\r";
 
             data += canvasView.toString();
+            data += start_point.getText().toString() + Constants.NEXT_LINE;
+            data += end_point.getText().toString();
+
+            if(!skip_point.getText().toString().isEmpty())
+                data +=Constants.NEXT_LINE + skip_point.getText().toString();
+
 
             return data;
         }
