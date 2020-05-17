@@ -167,94 +167,148 @@ public class PlaceholderFragment_Task_1443 extends Fragment {
         tAnswer = root.findViewById(R.id.task1443_textview_answer);
         return root;
     }
+    private void ToastError()
+    {
+        Toast toast = Toast.makeText(getContext(),
+                "Количество символов должно быть менее 200", Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER,0,0);
+        toast.show();
+    }
+    private boolean flag = false;
     View.OnClickListener oclBtnSoFarFound = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            int curPos = kod.getSelectionStart();
-            String str = kod.getText().toString();
-            kod.setText(kod.getText().toString().substring(0,curPos) + "ПОКА нашлось ()");
-            kod.setText(kod.getText() + str.substring(curPos,str.length()));
-            kod.setSelection(curPos + 14);
+            flag = false;
+            if(kod.length()+15 >200) {
+                ToastError();
+            }
+            else {
+                int curPos = kod.getSelectionStart();
+                String str = kod.getText().toString();
+                kod.setText(kod.getText().toString().substring(0, curPos) + "ПОКА нашлось ()");
+                kod.setText(kod.getText() + str.substring(curPos, str.length()));
+                kod.setSelection(curPos + 14);
+            }
         }
     };
     View.OnClickListener oclBtnBegin = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            int curPos = kod.getSelectionStart();
-            String str = kod.getText().toString();
-            kod.setText(kod.getText().toString().substring(0,curPos) + "НАЧАЛО");
-            kod.setText(kod.getText() + str.substring(curPos,str.length()));
-            kod.setSelection(curPos + 6);
+            if(kod.length()+6 >200) {
+                ToastError();
+            }
+            else {
+                int curPos = kod.getSelectionStart();
+                String str = kod.getText().toString();
+                kod.setText(kod.getText().toString().substring(0, curPos) + "НАЧАЛО");
+                kod.setText(kod.getText() + str.substring(curPos, str.length()));
+                kod.setSelection(curPos + 6);
+            }
         }
     };
     View.OnClickListener oclBtnEnd = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            int curPos = kod.getSelectionStart();
-            String str = kod.getText().toString();
-            kod.setText(kod.getText().toString().substring(0,curPos) + "КОНЕЦ");
-            kod.setText(kod.getText() + str.substring(curPos,str.length()));
-            kod.setSelection(curPos + 5);
+            if(kod.length()+5 >200) {
+                ToastError();
+            }
+            else {
+                int curPos = kod.getSelectionStart();
+                String str = kod.getText().toString();
+                kod.setText(kod.getText().toString().substring(0, curPos) + "КОНЕЦ");
+                kod.setText(kod.getText() + str.substring(curPos, str.length()));
+                kod.setSelection(curPos + 5);
+            }
         }
     };
     View.OnClickListener oclBtnOrFound = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            int curPos = kod.getSelectionStart();
-            String str = kod.getText().toString();
-            kod.setText(kod.getText().toString().substring(0,curPos) + "ИЛИ нашлось ()");
-            kod.setText(kod.getText() + str.substring(curPos,str.length()));
-            kod.setSelection(curPos + 13);
+            if(kod.length()+14 >200) {
+                ToastError();
+            }
+            else {
+                int curPos = kod.getSelectionStart();
+                String str = kod.getText().toString();
+                kod.setText(kod.getText().toString().substring(0, curPos) + "ИЛИ нашлось ()");
+                kod.setText(kod.getText() + str.substring(curPos, str.length()));
+                kod.setSelection(curPos + 13);
+            }
         }
     };
     View.OnClickListener oclBtnIfThereIs = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            int curPos = kod.getSelectionStart();
-            String str = kod.getText().toString();
-            kod.setText(kod.getText().toString().substring(0,curPos) + "ЕСЛИ нашлось ()");
-            kod.setText(kod.getText() + str.substring(curPos,str.length()));
-            kod.setSelection(curPos + 14);
+            if(kod.length()+15 >200) {
+                ToastError();
+            }
+            else {
+                int curPos = kod.getSelectionStart();
+                String str = kod.getText().toString();
+                kod.setText(kod.getText().toString().substring(0, curPos) + "ЕСЛИ нашлось ()");
+                kod.setText(kod.getText() + str.substring(curPos, str.length()));
+                kod.setSelection(curPos + 14);
+            }
         }
     };
     View.OnClickListener oclBtnThenReplace = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            int curPos = kod.getSelectionStart();
-            String str = kod.getText().toString();
-            kod.setText(kod.getText().toString().substring(0,curPos) + "ТО заменить (,)");
-            kod.setText(kod.getText() + str.substring(curPos,str.length()));
-            kod.setSelection(curPos + 13);
+            if(kod.length()+15 >200) {
+                ToastError();
+            }
+            else {
+                int curPos = kod.getSelectionStart();
+                String str = kod.getText().toString();
+                kod.setText(kod.getText().toString().substring(0, curPos) + "ТО заменить (,)");
+                kod.setText(kod.getText() + str.substring(curPos, str.length()));
+                kod.setSelection(curPos + 13);
+            }
         }
     };
     View.OnClickListener oclBtnOtherwiseReplace = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            int curPos = kod.getSelectionStart();
-            String str = kod.getText().toString();
-            kod.setText(kod.getText().toString().substring(0,curPos) + "ИНАЧЕ заменить (,)");
-            kod.setText(kod.getText() + str.substring(curPos,str.length()));
-            kod.setSelection(curPos + 16);
+            if(kod.length()+18 >200) {
+                ToastError();
+            }
+            else {
+                int curPos = kod.getSelectionStart();
+                String str = kod.getText().toString();
+                kod.setText(kod.getText().toString().substring(0, curPos) + "ИНАЧЕ заменить (,)");
+                kod.setText(kod.getText() + str.substring(curPos, str.length()));
+                kod.setSelection(curPos + 16);
+            }
         }
     };
     View.OnClickListener oclBtnEndIf = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            int curPos = kod.getSelectionStart();
-            String str = kod.getText().toString();
-            kod.setText(kod.getText().toString().substring(0,curPos) + "КОНЕЦ если");
-            kod.setText(kod.getText() + str.substring(curPos,str.length()));
-            kod.setSelection(curPos + 10);
+            if(kod.length()+10 >200) {
+                ToastError();
+            }
+            else {
+                int curPos = kod.getSelectionStart();
+                String str = kod.getText().toString();
+                kod.setText(kod.getText().toString().substring(0, curPos) + "КОНЕЦ если");
+                kod.setText(kod.getText() + str.substring(curPos, str.length()));
+                kod.setSelection(curPos + 10);
+            }
         }
     };
     View.OnClickListener oclBtnEndForNow = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            int curPos = kod.getSelectionStart();
-            String str = kod.getText().toString();
-            kod.setText(kod.getText().toString().substring(0,curPos) + "КОНЕЦ пока");
-            kod.setText(kod.getText() + str.substring(curPos,str.length()));
-            kod.setSelection(kod.length());
+            if(kod.length()+10 >200) {
+                ToastError();
+            }
+            else {
+                int curPos = kod.getSelectionStart();
+                String str = kod.getText().toString();
+                kod.setText(kod.getText().toString().substring(0, curPos) + "КОНЕЦ пока");
+                kod.setText(kod.getText() + str.substring(curPos, str.length()));
+                kod.setSelection(curPos + 10);
+            }
         }
     };
     View.OnClickListener oclBtn = new View.OnClickListener() {

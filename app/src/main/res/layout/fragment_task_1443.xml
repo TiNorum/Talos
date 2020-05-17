@@ -57,9 +57,10 @@
             <com.rengwuxian.materialedittext.MaterialEditText
                 android:id="@+id/task1443_edittext_code"
                 style="@style/task_input"
-                android:layout_width="225dp"
-                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:gravity="start"
+                android:layout_weight="1"
                 android:hint="Ввидите код"
                 android:inputType="textMultiLine|textNoSuggestions"
                 android:lines="12"
@@ -71,11 +72,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="left"
+                android:layout_weight="1.7"
                 android:orientation="vertical">
                 <Button
                     android:id="@+id/task1443_btn_begin"
                     style="@style/task_buttons_43"
-                    android:layout_width="140dp"
+                    android:layout_width="match_parent"
                     android:layout_height="20dp"
                     android:background="@drawable/btn_task_send"
                     android:layout_marginBottom="5dp"
@@ -83,7 +85,7 @@
                 <Button
                     android:id="@+id/task1443_btn_soFarFound"
                     style="@style/task_buttons_43"
-                    android:layout_width="140dp"
+                    android:layout_width="match_parent"
                     android:layout_height="20dp"
                     android:background="@drawable/btn_task_send"
                     android:layout_marginBottom="5dp"
@@ -91,7 +93,7 @@
                 <Button
                     android:id="@+id/task1443_btn_orFound"
                     style="@style/task_buttons_43"
-                    android:layout_width="140dp"
+                    android:layout_width="match_parent"
                     android:layout_height="20dp"
                     android:background="@drawable/btn_task_send"
                     android:layout_marginBottom="5dp"
@@ -99,7 +101,7 @@
                 <Button
                     android:id="@+id/task1443_btn_ifThereIs"
                     style="@style/task_buttons_43"
-                    android:layout_width="140dp"
+                    android:layout_width="match_parent"
                     android:layout_height="20dp"
                     android:background="@drawable/btn_task_send"
                     android:layout_marginBottom="5dp"
@@ -107,7 +109,7 @@
                 <Button
                     android:id="@+id/task1443_btn_thenReplace"
                     style="@style/task_buttons_43"
-                    android:layout_width="140dp"
+                    android:layout_width="match_parent"
                     android:layout_height="20dp"
                     android:background="@drawable/btn_task_send"
                     android:layout_marginBottom="5dp"
@@ -115,7 +117,7 @@
                 <Button
                     android:id="@+id/task1443_btn_otherwiseReplace"
                     style="@style/task_buttons_43"
-                    android:layout_width="140dp"
+                    android:layout_width="match_parent"
                     android:layout_height="20dp"
                     android:background="@drawable/btn_task_send"
                     android:layout_marginBottom="5dp"
@@ -123,7 +125,7 @@
                 <Button
                     android:id="@+id/task1443_btn_endIf"
                     style="@style/task_buttons_43"
-                    android:layout_width="140dp"
+                    android:layout_width="match_parent"
                     android:layout_height="20dp"
                     android:background="@drawable/btn_task_send"
                     android:layout_marginBottom="5dp"
@@ -131,7 +133,7 @@
                 <Button
                     android:id="@+id/task1443_btn_endForNow"
                     style="@style/task_buttons_43"
-                    android:layout_width="140dp"
+                    android:layout_width="match_parent"
                     android:layout_height="20dp"
                     android:background="@drawable/btn_task_send"
                     android:layout_marginBottom="5dp"
@@ -139,7 +141,7 @@
                 <Button
                     android:id="@+id/task1443_btn_end"
                     style="@style/task_buttons_43"
-                    android:layout_width="140dp"
+                    android:layout_width="match_parent"
                     android:layout_height="20dp"
                     android:background="@drawable/btn_task_send"
                     android:layout_marginBottom="5dp"
