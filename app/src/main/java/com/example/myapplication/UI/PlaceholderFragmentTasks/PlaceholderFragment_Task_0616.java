@@ -152,17 +152,17 @@ public class PlaceholderFragment_Task_0616 extends Fragment {
             data += answernum.getText().toString() + "\n\r";
 
 
-            if (multiplication.isChecked())
-                data += '0' + "\n\r";
-            else
-                data += '1' + "\n\r";
-
             if (min.isChecked())
                 data += '0' + "\n\r";
             else
                 data += '1' + "\n\r";
 
             if (decrease.isChecked())
+                data += '0' + "\n\r";
+            else
+                data += '1' + "\n\r";
+
+            if (someNums.isChecked())
                 data += '0' + "\n\r";
             else
                 data += '1' + "\n\r";
