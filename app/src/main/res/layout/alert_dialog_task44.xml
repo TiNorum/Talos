@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/task44_edittext_start"
+        style="@style/task_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:digits="АБВГДЕКЛМНабвгдеклмн"
+        android:hint="Начальная точка"
+        android:maxLength="1"
+        app:met_floatingLabel="highlight"
+        app:met_floatingLabelText="" />
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/task44_edittext_end"
+        style="@style/task_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:digits="АБВГДЕКЛМНабвгдеклмн"
+        android:hint="Конечная точка"
+        android:maxLength="1"
+        app:met_floatingLabel="highlight"
+        app:met_floatingLabelText="" />
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/task44_edittext_skip"
+        style="@style/task_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:digits="АБВГДЕКЛМНабвгдеклмн"
+        android:hint="Укажите через какие точки не проходит маршрут"
+        android:maxLength="3"
+        app:met_floatingLabel="highlight"
+        app:met_floatingLabelText="" />
+
+    <Button
+        android:id="@+id/task44_btn_close"
+        style="@style/task_buttons_field"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="80dp"
+        android:background="@drawable/btn_task_send"
+        android:gravity="center"
+        android:text="Закрыть" />
+
+</LinearLayout>

@@ -56,7 +56,6 @@ public class PlaceholderFragment_Task_0718 extends Fragment {
     }
 
 
-    private MaterialEditText formula;
     private MaterialEditText range;
     private MaterialEditText row;
     private MaterialEditText col;
@@ -74,12 +73,8 @@ public class PlaceholderFragment_Task_0718 extends Fragment {
 
         table = new Table(root.findViewById(R.id.task0718_table));
 
-        formula = root.findViewById(R.id.task0718_edittext_formula);
-        formula.setFilters(new InputFilter[]{ new InputFilter.AllCaps()});
-
-
         range = root.findViewById(R.id.task0718_edittext_range);
-        range.setFilters(new InputFilter[]{ new InputFilter.AllCaps()});
+        range.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
 
 
         col = root.findViewById(R.id.task0718_count_col);
@@ -98,8 +93,8 @@ public class PlaceholderFragment_Task_0718 extends Fragment {
 
             @Override
             public void afterTextChanged(Editable s) {
-                 if (row.getText().toString().isEmpty()) return;
-                table.setSize(Integer.parseInt(row.getText().toString()),Integer.parseInt(s.toString()));
+                if (row.getText().toString().isEmpty() || s.toString().isEmpty()) return;
+                table.setSize(Integer.parseInt(row.getText().toString()), Integer.parseInt(s.toString()));
             }
         });
         row.addTextChangedListener(new TextWatcher() {
@@ -115,8 +110,9 @@ public class PlaceholderFragment_Task_0718 extends Fragment {
 
             @Override
             public void afterTextChanged(Editable s) {
-                if (col.getText().toString().isEmpty()) return;
-                table.setSize(Integer.parseInt(s.toString()),Integer.parseInt(col.getText().toString()));
+                if (col.getText().toString().isEmpty() || s.toString().isEmpty()) return;
+
+                table.setSize(Integer.parseInt(s.toString()), Integer.parseInt(col.getText().toString()));
             }
         });
 
@@ -141,25 +137,19 @@ public class PlaceholderFragment_Task_0718 extends Fragment {
         }
 
         private boolean checkData() {
-            if (formula.getText().toString().isEmpty()) {
-                ShowToast.showToast(getContext(), "Укажите ячейки из которых была скопирована формлуа!");
-                return true;
-            }
-
             String s1 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
             String s2 = "1234567890";
 
-            if (range.getText().toString().isEmpty() && range.getText().toString().length() > 4) {
+            if (range.getText().toString().isEmpty() || range.getText().toString().length() < 4) {
                 ShowToast.showToast(getContext(), "Укажите диапазон ячейки в которую была скопирована формлуа!");
                 return true;
             }
 
-            if(!(s1.contains(range.getText().toString().toUpperCase().charAt(0)+"")
-                    && s1.contains(range.getText().toString().toUpperCase().charAt(3)+"")
-                    && s2.contains(range.getText().toString().toUpperCase().charAt(1)+"")
-                    && s2.contains(range.getText().toString().toUpperCase().charAt(4)+"")
-                    &&  range.getText().toString().toUpperCase().charAt(2) == ':'))
-            {
+            if (!(s1.contains(range.getText().toString().toUpperCase().charAt(0) + "")
+                    && s1.contains(range.getText().toString().toUpperCase().charAt(3) + "")
+                    && s2.contains(range.getText().toString().toUpperCase().charAt(1) + "")
+                    && s2.contains(range.getText().toString().toUpperCase().charAt(4) + "")
+                    && range.getText().toString().toUpperCase().charAt(2) == ':')) {
                 ShowToast.showToast(getContext(), "Неправильный диапазон! \n   Пример: A1:A5");
                 return true;
             }
@@ -168,6 +158,7 @@ public class PlaceholderFragment_Task_0718 extends Fragment {
                 ShowToast.showToast(getContext(), "Введите количество колонок!");
                 return true;
             }
+
 
             if (row.getText().toString().isEmpty()) {
                 ShowToast.showToast(getContext(), "Введите количество строк!");
@@ -178,6 +169,10 @@ public class PlaceholderFragment_Task_0718 extends Fragment {
                 ShowToast.showToast(getContext(), "Введите значение ячейки!");
                 return true;
             }
+            if (!table.input_check()) {
+                ShowToast.showToast(getContext(), "Некоректные данные в таблице!");
+                return true;
+            }
 
             return false;
         }
@@ -185,7 +180,6 @@ public class PlaceholderFragment_Task_0718 extends Fragment {
         private String getData() {
 
             String data = "100" + Constants.NEXT_LINE + 18 + Constants.NEXT_LINE;
-            data += formula.getText().toString() + Constants.NEXT_LINE;
             data += range.getText().toString() + Constants.NEXT_LINE;
             data += value.getText().toString() + Constants.NEXT_LINE;
             data += table.sizeRow + "\\" + table.sizeCol + Constants.NEXT_LINE;
@@ -202,7 +196,7 @@ public class PlaceholderFragment_Task_0718 extends Fragment {
         final private String numbers = "123456789";
 
         final private TableLayout tableLayout;
-        int sizeRow,sizeCol;
+        int sizeRow, sizeCol;
 
         private ArrayList<Row> rows = new ArrayList<Row>();
 
@@ -213,13 +207,13 @@ public class PlaceholderFragment_Task_0718 extends Fragment {
 
 
         //Задаем количество дорог
-        public void setSize(int row,int col) {
+        public void setSize(int row, int col) {
 
-                this.sizeCol = col;
-                this.sizeRow = row;
-                tableLayout.removeAllViews();
-                rows.clear();
-                createRow();
+            this.sizeCol = col;
+            this.sizeRow = row;
+            tableLayout.removeAllViews();
+            rows.clear();
+            createRow();
 
         }
 
@@ -231,6 +225,18 @@ public class PlaceholderFragment_Task_0718 extends Fragment {
                 tableLayout.addView(rows.get(i).getRow());
             }
 
+        }
+
+        public boolean input_check() {
+            int numbers = 0,
+                    formula = 0;
+
+            for (int i = 1; i <= sizeRow; i++) {
+                numbers += rows.get(i).editTexts_number.size();
+                formula += rows.get(i).editTexts_formula.size();
+            }
+
+            return numbers > 0 && formula > 0;
         }
 
 
@@ -255,10 +261,13 @@ public class PlaceholderFragment_Task_0718 extends Fragment {
 
             TableRow tableRow; //view  где находняться элементы
 
+            private String letters_char = "", numbers_char = "";
             int index, //номер строки
                     size; // колличество элементов в строчке
 
             ArrayList<View> views = new ArrayList<View>();// массив с элементами строки
+            ArrayList<EditText> editTexts_formula = new ArrayList<EditText>();// массив с элементами строки
+            ArrayList<EditText> editTexts_number = new ArrayList<EditText>();// массив с элементами строки
 
             // задаем ширину, высоту и вес для элементов строки
             TableRow.LayoutParams params_row = new TableRow.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, 1);
@@ -269,6 +278,16 @@ public class PlaceholderFragment_Task_0718 extends Fragment {
                 this.index = index;
                 this.size = size;
 
+                for (int i = 1; i <= size; i++) {
+                    letters_char += chars.charAt(i - 1);
+
+
+                }
+                for (int i = 1; i <= sizeRow; i++) {
+                    numbers_char += i;
+
+
+                }
                 tableRow = new TableRow(getContext());
                 createRow();
             }
@@ -308,6 +327,18 @@ public class PlaceholderFragment_Task_0718 extends Fragment {
                 }
             }
 
+            public int check_input() {
+                for (int i = 1; i < views.size(); i++) {
+
+                    EditText editText = (EditText) views.get(i);
+                    String string = editText.toString();
+
+                    if (string.isEmpty()) return 0;
+
+
+                }
+                return 0;
+            }
 
 
             TableRow getRow() {
@@ -323,12 +354,12 @@ public class PlaceholderFragment_Task_0718 extends Fragment {
                     if (i == 0)
                         continue;
 
-                        EditText editText = (EditText) views.get(i);
+                    EditText editText = (EditText) views.get(i);
 
-                        if (editText.getText().toString().isEmpty())
-                            s += '0';
-                        else
-                            s += editText.getText().toString();
+                    if (editText.getText().toString().isEmpty())
+                        s += '0';
+                    else
+                        s += editText.getText().toString();
 
                     if (i != views.size() - 1)
                         s += "\\";
@@ -354,7 +385,94 @@ public class PlaceholderFragment_Task_0718 extends Fragment {
                 editText.setBackgroundColor(color);// Задаем цвет
                 editText.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);// Выравниваем текст по центру
                 editText.setSingleLine(true);// Только одна строка
-                editText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(10), new InputFilter.AllCaps()});// Задаем максимальное количество символов
+                editText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(15), new InputFilter() {
+                    @Override
+                    public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+                        String string = "", filter = letters_char + letters_char.toLowerCase() + "1234567890:$-+/*=";
+
+
+                        for (int i = start; i < end; i++) {
+                            if (filter.contains((source.charAt(i) + "")))
+                                string += source.charAt(i);
+                        }
+
+                        return string.toUpperCase();
+                    }
+                }});
+
+                editText.addTextChangedListener(new TextWatcher() {
+                    @Override
+                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                    }
+
+                    @Override
+                    public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                    }
+
+                    @Override
+                    public void afterTextChanged(Editable s) {
+                        String string = s.toString();
+
+                        if (string.length() == 0) {
+                            editText.setTextColor(Color.BLACK);
+                            return;
+                        }
+
+
+                        if (string.charAt(0) == '=') {
+                            try {
+                                boolean flag = true;
+                                String prev = "" + string.charAt(1);
+
+
+                                for (int j = 2; j < string.length(); j++) {
+                                    String next = string.charAt(j) + "";
+
+                                    if ((letters_char.contains(prev) && !(numbers_char + "$").contains(next)) ||
+                                            (numbers_char.contains(prev) && !("-+*/").contains(next)) ||
+                                            (("-+*/").contains(prev) && !(letters_char + "$").contains(next)) ||
+                                            prev.equals(next) || prev.equals("=")) {
+
+                                        flag = false;
+                                        break;
+                                    }
+                                    prev = next;
+                                }
+
+                                if (string.length() >= 6 && flag && numbers_char.contains(string.charAt(string.length()-1) + "")) {
+                                    editTexts_formula.add(editText);
+                                    editText.setTextColor(Color.BLACK);
+
+                                } else {
+                                    editText.setTextColor(Color.RED);
+                                    if (editTexts_formula.contains(editText)) {
+                                        editTexts_formula.remove(editText);
+                                    }
+                                }
+
+                            } catch (Exception e) {
+                                editText.setTextColor(Color.RED);
+                                if (editTexts_formula.contains(editText)) {
+                                    editTexts_formula.remove(editText);
+                                }
+                            }
+
+                        } else
+                            try {
+                                Integer.parseInt(string);
+                                if (!editTexts_number.contains(editText)) {
+                                    editTexts_number.add(editText);
+                                }
+                            } catch (NumberFormatException e) {
+                                if (editTexts_number.contains(editText)) {
+                                    editTexts_number.remove(editText);
+                                }
+                                editText.setTextColor(Color.RED);
+                            }
+                    }
+                });
                 editText.setLayoutParams(params_row);
 
                 return editText;

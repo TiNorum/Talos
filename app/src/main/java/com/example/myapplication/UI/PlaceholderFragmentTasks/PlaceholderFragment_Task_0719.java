@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.InputFilter;
+import android.text.Spanned;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -55,7 +56,7 @@ public class PlaceholderFragment_Task_0719 extends Fragment {
     }
 
 
-    private MaterialEditText cell;
+
     private MaterialEditText cell_copy;
     private MaterialEditText row;
     private MaterialEditText col;
@@ -71,7 +72,7 @@ public class PlaceholderFragment_Task_0719 extends Fragment {
 
         table = new Table(root.findViewById(R.id.task0719_table));
 
-        cell = root.findViewById(R.id.task0719_edittext_formula_cell);
+
         cell_copy = root.findViewById(R.id.task0719_edittext_cell_copy);
 
         col = root.findViewById(R.id.task0719_count_col);
@@ -91,7 +92,7 @@ public class PlaceholderFragment_Task_0719 extends Fragment {
 
             @Override
             public void afterTextChanged(Editable s) {
-                 if (row.getText().toString().isEmpty()) return;
+                 if (row.getText().toString().isEmpty() || s.toString().isEmpty()) return;
                 table.setSize(Integer.parseInt(row.getText().toString()),Integer.parseInt(s.toString()));
             }
         });
@@ -109,7 +110,7 @@ public class PlaceholderFragment_Task_0719 extends Fragment {
 
             @Override
             public void afterTextChanged(Editable s) {
-                if (col.getText().toString().isEmpty()) return;
+                if (col.getText().toString().isEmpty() || s.toString().isEmpty()) return;
                 table.setSize(Integer.parseInt(s.toString()),Integer.parseInt(col.getText().toString()));
             }
         });
@@ -133,22 +134,14 @@ public class PlaceholderFragment_Task_0719 extends Fragment {
         }
 
         private boolean checkData() {
-            if (cell.getText().toString().isEmpty()) {
-                ShowToast.showToast(getContext(), "Введите формулу!");
-                return true;
-            }
+
             String s1 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
             String s2 = "1234567890";
 
-            if(!(s1.contains(cell.getText().toString().toUpperCase().charAt(0)+"")
-                    && s2.contains(cell.getText().toString().toUpperCase().charAt(1)+"")))
-            {
-                ShowToast.showToast(getContext(), "Неправильное название ячейки!");
-                return true;
-            }
+
 
             if (cell_copy.getText().toString().isEmpty()) {
-                ShowToast.showToast(getContext(), "Укажите диапазон!");
+                ShowToast.showToast(getContext(), "Укажите ячейку!");
                 return true;
             }
 
@@ -160,12 +153,7 @@ public class PlaceholderFragment_Task_0719 extends Fragment {
             }
 
 
-            if(!(s1.contains(cell.getText().toString().toUpperCase().charAt(0)+"")
-                    && s2.contains(cell.getText().toString().toUpperCase().charAt(1)+"")))
-            {
-                ShowToast.showToast(getContext(), "Нерпавильная формула! \n   пример: A1:A5");
-                return true;
-            }
+
             if (col.getText().toString().isEmpty()) {
                 ShowToast.showToast(getContext(), "Введите конечную точку!");
                 return true;
@@ -176,6 +164,10 @@ public class PlaceholderFragment_Task_0719 extends Fragment {
                 return true;
             }
 
+            if (!table.input_check()) {
+                ShowToast.showToast(getContext(), "Некоректные данные в таблице!");
+                return true;
+            }
             return false;
         }
 
@@ -183,7 +175,6 @@ public class PlaceholderFragment_Task_0719 extends Fragment {
         private String getData() {
 
             String data = "100" + Constants.NEXT_LINE + 19 + Constants.NEXT_LINE;
-            data += cell.getText().toString() + Constants.NEXT_LINE;
             data += cell_copy.getText().toString() + Constants.NEXT_LINE;
             data += table.sizeRow + "\\" + table.sizeCol + Constants.NEXT_LINE;
             data += table.toString();
@@ -230,6 +221,17 @@ public class PlaceholderFragment_Task_0719 extends Fragment {
 
         }
 
+        public boolean input_check() {
+            int numbers = 0,
+                    formula = 0;
+
+            for (int i = 1; i <= sizeRow; i++) {
+                numbers += rows.get(i).editTexts_number.size();
+                formula += rows.get(i).editTexts_formula.size();
+            }
+
+            return numbers > 0 && formula > 0;
+        }
 
         public TableLayout getTable() {
             return tableLayout;
@@ -252,13 +254,16 @@ public class PlaceholderFragment_Task_0719 extends Fragment {
 
             TableRow tableRow; //view  где находняться элементы
 
+            private String letters_char = "", numbers_char = "";
             int index, //номер строки
                     size; // колличество элементов в строчке
 
             ArrayList<View> views = new ArrayList<View>();// массив с элементами строки
+            ArrayList<EditText> editTexts_formula = new ArrayList<EditText>();// массив с элементами строки
+            ArrayList<EditText> editTexts_number = new ArrayList<EditText>();// массив с элементами строки
 
             // задаем ширину, высоту и вес для элементов строки
-            TableRow.LayoutParams params_row = new TableRow.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1);
+            TableRow.LayoutParams params_row = new TableRow.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, 1);
 
 
             Row(int index, int size) {
@@ -266,6 +271,16 @@ public class PlaceholderFragment_Task_0719 extends Fragment {
                 this.index = index;
                 this.size = size;
 
+                for (int i = 1; i <= size; i++) {
+                    letters_char += chars.charAt(i - 1);
+
+
+                }
+                for (int i = 1; i <= sizeRow; i++) {
+                    numbers_char += i;
+
+
+                }
                 tableRow = new TableRow(getContext());
                 createRow();
             }
@@ -273,6 +288,9 @@ public class PlaceholderFragment_Task_0719 extends Fragment {
             //создаем строку
             private void createRow() {
                 // Создаем первую строку с одними буквами
+                final float scale = getResources().getDisplayMetrics().density;
+
+                params_row.setMargins((int) (0.5 * scale + 0.5f), (int) (0.5 * scale + 0.5f), (int) (0.5 * scale + 0.5f), (int) (0.5 * scale + 0.5f));
                 if (index == 0) {
 
                     views.add(createTextView("", Color.rgb(238, 238, 238)));
@@ -302,6 +320,19 @@ public class PlaceholderFragment_Task_0719 extends Fragment {
                 }
             }
 
+            public int check_input() {
+                for (int i = 1; i < views.size(); i++) {
+
+                    EditText editText = (EditText) views.get(i);
+                    String string = editText.toString();
+
+                    if (string.isEmpty()) return 0;
+
+
+                }
+                return 0;
+            }
+
 
             TableRow getRow() {
                 return tableRow;
@@ -316,12 +347,12 @@ public class PlaceholderFragment_Task_0719 extends Fragment {
                     if (i == 0)
                         continue;
 
-                        EditText editText = (EditText) views.get(i);
+                    EditText editText = (EditText) views.get(i);
 
-                        if (editText.getText().toString().isEmpty())
-                            s += '0';
-                        else
-                            s += editText.getText().toString();
+                    if (editText.getText().toString().isEmpty())
+                        s += '0';
+                    else
+                        s += editText.getText().toString();
 
                     if (i != views.size() - 1)
                         s += "\\";
@@ -329,6 +360,7 @@ public class PlaceholderFragment_Task_0719 extends Fragment {
 
                 return s + Constants.NEXT_LINE;
             }
+
 
             private TextView createTextView(String text, int color) {
                 TextView textView = new TextView(getContext());
@@ -346,7 +378,94 @@ public class PlaceholderFragment_Task_0719 extends Fragment {
                 editText.setBackgroundColor(color);// Задаем цвет
                 editText.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);// Выравниваем текст по центру
                 editText.setSingleLine(true);// Только одна строка
-                editText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(4)});// Задаем максимальное количество символов
+                editText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(15), new InputFilter() {
+                    @Override
+                    public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+                        String string = "", filter = letters_char + letters_char.toLowerCase() + "1234567890:$-+/*=";
+
+
+                        for (int i = start; i < end; i++) {
+                            if (filter.contains((source.charAt(i) + "")))
+                                string += source.charAt(i);
+                        }
+
+                        return string.toUpperCase();
+                    }
+                }});
+
+                editText.addTextChangedListener(new TextWatcher() {
+                    @Override
+                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                    }
+
+                    @Override
+                    public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                    }
+
+                    @Override
+                    public void afterTextChanged(Editable s) {
+                        String string = s.toString();
+
+                        if (string.length() == 0) {
+                            editText.setTextColor(Color.BLACK);
+                            return;
+                        }
+
+
+                        if (string.charAt(0) == '=') {
+                            try {
+                                boolean flag = true;
+                                String prev = "" + string.charAt(1);
+
+
+                                for (int j = 2; j < string.length(); j++) {
+                                    String next = string.charAt(j) + "";
+
+                                    if ((letters_char.contains(prev) && !(numbers_char + "$").contains(next)) ||
+                                            (numbers_char.contains(prev) && !("-+*/").contains(next)) ||
+                                            (("-+*/").contains(prev) && !(letters_char + "$").contains(next)) ||
+                                            prev.equals(next) || prev.equals("=")) {
+
+                                        flag = false;
+                                        break;
+                                    }
+                                    prev = next;
+                                }
+
+                                if (string.length() >= 6 && flag && numbers_char.contains(string.charAt(string.length()-1) + "")) {
+                                    editTexts_formula.add(editText);
+                                    editText.setTextColor(Color.BLACK);
+
+                                } else {
+                                    editText.setTextColor(Color.RED);
+                                    if (editTexts_formula.contains(editText)) {
+                                        editTexts_formula.remove(editText);
+                                    }
+                                }
+
+                            } catch (Exception e) {
+                                editText.setTextColor(Color.RED);
+                                if (editTexts_formula.contains(editText)) {
+                                    editTexts_formula.remove(editText);
+                                }
+                            }
+
+                        } else
+                            try {
+                                Integer.parseInt(string);
+                                if (!editTexts_number.contains(editText)) {
+                                    editTexts_number.add(editText);
+                                }
+                            } catch (NumberFormatException e) {
+                                if (editTexts_number.contains(editText)) {
+                                    editTexts_number.remove(editText);
+                                }
+                                editText.setTextColor(Color.RED);
+                            }
+                    }
+                });
                 editText.setLayoutParams(params_row);
 
                 return editText;
