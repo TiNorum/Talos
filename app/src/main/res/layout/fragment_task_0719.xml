@@ -16,17 +16,6 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <com.rengwuxian.materialedittext.MaterialEditText
-                android:id="@+id/task0719_edittext_formula_cell"
-                style="@style/task_input"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890:+-$*"
-                android:hint="Укажите ячейку из которой была скопирована формлуа"
-                android:maxLength="2"
-                app:met_floatingLabel="highlight"
-                app:met_floatingLabelText="" />
 
             <com.rengwuxian.materialedittext.MaterialEditText
                 android:id="@+id/task0719_edittext_cell_copy"
