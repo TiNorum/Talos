@@ -136,7 +136,7 @@ public class PlaceholderFragment_Task_0719 extends Fragment {
         private boolean checkData() {
 
             String s1 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-            String s2 = "1234567890";
+            String s2 = "123456789";
 
 
 
