@@ -1,17 +1,8 @@
 <resources>
     <string name="app_name">Talos ЕГЭ</string>
-    <string name="talos">Talos</string>
-    <string name="tab_text_1">Тип 1</string>
-    <string name="tab_text_2">Тип 2</string>
-    <string name="tab_text_3">Тип 3</string>
-    <string name="title_activity_number1">Number1Activity</string>
-    <string name="title_activity_task_05">Talos</string>
-    <string name="title_activity_task_06">Activity_task_06</string>
-    <string name="title_activity_task_09">Activity_task_09</string>
     <string name="answer">Ответ:</string>
     <string name="decide">Решить</string>
     <string name="set">Задать значения</string>
-    <string name="title_activity_task_12">Activity_task_12</string>
 
 
 </resources>
