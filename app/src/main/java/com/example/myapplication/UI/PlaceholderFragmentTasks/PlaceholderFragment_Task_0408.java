@@ -251,8 +251,6 @@ public class PlaceholderFragment_Task_0408 extends Fragment {
 
             }
             for (int i = 1; i <= itemCount; i++) {
-//                LayoutInflater inflater = LayoutInflater.from(context);
-//                View view = inflater.inflate(idFromListItem, parent, true);
                 listItem.add(new item(i, list));
             }
         }

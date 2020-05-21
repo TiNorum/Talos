@@ -18,6 +18,7 @@
             android:layout_height="wrap_content"
             android:digits="1234567890."
             android:hint="Первый IP"
+            android:maxLength="15"
             style="@style/task_input"
             app:met_floatingLabel="highlight" />
 
@@ -26,6 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:digits="1234567890."
+            android:maxLength="15"
             android:hint="Второй IP"
             style="@style/task_input"
             app:met_floatingLabel="highlight" />

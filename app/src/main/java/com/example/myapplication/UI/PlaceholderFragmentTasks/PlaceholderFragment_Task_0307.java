@@ -78,7 +78,11 @@ public class PlaceholderFragment_Task_0307 extends Fragment {
         table = new Table(root.findViewById(R.id.task0307_table));
 
         end_point = root.findViewById(R.id.task0307_edittext_end);
+        end_point.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
+
         start_point = root.findViewById(R.id.task0307_edittext_start);
+        start_point.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
+
 
         countRoads = root.findViewById(R.id.task0307_edittext_count_roads);
         countRoads.addTextChangedListener(new TextWatcher() {

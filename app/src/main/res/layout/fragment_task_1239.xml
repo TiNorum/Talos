@@ -17,7 +17,9 @@
             android:digits="1234567890."
             style="@style/task_input"
             android:hint="IP компьютера"
-            app:met_floatingLabel="highlight" />
+            app:met_floatingLabel="highlight"
+            android:maxLength="15"
+            />
 
         <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/task1239_edittext_address"
@@ -27,6 +29,7 @@
             android:layout_marginTop="5dp"
             style="@style/task_input"
             android:hint="Адрес сети"
+            android:maxLength="15"
             app:met_floatingLabel="highlight" />
 
         <TextView
