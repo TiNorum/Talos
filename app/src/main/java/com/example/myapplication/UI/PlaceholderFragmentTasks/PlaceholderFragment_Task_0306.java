@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.InputFilter;
+import android.text.InputType;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -319,8 +320,11 @@ public class PlaceholderFragment_Task_0306 extends Fragment {
                 editText.setBackgroundColor(color);// Задаем цвет
                 editText.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);// Выравниваем текст по центру
                 editText.setSingleLine(true);// Только одна строка
+
                 editText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(3)});// Задаем максимальное количество символов
                 editText.setLayoutParams(params_row);
+                editText.setInputType(InputType.TYPE_CLASS_NUMBER);
+
                 editText.addTextChangedListener(new TextWatcher() {
                     @Override
                     public void beforeTextChanged(CharSequence s, int start, int count, int after) {

@@ -55,7 +55,8 @@
                 android:layout_height="wrap_content"
                 android:hint="Какие цифры складываются/умножаются"
                 android:inputType="number"
-                android:maxLength="3"
+                android:maxLength="8"
+                android:digits="12345"
                 app:met_floatingLabel="highlight" />
 
             <com.rengwuxian.materialedittext.MaterialEditText
@@ -65,7 +66,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Какое число должно быть в ответе"
                 android:inputType="number"
-                android:maxLength="3"
+                android:maxLength="8"
                 app:met_floatingLabel="highlight" />
 
             <TextView
