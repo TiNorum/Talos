@@ -1,6 +1,8 @@
 package com.example.myapplication.UI.PlaceholderFragmentTasks;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -83,6 +85,7 @@ public class PlaceholderFragment_Task_0616 extends Fragment {
 
         tAnswer = root.findViewById(R.id.task0616_text_answer);
         numbers = root.findViewById(R.id.task0616_edittext_numbers);
+
         answernum = root.findViewById(R.id.task0616_edittext_num_answer);
 
 

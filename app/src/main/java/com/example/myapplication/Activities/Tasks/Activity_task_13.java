@@ -62,24 +62,24 @@ public class Activity_task_13 extends AppCompatActivity {
         }
 
         private boolean checkData(Context context) {
-            if (countSymbol.getText().toString().isEmpty()) {
+            if (countSymbol.getText().toString().isEmpty() || !( Integer.parseInt(countSymbol.getText().toString())>0)) {
                 ShowToast.showToast(getApplicationContext(), "Введите количество символов в пароле.");
                 return true;
             }
 
-            if (countSymbolInPass.getText().toString().isEmpty()) {;
+            if (countSymbolInPass.getText().toString().isEmpty() ||  !( Integer.parseInt(countSymbolInPass.getText().toString())>0)) {;
                 ShowToast.showToast(getApplicationContext(), "Введите количество используемых символов.");
 
                 return true;
             }
 
-            if (countUsers.getText().toString().isEmpty()) {
+            if (countUsers.getText().toString().isEmpty() || !( Integer.parseInt(countUsers.getText().toString())>0)) {
                 ShowToast.showToast(getApplicationContext(), "Введите количество пользователей.");
 
                 return true;
             }
 
-            if (countAllByte.getText().toString().isEmpty()) {
+            if (countAllByte.getText().toString().isEmpty() ) {
                 ShowToast.showToast(getApplicationContext(), "Введите количество байтов, которые потребовались для ВСЕХ пользователей. Если значение неизвестно, то напишите X.");
                 return true;
             }

@@ -37,6 +37,7 @@ public class PlaceholderFragment_Task_0307 extends Fragment {
     private static final String ARG_SECTION_NUMBER = "section_number";
     float density;
     private PageViewModel pageViewModel;
+    private final String name_vertex = "АБВГДЕКЛМН";
 
     public static PlaceholderFragment_Task_0307 newInstance(int index) {
         PlaceholderFragment_Task_0307 fragment = new PlaceholderFragment_Task_0307();
@@ -126,38 +127,65 @@ public class PlaceholderFragment_Task_0307 extends Fragment {
         @Override
         public void onClick(View v) {
 
-           if (checkData()) return;
+            if (checkData()) return;
 
-           String data = getData();
-            ShowToast.showToast(getContext(),data);
+            String data = getData();
+            ShowToast.showToast(getContext(), data);
         }
 
         private boolean checkData() {
 
-            if(countRoads.getText().toString().isEmpty())
-            {
+            if (countRoads.getText().toString().isEmpty()) {
                 ShowToast.showToast(getContext(), "Введите количество дорог!");
                 return true;
 
             }
+
+
             if (start_point.getText().toString().isEmpty()) {
                 ShowToast.showToast(getContext(), "Введите начальную точку!");
                 return true;
             }
+
+
             if (end_point.getText().toString().isEmpty()) {
                 ShowToast.showToast(getContext(), "Введите конечную точку!");
                 return true;
             }
 
-            if(end_point.getText().toString().equals(start_point.getText().toString()))
-            {
+
+            if (end_point.getText().toString().equals(start_point.getText().toString())) {
                 ShowToast.showToast(getContext(), "Начальная и конечная тока не могут совпадать!");
                 return true;
             }
 
+
             if (tableGraf == null) {
                 ShowToast.showToast(getContext(), "Постройте граф!");
                 return true;
+            }
+
+
+            //проверка на путсые вершины
+            String number = "";
+            int counter = 0;
+
+            for (int i = 0; i < tableGraf.length(); i++) {
+                if (tableGraf.charAt(i) == '\\') {
+
+                    if (Integer.parseInt(number) != 0) {
+                        counter ++;
+                    }
+
+                } else if (tableGraf.charAt(i) == '\n') {
+                    if(counter==0)
+                    {
+                        ShowToast.showToast(getContext(), "Не все вершины соединены!");
+                        return true;
+                    }
+                } else if ("1234567890".contains("" + tableGraf.charAt(i))) {
+                    number += tableGraf.charAt(i);
+                }
             }
 
             return false;
@@ -168,15 +196,16 @@ public class PlaceholderFragment_Task_0307 extends Fragment {
 
             String data = "100" + Constants.NEXT_LINE + 7 + Constants.NEXT_LINE;
 
-            data += table.size  +Constants.NEXT_LINE;
+            data += table.size + Constants.NEXT_LINE;
             data += start_point.getText().toString() + Constants.NEXT_LINE;
             data += end_point.getText().toString() + Constants.NEXT_LINE;
-            data+= table.toString();
-            data += tableGraf ;
+            data += table.toString();
+            data += tableGraf;
 
             return data;
         }
     };
+
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -195,7 +224,7 @@ public class PlaceholderFragment_Task_0307 extends Fragment {
         final private String chars = "123456789";
 
         final private TableLayout tableLayout;
-         int size;
+        int size;
 
         private ArrayList<Row> rows = new ArrayList<Row>();
 
@@ -236,17 +265,15 @@ public class PlaceholderFragment_Task_0307 extends Fragment {
         public String toString() {
             String s = "";
 
-            for(Row row: rows)
-            {
-                if(row.index == 0 ) continue;
-
-                s+=row.toString();
+            for (Row row : rows) {
+                if (row.index == 0) continue;
+                s += row.toString();
             }
+
             return s;
         }
 
         class Row {
-
             TableRow tableRow; //view  где находняться элементы
 
             int index, //номер строки
@@ -309,7 +336,6 @@ public class PlaceholderFragment_Task_0307 extends Fragment {
             }
 
 
-
             TableRow getRow() {
                 return tableRow;
             }
@@ -320,10 +346,10 @@ public class PlaceholderFragment_Task_0307 extends Fragment {
 
                 String s = "";
                 for (int i = 0; i < views.size(); i++) {
-                    if ( i == 0)
+                    if (i == 0)
                         continue;
 
-                    if(i != index) {
+                    if (i != index) {
 
                         EditText editText = (EditText) views.get(i);
 
@@ -331,9 +357,8 @@ public class PlaceholderFragment_Task_0307 extends Fragment {
                             s += '0';
                         else
                             s += editText.getText().toString();
-                    }
-                    else
-                        s+= '0';
+                    } else
+                        s += '0';
                     if (i != views.size() - 1)
                         s += "\\";
                 }
