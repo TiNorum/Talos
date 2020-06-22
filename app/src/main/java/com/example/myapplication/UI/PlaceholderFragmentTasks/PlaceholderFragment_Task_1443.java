@@ -415,6 +415,9 @@ public class PlaceholderFragment_Task_1443 extends Fragment {
                 View view = inflater.inflate(idFromListItem, list, false);
 
                 word = view.findViewById(R.id.task10_fragment_edittext_word);
+                InputFilter[] filterArray = new InputFilter[1];
+                filterArray[0] = new InputFilter.LengthFilter(3);
+                word.setFilters(filterArray);
                 number = view.findViewById(R.id.task10_fragment_text_number);
                 number.setText(String.valueOf(i));
                 list.addView(view);
@@ -442,8 +445,10 @@ public class PlaceholderFragment_Task_1443 extends Fragment {
             return s;
         }
         public boolean isEmpty() {
-            for (PlaceholderFragment_Task_1443.ListItem.item i : listItem)
+            for (PlaceholderFragment_Task_1443.ListItem.item i : listItem) {
                 if (i.word.getText().toString().isEmpty()) return true;
+                else if(Integer.valueOf(i.word.getText().toString()) == 0) return true;
+            }
 
             return false;
         }

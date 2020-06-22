@@ -111,6 +111,7 @@ public class PlaceholderFragment_Task_0821 extends Fragment {
         kod.addTextChangedListener(new TextWatcher(){
             @Override
             public void afterTextChanged(Editable s) {
+
             }
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -245,6 +246,7 @@ public class PlaceholderFragment_Task_0821 extends Fragment {
                 toast.show();
                 return true;
             }
+
             String answer = Check_Input.CheckString(kod.getText().toString(),8);
             if(!answer.isEmpty())
             {

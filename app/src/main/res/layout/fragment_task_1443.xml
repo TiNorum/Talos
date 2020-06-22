@@ -42,18 +42,24 @@
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
             android:orientation="vertical" />
-        <TextView
-            style="@style/task_question"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            android:text="Напишите код:" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="left"
             android:orientation="horizontal">
-
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <TextView
+                    style="@style/task_question"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:text="Напишите код:" />
             <com.rengwuxian.materialedittext.MaterialEditText
                 android:id="@+id/task1443_edittext_code"
                 style="@style/task_input"
@@ -68,6 +74,8 @@
                 android:maxLines="20"
                 app:met_floatingLabel="highlight"
                 app:met_floatingLabelText="Ввидите код" />
+
+            </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -80,7 +88,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="20dp"
                     android:background="@drawable/btn_task_send"
-                    android:layout_marginBottom="5dp"
+                    android:layout_marginBottom="6dp"
                     android:text="НАЧАЛО" />
                 <Button
                     android:id="@+id/task1443_btn_soFarFound"
@@ -88,7 +96,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="20dp"
                     android:background="@drawable/btn_task_send"
-                    android:layout_marginBottom="5dp"
+                    android:layout_marginBottom="6dp"
                     android:text="ПОКА нашлось" />
                 <Button
                     android:id="@+id/task1443_btn_orFound"
@@ -96,7 +104,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="20dp"
                     android:background="@drawable/btn_task_send"
-                    android:layout_marginBottom="5dp"
+                    android:layout_marginBottom="6dp"
                     android:text="ИЛИ нашлось" />
                 <Button
                     android:id="@+id/task1443_btn_ifThereIs"
@@ -104,7 +112,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="20dp"
                     android:background="@drawable/btn_task_send"
-                    android:layout_marginBottom="5dp"
+                    android:layout_marginBottom="6dp"
                     android:text="ЕСЛИ нашлось" />
                 <Button
                     android:id="@+id/task1443_btn_thenReplace"
@@ -112,7 +120,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="20dp"
                     android:background="@drawable/btn_task_send"
-                    android:layout_marginBottom="5dp"
+                    android:layout_marginBottom="6dp"
                     android:text="ТО заменить" />
                 <Button
                     android:id="@+id/task1443_btn_otherwiseReplace"
@@ -120,7 +128,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="20dp"
                     android:background="@drawable/btn_task_send"
-                    android:layout_marginBottom="5dp"
+                    android:layout_marginBottom="6dp"
                     android:text="ИНАЧЕ заменить" />
                 <Button
                     android:id="@+id/task1443_btn_endIf"
@@ -128,7 +136,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="20dp"
                     android:background="@drawable/btn_task_send"
-                    android:layout_marginBottom="5dp"
+                    android:layout_marginBottom="6dp"
                     android:text="КОНЕЦ если" />
                 <Button
                     android:id="@+id/task1443_btn_endForNow"
@@ -136,7 +144,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="20dp"
                     android:background="@drawable/btn_task_send"
-                    android:layout_marginBottom="5dp"
+                    android:layout_marginBottom="6dp"
                     android:text="КОНЕЦ пока" />
                 <Button
                     android:id="@+id/task1443_btn_end"
@@ -144,7 +152,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="20dp"
                     android:background="@drawable/btn_task_send"
-                    android:layout_marginBottom="5dp"
+                    android:layout_marginBottom="6dp"
                     android:text="КОНЕЦ" />
             </LinearLayout>
         </LinearLayout>
