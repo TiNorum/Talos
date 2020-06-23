@@ -242,7 +242,7 @@ public class PlaceholderFragment_Task_0822 extends Fragment {
         }
 
         private boolean checkData() {
-            if (number.getText().toString().isEmpty()) {
+            if (number.getText().toString().isEmpty() || Integer.valueOf(number.getText().toString()) == 0) {
                 Toast toast = Toast.makeText(getContext(),
                         "Введите число, которое будет напечатано!", Toast.LENGTH_SHORT);
                 toast.setGravity(Gravity.CENTER,0,0);

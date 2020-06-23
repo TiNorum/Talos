@@ -123,22 +123,20 @@ public class PlaceholderFragment_Task_0923 extends Fragment {
         }
 
         private boolean checkData() {
-            if (numberOfSeconds1.getText().toString().isEmpty()) {
+            if (numberOfSeconds1.getText().toString().isEmpty() || Integer.valueOf(numberOfSeconds1.getText().toString()) == 0) {
                 Toast toast = Toast.makeText(getContext(),
                         "Введите время, за которое был передан файл!", Toast.LENGTH_SHORT);
                 toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
                 return true;
             }
-
-            if (numberOfTimes1.getText().toString().isEmpty()) {
+            if (numberOfTimes1.getText().toString().isEmpty() || Integer.valueOf(numberOfTimes1.getText().toString()) == 0) {
                 Toast toast = Toast.makeText(getContext(),
                         "Введите разрешение повторной оцифрации!", Toast.LENGTH_SHORT);
                 toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
                 return true;
             }
-
             if (!(higher1.isChecked() || below1.isChecked())) {
                 Toast toast = Toast.makeText(getContext(),
                         "Выберите в какую сторону была произведена оцифрация!", Toast.LENGTH_SHORT);
@@ -147,7 +145,7 @@ public class PlaceholderFragment_Task_0923 extends Fragment {
                 return true;
             }
 
-            if (numberOfTimes2.getText().toString().isEmpty()) {
+            if (numberOfTimes2.getText().toString().isEmpty()|| Integer.valueOf(numberOfTimes2.getText().toString()) == 0) {
                 Toast toast = Toast.makeText(getContext(),
                         "Введите частоту, повторной дискретизации!", Toast.LENGTH_SHORT);
                 toast.setGravity(Gravity.CENTER,0,0);
@@ -163,7 +161,7 @@ public class PlaceholderFragment_Task_0923 extends Fragment {
                 toast.show();
                 return true;
             }
-            if (numberOfSeconds2.getText().toString().isEmpty()) {
+            if (numberOfSeconds2.getText().toString().isEmpty()|| Integer.valueOf(numberOfSeconds2.getText().toString()) == 0) {
                 Toast toast = Toast.makeText(getContext(),
                         "Введите время, за которое был передан файл!", Toast.LENGTH_SHORT);
                 toast.setGravity(Gravity.CENTER,0,0);

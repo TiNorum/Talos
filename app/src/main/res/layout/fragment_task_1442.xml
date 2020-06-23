@@ -85,16 +85,14 @@
                     android:gravity="left"
                     android:text="ПОКА нашлось (" />
 
-                <com.rengwuxian.materialedittext.MaterialEditText
+                <EditText
                     android:id="@+id/task1442_edittext_number1"
                     style="@style/task_input"
-                    android:layout_width="40dp"
-                    android:layout_height="39dp"
+                    android:layout_width="35dp"
+                    android:layout_height="34dp"
                     android:digits="1234567890"
                     android:inputType="number"
-                    android:maxLength="3"
-                    android:ems="0"
-                    app:met_floatingLabel="highlight" />
+                    android:maxLength="3" />
 
                 <TextView
                     style="@style/task_question"
@@ -104,16 +102,14 @@
                     android:layout_gravity="center"
                     android:text=") ИЛИ нашлось (" />
 
-                <com.rengwuxian.materialedittext.MaterialEditText
+                <EditText
                     android:id="@+id/task1442_edittext_number2"
                     style="@style/task_input"
-                    android:layout_width="40dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="35dp"
+                    android:layout_height="34dp"
                     android:digits="1234567890"
                     android:inputType="number"
-                    android:maxLength="3"
-                    android:ems="0"
-                    app:met_floatingLabel="highlight" />
+                    android:maxLength="3" />
 
                 <TextView
                     style="@style/task_question"
@@ -139,16 +135,14 @@
                     android:layout_gravity="center"
                     android:text="ПОКА нашлось (" />
 
-                <com.rengwuxian.materialedittext.MaterialEditText
+                <EditText
                     android:id="@+id/task1442_edittext_number3"
                     style="@style/task_input"
-                    android:layout_width="40dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="35dp"
+                    android:layout_height="34dp"
                     android:digits="1234567890"
-                    android:ems="0"
                     android:inputType="number"
-                    android:maxLength="3"
-                    app:met_floatingLabel="highlight" />
+                    android:maxLength="3" />
 
                 <TextView
                     style="@style/task_question"
@@ -172,15 +166,14 @@
                     android:layout_gravity="center"
                     android:text="заменить (" />
 
-                <com.rengwuxian.materialedittext.MaterialEditText
+                <EditText
                     android:id="@+id/task1442_edittext_number4"
                     style="@style/task_input"
-                    android:layout_width="40dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="35dp"
+                    android:layout_height="34dp"
                     android:digits="1234567890"
                     android:inputType="number"
                     android:maxLength="3"
-                    app:met_floatingLabel="highlight"
                     />
                 <TextView
                     style="@style/task_question"
@@ -189,16 +182,15 @@
                     android:gravity="left"
                     android:layout_gravity="center"
                     android:text=" , " />
-                <com.rengwuxian.materialedittext.MaterialEditText
+
+                <EditText
                     android:id="@+id/task1442_edittext_number5"
                     style="@style/task_input"
-                    android:layout_width="40dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="35dp"
+                    android:layout_height="34dp"
                     android:digits="1234567890"
                     android:inputType="number"
-                    android:maxLength="3"
-                    app:met_floatingLabel="highlight"
-                    />
+                    android:maxLength="3" />
                 <TextView
                     style="@style/task_question"
                     android:layout_width="wrap_content"
@@ -226,15 +218,14 @@
                     android:gravity="left"
                     android:text="ПОКА нашлось (" />
 
-                <com.rengwuxian.materialedittext.MaterialEditText
+                <EditText
                     android:id="@+id/task1442_edittext_number6"
                     style="@style/task_input"
-                    android:layout_width="40dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="35dp"
+                    android:layout_height="34dp"
                     android:digits="1234567890"
                     android:inputType="number"
                     android:maxLength="3"
-                    app:met_floatingLabel="highlight"
                     />
                 <TextView
                     style="@style/task_question"
@@ -256,30 +247,28 @@
                     android:gravity="left"
                     android:text="заменить (" />
 
-                <com.rengwuxian.materialedittext.MaterialEditText
+                <EditText
                     android:id="@+id/task1442_edittext_number7"
                     style="@style/task_input"
-                    android:layout_width="40dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="35dp"
+                    android:layout_height="34dp"
                     android:digits="1234567890"
                     android:inputType="number"
-                    android:maxLength="3"
-                    app:met_floatingLabel="highlight" />
+                    android:maxLength="3" />
                 <TextView
                     style="@style/task_question"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="left"
                     android:text=" , " />
-                <com.rengwuxian.materialedittext.MaterialEditText
+                <EditText
                     android:id="@+id/task1442_edittext_number8"
                     style="@style/task_input"
-                    android:layout_width="40dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="35dp"
+                    android:layout_height="34dp"
                     android:digits="1234567890"
                     android:inputType="number"
                     android:maxLength="3"
-                    app:met_floatingLabel="highlight"
                     />
                 <TextView
                     style="@style/task_question"
