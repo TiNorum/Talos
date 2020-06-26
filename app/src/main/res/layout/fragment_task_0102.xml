@@ -45,7 +45,6 @@
             app:met_floatingLabelText="Система счисления" />
 
         <TextView
-            android:id="@+id/textView6_task"
             style="@style/task_question"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

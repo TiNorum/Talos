@@ -126,14 +126,14 @@ public class PlaceholderFragment_Task_1442 extends Fragment {
             return data;
         }
         private boolean checkData() {
-            if (number.getText().toString().isEmpty()) {
+            if (number.getText().toString().isEmpty() || Integer.valueOf(number.getText().toString()) == 0) {
                 Toast toast = Toast.makeText(getContext(),
                         "Введите из каких цифр состоит строка!", Toast.LENGTH_SHORT);
                 toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
                 return true;
             }
-            if (quantity.getText().toString().isEmpty()) {
+            if (quantity.getText().toString().isEmpty() || Integer.valueOf(quantity.getText().toString()) == 0) {
                 Toast toast = Toast.makeText(getContext(),
                         "Введите количество этих цифр!", Toast.LENGTH_SHORT);
                 toast.setGravity(Gravity.CENTER,0,0);
@@ -149,7 +149,15 @@ public class PlaceholderFragment_Task_1442 extends Fragment {
                 toast.show();
                 return true;
             }
-
+            if (Integer.valueOf(number1.getText().toString()) == 0 || Integer.valueOf(number2.getText().toString()) == 0 ||Integer.valueOf(number3.getText().toString()) == 0 ||
+                    Integer.valueOf(number4.getText().toString()) == 0  || Integer.valueOf(number5.getText().toString()) == 0 ||Integer.valueOf(number6.getText().toString()) == 0  ||
+                    Integer.valueOf(number7.getText().toString()) == 0 || Integer.valueOf(number8.getText().toString()) == 0 ) {
+                Toast toast = Toast.makeText(getContext(),
+                        "Параметры не должны равняться 0!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
+                toast.show();
+                return true;
+            }
             return false;
         }
     };

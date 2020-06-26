@@ -109,14 +109,14 @@ public class PlaceholderFragment_Task_0925 extends Fragment {
         }
 
         private boolean checkData() {
-            if (numberOfColorsFile.getText().toString().isEmpty()) {
+            if (numberOfColorsFile.getText().toString().isEmpty() || Integer.valueOf(numberOfColorsFile.getText().toString()) == 0) {
                 Toast toast = Toast.makeText(getContext(),
                         "Введите количество цветов графического файла!", Toast.LENGTH_SHORT);
                 toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
                 return true;
             }
-            if (numberOfColorsFormat.getText().toString().isEmpty()) {
+            if (numberOfColorsFormat.getText().toString().isEmpty()  || Integer.valueOf(numberOfColorsFormat.getText().toString()) == 0) {
                 Toast toast = Toast.makeText(getContext(),
                         "Введите количество цветов формата!", Toast.LENGTH_SHORT);
                 toast.setGravity(Gravity.CENTER, 0, 0);
@@ -130,7 +130,7 @@ public class PlaceholderFragment_Task_0925 extends Fragment {
                 toast.show();
                 return true;
             }
-            if (fileChange.getText().toString().isEmpty()) {
+            if (fileChange.getText().toString().isEmpty()  || Integer.valueOf(fileChange.getText().toString()) == 0) {
                 Toast toast = Toast.makeText(getContext(),
                         "Введите на сколько изменился файл (Кбайт)!", Toast.LENGTH_SHORT);
                 toast.setGravity(Gravity.CENTER, 0, 0);
