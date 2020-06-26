@@ -3,12 +3,9 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#D81B60</color>
-    <color name="BackgroundTable">#000</color>
     <color name="BackgroundTableText">#fff</color>
     <color name="ripple_effect">#8df7df</color>
     <color name="btn_sign_in">#EEE</color>
-    <color name="btn_sign_in_stroke">#d66060</color>
-    <color name="btn_register_stroke">#d16e53</color>
     <color name="btn_register">#EEE</color>
     <color name="white">#EEE</color>
     <color name="black">#000000</color>

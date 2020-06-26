@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingLeft="15dp"
@@ -55,7 +54,6 @@
             app:met_floatingLabelText="Количетво раз" />
 
         <RadioGroup
-            android:id="@+id/task0923_rg_choice1_below_higher"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -98,7 +96,6 @@
             app:met_floatingLabelText="Количество раз" />
 
         <RadioGroup
-            android:id="@+id/task0923_rg_choice2_below_higher"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">

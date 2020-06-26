@@ -31,7 +31,6 @@
         android:weightSum="2">
 
         <TextView
-            android:id="@+id/signUp_warning_notification"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
@@ -70,7 +69,6 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/buttonsSignIn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

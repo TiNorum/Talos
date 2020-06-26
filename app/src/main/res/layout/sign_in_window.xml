@@ -59,7 +59,6 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/buttonsSignIn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/tv_register"
@@ -82,7 +81,6 @@
             android:textColor="@color/black" />
 
         <Button
-            android:id="@+id/sing_in_with_others"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
@@ -133,7 +131,6 @@
         android:background="#FFFFFF" />
 
     <TextView
-        android:id="@+id/textView2"
         android:layout_below="@id/sign_in_edit_input"
         android:layout_width="wrap_content"
         android:layout_alignRight="@id/sign_in_edit_input"

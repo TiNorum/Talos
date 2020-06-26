@@ -8,7 +8,12 @@ import android.text.Spanned;
 import android.text.style.BackgroundColorSpan;
 import android.text.style.ForegroundColorSpan;
 import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Toast;
+
+import com.example.myapplication.R;
 
 public class ShowToast {
     public static  void showToast(Context context, String text) {

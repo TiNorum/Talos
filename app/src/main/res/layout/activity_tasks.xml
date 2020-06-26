@@ -30,7 +30,6 @@
                 android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title" />
 
             <TextView
-                android:id="@+id/title2"
                 style="@style/task_bar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -42,7 +41,6 @@
                 android:textColor="@color/turquoise" />
 
             <TextView
-                android:id="@+id/title3"
                 style="@style/task_bar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

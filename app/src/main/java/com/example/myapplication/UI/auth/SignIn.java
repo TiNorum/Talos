@@ -139,8 +139,8 @@ public class SignIn extends AppCompatActivity {
                 .subscribe(text ->
                         {
                             if (text.equals("103")) {
-                               // startActivity(new Intent(SignIn.this, Activity_Main.class));
-                               // finish();
+                                startActivity(new Intent(SignIn.this, Activity_Main.class));
+                                finish();
                             }
                         },
                         e -> {
@@ -151,8 +151,8 @@ public class SignIn extends AppCompatActivity {
     }
 
     private String getData() {
-
-        return "102" + Constants.NEXT_LINE + login.getText().toString() + Constants.NEXT_LINE + password.getText().toString();
+        String send = "102" + Constants.NEXT_LINE + login.getText().toString() + Constants.NEXT_LINE + password.getText().toString();
+        return send;
 
     }
 
