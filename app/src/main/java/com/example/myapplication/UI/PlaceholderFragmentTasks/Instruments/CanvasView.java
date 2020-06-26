@@ -141,7 +141,7 @@ public class CanvasView extends View implements Serializable {
 
 
                 //если нажатие было на пустое место и выделеного круга нет
-                if (!touch.circle && selected_field == null) {
+                if (!touch.circle) {
                     if (neighbor(i, j)) {
 
 
@@ -272,7 +272,7 @@ public class CanvasView extends View implements Serializable {
                         if (flag_line) {
                             selected_field.line.add(new Line(lineSelected[2], lineSelected[3]));
                             selected_field.add_char(field[y0][x0].character);
-                            ;
+
                             field[y0][x0].line.add(new Line(lineSelected[0], lineSelected[1]));
                             field[y0][x0].add_char(selected_field.character);
 
@@ -284,6 +284,11 @@ public class CanvasView extends View implements Serializable {
 
                 drag = false;
                 lineSelected = null;
+
+                if(selected_field!=null) {
+                    selected_field.select = false;
+
+                }
                 invalidate();
                 break;
         }
