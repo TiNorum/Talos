@@ -1,8 +1,10 @@
 package com.example.myapplication.UI.PlaceholderFragmentTasks;
 
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.InputFilter;
 import android.text.Spanned;
+import android.text.TextWatcher;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,8 +21,12 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.myapplication.Instruments.Check_Input;
+import com.example.myapplication.Instruments.Constants;
+import com.example.myapplication.Instruments.ShowToast;
 import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageViewModel;
+
+import java.util.ArrayList;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -31,13 +37,12 @@ public class PlaceholderFragment_Task_0205 extends Fragment {
     private int row = 4, col = 4;
     private TableLayout table;
     private PageViewModel pageViewModel;
-    private Button bSet;
-    private Button bR;
+    private Button button_answer;
     private View root;
-    private TextView tvO;
-    private TextView tvCol;
-    private TextView tvRow;
+    private TextView text_answer;
+    private TextView textView_count_row;
     private EditText equation;
+    private ArrayList<TextView> table_fragments = new ArrayList<TextView>();
 
     public static PlaceholderFragment_Task_0205 newInstance(int index) {
         PlaceholderFragment_Task_0205 fragment = new PlaceholderFragment_Task_0205();
@@ -64,47 +69,56 @@ public class PlaceholderFragment_Task_0205 extends Fragment {
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        root = inflater.inflate(R.layout.fragment_task_0205, container, false);
+        root = inflater.inflate(R.layout.fragment_task_0204, container, false);
 
 
-        bSet = root.findViewById(R.id.bSet_type2);
-        bSet.setOnClickListener(oclBtn);
 
-        bR = root.findViewById(R.id.bR_type2);
-        bR.setOnClickListener(oclBtn);
+        button_answer = root.findViewById(R.id.btn_answer);
+        button_answer.setOnClickListener(oclBtn);
 
-        table = root.findViewById(R.id.table_type2);
+        table = root.findViewById(R.id.table);
 
-        tvO = root.findViewById(R.id.tvO_type2);
+        text_answer = root.findViewById(R.id.textView_answer);
 
-        tvRow = root.findViewById(R.id.editTextRow_type2);
-        equation = root.findViewById(R.id.equation_type2);
+        equation = root.findViewById(R.id.edittext_equation);
 
-
-        equation.setFilters(new InputFilter[]{new InputFilter.LengthFilter(30), new InputFilter() {
+        textView_count_row = root.findViewById(R.id.edittext_count_row);
+        equation.addTextChangedListener(new TextWatcher() {
             @Override
-            public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
-                StringBuilder sbText = new StringBuilder(source);
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-                String text = sbText.toString();
-                text = text.toLowerCase();
-
-                char[] newText = new char[50];
-
-                newText = text.toCharArray();
-
-                String blockCharacterSet = "#^|$%*!@/'\":;,?{}!$'`;,?×÷<{}€£¥ 1234567890абвгдеёжзийклмнопрстуфхцчшщъыьэюя";
-                for (int i = 0; i < text.length(); i++) {
-                    if ((blockCharacterSet.contains("" + newText[i]))) {
-                        return "";
-                    }
-                }
-                return text;
             }
 
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
 
-        }});
+            }
 
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(!s.toString().isEmpty()) create_table();
+            }
+        });
+
+        textView_count_row.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(!s.toString().isEmpty()) create_table();
+            }
+        });
+
+        // фильтр ввода уравнения
         return root;
     }
 
@@ -113,40 +127,59 @@ public class PlaceholderFragment_Task_0205 extends Fragment {
     View.OnClickListener oclBtn = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            switch (v.getId()) {
-                //нажатия на кнопку "SET"e
-                case R.id.bSet_type2:
-                    //очищаем таблицу
-                    row = Integer.parseInt(tvRow.getText().toString());
+            if (checkData()) return;
 
-                    String temp = equation.getText().toString();
-                    equation.setText(temp);
-                    col = Check_Input.CountOfDifferentSymbols(temp) + 1;
+            String data = getData();
 
-                    tvO.setVisibility(View.INVISIBLE);
-                    table.removeAllViews();
-                    //создаем новую таблицу
-                    CreateTable();
+            text_answer.setText(data);
 
-                    bR.setVisibility(View.VISIBLE);
-                    break;
+            text_answer.setVisibility(View.VISIBLE);
+        }
 
-                //нажатия на кнопку "Решить"
-                case R.id.bR_type2:
+        private String getData() {
+            String data = "100" + Constants.NEXT_LINE + "4" + Constants.NEXT_LINE;
 
-                    bR.setVisibility(View.INVISIBLE);
-                    //*********
-                    //реализовать функцию отправки и получения данных с сервера
-                    //*********
-                    tvO.setVisibility(View.VISIBLE);
-                    break;
+            data += textView_count_row.getText().toString() + Constants.NEXT_LINE;
+            data += col + Constants.NEXT_LINE;
+            data += equation.getText().toString() + Constants.NEXT_LINE;
+
+            data += table_fragments.remove(0).getText().toString();
+            for(TextView tv : table_fragments)
+            {
+                data += '\\' + tv.getText().toString() ;
+
             }
+
+            return data;
+        }
+
+        private boolean checkData() {
+            if (textView_count_row.getText().toString().isEmpty()) {
+                ShowToast.showToast(getContext(), "Введите количество строчек!");
+                return true;
+            }
+
+            if (equation.getText().toString().isEmpty()) {
+                ShowToast.showToast(getContext(), "Введите уравнение!");
+                return true;
+            }
+
+            return false;
         }
     };
 
+    private void create_table()
+    {
 
-    //создаем таблицу
-    public void CreateTable() {
+        if(textView_count_row.getText().toString().isEmpty()  || equation.toString().isEmpty())
+            return;
+
+
+        col = Check_Input.CountOfDifferentSymbols(equation.getText().toString()) + 1;
+        row = Integer.parseInt(textView_count_row.getText().toString());
+        table.removeAllViews();
+        table_fragments.clear();
+
 
         final float scale = getResources().getDisplayMetrics().density;
         TableRow.LayoutParams params = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT, 1.0f);
@@ -156,8 +189,6 @@ public class PlaceholderFragment_Task_0205 extends Fragment {
         for (int i = 0; i < row; i++) {
             TableRow tr = new TableRow(root.getContext());
 
-            //tr.setBackgroundColor(ContextCompat.getColor(root.getContext(),R.color.BackgroundTableText));
-
             //создаем поле ввода
             for (int j = 0; j < col; j++) {
                 TextView textView = new TextView(getContext());
@@ -166,18 +197,18 @@ public class PlaceholderFragment_Task_0205 extends Fragment {
                 textView.setGravity(Gravity.CENTER);
                 textView.setLayoutParams(params);
                 textView.setOnClickListener(oclBtnTextTable);
-                /* */
-
                 tr.addView(textView);
-
+                table_fragments.add(textView);
             }
             table.setPadding((int) (0.5 * scale + 0.5f), (int) (0.5 * scale + 0.5f), (int) (0.5 * scale + 0.5f), (int) (0.5 * scale + 0.5f));
             table.addView(tr);
         }
+
     }
 
 
     View.OnClickListener oclBtnTextTable = new View.OnClickListener() {
+
         @Override
         public void onClick(View v) {
             TextView textView = (TextView) v;
@@ -187,7 +218,6 @@ public class PlaceholderFragment_Task_0205 extends Fragment {
                 textView.setText("1");
             else
                 textView.setText("0");
-
 
         }
     };

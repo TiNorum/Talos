@@ -240,12 +240,12 @@ public class PlaceholderFragment_Task_0101 extends Fragment {
         }
 
         private boolean checkData() {
-            if (countZero.getText().toString().isEmpty() && zero.isChecked()) {
+            if (countZero.getText().toString().isEmpty() && zero.isChecked() && Integer.parseInt(countZero.getText().toString()) <= 0) {
                 ShowToast.showToast(getContext(), "Введите количество нулей!");
                 return true;
             }
 
-            if (countOne.getText().toString().isEmpty() && one.isChecked()) {
+            if (countOne.getText().toString().isEmpty() && one.isChecked() && Integer.parseInt(countOne.getText().toString()) <= 0) {
                 ShowToast.showToast(getContext(), "Введите количество единиц!");
                 return true;
             }
