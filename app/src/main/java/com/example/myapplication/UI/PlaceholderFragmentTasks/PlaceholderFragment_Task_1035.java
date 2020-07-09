@@ -3,6 +3,8 @@ package com.example.myapplication.UI.PlaceholderFragmentTasks;
 import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.InputFilter;
+import android.text.Spanned;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -158,9 +160,6 @@ public class PlaceholderFragment_Task_1035 extends Fragment {
         }
 
 
-
-
-
         private String getData() {
 
             String data = "100" + Constants.NEXT_LINE + 35 + Constants.NEXT_LINE;
@@ -204,13 +203,27 @@ public class PlaceholderFragment_Task_1035 extends Fragment {
                 View view = inflater.inflate(idFromListItem, list, false);
 
                 word = view.findViewById(R.id.task10_fragment_edittext_word);
+                word.setFilters(new InputFilter[]{new InputFilter.LengthFilter(5), new InputFilter() {
+
+                    String letters_char = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя";
+                    @Override
+                    public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+                        String string = "", filter = letters_char + letters_char.toLowerCase()+"1234567890-";
+
+                        for (int i = start; i < end; i++) {
+                            if (filter.contains((source.charAt(i) + "")))
+                                string += source.charAt(i);
+                        }
+
+                        return string.toUpperCase();
+                    }
+                }});
+
                 number = view.findViewById(R.id.task10_fragment_text_number);
                 number.setText(String.valueOf(i));
                 list.addView(view);
 
             }
-
-
         }
 
         public boolean isEmpty() {
