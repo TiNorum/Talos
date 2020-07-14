@@ -235,7 +235,7 @@ public class PlaceholderFragment_Task_0720 extends Fragment {
 
             TableRow tableRow; //view  где находняться элементы
 
-            private String letters_char = "", numbers_char = "";
+            private String letters_char = "abcdefghijklmnopqrstuvwxyz", numbers_char = "123456789";
             int index, //номер строки
                     size; // колличество элементов в строчке
 

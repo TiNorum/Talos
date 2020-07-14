@@ -27,7 +27,7 @@
                 android:maxLength="1"
                 android:singleLine="true"
                 app:met_floatingLabel="highlight"
-                app:met_floatingLabelText="Количество файлов" />
+                app:met_floatingLabelText="Количество файлов"/>
 
             <LinearLayout
                 android:id="@+id/task0409_list_all_file"

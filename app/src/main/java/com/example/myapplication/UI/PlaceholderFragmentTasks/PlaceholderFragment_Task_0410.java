@@ -277,7 +277,6 @@ public class PlaceholderFragment_Task_0410 extends Fragment {
             public item(LinearLayout linearLayout, int col) {
                 idFromListItem = R.layout.task_0410_fragment_table;
 
-
                 LayoutInflater inflater = LayoutInflater.from(getContext());
                 view = inflater.inflate(idFromListItem, linearLayout, false);
 
@@ -319,7 +318,6 @@ public class PlaceholderFragment_Task_0410 extends Fragment {
                 else
                     s += Constants.NEXT_LINE;
             }
-
 
             return s;
         }

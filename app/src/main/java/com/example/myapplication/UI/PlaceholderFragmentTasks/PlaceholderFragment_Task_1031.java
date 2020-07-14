@@ -128,7 +128,6 @@ public class PlaceholderFragment_Task_1031 extends Fragment {
 
             String data = getData();
 
-
             tAnswer.setVisibility(View.VISIBLE);
             tAnswer.setText(data);
 

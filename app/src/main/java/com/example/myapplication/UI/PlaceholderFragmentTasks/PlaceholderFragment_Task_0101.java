@@ -74,8 +74,6 @@ public class PlaceholderFragment_Task_0101 extends Fragment {
     private CheckBox one;
     private RadioButton max;
     private RadioButton min;
-    private ViewGroup task_container;
-
 
 
 
@@ -85,7 +83,6 @@ public class PlaceholderFragment_Task_0101 extends Fragment {
             Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_task_0101, container, false);
 
-        task_container = root.findViewById(R.id.task_activity);
         // находим кнопку с которой работает
         btnAnswer = root.findViewById(R.id.task0101_btn_answer);
         btnAnswer.setOnClickListener(oclBtn);
@@ -134,70 +131,6 @@ public class PlaceholderFragment_Task_0101 extends Fragment {
             //отправка на сервер
             //*****************
             //*****************
-            Single.fromCallable(() -> {
-                try {
-                    Log.d(LOG_TAG, "Установка соединения");
-                    Socket mSocket = new Socket(Constants.HOST, Constants.PORT);
-                    Log.d(LOG_TAG, "Соединение установленно");
-                    if (mSocket.isClosed()) {
-                        throw new Exception("Ошибка отправки данных. " +
-                                "Сокет не создан или закрыт ");
-                    }
-
-                    BufferedReader inFromServer =
-                            new BufferedReader(new InputStreamReader(mSocket.getInputStream()));
-                    DataOutputStream outToServer =
-                            new DataOutputStream(mSocket.getOutputStream());
-
-                    String data = getData();
-
-                    Log.d(LOG_TAG, "Идет отправка сообщения на сервер...");
-                    try {
-                        outToServer.writeBytes(data);
-                        outToServer.flush();
-                        Log.d(LOG_TAG, "Отправлено сообщение на сервер" + data);
-                    } catch (Exception e) {
-                        throw e;
-                    }
-
-                    String answer = "";
-
-                    try {
-                        answer = inFromServer.readLine();
-                        Log.d(LOG_TAG, answer + "сообщение с сервера");
-
-                    } catch (Exception e) {
-                        throw e;
-                    }
-
-                    mSocket.close();
-
-                    if (answer.isEmpty())
-                        throw new Exception("Ошибка получения данных. ");
-
-                    return answer;
-                } catch (Exception ex) {
-                    throw ex;
-                }
-
-            })
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(text ->
-                            {
-                                //if (text.equals("103")) {
-
-                                //}
-                                //else{
-                                tAnswer.setText(text);
-                                tAnswer.setVisibility(View.VISIBLE);
-                                //}
-                            },
-                            e -> {
-                                Log.e(LOG_TAG, e.getMessage());
-                                return;
-
-                            });
 
 
             tAnswer.setVisibility(View.VISIBLE);
@@ -240,39 +173,39 @@ public class PlaceholderFragment_Task_0101 extends Fragment {
 
         private boolean checkData() {
             if (countZero.getText().toString().isEmpty() && zero.isChecked()) {
-                ShowToast.showToast(getContext(), "Введите количество нулей!", task_container);
+                ShowToast.showToast(getContext(), "Введите количество нулей!");
                 return true;
             }
 
             if (countOne.getText().toString().isEmpty() && one.isChecked()) {
-                ShowToast.showToast(getContext(), "Введите количество единиц!", task_container);
+                ShowToast.showToast(getContext(), "Введите количество единиц!");
                 return true;
             }
 
             if (countOne.getText().toString().isEmpty() == false && countZero.getText().toString().isEmpty() == false && Integer.parseInt(countOne.getText().toString()) != 0 && Integer.parseInt(countZero.getText().toString()) != 0) {
-                ShowToast.showToast(getContext(), "Введите количество единиц и нулей отличное от 0!", task_container);
+                ShowToast.showToast(getContext(), "Введите количество единиц и нулей отличное от 0!");
                 return true;
             }
 
             if (cc.getText().toString().isEmpty()) {
-                ShowToast.showToast(getContext(), "Введите систему счисления!", task_container);
+                ShowToast.showToast(getContext(), "Введите систему счисления!");
                 return true;
             }
             int c = Integer.parseInt(cc.getText().toString());
             if(!(c>1 && c<11 || c==16))
             {
-                ShowToast.showToast(getContext(), "Введите систему счисления (2-10 и 16)", task_container);
+                ShowToast.showToast(getContext(), "Введите систему счисления (2-10 и 16)");
                 return true;
             }
 
 
             if (!(zero.isChecked() || one.isChecked())) {
-                ShowToast.showToast(getContext(), "Выберите что содержит двоичная запись числа!", task_container);
+                ShowToast.showToast(getContext(), "Выберите что содержит двоичная запись числа!");
                 return true;
             }
 
             if (!(max.isChecked() || min.isChecked())) {
-                ShowToast.showToast(getContext(), "Выберите максимальное/минимальное число!", task_container);
+                ShowToast.showToast(getContext(), "Выберите максимальное/минимальное число!");
                 return true;
             }
 

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.InputFilter;
+import android.text.Spanned;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -286,7 +287,6 @@ public class PlaceholderFragment_Task_1027 extends Fragment {
         public class item {
             public TextView number;
             public EditText word;
-            public LinearLayout linearLayout;
             public int idFromListItem;
 
             public item(int i) {
@@ -296,6 +296,23 @@ public class PlaceholderFragment_Task_1027 extends Fragment {
                 View view = inflater.inflate(idFromListItem, list, false);
 
                 word = view.findViewById(R.id.task10_fragment_edittext_word);
+                word.setFilters(new InputFilter[]{new InputFilter.LengthFilter(Integer.parseInt(countSymbolInWord.getText().toString())), new InputFilter() {
+
+                    String letters_char = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя";
+                    @Override
+                    public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+                        String string = "", filter = letters_char + letters_char.toLowerCase();
+
+
+                        for (int i = start; i < end; i++) {
+                            if (filter.contains((source.charAt(i) + "")))
+                                string += source.charAt(i);
+                        }
+
+                        return string.toUpperCase();
+                    }
+                }});
+
                 number = view.findViewById(R.id.task10_fragment_text_number);
                 number.setText(String.valueOf(i));
                 list.addView(view);
