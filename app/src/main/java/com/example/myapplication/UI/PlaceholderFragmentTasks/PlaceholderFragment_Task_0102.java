@@ -18,9 +18,6 @@ import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageViewModel;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
-/**
- * A placeholder fragment containing a simple view.
- */
 public class PlaceholderFragment_Task_0102 extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";

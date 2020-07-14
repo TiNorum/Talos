@@ -38,9 +38,6 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.core.Single;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
-/**
- * A placeholder fragment containing a simple view.
- */
 public class PlaceholderFragment_Task_0101 extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
@@ -77,6 +74,7 @@ public class PlaceholderFragment_Task_0101 extends Fragment {
     private CheckBox one;
     private RadioButton max;
     private RadioButton min;
+    private ViewGroup task_container;
 
 
 
@@ -87,6 +85,7 @@ public class PlaceholderFragment_Task_0101 extends Fragment {
             Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_task_0101, container, false);
 
+        task_container = root.findViewById(R.id.task_activity);
         // находим кнопку с которой работает
         btnAnswer = root.findViewById(R.id.task0101_btn_answer);
         btnAnswer.setOnClickListener(oclBtn);
@@ -240,36 +239,40 @@ public class PlaceholderFragment_Task_0101 extends Fragment {
         }
 
         private boolean checkData() {
-            if (countZero.getText().toString().isEmpty() && zero.isChecked() && Integer.parseInt(countZero.getText().toString()) <= 0) {
-                ShowToast.showToast(getContext(), "Введите количество нулей!");
+            if (countZero.getText().toString().isEmpty() && zero.isChecked()) {
+                ShowToast.showToast(getContext(), "Введите количество нулей!", task_container);
                 return true;
             }
 
-            if (countOne.getText().toString().isEmpty() && one.isChecked() && Integer.parseInt(countOne.getText().toString()) <= 0) {
-                ShowToast.showToast(getContext(), "Введите количество единиц!");
+            if (countOne.getText().toString().isEmpty() && one.isChecked()) {
+                ShowToast.showToast(getContext(), "Введите количество единиц!", task_container);
                 return true;
             }
 
+            if (countOne.getText().toString().isEmpty() == false && countZero.getText().toString().isEmpty() == false && Integer.parseInt(countOne.getText().toString()) != 0 && Integer.parseInt(countZero.getText().toString()) != 0) {
+                ShowToast.showToast(getContext(), "Введите количество единиц и нулей отличное от 0!", task_container);
+                return true;
+            }
 
             if (cc.getText().toString().isEmpty()) {
-                ShowToast.showToast(getContext(), "Введите систему счисления!");
+                ShowToast.showToast(getContext(), "Введите систему счисления!", task_container);
                 return true;
             }
             int c = Integer.parseInt(cc.getText().toString());
             if(!(c>1 && c<11 || c==16))
             {
-                ShowToast.showToast(getContext(), "Введите систему счисления (2-10 и 16)");
+                ShowToast.showToast(getContext(), "Введите систему счисления (2-10 и 16)", task_container);
                 return true;
             }
 
 
             if (!(zero.isChecked() || one.isChecked())) {
-                ShowToast.showToast(getContext(), "Выберите что содержит двоичная запись числа!");
+                ShowToast.showToast(getContext(), "Выберите что содержит двоичная запись числа!", task_container);
                 return true;
             }
 
             if (!(max.isChecked() || min.isChecked())) {
-                ShowToast.showToast(getContext(), "Выберите максимальное/минимальное число!");
+                ShowToast.showToast(getContext(), "Выберите максимальное/минимальное число!", task_container);
                 return true;
             }
 
