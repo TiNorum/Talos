@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.Activities.Activity_Main;
+import com.example.myapplication.ClientLauncher.ClientManager;
 import com.example.myapplication.Instruments.Constants;
 import com.example.myapplication.R;
 import com.rengwuxian.materialedittext.MaterialEditText;
@@ -18,6 +19,7 @@ import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStreamReader;
 import java.net.Socket;
+import java.net.UnknownHostException;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.core.Single;
@@ -65,8 +67,7 @@ public class SignIn extends AppCompatActivity {
     private void signIn() {
 
 
-        startActivity(new Intent(SignIn.this, Activity_Main.class));
-        finish();
+
 
         if (login.getText().toString().isEmpty()) {
             warning.setText("Введите логин!");
@@ -87,67 +88,19 @@ public class SignIn extends AppCompatActivity {
         }
 
 
-        Single.fromCallable(() -> {
-            try {
-                Log.d(LOG_TAG, "Установка соединения");
-                Socket mSocket = new Socket(Constants.HOST, Constants.PORT);
-                Log.d(LOG_TAG, "Соединение установленно");
-                if (mSocket.isClosed()) {
-                    throw new Exception("Ошибка отправки данных. " +
-                            "Сокет не создан или закрыт ");
-                }
-
-                BufferedReader inFromServer =
-                        new BufferedReader(new InputStreamReader(mSocket.getInputStream()));
-                DataOutputStream outToServer =
-                        new DataOutputStream(mSocket.getOutputStream());
-
-                String data = getData();
-
-                Log.d(LOG_TAG, "Идет отправка сообщения на сервер...");
-                try {
-                    outToServer.writeBytes(data);
-                    outToServer.flush();
-                    Log.d(LOG_TAG, "Отправлено сообщение на сервер" + data);
-                } catch (Exception e) {
-                    throw e;
-                }
-
-                String answer = "";
-
-                try {
-                    answer = inFromServer.readLine();
-                    Log.d(LOG_TAG, answer + "сообщение с сервера");
-
-                } catch (Exception e) {
-                    throw e;
-                }
-
-                mSocket.close();
-
-                if (answer.isEmpty())
-                    throw new Exception("Ошибка получения данных. ");
-
-                return answer;
-            } catch (Exception ex) {
-                throw ex;
+        try {
+           String answer =  ClientManager.send_server(getData());
+            if (answer.equals("103")) {
+                startActivity(new Intent(SignIn.this, Activity_Main.class));
+                finish();
             }
 
-        })
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(text ->
-                        {
-                            if (text.equals("103")) {
-                                startActivity(new Intent(SignIn.this, Activity_Main.class));
-                                finish();
-                            }
-                        },
-                        e -> {
-                            Log.e(LOG_TAG, e.getMessage());
-                             return;
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
 
-                        });
+
+
     }
 
     private String getData() {
