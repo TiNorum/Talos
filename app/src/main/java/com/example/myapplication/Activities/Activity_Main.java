@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 import com.example.myapplication.Activities.Tasks.*;
+import com.example.myapplication.Instruments.ShowToast;
 import com.example.myapplication.R;
 
 public class Activity_Main extends AppCompatActivity {
@@ -36,6 +37,8 @@ public class Activity_Main extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         // выставляем отображение нашего лэйаута
         setContentView(R.layout.activity_main);
+
+        ShowToast.linearLayout = findViewById(R.id.toast_layout_root);
 
         // ищем кнопку с именем из всего списка и задаём ей событий Click
         to_task_1 = findViewById(R.id.buttonType1);

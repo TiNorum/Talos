@@ -66,7 +66,8 @@ public class SignIn extends AppCompatActivity {
 
     private void signIn() {
 
-
+        startActivity(new Intent(SignIn.this, Activity_Main.class));
+        finish();
 
 
         if (login.getText().toString().isEmpty()) {
@@ -87,17 +88,20 @@ public class SignIn extends AppCompatActivity {
             return;
         }
 
-
+         String answer;
         try {
-           String answer =  ClientManager.send_server(getData());
-            if (answer.equals("103")) {
+            answer =  ClientManager.send_server(getData());
+
+            if ( answer.equals("103")) {
                 startActivity(new Intent(SignIn.this, Activity_Main.class));
                 finish();
             }
-
-        } catch (UnknownHostException e) {
+        } catch (UnknownHostException | InterruptedException e) {
             e.printStackTrace();
         }
+
+
+
 
 
 

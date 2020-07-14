@@ -19,7 +19,7 @@ public class MessageReader {
         //Считываем сообщение
         String message = dis.readUTF();
 
-        System.out.println("Message " + message + " received.");
+        //System.out.println("Message " + message + " received.");
 
         return message;
     }
