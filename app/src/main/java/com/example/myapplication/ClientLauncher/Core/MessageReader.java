@@ -1,23 +1,20 @@
 package com.example.myapplication.ClientLauncher.Core;
 
-import java.io.ByteArrayInputStream;
-import java.io.DataInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 
 public class MessageReader {
     //Длина заголовка сообщения
 
-    private final DataInputStream dis;
+    private final BufferedReader dis;
 
     public MessageReader(InputStream is) {
-        this.dis = new DataInputStream(is);
+        this.dis = new BufferedReader(new InputStreamReader(is));
     }
 
     public String readMessage() throws IOException {
 
         //Считываем сообщение
-        String message = dis.readUTF();
+        String message = dis.readLine();
 
         //System.out.println("Message " + message + " received.");
 
