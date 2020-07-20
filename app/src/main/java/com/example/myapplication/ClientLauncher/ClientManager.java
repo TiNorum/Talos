@@ -11,12 +11,14 @@ public class ClientManager {
      private ClientManager() {
      }
 
-     public static String send_server(String message) throws UnknownHostException, InterruptedException {
+     public static String send_server(String message) throws UnknownHostException,InterruptedException {
          resource r= new resource(message);
          InetAddress host = InetAddress.getByName(Constants.HOST);
          Client client = new Client(host, Constants.PORT,r);
          client.start();
-         client.join();
+
+             client.join();
+
          return r.getAnswer();
      }
 }

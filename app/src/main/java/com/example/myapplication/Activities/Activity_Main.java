@@ -1,35 +1,43 @@
 package com.example.myapplication.Activities;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.navigation.NavController;
+import androidx.navigation.NavDirections;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
 
-
-import com.example.myapplication.Activities.Tasks.*;
+import com.example.myapplication.Activities.Tasks.Activity_task_01;
+import com.example.myapplication.Activities.Tasks.Activity_task_02;
+import com.example.myapplication.Activities.Tasks.Activity_task_03;
+import com.example.myapplication.Activities.Tasks.Activity_task_04;
+import com.example.myapplication.Activities.Tasks.Activity_task_05;
+import com.example.myapplication.Activities.Tasks.Activity_task_06;
+import com.example.myapplication.Activities.Tasks.Activity_task_07;
+import com.example.myapplication.Activities.Tasks.Activity_task_08;
+import com.example.myapplication.Activities.Tasks.Activity_task_09;
+import com.example.myapplication.Activities.Tasks.Activity_task_10;
+import com.example.myapplication.Activities.Tasks.Activity_task_12;
+import com.example.myapplication.Activities.Tasks.Activity_task_13;
+import com.example.myapplication.Activities.Tasks.Activity_task_14;
+import com.example.myapplication.Activities.Tasks.Activity_task_15;
 import com.example.myapplication.Instruments.ShowToast;
 import com.example.myapplication.R;
+import com.google.android.material.navigation.NavigationView;
+
 
 public class Activity_Main extends AppCompatActivity {
-    Button to_task_1;
-    Button to_task_2;
-    Button to_task_3;
-    Button to_task_4;
-    Button to_task_5;
-    Button to_task_6;
-    Button to_task_7;
-    Button to_task_8;
-    Button to_task_9;
-    Button to_task_10;
-    Button to_task_11;
-    Button to_task_12;
-    Button to_task_13;
-    Button to_task_14;
-    Button to_task_15;
-    Button to_task_16;
-    Button to_task_17;
+
+    private AppBarConfiguration mAppBarConfiguration;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,102 +46,32 @@ public class Activity_Main extends AppCompatActivity {
         // выставляем отображение нашего лэйаута
         setContentView(R.layout.activity_main);
 
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
         ShowToast.linearLayout = findViewById(R.id.toast_layout_root);
 
-        // ищем кнопку с именем из всего списка и задаём ей событий Click
-        to_task_1 = findViewById(R.id.buttonType1);
-        to_task_1.setOnClickListener(oclBtn);
+        //menu
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        // Passing each menu ID as a set of Ids because each
+        // menu should be considered as top level destinations.
+        mAppBarConfiguration = new AppBarConfiguration.Builder(
+                R.id.nav_user_profile, R.id.nav_task_list, R.id.nav_calculator)
+                .setDrawerLayout(drawer)
+                .build();
 
-        to_task_2 = findViewById(R.id.buttonType2);
-        to_task_2.setOnClickListener(oclBtn);
-
-        to_task_3 = findViewById(R.id.buttonType3);
-        to_task_3.setOnClickListener(oclBtn);
-
-        to_task_4 = findViewById(R.id.buttonType4);
-        to_task_4.setOnClickListener(oclBtn);
-
-        to_task_5 = findViewById(R.id.buttonType5);
-        to_task_5.setOnClickListener(oclBtn);
-
-        to_task_6 = findViewById(R.id.buttonType6);
-        to_task_6.setOnClickListener(oclBtn);
-
-        to_task_7 = findViewById(R.id.buttonType7);
-        to_task_7.setOnClickListener(oclBtn);
-
-        to_task_8 = findViewById(R.id.buttonType8);
-        to_task_8.setOnClickListener(oclBtn);
-
-        to_task_9 = findViewById(R.id.buttonType9);
-        to_task_9.setOnClickListener(oclBtn);
-
-        to_task_10 = findViewById(R.id.buttonType10);
-        to_task_10.setOnClickListener(oclBtn);
-
-        to_task_12 = findViewById(R.id.buttonType12);
-        to_task_12.setOnClickListener(oclBtn);
-
-        to_task_13 = findViewById(R.id.buttonType13);
-        to_task_13.setOnClickListener(oclBtn);
-
-        to_task_14 = findViewById(R.id.buttonType14);
-        to_task_14.setOnClickListener(oclBtn);
-      
-        to_task_15 = findViewById(R.id.buttonType15);
-        to_task_15.setOnClickListener(oclBtn);
+        NavController navController = Navigation.findNavController(Activity_Main.this, R.id.nav_host_fragment);
+        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+        NavigationUI.setupWithNavController(navigationView, navController);
     }
 
-    // обработка события нажатия
-    View.OnClickListener oclBtn = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            switch (v.getId()) {
-                // вызываем наш Activity конкретного задания
-                case R.id.buttonType1:
-                    startActivity(new Intent(Activity_Main.this, Activity_task_01.class));
-                    break;
-                case R.id.buttonType2:
-                    startActivity(new Intent(Activity_Main.this, Activity_task_02.class));
-                    break;
-                case R.id.buttonType3:
-                    Intent intent3 = new Intent(Activity_Main.this, Activity_task_03.class);
-                    startActivity(intent3);
-                    break;
-                case R.id.buttonType4:
-                    startActivity(new Intent(Activity_Main.this, Activity_task_04.class));
-                    break;
-                case R.id.buttonType5:
-                    startActivity(new Intent(Activity_Main.this, Activity_task_05.class));
-                    break;
-                case R.id.buttonType6:
-                    startActivity(new Intent(Activity_Main.this, Activity_task_06.class));
-                    break;
-                case R.id.buttonType7:
-                    startActivity(new Intent(Activity_Main.this, Activity_task_07.class));
-                    break;
-                case R.id.buttonType8:
-                    startActivity(new Intent(Activity_Main.this, Activity_task_08.class));
-                    break;
-                case R.id.buttonType9:
-                    startActivity(new Intent(Activity_Main.this, Activity_task_09.class));
-                    break;
-                case R.id.buttonType10:
-                    startActivity(new Intent(Activity_Main.this, Activity_task_10.class));
-                    break;
-                case R.id.buttonType12:
-                    startActivity(new Intent(Activity_Main.this, Activity_task_12.class));
-                    break;
-                case R.id.buttonType13:
-                    startActivity(new Intent(Activity_Main.this, Activity_task_13.class));
-                    break;
-                case R.id.buttonType14:
-                    startActivity(new Intent(Activity_Main.this, Activity_task_14.class));
-                    break;
-                case R.id.buttonType15:
-                    startActivity(new Intent(Activity_Main.this, Activity_task_15.class));
-                    break;
-            }
-        }
-    };
+
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
+                || super.onSupportNavigateUp();
+    }
 }

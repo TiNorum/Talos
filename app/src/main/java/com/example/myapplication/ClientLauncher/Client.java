@@ -24,13 +24,13 @@ public class Client extends Thread {
 
     }
 
-    public void connection() {
+    public void connection() throws InterruptedException {
 
         //Создаем клиентский сокет
         try {
             socket = new Socket(this.host, this.port);
             System.out.println(Thread.currentThread().getName());
-
+            sendRequest();
         } catch (IOException e) {
             e.printStackTrace();
 
@@ -40,7 +40,7 @@ public class Client extends Thread {
 
 
     //отправляем запрос
-    private void sendRequest(String message) throws IOException {
+    private void sendRequest() throws IOException, InterruptedException {
 
         final int messageId;
 
@@ -49,9 +49,11 @@ public class Client extends Thread {
             @Override
             public void run() {
 
+                MessageWriter writer = null;
                 try {
-                    MessageWriter writer = new MessageWriter(socket.getOutputStream());
-                    writer.writeMessage(message);
+                    writer = new MessageWriter(socket.getOutputStream());
+
+                    writer.writeMessage(res.getMessage());
 
                     //Получаем ответ
                     MessageReader reader = new MessageReader(socket.getInputStream());
@@ -60,16 +62,25 @@ public class Client extends Thread {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+
+
+
             }
         });
 
-        thread.run();
+        thread.start();
+        thread.join();
+
 
     };
 
     @Override
     public void run() {
 
-         connection();
+        try {
+            connection();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }

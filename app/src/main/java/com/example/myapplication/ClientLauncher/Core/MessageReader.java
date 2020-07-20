@@ -16,7 +16,7 @@ public class MessageReader {
         //Считываем сообщение
         String message = dis.readLine();
 
-        //System.out.println("Message " + message + " received.");
+        System.out.println("Message " + message + " received.");
 
         return message;
     }

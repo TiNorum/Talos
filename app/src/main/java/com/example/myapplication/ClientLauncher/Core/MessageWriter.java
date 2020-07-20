@@ -27,7 +27,7 @@ public class MessageWriter {
             out.flush();
         }
 
-       // System.out.println("Message " + message + " sent.");
+       System.out.println("Message " + message + " sent.");
     }
 
 

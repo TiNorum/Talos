@@ -21,9 +21,7 @@ import java.io.InputStreamReader;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
-import io.reactivex.rxjava3.core.Single;
-import io.reactivex.rxjava3.schedulers.Schedulers;
+
 
 public class SignIn extends AppCompatActivity {
     private static final String LOG_TAG = "SOCKET";  //AppCompatActivity.class.getSimpleName();
@@ -67,7 +65,8 @@ public class SignIn extends AppCompatActivity {
     private void signIn() {
 
 
-
+        startActivity(new Intent(SignIn.this, Activity_Main.class));
+        finish();
 
         if (login.getText().toString().isEmpty()) {
             warning.setText("Введите логин!");
@@ -87,19 +86,25 @@ public class SignIn extends AppCompatActivity {
             return;
         }
 
+             new Thread(new Runnable() {
+                 @Override
+                 public void run() {
+                     String answer = null;
+                     try {
+                         answer = ClientManager.send_server(getData());
 
-        try {
-           String answer =  ClientManager.send_server(getData());
-            if (answer.equals("202") || answer.equals("102")) {
-                startActivity(new Intent(SignIn.this, Activity_Main.class));
-                finish();
-            }
+                     } catch (UnknownHostException e) {
+                         e.printStackTrace();
+                     } catch (InterruptedException e) {
+                         e.printStackTrace();
+                     }
 
-        } catch (UnknownHostException | InterruptedException e) {
-            e.printStackTrace();
-        }
-
-
+                     if (answer != null && (answer.equals("202") || answer.equals("102"))) {
+                         startActivity(new Intent(SignIn.this, Activity_Main.class));
+                         finish();
+                     }
+                 }
+             }).start();
 
     }
 
