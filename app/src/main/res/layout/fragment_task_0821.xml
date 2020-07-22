@@ -31,70 +31,66 @@
                 android:id="@+id/task0821_edittext_code"
                 style="@style/task_input"
                 android:layout_width="match_parent"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:layout_height="match_parent"
                 android:gravity="start"
                 android:hint="Ввидите код"
                 android:inputType="textMultiLine|textNoSuggestions"
                 android:lines="12"
                 android:maxLength="200"
-                android:maxLines="20"
-                app:met_floatingLabel="highlight"
-                app:met_floatingLabelText="Ввидите код" />
+                android:maxLines="20" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="left"
-                android:layout_weight="2"
+                android:gravity="center"
+                android:layout_weight="5"
                 android:orientation="vertical">
-            <Button
-                android:id="@+id/task0821_btn_while"
-                style="@style/task_buttons_field"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:background="@drawable/btn_task_send"
-                android:layout_marginBottom="5dp"
-                android:text="while" />
-            <Button
+
+                <Button
+                    android:id="@+id/task0821_btn_while"
+                    style="@style/task_buttons_field"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="while" />
+
+                <Button
                 android:id="@+id/task0821_btn_if"
                 style="@style/task_buttons_field"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
-                android:background="@drawable/btn_task_send"
                 android:text="if" />
+
             <Button
                 android:id="@+id/task0821_btn_ifelse"
                 style="@style/task_buttons_field"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
-                android:background="@drawable/btn_task_send"
-                android:text="elif" />
+                android:text="else if" />
             <Button
                 android:id="@+id/task0821_btn_else"
                 style="@style/task_buttons_field"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
-                android:background="@drawable/btn_task_send"
                 android:text="else" />
                 <Button
                     android:id="@+id/task0821_btn_print"
                     style="@style/task_buttons_field"
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
-                    android:background="@drawable/btn_task_send"
                     android:text="print" />
                 <Button
                     android:id="@+id/task0821_btn_input"
                     style="@style/task_buttons_field"
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="2dp"
                     android:layout_marginBottom="5dp"
-                    android:background="@drawable/btn_task_send"
                     android:text="int(input)" />
             </LinearLayout>
         </LinearLayout>

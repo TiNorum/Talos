@@ -1,16 +1,16 @@
 package com.example.myapplication.ClientLauncher.Core;
 
 public class resource {
-   private    String message,answer;
+    String message, answer;
 
-   public resource(String message)
-   {
-       this.message =message;
-   }
+   public resource(String message) {
+        this.message = message;
+    }
 
     public String getMessage() {
         return message;
     }
+
 
     public String getAnswer() {
         return answer;

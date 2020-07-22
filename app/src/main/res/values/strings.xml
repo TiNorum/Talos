@@ -4,5 +4,11 @@
     <string name="decide">Решить</string>
     <string name="set">Задать значения</string>
 
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="menu_task">Задания</string>
+    <string name="menu_profile">Профиль</string>
+    <string name="menu_exit">Выход</string>
+    <string name="menu_calculator">Калькулятор</string>
 
 </resources>

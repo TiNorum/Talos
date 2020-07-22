@@ -22,16 +22,12 @@ public class MessageWriter {
     public void writeMessage(final String message)
             throws IOException {
 
-        ByteArrayOutputStream baos = new ByteArrayOutputStream(message.getBytes().length);
-        DataOutputStream dos =  new DataOutputStream(baos);
-        dos.writeUTF(message);
-
         synchronized (out) {
-            baos.writeTo(out);
+            out.writeBytes(message);
             out.flush();
         }
 
-       // System.out.println("Message " + message + " sent.");
+       System.out.println("Message " + message + " sent.");
     }
 
 

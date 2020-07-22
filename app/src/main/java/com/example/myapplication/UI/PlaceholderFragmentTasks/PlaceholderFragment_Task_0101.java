@@ -22,6 +22,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.myapplication.Activities.Activity_Main;
+import com.example.myapplication.ClientLauncher.ClientManager;
 import com.example.myapplication.Instruments.Constants;
 import com.example.myapplication.Instruments.ShowToast;
 import com.example.myapplication.R;
@@ -33,10 +34,9 @@ import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStreamReader;
 import java.net.Socket;
+import java.net.UnknownHostException;
 
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
-import io.reactivex.rxjava3.core.Single;
-import io.reactivex.rxjava3.schedulers.Schedulers;
+
 
 public class PlaceholderFragment_Task_0101 extends Fragment {
 
@@ -131,6 +131,13 @@ public class PlaceholderFragment_Task_0101 extends Fragment {
             //отправка на сервер
             //*****************
             //*****************
+            try {
+                String answer = ClientManager.send_server(getData());
+            } catch (UnknownHostException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
 
 
             tAnswer.setVisibility(View.VISIBLE);
