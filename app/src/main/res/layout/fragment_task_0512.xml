@@ -11,9 +11,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="15dp"
-        android:paddingTop="20dp"
-        android:paddingRight="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="15dp"
         android:orientation="vertical">
 
         <com.rengwuxian.materialedittext.MaterialEditText
@@ -30,6 +30,7 @@
 
     <LinearLayout
         android:id="@+id/linear_code"
+        android:layout_margin="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical" />
@@ -46,11 +47,10 @@
 
 
         <Button
-            android:id="@+id/task0411_btn_answer"
+            android:id="@+id/btn_answer"
             style="@style/task_buttons_field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
             android:layout_marginLeft="80dp"
             android:layout_marginRight="80dp"
             android:layout_marginTop="20dp"

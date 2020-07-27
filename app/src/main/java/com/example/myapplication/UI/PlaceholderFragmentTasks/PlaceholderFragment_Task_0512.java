@@ -86,12 +86,9 @@ public class PlaceholderFragment_Task_0512 extends Fragment {
             @Override
             public void afterTextChanged(Editable s) {
 
-
-
-                if (s.toString() == "") return;
+                if (s.toString().toString().isEmpty()) return;
 
                 int countNum = Integer.parseInt(s.toString());
-
 
                 for (int i = listCode.size(); listCode.size() <= countNum; i++) {
 
@@ -99,7 +96,7 @@ public class PlaceholderFragment_Task_0512 extends Fragment {
 
                     editText.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
                     editText.setFloatingLabel(MaterialEditText.FLOATING_LABEL_HIGHLIGHT);
-                    editText.setFloatingLabelText("Буква #" + i);
+                    editText.setFloatingLabelText("Буква #" + (i + 1));
                     editText.setInputType(InputType.TYPE_CLASS_NUMBER);
                     editText.setHint("Введите код");
                     editText.setFilters(new InputFilter.LengthFilter[]{new InputFilter.LengthFilter(10)});
@@ -113,7 +110,6 @@ public class PlaceholderFragment_Task_0512 extends Fragment {
                     linearLayout.removeView(listCode.get(listCode.size() - 1));
                     listCode.remove(listCode.get(listCode.size() - 1));
                 }
-
 
             }
 
