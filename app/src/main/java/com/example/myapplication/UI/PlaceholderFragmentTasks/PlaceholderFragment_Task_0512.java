@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.InputType;
+import android.text.Spanned;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -86,9 +87,11 @@ public class PlaceholderFragment_Task_0512 extends Fragment {
             @Override
             public void afterTextChanged(Editable s) {
 
-                if (s.toString().toString().isEmpty()) return;
+                if (s.toString().isEmpty()) return;
+
 
                 int countNum = Integer.parseInt(s.toString());
+
 
                 for (int i = listCode.size(); listCode.size() <= countNum; i++) {
 
@@ -99,7 +102,23 @@ public class PlaceholderFragment_Task_0512 extends Fragment {
                     editText.setFloatingLabelText("Буква #" + (i + 1));
                     editText.setInputType(InputType.TYPE_CLASS_NUMBER);
                     editText.setHint("Введите код");
-                    editText.setFilters(new InputFilter.LengthFilter[]{new InputFilter.LengthFilter(10)});
+                    editText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(10), new InputFilter() {
+                        @Override
+                        public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+                            StringBuilder s = new StringBuilder(source.toString());
+
+                            for(int i = 0; i<s.toString().length(); i++)
+                            {
+                                if(s.charAt(i) != '0' && s.charAt(i) != '1')
+                                {
+                                    s.deleteCharAt(i);
+                                    i--;
+                                }
+                            }
+
+                            return s.toString();
+                        }
+                    }});
 
                     linearLayout.addView(editText);
                     listCode.add(editText);
@@ -110,6 +129,7 @@ public class PlaceholderFragment_Task_0512 extends Fragment {
                     linearLayout.removeView(listCode.get(listCode.size() - 1));
                     listCode.remove(listCode.get(listCode.size() - 1));
                 }
+
 
             }
 
