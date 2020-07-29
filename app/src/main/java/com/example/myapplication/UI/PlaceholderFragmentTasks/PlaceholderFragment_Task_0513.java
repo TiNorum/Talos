@@ -1,9 +1,11 @@
 package com.example.myapplication.UI.PlaceholderFragmentTasks;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.InputType;
+import android.text.Spanned;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,8 +20,11 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.myapplication.Instruments.Constants;
+import com.example.myapplication.Instruments.ShowToast;
 import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageViewModel;
+import com.rengwuxian.materialedittext.MaterialEditText;
 
 import java.util.ArrayList;
 
@@ -49,11 +54,13 @@ public class PlaceholderFragment_Task_0513 extends Fragment {
     }
 
 
-    private EditText countCharecter;
-    private EditText UnkwonCode;
-    private Button btOtvet;
-    private TextView tvOtvet;
-    private ArrayList<NewElements> listCode = new ArrayList<NewElements>();
+    private EditText count_chars;
+    private EditText  count_unknown_chars;
+    private Button btn_answer;
+    private TextView text_answer;
+    private LinearLayout linearLayout;
+
+    private ArrayList<MaterialEditText> listCode = new ArrayList<MaterialEditText>();
 
     public View root;
 
@@ -63,46 +70,60 @@ public class PlaceholderFragment_Task_0513 extends Fragment {
             Bundle savedInstanceState) {
 
         root = inflater.inflate(R.layout.fragment_task_0513, container, false);
-        btOtvet = root.findViewById(R.id.bOtvet_task13);
-        btOtvet.setOnClickListener(oclBtn);
-        tvOtvet = root.findViewById(R.id.textView2_task13);
-        countCharecter = root.findViewById(R.id.editText1_task13);
-        countCharecter.addTextChangedListener(new TextWatcher() {
+
+        btn_answer = root.findViewById(R.id.btn_answer);
+        btn_answer.setOnClickListener(oclBtn);
+
+        linearLayout = root.findViewById(R.id.linear_code);
+        text_answer = root.findViewById(R.id.text_answer);
+
+        count_unknown_chars = root.findViewById(R.id.edittext_count_unknown_chars);
+
+        count_chars = root.findViewById(R.id.edittext_count_chars);
+        count_chars.addTextChangedListener(new TextWatcher() {
+            @SuppressLint("WrongConstant")
             @Override
             public void afterTextChanged(Editable s) {
 
-                // Прописываем то, что надо выполнить после изменения текст
-                try {
-                    Thread.sleep(100);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                try {
-                    tvOtvet.setVisibility(View.INVISIBLE);
+                if (s.toString().toString().isEmpty()) return;
 
-                    int countNums = Integer.parseInt(s.toString());
+                int countNum = Integer.parseInt(s.toString());
 
-                    if (countNums == 0 || countNums < listCode.size()) {
-                        for (int i = countNums; i < listCode.size(); ) {
-                            listCode.get(i).remove();
-                            listCode.remove(i);
+                for (int i = listCode.size(); listCode.size() <= countNum; i++) {
 
+                    MaterialEditText editText = new MaterialEditText(getContext());
+
+                    editText.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+                    editText.setFloatingLabel(MaterialEditText.FLOATING_LABEL_HIGHLIGHT);
+                    editText.setFloatingLabelText("Буква #" + (i + 1));
+                    editText.setInputType(InputType.TYPE_CLASS_NUMBER);
+                    editText.setHint("Введите код");
+                    editText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(10), new InputFilter() {
+                        @Override
+                        public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+                            StringBuilder s = new StringBuilder(source.toString());
+
+                            for(int i = 0; i<s.toString().length(); i++)
+                            {
+                                if(s.charAt(i) != '0' && s.charAt(i) != '1')
+                                {
+                                    s.deleteCharAt(i);
+                                    i--;
+                                }
+                            }
+
+                            return s.toString();
                         }
-                    }
-//                 //                    }
-                    if (listCode.size() < countNums) {
-                        for (; listCode.size() != countNums; ) {
-
-                            listCode.add(new NewElements());
-
-                        }
-
-
-                    }
-                } catch (Exception e) {
+                    }});
+                    linearLayout.addView(editText);
+                    listCode.add(editText);
 
                 }
 
+                while (listCode.size() != countNum) {
+                    linearLayout.removeView(listCode.get(listCode.size() - 1));
+                    listCode.remove(listCode.get(listCode.size() - 1));
+                }
 
             }
 
@@ -116,77 +137,56 @@ public class PlaceholderFragment_Task_0513 extends Fragment {
             }
         });
 
-
-
         return root;
     }
 
     View.OnClickListener oclBtn = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            switch (v.getId()) {
-                case R.id.bOtvet_task13:
-                    boolean check = true;
-                    for (NewElements i : listCode) {
-                        if (i.toString() == null)
-                            check = false;
-                    }
-                    if (check && !countCharecter.getText().toString().isEmpty())
-                        tvOtvet.setVisibility(View.VISIBLE);
-                    else {
-                        Toast toast = Toast.makeText(getContext(),
-                                "Заполните  поля!", Toast.LENGTH_SHORT);
-                        toast.show();
-                    }
 
+            if (checkData()) return;
+
+            String data = getData();
+
+            text_answer.setVisibility(View.VISIBLE);
+            text_answer.setText(data);
+
+        }
+
+        private boolean checkData() {
+
+            if (count_chars.getText().toString().isEmpty()) {
+                ShowToast.showToast(getContext(), "Введите количество известных букв!");
+                return true;
             }
 
+            if (count_unknown_chars.getText().toString().isEmpty()) {
+                ShowToast.showToast(getContext(), "Введите количество неизвестных букв!");
+                return true;
+            }
+
+            for (MaterialEditText element : listCode)
+                if (element.getText().toString().isEmpty()) {
+                    ShowToast.showToast(getContext(), "Введите все коды!");
+                    return true;
+                }
+
+            return false;
         }
+
+
+        private String getData() {
+
+            String data = "100" + Constants.NEXT_LINE + 12 + Constants.NEXT_LINE;
+
+            data += count_chars.getText().toString() + Constants.NEXT_LINE;
+            data += count_unknown_chars.getText().toString();
+
+            for (EditText editText : listCode)
+                data += Constants.NEXT_LINE + listCode.toString();
+
+            return data;
+        }
+
     };
-
-    private class NewElements {
-        public LinearLayout linearLH = (LinearLayout) root.findViewById(R.id.linear_code_task13);
-        public LinearLayout linearLV = new LinearLayout(root.getContext());
-        public EditText symbol = new EditText(root.getContext());
-        public EditText code = new EditText(root.getContext());
-
-
-        public NewElements() {
-            final float scale = getResources().getDisplayMetrics().density;
-
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams((int) (84 * scale + 0.5f), (int) (40 * scale + 0.5f), 1f);
-            params.setMargins(0, (int) (10 * scale + 0.5f), (int) (25 * scale + 0.5f), 0);
-            symbol.setLayoutParams(params);
-            symbol.setInputType(InputType.TYPE_CLASS_TEXT);
-            code.setFilters(new InputFilter.LengthFilter[]{new InputFilter.LengthFilter(5)});
-            symbol.setFilters(new InputFilter.LengthFilter[]{new InputFilter.LengthFilter(1)});
-            params.setMargins((int) (25 * scale + 0.5f), (int) (10 * scale + 0.5f), 0, 0);
-            code.setLayoutParams(params);
-
-            linearLV.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f));
-
-            code.setHint("Код");
-            symbol.setHint("Буква");
-            code.setInputType(InputType.TYPE_CLASS_NUMBER );
-            linearLV.addView(symbol);
-            linearLV.addView(code);
-            linearLH.addView(linearLV);
-        }
-
-
-        @NonNull
-        @Override
-        public String toString() {
-            if (symbol.getText().toString().length() > 0)
-                return symbol.getText() + " " + code.getText();
-            else
-                return null;
-        }
-
-        public void remove() {
-            linearLV.removeAllViews();
-            linearLH.removeView(linearLV);
-        }
-
-    }
 }

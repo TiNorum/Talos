@@ -7,7 +7,6 @@ import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.SectionsPagerAdapter;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.PlaceholderFragment_Task_0512;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.PlaceholderFragment_Task_0513;
-import com.example.myapplication.UI.PlaceholderFragmentTasks.PlaceholderFragment_Task_0514;
 import com.google.android.material.tabs.TabLayout;
 
 import androidx.fragment.app.Fragment;
@@ -16,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Activity_task_05 extends AppCompatActivity {
 
-    private static final Fragment[] fragments = {PlaceholderFragment_Task_0512.newInstance(0), PlaceholderFragment_Task_0513.newInstance(1), PlaceholderFragment_Task_0514.newInstance(2)};
+    private static final Fragment[] fragments = {PlaceholderFragment_Task_0512.newInstance(0), PlaceholderFragment_Task_0513.newInstance(1)};
     private static final String[] tab_titles = {"Кодовое слово для одной буквы", "Сумма всех", "Отличия с ошибкой"};
 
 

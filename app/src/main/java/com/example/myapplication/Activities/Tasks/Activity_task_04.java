@@ -13,9 +13,6 @@ import com.example.myapplication.UI.PlaceholderFragmentTasks.PlaceholderFragment
 import com.example.myapplication.UI.PlaceholderFragmentTasks.PlaceholderFragment_Task_0409;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.PlaceholderFragment_Task_0410;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.PlaceholderFragment_Task_0411;
-import com.example.myapplication.UI.PlaceholderFragmentTasks.PlaceholderFragment_Task_0512;
-import com.example.myapplication.UI.PlaceholderFragmentTasks.PlaceholderFragment_Task_0513;
-import com.example.myapplication.UI.PlaceholderFragmentTasks.PlaceholderFragment_Task_0514;
 import com.google.android.material.tabs.TabLayout;
 
 public class Activity_task_04 extends AppCompatActivity {

@@ -16,20 +16,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.example.myapplication.Activities.Tasks.Activity_task_01;
-import com.example.myapplication.Activities.Tasks.Activity_task_02;
-import com.example.myapplication.Activities.Tasks.Activity_task_03;
-import com.example.myapplication.Activities.Tasks.Activity_task_04;
-import com.example.myapplication.Activities.Tasks.Activity_task_05;
-import com.example.myapplication.Activities.Tasks.Activity_task_06;
-import com.example.myapplication.Activities.Tasks.Activity_task_07;
-import com.example.myapplication.Activities.Tasks.Activity_task_08;
-import com.example.myapplication.Activities.Tasks.Activity_task_09;
-import com.example.myapplication.Activities.Tasks.Activity_task_10;
-import com.example.myapplication.Activities.Tasks.Activity_task_12;
-import com.example.myapplication.Activities.Tasks.Activity_task_13;
-import com.example.myapplication.Activities.Tasks.Activity_task_14;
-import com.example.myapplication.Activities.Tasks.Activity_task_15;
+
 import com.example.myapplication.Instruments.ShowToast;
 import com.example.myapplication.R;
 import com.google.android.material.navigation.NavigationView;
