@@ -123,14 +123,12 @@ public class Check_Input {
     public static String ColorEditTask8(String str)
     {
         str = RepleceComparisonSignTask8(str);
-        str = str.replace("\n","<br>");
+        str = str.replace("\n","");
         str = str.replace(" ","<span> </span>");
-        str = str.replace("elif","<font color='#0088FE'>elif</font>");
-        str = str.replace("while","<font color='#FFA600'>while</font>");
-        str = str.replace("if","<font color='#0088FE'>if</font>");
+        str = str.replace("if","");
         str = str.replace("else","<font color='#0088FE'>else</font>");
-        str = str.replace("int(input","<font color='#71FF00'>int(input</font>");
-        str = str.replace("print","<font color='#71FF00'>print</font>");
+        str = str.replace("int(input())","");
+        str = str.replace("print","");
         return str;
     }
 

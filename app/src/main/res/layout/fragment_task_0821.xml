@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:paddingLeft="15dp"
     android:paddingTop="20dp"
     android:paddingRight="15dp"
@@ -14,94 +15,104 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="left"
+        android:layout_weight="2"
         android:orientation="vertical">
 
-        <TextView
-            style="@style/task_question"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Введите код Python:" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="left"
+            android:layout_weight="0"
+            android:gravity="center"
             android:orientation="horizontal">
 
-            <com.rengwuxian.materialedittext.MaterialEditText
-                android:id="@+id/task0821_edittext_code"
-                style="@style/task_input"
-                android:layout_width="match_parent"
-                android:layout_weight="2"
-                android:layout_height="match_parent"
-                android:gravity="start"
-                android:hint="Ввидите код"
-                android:inputType="textMultiLine|textNoSuggestions"
-                android:lines="12"
-                android:maxLength="200"
-                android:maxLines="20" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_weight="5"
-                android:orientation="vertical">
-
-                <Button
-                    android:id="@+id/task0821_btn_while"
-                    style="@style/task_buttons_field"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:text="while" />
-
-                <Button
-                android:id="@+id/task0821_btn_if"
+            <Button
+                android:id="@+id/button_while"
                 style="@style/task_buttons_field"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:text="while" />
+
+            <Button
+                android:id="@+id/button_if"
+                style="@style/task_buttons_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
                 android:text="if" />
 
+
             <Button
-                android:id="@+id/task0821_btn_ifelse"
+                android:id="@+id/button_else_if"
                 style="@style/task_buttons_field"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
                 android:text="else if" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:gravity="center"
+
+            android:orientation="horizontal">
+
             <Button
-                android:id="@+id/task0821_btn_else"
+                android:id="@+id/button_input"
                 style="@style/task_buttons_field"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
+                android:padding="2dp"
+                android:text="int(input)" />
+
+            <Button
+                android:id="@+id/button_else"
+                style="@style/task_buttons_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
                 android:text="else" />
-                <Button
-                    android:id="@+id/task0821_btn_print"
-                    style="@style/task_buttons_field"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:text="print" />
-                <Button
-                    android:id="@+id/task0821_btn_input"
-                    style="@style/task_buttons_field"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="2dp"
-                    android:layout_marginBottom="5dp"
-                    android:text="int(input)" />
-            </LinearLayout>
+
+            <Button
+                android:id="@+id/button_print"
+                style="@style/task_buttons_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:text="print" />
+
+
         </LinearLayout>
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/edittext_code"
+            style="@style/task_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:hint="Ввидите код Python"
+            android:inputType="textMultiLine|textNoSuggestions"
+            android:lines="12"
+            android:maxLength="200"
+            android:maxLines="50" />
+
         <TextView
-            android:id="@+id/task0821_textview_answer"
+            android:id="@+id/textview_answer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="gone" />
 
         <Button
-            android:id="@+id/task0821_btn_answer"
+            android:id="@+id/button_answer"
             style="@style/task_buttons_field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -109,9 +120,13 @@
             android:layout_marginLeft="80dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="80dp"
+            android:layout_marginBottom="20dp"
             android:background="@drawable/btn_task_send"
             android:gravity="center"
             android:text="@string/decide" />
+
+
     </LinearLayout>
+
 </LinearLayout>
 
