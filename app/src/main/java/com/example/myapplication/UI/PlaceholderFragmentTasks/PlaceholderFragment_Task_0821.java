@@ -1,10 +1,14 @@
 package com.example.myapplication.UI.PlaceholderFragmentTasks;
 
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.Html;
 import android.text.Spannable;
+import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
+import android.text.TextWatcher;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -64,7 +68,7 @@ public class PlaceholderFragment_Task_0821 extends Fragment {
     private Button button_input;
     private TextView text_answer;
     private EditText code;
-    Map<Integer,String> string_ = new HashMap<Integer, String>();
+    Map<Integer, String> string_ = new HashMap<Integer, String>();
 
     @Override
     public View onCreateView(
@@ -77,9 +81,9 @@ public class PlaceholderFragment_Task_0821 extends Fragment {
         button_answer.setOnClickListener(oclBtn);
 
         button_while = root.findViewById(R.id.button_while);
-         button_while.setOnClickListener(code_button_listener);
+        button_while.setOnClickListener(code_button_listener);
 
-         button_while.getId();
+        button_while.getId();
         button_if = root.findViewById(R.id.button_if);
         button_if.setOnClickListener(code_button_listener);
 
@@ -96,13 +100,47 @@ public class PlaceholderFragment_Task_0821 extends Fragment {
         button_input.setOnClickListener(code_button_listener);
 
         code = root.findViewById(R.id.edittext_code);
+        code.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View view, int i, KeyEvent keyEvent) {
 
-        string_.put(R.id.button_while,"<font color='#FFA600'>while():<br>&nbsp;&nbsp;&nbsp;&nbsp;</font>");
-        string_.put(R.id.button_if,"<font color='#0088FE'>if():<br>&nbsp;&nbsp;&nbsp;&nbsp;</font>");
-        string_.put(R.id.button_else,"<font color='#0088FE'>else:<br>&nbsp;&nbsp;&nbsp;&nbsp;</font>");
-        string_.put(R.id.button_else_if,"<font color='#0088FE'>elif():<br>&nbsp;&nbsp;&nbsp;&nbsp;</font>");
-        string_.put(R.id.button_print,"<font color='#71FF00'>print()</font>");
-        string_.put(R.id.button_input,"<font color='#71FF00'>int(input())</font>");
+                if (i == 13 && keyEvent.getAction() == KeyEvent.ACTION_UP) {
+                    String string = code.getText().toString();
+                    String s = "";
+
+                    int position = code.getSelectionStart();
+
+                    while (string.charAt(position) != '\n' || position != 0) {
+                        s += string.charAt(position);
+                    }
+                    string = "" + s.charAt(0)+ s.charAt(1)+ s.charAt(2)+ s.charAt(3);
+
+                    SpannableStringBuilder spannableString = new SpannableStringBuilder(code.getText());
+
+                    spannableString.append('\n');
+
+                    if(string.equals("    "))
+                        spannableString.append("    ");
+
+                    string = s.trim();
+                    if(s.charAt(s.length() - 1) == ':')
+                        spannableString.append("    ");
+
+                    code.setText(spannableString);
+
+                    return true;
+
+                }
+                return false;
+            }
+        });
+
+        string_.put(R.id.button_while, "<font color='#FFA600'>while():</font>");
+        string_.put(R.id.button_if, "<font color='#0088FE'>if():</font>");
+        string_.put(R.id.button_else, "<font color='#0088FE'>else:</font>");
+        string_.put(R.id.button_else_if, "<font color='#0088FE'>elif():</font>");
+        string_.put(R.id.button_print, "<font color='#71FF00'>print()</font>");
+        string_.put(R.id.button_input, "<font color='#71FF00'>int(input())</font>");
 
         text_answer = root.findViewById(R.id.textView_answer);
 
@@ -110,12 +148,11 @@ public class PlaceholderFragment_Task_0821 extends Fragment {
     }
 
 
-
     private View.OnClickListener code_button_listener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-             code.setText(Html.fromHtml(Html.toHtml(code.getText()) + (string_.get(v.getId()))));
-                        code.setSelection(code.getText().length());
+            code.setText(Html.fromHtml(Html.toHtml(code.getText()) + (string_.get(v.getId()))));
+            code.setSelection(code.getText().length());
         }
     };
 
@@ -149,17 +186,16 @@ public class PlaceholderFragment_Task_0821 extends Fragment {
             if (code.getText().toString().isEmpty()) {
                 Toast toast = Toast.makeText(getContext(),
                         "Введите Код программы!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER,0,0);
+                toast.setGravity(Gravity.CENTER, 0, 0);
                 toast.show();
                 return true;
             }
 
-            String answer = Check_Input.CheckString(code.getText().toString(),8);
-            if(!answer.isEmpty())
-            {
+            String answer = Check_Input.CheckString(code.getText().toString(), 8);
+            if (!answer.isEmpty()) {
                 Toast toast = Toast.makeText(getContext(),
                         answer, Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER,0,0);
+                toast.setGravity(Gravity.CENTER, 0, 0);
                 toast.show();
                 return true;
             }
