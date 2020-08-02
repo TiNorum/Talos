@@ -1,10 +1,7 @@
 package com.example.myapplication.UI.PlaceholderFragmentTasks;
 
-import android.graphics.Color;
 import android.os.Bundle;
-import android.text.Editable;
 import android.text.Html;
-import android.text.TextWatcher;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,7 +21,8 @@ import com.example.myapplication.Instruments.Constants;
 import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageViewModel;
 
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -55,22 +53,24 @@ public class PlaceholderFragment_Task_0822 extends Fragment {
         pageViewModel.setIndex(index);
     }
 
-    private Button btnAnswer;
-    private Button btnWhile;
-    private Button btnIf;
-    private Button btnIfElse;
-    private Button btnElse;
-    private Button btnPrint;
-    private Button btnInput;
+    private Button button_while;
+    private Button button_if;
+    private Button button_elif;
+    private Button button_else;
+    private Button button_print;
+    private Button button_input;
     private EditText number;
     private RadioButton min;
     private RadioButton max;
-    private TextView tAnswer;
-    private EditText kod;
-    private static String strr = "";
-    private  static int Cursor = 0;
-    private boolean flag= false;
-    private boolean flagButton= false;
+    private TextView text_answer;
+    private Button button_answer;
+
+    private EditText code;
+
+
+    Map<Integer,String> string_ = new HashMap<Integer, String>();
+
+
     @Override
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,
@@ -78,136 +78,54 @@ public class PlaceholderFragment_Task_0822 extends Fragment {
         View root = inflater.inflate(R.layout.fragment_task_0822, container, false);
 
         // находим кнопку с которой работает
-        btnAnswer = root.findViewById(R.id.task0822_btn_answer);
-        btnAnswer.setOnClickListener(oclBtn);
+        button_answer = root.findViewById(R.id.button_answer);
+        button_answer.setOnClickListener(oclBtn);
 
-        btnWhile = root.findViewById(R.id.task0822_btn_while);
-        btnWhile.setOnClickListener(oclBtnWhile);
+        button_while = root.findViewById(R.id.button_while);
+        button_while.setOnClickListener(code_button_listener);
 
-        btnIf = root.findViewById(R.id.task0822_btn_if);
-        btnIf.setOnClickListener(oclBtnIf);
+        button_if = root.findViewById(R.id.button_if);
+        button_if.setOnClickListener(code_button_listener);
 
-        btnIfElse = root.findViewById(R.id.task0822_btn_ifelse);
-        btnIfElse.setOnClickListener(oclBtnIfElse);
+        button_elif = root.findViewById(R.id.button_else_if);
+        button_elif.setOnClickListener(code_button_listener);
 
-        btnElse = root.findViewById(R.id.task0822_btn_else);
-        btnElse.setOnClickListener(oclBtnElse);
+        button_else = root.findViewById(R.id.button_else);
+        button_else.setOnClickListener(code_button_listener);
 
-        btnPrint = root.findViewById(R.id.task0822_btn_print);
-        btnPrint.setOnClickListener(oclBtnPrint);
+        button_print = root.findViewById(R.id.button_print);
+        button_print.setOnClickListener(code_button_listener);
 
-        btnInput = root.findViewById(R.id.task0822_btn_input);
-        btnInput.setOnClickListener(oclBtnInput);
+        button_input = root.findViewById(R.id.button_input);
+        button_input.setOnClickListener(code_button_listener);
 
-        kod = root.findViewById(R.id.task0822_edittext_code);
-        number = root.findViewById(R.id.task0822_edittext_number);
+        code = root.findViewById(R.id.edittext_code);
+        number = root.findViewById(R.id.edittext_number);
 
-        min = root.findViewById(R.id.task0822_rbtn_min_number);
-        max = root.findViewById(R.id.task0822_rbtn_max_number);
-        kod.addTextChangedListener(new TextWatcher(){
-            @Override
-            public void afterTextChanged(Editable s) {
-            }
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        min = root.findViewById(R.id.radiobutton_min);
+        max = root.findViewById(R.id.radiobutton_max);
 
-            }
 
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                try {
-                    String tmp = kod.getText().toString();
+        string_.put(R.id.button_while,"<font color='#FFA600'>while():<br>&nbsp;&nbsp;&nbsp;&nbsp;</font></p>");
+        string_.put(R.id.button_if,"<font color='#0088FE'>if():<br>&nbsp;&nbsp;&nbsp;&nbsp;</font>");
+        string_.put(R.id.button_else,"<font color='#0088FE'>else:<br>&nbsp;&nbsp;&nbsp;&nbsp;</font>");
+        string_.put(R.id.button_else_if,"<font color='#0088FE'>elif():<br>&nbsp;&nbsp;&nbsp;&nbsp;</font>");
+        string_.put(R.id.button_print,"<font color='#71FF00'>print()</font>");
+        string_.put(R.id.button_input,"<font color='#71FF00'>int(input())</font>");
 
-                    if (!strr.equals(tmp)) {
-                        strr = tmp;
-                        String stroka = Check_Input.ColorEditTask8(tmp);
-                        if ( !flagButton) //   false false
-                            Cursor = kod.getSelectionStart();
-                        flagButton = false;
-                        kod.setText(Html.fromHtml(stroka));
-                    }
-
-                    kod.setSelection(Cursor);
-                }
-                catch (Exception e)
-                {
-                    System.out.println(e.getMessage());
-                    Cursor = kod.getText().length();
-                    kod.setSelection(Cursor);
-                }
-            }
-        });
-        tAnswer = root.findViewById(R.id.task0822_textview_answer);
+        text_answer = root.findViewById(R.id.text_answer);
         return root;
     }
 
+    private View.OnClickListener code_button_listener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            code.setText(Html.fromHtml(Html.toHtml(code.getText()) + (string_.get(v.getId()))));
+            code.setSelection(code.getText().length());
+        }
+    };
 
-    View.OnClickListener oclBtnWhile = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            flagButton = true;
-            String tmp = kod.getText().toString();
-            String str = tmp.substring(0,Cursor) + "while :";
-            str += tmp.substring(Cursor,tmp.length());
-            Cursor +=6;
-            kod.setText(str);
-        }
-    };
-    View.OnClickListener oclBtnIf = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            flagButton = true;
-            String tmp = kod.getText().toString();
-            String str = tmp.substring(0,Cursor) + "if :";
-            str += tmp.substring(Cursor,tmp.length());
-            Cursor +=3;
-            kod.setText(str);
-        }
-    };
-    View.OnClickListener oclBtnIfElse = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            flagButton = true;
-            String tmp = kod.getText().toString();
-            String str = tmp.substring(0,Cursor) + "elif :";
-            str += tmp.substring(Cursor,tmp.length());
-            Cursor +=5;
-            kod.setText(str);
-        }
-    };
-    View.OnClickListener oclBtnElse = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            flagButton = true;
-            String tmp = kod.getText().toString();
-            String str = tmp.substring(0,Cursor) + "else :";
-            str += tmp.substring(Cursor,tmp.length());
-            Cursor +=5;
-            kod.setText(str);
-        }
-    };
-    View.OnClickListener oclBtnPrint = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            flagButton = true;
-            String tmp = kod.getText().toString();
-            String str = tmp.substring(0,Cursor) + "print()";
-            str += tmp.substring(Cursor,tmp.length());
-            Cursor +=6;
-            kod.setText(str);
-        }
-    };
-    View.OnClickListener oclBtnInput = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            flagButton = true;
-            String tmp = kod.getText().toString();
-            String str = tmp.substring(0,Cursor) + "int(input())";
-            str += tmp.substring(Cursor,tmp.length());
-            Cursor +=10;
-            kod.setText(str);
-        }
-    };
+
     View.OnClickListener oclBtn = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -224,7 +142,7 @@ public class PlaceholderFragment_Task_0822 extends Fragment {
             //*****************
             ///////////////////
 
-            tAnswer.setVisibility(View.VISIBLE);
+            text_answer.setVisibility(View.VISIBLE);
         }
 
         private String getData() {
@@ -237,7 +155,7 @@ public class PlaceholderFragment_Task_0822 extends Fragment {
             else
                 data += "1" + Constants.NEXT_LINE;
 
-            data += kod.getText().toString();
+            data += code.getText().toString();
             return data;
         }
 
@@ -256,7 +174,7 @@ public class PlaceholderFragment_Task_0822 extends Fragment {
                 toast.show();
                 return true;
             }
-            if (kod.getText().toString().isEmpty()) {
+            if (code.getText().toString().isEmpty()) {
                 Toast toast = Toast.makeText(getContext(),
                         "Введите Код программы!", Toast.LENGTH_SHORT);
                 toast.setGravity(Gravity.CENTER,0,0);
@@ -264,7 +182,7 @@ public class PlaceholderFragment_Task_0822 extends Fragment {
                 return true;
             }
 
-            String answer = Check_Input.CheckString(kod.getText().toString(),8);
+            String answer = Check_Input.CheckString(code.getText().toString(),8);
             if(!answer.isEmpty())
             {
                 Toast toast = Toast.makeText(getContext(),
