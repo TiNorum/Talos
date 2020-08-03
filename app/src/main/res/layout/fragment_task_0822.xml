@@ -62,14 +62,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="left"
-            android:orientation="vertical">
+            android:orientation="horizontal">
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/edittext_code"
+                style="@style/task_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="start"
+                android:hint="Ввидите код Python"
+                android:lines="12"
+                android:maxLength="200"
+                android:maxLines="50" />
+
+
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:gravity="center"
-                android:orientation="horizontal">
+
+                android:orientation="vertical">
 
                 <Button
                     android:id="@+id/button_while"
@@ -91,6 +105,15 @@
 
 
                 <Button
+                    android:id="@+id/button_else"
+                    style="@style/task_buttons_field"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:text="else" />
+
+                <Button
                     android:id="@+id/button_else_if"
                     style="@style/task_buttons_field"
                     android:layout_width="wrap_content"
@@ -100,16 +123,6 @@
                     android:text="else if" />
 
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-
-                android:orientation="horizontal">
-
                 <Button
                     android:id="@+id/button_input"
                     style="@style/task_buttons_field"
@@ -117,15 +130,6 @@
                     android:layout_height="wrap_content"
                     android:padding="2dp"
                     android:text="int(input)" />
-
-                <Button
-                    android:id="@+id/button_else"
-                    style="@style/task_buttons_field"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginEnd="5dp"
-                    android:text="else" />
 
                 <Button
                     android:id="@+id/button_print"
@@ -139,22 +143,9 @@
 
             </LinearLayout>
 
-            <com.rengwuxian.materialedittext.MaterialEditText
-                android:id="@+id/edittext_code"
-                style="@style/task_input"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="start"
-                android:hint="Ввидите код Python"
-                android:inputType="textMultiLine|textNoSuggestions"
-                android:lines="12"
-                android:maxLength="200"
-                android:maxLines="20"
-                app:met_floatingLabel="highlight"
-                app:met_floatingLabelText="Ввидите код" />
 
         </LinearLayout>
+
 
         <TextView
             android:id="@+id/text_answer"
