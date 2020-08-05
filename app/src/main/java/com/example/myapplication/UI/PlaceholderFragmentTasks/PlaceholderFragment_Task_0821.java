@@ -1,10 +1,17 @@
 package com.example.myapplication.UI.PlaceholderFragmentTasks;
 
+import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.Html;
 import android.text.Spannable;
+import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.TextWatcher;
+import android.text.style.ForegroundColorSpan;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,12 +26,15 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.myapplication.Instruments.Check_Input;
 import com.example.myapplication.Instruments.Constants;
+import com.example.myapplication.Instruments.ShowToast;
 import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageViewModel;
 
 import java.util.Dictionary;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -64,7 +74,9 @@ public class PlaceholderFragment_Task_0821 extends Fragment {
     private Button button_input;
     private TextView text_answer;
     private EditText code;
-    Map<Integer,String> string_ = new HashMap<Integer, String>();
+
+    Map<Integer, String> string_ = new HashMap<Integer, String>();
+    Map<Integer, Integer> span_color = new HashMap<Integer, Integer>();
 
     @Override
     public View onCreateView(
@@ -77,9 +89,9 @@ public class PlaceholderFragment_Task_0821 extends Fragment {
         button_answer.setOnClickListener(oclBtn);
 
         button_while = root.findViewById(R.id.button_while);
-         button_while.setOnClickListener(code_button_listener);
+        button_while.setOnClickListener(code_button_listener);
 
-         button_while.getId();
+        button_while.getId();
         button_if = root.findViewById(R.id.button_if);
         button_if.setOnClickListener(code_button_listener);
 
@@ -96,13 +108,83 @@ public class PlaceholderFragment_Task_0821 extends Fragment {
         button_input.setOnClickListener(code_button_listener);
 
         code = root.findViewById(R.id.edittext_code);
+        code.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View view, int i, KeyEvent keyEvent) {
 
-        string_.put(R.id.button_while,"<font color='#FFA600'>while():<br>&nbsp;&nbsp;&nbsp;&nbsp;</font>");
-        string_.put(R.id.button_if,"<font color='#0088FE'>if():<br>&nbsp;&nbsp;&nbsp;&nbsp;</font>");
-        string_.put(R.id.button_else,"<font color='#0088FE'>else:<br>&nbsp;&nbsp;&nbsp;&nbsp;</font>");
-        string_.put(R.id.button_else_if,"<font color='#0088FE'>elif():<br>&nbsp;&nbsp;&nbsp;&nbsp;</font>");
-        string_.put(R.id.button_print,"<font color='#71FF00'>print()</font>");
-        string_.put(R.id.button_input,"<font color='#71FF00'>int(input())</font>");
+                if (i == 66 && keyEvent.getAction() == KeyEvent.ACTION_DOWN) {
+
+                    int position = code.getSelectionEnd();
+                    StringBuffer string = new StringBuffer(code.getText().toString());
+                    StringBuilder s = new StringBuilder("");
+
+                    for (int index = string.length() - 1; index >= 0 && string.charAt(index) != '\n'; index--) {
+                        s.append(string.charAt(index));
+                    }
+
+
+                    if (s.length() < 4) return false;
+
+                    s.reverse();
+
+                    int counter_space = 0;
+
+                    for (int index = 0; index < s.length() && s.charAt(index) == ' '; index++) {
+                        counter_space++;
+                    }
+
+                    ShowToast.showToast(getContext(), "" + counter_space);
+                    Editable str = code.getText();
+
+
+                    code.setText(str.insert(position, "\n"));
+                    position++;
+
+
+                    while (counter_space / 4 > 0) {
+                        str.insert(position, "    ");
+                        position += 4;
+                        counter_space-=4;
+                    }
+
+
+                    s.trimToSize();
+
+                    if (s.charAt(s.length() - 1) == ':') {
+                        str.insert(position, "    ");
+                        position += 4;
+                    }
+
+                    if(str.length()> 200) return false;
+
+                    code.setText(str);
+                    code.setSelection(position);
+
+                    return true;
+
+                }
+
+                return false;
+            }
+        });
+
+        string_.put(R.id.button_while, "while():");
+        span_color.put(R.id.button_while, Color.rgb(0, 136, 254));
+
+        string_.put(R.id.button_if, "if():");
+        span_color.put(R.id.button_if, Color.rgb(0, 136, 254));
+
+        string_.put(R.id.button_else, "else:");
+        span_color.put(R.id.button_else, Color.rgb(0, 136, 254));
+
+        string_.put(R.id.button_else_if, "elif():");
+        span_color.put(R.id.button_else_if, Color.rgb(0, 136, 254));
+
+        string_.put(R.id.button_print, "print()");
+        span_color.put(R.id.button_print, Color.rgb(113, 255, 0));
+
+        string_.put(R.id.button_input, "int(input())");
+        span_color.put(R.id.button_input, Color.rgb(113, 255, 0));
 
         text_answer = root.findViewById(R.id.textView_answer);
 
@@ -110,12 +192,19 @@ public class PlaceholderFragment_Task_0821 extends Fragment {
     }
 
 
-
     private View.OnClickListener code_button_listener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-             code.setText(Html.fromHtml(Html.toHtml(code.getText()) + (string_.get(v.getId()))));
-                        code.setSelection(code.getText().length());
+            SpannableStringBuilder stringBuilder = new SpannableStringBuilder(code.getText());
+
+            int pos = code.getSelectionEnd() + string_.get(v.getId()).length();
+
+            stringBuilder.insert(code.getSelectionStart(), string_.get(v.getId()));
+            stringBuilder.setSpan(new ForegroundColorSpan(span_color.get(v.getId())),code.getSelectionStart(),code.getSelectionStart() + string_.get(v.getId()).length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+
+            code.setText(stringBuilder);
+            code.setSelection(pos);
         }
     };
 
@@ -149,17 +238,16 @@ public class PlaceholderFragment_Task_0821 extends Fragment {
             if (code.getText().toString().isEmpty()) {
                 Toast toast = Toast.makeText(getContext(),
                         "Введите Код программы!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER,0,0);
+                toast.setGravity(Gravity.CENTER, 0, 0);
                 toast.show();
                 return true;
             }
 
-            String answer = Check_Input.CheckString(code.getText().toString(),8);
-            if(!answer.isEmpty())
-            {
+            String answer = Check_Input.CheckString(code.getText().toString(), 8);
+            if (!answer.isEmpty()) {
                 Toast toast = Toast.makeText(getContext(),
                         answer, Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER,0,0);
+                toast.setGravity(Gravity.CENTER, 0, 0);
                 toast.show();
                 return true;
             }
