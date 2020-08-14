@@ -1,17 +1,12 @@
 package com.example.myapplication.UI.PlaceholderFragmentTasks;
 
 import android.os.Bundle;
-import android.text.InputType;
-import android.text.method.DigitsKeyListener;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,11 +14,10 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.example.myapplication.Instruments.Check_Input;
 import com.example.myapplication.Instruments.Constants;
+import com.example.myapplication.Instruments.ShowToast;
 import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageViewModel;
-import com.rengwuxian.materialedittext.MaterialEditText;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -54,8 +48,8 @@ public class PlaceholderFragment_Task_1442 extends Fragment {
         pageViewModel.setIndex(index);
     }
 
-    private Button btnAnswer;
-    private TextView tAnswer;
+    private Button button_answer;
+    private TextView text_answer;
     private EditText number;
     private EditText number1;
     private EditText number2;
@@ -74,25 +68,25 @@ public class PlaceholderFragment_Task_1442 extends Fragment {
         View root = inflater.inflate(R.layout.fragment_task_1442, container, false);
 
         // находим кнопку с которой работает
-        btnAnswer = root.findViewById(R.id.task1442_btn_answer);
-        btnAnswer.setOnClickListener(oclBtn);
+        button_answer = root.findViewById(R.id.task1442_btn_answer);
+        button_answer.setOnClickListener(oclBtn);
 
-        number = root.findViewById(R.id.task1442_edittext_number);
-        number1 = root.findViewById(R.id.task1442_edittext_number1);
-        number2 = root.findViewById(R.id.task1442_edittext_number2);
-        number3 = root.findViewById(R.id.task1442_edittext_number3);
-        number4 = root.findViewById(R.id.task1442_edittext_number4);
-        number5 = root.findViewById(R.id.task1442_edittext_number5);
-        number6 = root.findViewById(R.id.task1442_edittext_number6);
-        number7 = root.findViewById(R.id.task1442_edittext_number7);
-        number8 = root.findViewById(R.id.task1442_edittext_number8);
-        quantity = root.findViewById(R.id.task1442_edittext_quantity);
+        number = root.findViewById(R.id.edittext_number);
+        number1 = root.findViewById(R.id.edittext_number1);
+        number2 = root.findViewById(R.id.edittext_number2);
+        number3 = root.findViewById(R.id.edittext_number3);
+        number4 = root.findViewById(R.id.edittext_number4);
+        number5 = root.findViewById(R.id.edittext_number5);
+        number6 = root.findViewById(R.id.edittext_number6);
+        number7 = root.findViewById(R.id.edittext_number7);
+        number8 = root.findViewById(R.id.edittext_number8);
+        quantity = root.findViewById(R.id.edittext_quantity);
 
-        tAnswer = root.findViewById(R.id.task1442_textview_answer);
+        text_answer = root.findViewById(R.id.task1442_textview_answer);
         return root;
     }
 
-    View.OnClickListener oclBtn = new View.OnClickListener() {
+    private View.OnClickListener oclBtn = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             if (checkData()) return;
@@ -107,7 +101,7 @@ public class PlaceholderFragment_Task_1442 extends Fragment {
             //*****************
             ///////////////////
 
-            tAnswer.setVisibility(View.VISIBLE);
+            text_answer.setVisibility(View.VISIBLE);
         }
 
         private String getData() {
@@ -125,39 +119,35 @@ public class PlaceholderFragment_Task_1442 extends Fragment {
 
             return data;
         }
+
         private boolean checkData() {
-            if (number.getText().toString().isEmpty() || Integer.valueOf(number.getText().toString()) == 0) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Введите из каких цифр состоит строка!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER,0,0);
-                toast.show();
+            if (number.getText().toString().isEmpty() || Integer.parseInt(number.getText().toString()) == 0) {
+                ShowToast.showToast(getContext(), "Введите из каких цифр состоит строка!");
                 return true;
             }
-            if (quantity.getText().toString().isEmpty() || Integer.valueOf(quantity.getText().toString()) == 0) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Введите количество этих цифр!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER,0,0);
-                toast.show();
+
+            if (quantity.getText().toString().isEmpty() || Integer.parseInt(quantity.getText().toString()) == 0) {
+                ShowToast.showToast(getContext(), "Введите количество этих цифр!");
                 return true;
             }
-            if (number1.getText().toString().isEmpty() || number2.getText().toString().isEmpty()||number3.getText().toString().isEmpty() ||
-                    number4.getText().toString().isEmpty() || number5.getText().toString().isEmpty()||number6.getText().toString().isEmpty() ||
+
+            if (number1.getText().toString().isEmpty() || number2.getText().toString().isEmpty() || number3.getText().toString().isEmpty() ||
+                    number4.getText().toString().isEmpty() || number5.getText().toString().isEmpty() || number6.getText().toString().isEmpty() ||
                     number7.getText().toString().isEmpty() || number8.getText().toString().isEmpty()) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Заполните все параметры!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER,0,0);
-                toast.show();
+
+                ShowToast.showToast(getContext(), "Заполните все параметры!");
+
                 return true;
             }
-            if (Integer.valueOf(number1.getText().toString()) == 0 || Integer.valueOf(number2.getText().toString()) == 0 ||Integer.valueOf(number3.getText().toString()) == 0 ||
-                    Integer.valueOf(number4.getText().toString()) == 0  || Integer.valueOf(number5.getText().toString()) == 0 ||Integer.valueOf(number6.getText().toString()) == 0  ||
-                    Integer.valueOf(number7.getText().toString()) == 0 || Integer.valueOf(number8.getText().toString()) == 0 ) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Параметры не должны равняться 0!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER,0,0);
-                toast.show();
+
+            if (Integer.parseInt(number1.getText().toString()) == 0 || Integer.parseInt(number2.getText().toString()) == 0 || Integer.parseInt(number3.getText().toString()) == 0 ||
+                    Integer.parseInt(number4.getText().toString()) == 0 || Integer.parseInt(number5.getText().toString()) == 0 || Integer.parseInt(number6.getText().toString()) == 0 ||
+                    Integer.parseInt(number7.getText().toString()) == 0 || Integer.parseInt(number8.getText().toString()) == 0) {
+                ShowToast.showToast(getContext(), "Параметры не должны равняться 0!");
+
                 return true;
             }
+
             return false;
         }
     };

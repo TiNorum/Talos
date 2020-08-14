@@ -124,8 +124,6 @@ public class CanvasView extends View implements Serializable {
         switch (event.getAction()) {
             // касание началось
             case MotionEvent.ACTION_DOWN:
-
-
                 //если касание началось за пределами отрисовки
                 if (!(evX >= field[0][0].x - size_line / 2
                         && evX <= field[row - 1][col - 1].x + size_line / 2
@@ -143,7 +141,6 @@ public class CanvasView extends View implements Serializable {
                 //если нажатие было на пустое место и выделеного круга нет
                 if (!touch.circle) {
                     if (neighbor(i, j)) {
-
 
                         for (int l = 0; l < chars.length(); l++) {
 

@@ -13,22 +13,19 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="left"
         android:orientation="vertical">
 
         <TextView
             style="@style/task_question"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="left"
             android:text="Введите из каких цифр состоит строка:" />
 
         <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/task1442_edittext_number"
+            android:id="@+id/edittext_number"
             style="@style/task_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:digits="1234567890"
             android:hint="Введите цифру"
             android:inputType="number"
             android:maxLength="1"
@@ -43,11 +40,10 @@
             android:text="Введите количество этих цифр:" />
 
         <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/task1442_edittext_quantity"
+            android:id="@+id/edittext_quantity"
             style="@style/task_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:digits="1234567890"
             android:hint="Введите число"
             android:inputType="number"
             android:maxLength="4"
@@ -96,11 +92,10 @@
                     style="@style/task_input"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:digits="1234567890"
-                    android:ems="6"
-                    android:textSize="12sp"
+                    android:ems="3"
                     android:inputType="number"
-                    android:maxLength="6" />
+                    android:maxLength="6"
+                    android:textSize="12sp" />
 
                 <TextView
                     style="@style/task_question"
@@ -110,9 +105,6 @@
                     android:layout_gravity="center"
                     android:gravity="left"
                     android:text=") ИЛИ нашлось (" />
-
-
-
 
                 <TextView
                     style="@style/task_question"
@@ -127,19 +119,17 @@
                     style="@style/task_input"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:digits="1234567890"
-                    android:ems="6"
-                    android:textSize="12sp"
+                    android:ems="3"
                     android:inputType="number"
                     android:maxLength="6"
-                    android:text="" />
+                    android:text=""
+                    android:textSize="12sp" />
 
                 <TextView
                     style="@style/task_question"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:gravity="left"
                     android:text=")" />
 
             </LinearLayout>
@@ -147,7 +137,6 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="left"
                 android:orientation="horizontal">
 
                 <TextView
@@ -155,54 +144,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:gravity="left"
                     android:textSize="12sp"
                     android:text="ПОКА нашлось (" />
 
                 <EditText
-                    android:id="@+id/task1442_edittext_number3"
+                    android:id="@+id/edittext_number3"
                     style="@style/task_input"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:digits="6"
-                    android:ems="6"
-                    android:textSize="12sp"
-                    android:inputType="number"
-                    android:maxLength="6" />
-
-                <TextView
-                    style="@style/task_question"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    android:layout_gravity="center"
-                    android:gravity="left"
-                    android:text=")"
-                    android:textSize="12sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="left"
-                android:orientation="horizontal">
-
-                <TextView
-                    style="@style/task_question"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:gravity="left"
-                    android:text="заменить ("
-                    android:textSize="12sp" />
-
-                <EditText
-                    android:id="@+id/task1442_edittext_number4"
-                    style="@style/task_input"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:digits="6"
-                    android:ems="6"
+                    android:ems="3"
                     android:inputType="number"
                     android:maxLength="6"
                     android:textSize="12sp" />
@@ -212,93 +162,114 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:gravity="left"
-                    android:text=" , " />
-
-                <EditText
-                    android:id="@+id/task1442_edittext_number5"
-                    style="@style/task_input"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:digits="1234567890"
-                    android:ems="6"
-                    android:inputType="number"
-                    android:maxLength="3"
-                    android:textSize="12sp" />
-
-                <TextView
-                    style="@style/task_question"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:gravity="left"
-                    android:text=" )"
-                    android:textSize="12sp" />
-            </LinearLayout>
-
-            <TextView
-                style="@style/task_question"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="left"
-                android:text="КОНЕЦ ПОКА"
-                android:textSize="12sp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="left"
-                android:orientation="horizontal">
-
-                <TextView
-                    style="@style/task_question"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="left"
-                    android:text="ПОКА нашлось ("
-                    android:textSize="12sp" />
-
-                <EditText
-                    android:id="@+id/task1442_edittext_number6"
-                    style="@style/task_input"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:digits="1234567890"
-                    android:ems="6"
-                    android:inputType="number"
-                    android:maxLength="3"
-                    android:textSize="12sp" />
-
-                <TextView
-                    style="@style/task_question"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="left"
                     android:text=")"
                     android:textSize="12sp" />
             </LinearLayout>
 
+            <TextView
+                style="@style/task_question"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="КОНЕЦ ПОКА"
+                android:textSize="12sp" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="left"
                 android:orientation="horizontal">
 
                 <TextView
                     style="@style/task_question"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="left"
+                    android:text="ПОКА нашлось ("
+                    android:textSize="12sp" />
+
+                <EditText
+                    android:id="@+id/edittext_number4"
+                    style="@style/task_input"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="3"
+                    android:inputType="number"
+                    android:maxLength="3"
+                    android:textSize="12sp" />
+
+                <TextView
+                    style="@style/task_question"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=")"
+                    android:textSize="12sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/task_question"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="заменить ("
+                        android:textSize="12sp" />
+
+                    <EditText
+                        android:id="@+id/edittext_number5"
+                        style="@style/task_input"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="3"
+                        android:inputType="number"
+                        android:maxLength="6"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        style="@style/task_question"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text=" , " />
+
+                    <EditText
+                        android:id="@+id/edittext_number6"
+                        style="@style/task_input"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="3"
+                        android:inputType="number"
+                        android:maxLength="3"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        style="@style/task_question"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text=" )"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/task_question"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="заменить ("
                     android:textSize="12sp" />
 
                 <EditText
-                    android:id="@+id/task1442_edittext_number7"
+                    android:id="@+id/edittext_number7"
                     style="@style/task_input"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:digits="1234567890"
-                    android:ems="6"
+                    android:ems="3"
                     android:inputType="number"
                     android:maxLength="3"
                     android:textSize="12sp" />
@@ -307,16 +278,14 @@
                     style="@style/task_question"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="left"
                     android:text=" , " />
 
                 <EditText
-                    android:id="@+id/task1442_edittext_number8"
+                    android:id="@+id/edittext_number8"
                     style="@style/task_input"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:digits="1234567890"
-                    android:ems="6"
+                    android:ems="3"
                     android:inputType="number"
                     android:maxLength="3"
                     android:textSize="12sp" />
@@ -325,7 +294,6 @@
                     style="@style/task_question"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="left"
                     android:text=" )"
                     android:textSize="12sp" />
             </LinearLayout>
@@ -334,7 +302,6 @@
                 style="@style/task_question"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="left"
                 android:text="КОНЕЦ ПОКА"
                 android:textSize="12sp" />
 
@@ -342,7 +309,6 @@
                 style="@style/task_question"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="left"
                 android:text="КОНЕЦ ПОКА"
                 android:textSize="12sp" />
 
@@ -350,7 +316,6 @@
                 style="@style/task_question"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="left"
                 android:text="КОНЕЦ"
                 android:textSize="12sp" />
         </LinearLayout>

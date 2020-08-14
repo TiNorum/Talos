@@ -15,8 +15,9 @@
         android:layout_height="wrap_content"
         android:gravity="left"
         android:orientation="vertical">
+
         <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/task1443_edittext_count_numbers"
+            android:id="@+id/edittext_count_numbers"
             android:maxLength="1"
             android:layout_width="match_parent"
             android:inputType="number"
@@ -24,17 +25,8 @@
             android:digits="123456789"
             style="@style/task_input"
             android:layout_height="wrap_content"
-            android:hint="Введите количество цифр" />
+            android:hint="Введите строку цифр" />
 
-        <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/task1443_edittext_count_numbers_in_word"
-            android:inputType="number"
-            android:layout_width="match_parent"
-            android:digits="123456789"
-            android:maxLength="4"
-            style="@style/task_input"
-            android:layout_height="wrap_content"
-            android:hint="Введите количество цифр в строке" />
         <LinearLayout
             android:id="@+id/task1443_list"
             android:layout_width="match_parent"
@@ -75,38 +67,43 @@
                 app:met_floatingLabelText="Ввидите код" />
 
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="left"
                 android:layout_weight="1.7"
                 android:orientation="vertical">
+
                 <Button
-                    android:id="@+id/task1443_btn_begin"
+                    android:id="@+id/button_begin"
                     style="@style/task_buttons_43"
                     android:layout_width="match_parent"
                     android:layout_height="20dp"
                     android:background="@drawable/btn_task_send"
                     android:layout_marginBottom="6dp"
                     android:text="НАЧАЛО" />
+
                 <Button
-                    android:id="@+id/task1443_btn_soFarFound"
+                    android:id="@+id/button_soFarFound"
                     style="@style/task_buttons_43"
                     android:layout_width="match_parent"
                     android:layout_height="20dp"
                     android:background="@drawable/btn_task_send"
                     android:layout_marginBottom="6dp"
                     android:text="ПОКА нашлось" />
+
                 <Button
-                    android:id="@+id/task1443_btn_orFound"
+                    android:id="@+id/button_orFound"
                     style="@style/task_buttons_43"
                     android:layout_width="match_parent"
                     android:layout_height="20dp"
                     android:background="@drawable/btn_task_send"
                     android:layout_marginBottom="6dp"
                     android:text="ИЛИ нашлось" />
+
                 <Button
-                    android:id="@+id/task1443_btn_ifThereIs"
+                    android:id="@+id/button_ifThereIs"
                     style="@style/task_buttons_43"
                     android:layout_width="match_parent"
                     android:layout_height="20dp"
@@ -114,15 +111,16 @@
                     android:layout_marginBottom="6dp"
                     android:text="ЕСЛИ нашлось" />
                 <Button
-                    android:id="@+id/task1443_btn_thenReplace"
+                    android:id="@+id/button_thenReplace"
                     style="@style/task_buttons_43"
                     android:layout_width="match_parent"
                     android:layout_height="20dp"
                     android:background="@drawable/btn_task_send"
                     android:layout_marginBottom="6dp"
                     android:text="ТО заменить" />
+
                 <Button
-                    android:id="@+id/task1443_btn_otherwiseReplace"
+                    android:id="@+id/button_otherwiseReplace"
                     style="@style/task_buttons_43"
                     android:layout_width="match_parent"
                     android:layout_height="20dp"
@@ -130,7 +128,7 @@
                     android:layout_marginBottom="6dp"
                     android:text="ИНАЧЕ заменить" />
                 <Button
-                    android:id="@+id/task1443_btn_endIf"
+                    android:id="@+id/button_endIf"
                     style="@style/task_buttons_43"
                     android:layout_width="match_parent"
                     android:layout_height="20dp"
@@ -138,7 +136,7 @@
                     android:layout_marginBottom="6dp"
                     android:text="КОНЕЦ если" />
                 <Button
-                    android:id="@+id/task1443_btn_endForNow"
+                    android:id="@+id/button_endForNow"
                     style="@style/task_buttons_43"
                     android:layout_width="match_parent"
                     android:layout_height="20dp"
@@ -146,7 +144,7 @@
                     android:layout_marginBottom="6dp"
                     android:text="КОНЕЦ пока" />
                 <Button
-                    android:id="@+id/task1443_btn_end"
+                    android:id="@+id/button_end"
                     style="@style/task_buttons_43"
                     android:layout_width="match_parent"
                     android:layout_height="20dp"
@@ -156,13 +154,13 @@
             </LinearLayout>
         </LinearLayout>
         <TextView
-            android:id="@+id/task1443_textview_answer"
+            android:id="@+id/textview_answer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="gone" />
 
         <Button
-            android:id="@+id/task1443_btn_answer"
+            android:id="@+id/button_answer"
             style="@style/task_buttons_field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

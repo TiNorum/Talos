@@ -64,10 +64,8 @@ public class SignIn extends AppCompatActivity {
 
     private void signIn() {
 
-
         startActivity(new Intent(SignIn.this, Activity_Main.class));
         finish();
-
         if (login.getText().toString().isEmpty()) {
             warning.setText("Введите логин!");
             warning.setVisibility(View.VISIBLE);
@@ -76,7 +74,6 @@ public class SignIn extends AppCompatActivity {
         if (password.getText().toString().isEmpty()) {
             warning.setText("Введите пароль!");
             warning.setVisibility(View.VISIBLE);
-
             return;
         }
 
@@ -111,8 +108,5 @@ public class SignIn extends AppCompatActivity {
     private String getData() {
         String send = "102" + Constants.NEXT_LINE + login.getText().toString() + Constants.NEXT_LINE + password.getText().toString();
         return send;
-
     }
-
-
 }
