@@ -122,7 +122,6 @@ public class PlaceholderFragment_Task_0821 extends Fragment {
                         s.append(string.charAt(index));
                     }
 
-
                     if (s.length() < 4) return false;
 
                     s.reverse();
@@ -144,7 +143,7 @@ public class PlaceholderFragment_Task_0821 extends Fragment {
                     while (counter_space / 4 > 0) {
                         str.insert(position, "    ");
                         position += 4;
-                        counter_space-=4;
+                        counter_space -= 4;
                     }
 
 
@@ -155,7 +154,7 @@ public class PlaceholderFragment_Task_0821 extends Fragment {
                         position += 4;
                     }
 
-                    if(str.length()> 200) return false;
+                    if (str.length() > 200) return false;
 
                     code.setText(str);
                     code.setSelection(position);
@@ -200,7 +199,7 @@ public class PlaceholderFragment_Task_0821 extends Fragment {
             int pos = code.getSelectionEnd() + string_.get(v.getId()).length();
 
             stringBuilder.insert(code.getSelectionStart(), string_.get(v.getId()));
-            stringBuilder.setSpan(new ForegroundColorSpan(span_color.get(v.getId())),code.getSelectionStart(),code.getSelectionStart() + string_.get(v.getId()).length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            stringBuilder.setSpan(new ForegroundColorSpan(span_color.get(v.getId())), code.getSelectionStart(), code.getSelectionStart() + string_.get(v.getId()).length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
 
             code.setText(stringBuilder);
@@ -236,19 +235,13 @@ public class PlaceholderFragment_Task_0821 extends Fragment {
 
         private boolean checkData() {
             if (code.getText().toString().isEmpty()) {
-                Toast toast = Toast.makeText(getContext(),
-                        "Введите Код программы!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER, 0, 0);
-                toast.show();
+                ShowToast.showToast(getContext(), "Введите Код программы!");
                 return true;
             }
 
             String answer = Check_Input.CheckString(code.getText().toString(), 8);
             if (!answer.isEmpty()) {
-                Toast toast = Toast.makeText(getContext(),
-                        answer, Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER, 0, 0);
-                toast.show();
+                ShowToast.showToast(getContext(), answer);
                 return true;
             }
             return false;
