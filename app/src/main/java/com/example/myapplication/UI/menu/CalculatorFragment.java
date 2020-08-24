@@ -8,13 +8,20 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.myapplication.ClientLauncher.ClientManager;
+import com.example.myapplication.Instruments.Constants;
+import com.example.myapplication.Instruments.ShowToast;
 import com.example.myapplication.R;
 import com.rengwuxian.materialedittext.MaterialEditText;
+
+import java.math.BigInteger;
+import java.net.UnknownHostException;
 
 public class CalculatorFragment extends Fragment {
 
@@ -26,6 +33,7 @@ public class CalculatorFragment extends Fragment {
     TextView second_num_tv;
     Spinner first_num_spinner;
     Spinner second_num_spinner;
+    private int id_action;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -33,47 +41,47 @@ public class CalculatorFragment extends Fragment {
 
 
         action = root.findViewById(R.id.spinner_action);
-        action.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
+        action.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                        switch (i)
-                        {
-                            case 0:
-                                first_num_et.setVisibility(View.VISIBLE);
-                                first_num_et.setHint("Первое слагаемое");
-                                second_num_et.setVisibility(View.VISIBLE);
-                                second_num_et.setHint("Второе слагаемое");
+                id_action = i;
+                switch (i) {
+                    case 0:
+                        first_num_et.setVisibility(View.VISIBLE);
+                        first_num_et.setHint("Первое слагаемое");
+                        second_num_et.setVisibility(View.VISIBLE);
+                        second_num_et.setHint("Второе слагаемое");
 
-                                first_num_tv.setVisibility(View.VISIBLE);
-                                first_num_tv.setText("Система счисления первого числа:");
-                                second_num_tv.setVisibility(View.VISIBLE);
-                                second_num_tv.setText("Система счисления второго числа:");
+                        first_num_tv.setVisibility(View.VISIBLE);
+                        first_num_tv.setText("Система счисления первого числа:");
+                        second_num_tv.setVisibility(View.VISIBLE);
+                        second_num_tv.setText("Система счисления второго числа:");
 
-                                return;
-                            case 1:
-                                first_num_et.setVisibility(View.VISIBLE);
-                                first_num_et.setHint("Уменьшаемое");
-                                second_num_et.setVisibility(View.VISIBLE);
-                                second_num_et.setHint("Вычитаемое");
+                        return;
+                    case 1:
+                        first_num_et.setVisibility(View.VISIBLE);
+                        first_num_et.setHint("Уменьшаемое");
+                        second_num_et.setVisibility(View.VISIBLE);
+                        second_num_et.setHint("Вычитаемое");
 
-                                first_num_tv.setVisibility(View.VISIBLE);
-                                first_num_tv.setText("Система счисления первого числа:");
-                                second_num_tv.setVisibility(View.VISIBLE);
-                                second_num_tv.setText("Система счисления второго числа:");
-                                return;
-                            case 2:
-                                first_num_et.setVisibility(View.VISIBLE);
-                                first_num_et.setHint("Введите число");
-                                second_num_et.setVisibility(View.GONE);
+                        first_num_tv.setVisibility(View.VISIBLE);
+                        first_num_tv.setText("Система счисления первого числа:");
+                        second_num_tv.setVisibility(View.VISIBLE);
+                        second_num_tv.setText("Система счисления второго числа:");
+                        return;
+                    case 2:
+                        first_num_et.setVisibility(View.VISIBLE);
+                        first_num_et.setHint("Введите число");
+                        second_num_et.setVisibility(View.GONE);
 
 
-                                first_num_tv.setVisibility(View.VISIBLE);
-                                first_num_tv.setText("Система счисления исходного числа");
-                                second_num_tv.setVisibility(View.VISIBLE);
-                                second_num_tv.setText("Перевести число в");
-                                return;
-                        }
+                        first_num_tv.setVisibility(View.VISIBLE);
+                        first_num_tv.setText("Система счисления исходного числа");
+                        second_num_tv.setVisibility(View.VISIBLE);
+                        second_num_tv.setText("Перевести число в");
+                        return;
+                }
             }
 
             @Override
@@ -81,10 +89,11 @@ public class CalculatorFragment extends Fragment {
 
             }
         });
-        first_num_et= root.findViewById(R.id.edittext_first_num);
-        second_num_et= root.findViewById(R.id.edittext_second_num);
 
-        first_num_tv= root.findViewById(R.id.textview_first_num);
+        first_num_et = root.findViewById(R.id.edittext_first_num);
+        second_num_et = root.findViewById(R.id.edittext_second_num);
+
+        first_num_tv = root.findViewById(R.id.textview_first_num);
         second_num_tv = root.findViewById(R.id.textview_second_num);
 
         first_num_spinner = root.findViewById(R.id.spinner_cc_in);
@@ -92,4 +101,25 @@ public class CalculatorFragment extends Fragment {
 
         return root;
     }
+
+    View.OnClickListener oclBtn = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            if(first_num_et.getText().toString().isEmpty() || (second_num_et.getText().toString().isEmpty() && id_action != 2)) return;
+
+            BigInteger num = new BigInteger(first_num_et.getText().toString(), first_num_spinner.getSelectedItemPosition() + 2);
+
+            switch (id_action)
+            {
+                case 0:
+                    return;
+                case 1:
+                    return;
+                case 2:
+                    ShowToast.showToast(getContext(),num.toString(second_num_spinner.getSelectedItemPosition() + 2));
+                    return;
+            }
+
+        }
+    };
 }
