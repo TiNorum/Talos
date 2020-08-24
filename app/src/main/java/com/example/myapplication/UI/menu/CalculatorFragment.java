@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -33,12 +34,15 @@ public class CalculatorFragment extends Fragment {
     TextView second_num_tv;
     Spinner first_num_spinner;
     Spinner second_num_spinner;
+    Button button_answer;
     private int id_action;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_calculator, container, false);
 
+        button_answer = root.findViewById(R.id.btn_answer);
+        button_answer.setOnClickListener(oclBtn);
 
         action = root.findViewById(R.id.spinner_action);
         action.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -75,7 +79,6 @@ public class CalculatorFragment extends Fragment {
                         first_num_et.setHint("Введите число");
                         second_num_et.setVisibility(View.GONE);
 
-
                         first_num_tv.setVisibility(View.VISIBLE);
                         first_num_tv.setText("Система счисления исходного числа");
                         second_num_tv.setVisibility(View.VISIBLE);
@@ -97,7 +100,7 @@ public class CalculatorFragment extends Fragment {
         second_num_tv = root.findViewById(R.id.textview_second_num);
 
         first_num_spinner = root.findViewById(R.id.spinner_cc_in);
-        first_num_spinner = root.findViewById(R.id.spinner_cc_out);
+        second_num_spinner = root.findViewById(R.id.spinner_cc_out);
 
         return root;
     }
@@ -105,19 +108,54 @@ public class CalculatorFragment extends Fragment {
     View.OnClickListener oclBtn = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            if(first_num_et.getText().toString().isEmpty() || (second_num_et.getText().toString().isEmpty() && id_action != 2)) return;
+            if (first_num_et.getText().toString().isEmpty() || (second_num_et.getText().toString().isEmpty() && id_action != 2))
+                return;
+
+
+            int first_max = 0,second_max =0, temp;
+
+            for (int i = 0; i < first_num_et.getText().toString().length(); i++) {
+                temp = Integer.parseInt("" + first_num_et.getText().toString().charAt(i));
+
+                if (temp > first_max)
+                    first_max = temp;
+            }
+
+            if (first_num_spinner.getSelectedItemPosition() + 2 <= first_max) {
+                ShowToast.showToast(getContext(), "Неправильная исходная система счисления!");
+                return;
+            }
 
             BigInteger num = new BigInteger(first_num_et.getText().toString(), first_num_spinner.getSelectedItemPosition() + 2);
+            BigInteger num_second = null;
 
-            switch (id_action)
-            {
+            if (!second_num_et.getText().toString().isEmpty()) {
+                 num_second = new BigInteger(second_num_et.getText().toString(), second_num_spinner.getSelectedItemPosition() + 2);
+                for (int i = 0; i < first_num_et.getText().toString().length(); i++) {
+                    temp = Integer.parseInt("" + first_num_et.getText().toString().charAt(i));
+
+                    if (temp > second_max)
+                        second_max = temp;
+                }
+
+                if (first_num_spinner.getSelectedItemPosition() + 2 <= second_max) {
+                    ShowToast.showToast(getContext(), "Неправильная исходная система счисления!");
+                    return;
+                }
+            }
+
+
+            switch (id_action) {
                 case 0:
-                    return;
+                    ShowToast.showToast(getContext(), "" + (Integer.parseInt(num.toString(10)) + Integer.parseInt(num_second.toString(10))));
+                    break;
                 case 1:
-                    return;
+                    ShowToast.showToast(getContext(), "" + (Integer.parseInt(num.toString(10)) + Integer.parseInt(num_second.toString(10))));
+                    break;
                 case 2:
-                    ShowToast.showToast(getContext(),num.toString(second_num_spinner.getSelectedItemPosition() + 2));
-                    return;
+
+                    ShowToast.showToast(getContext(), num.toString(second_num_spinner.getSelectedItemPosition() + 2));
+                    break;
             }
 
         }
