@@ -29,4 +29,8 @@
         <item>15</item>
         <item>16</item>
     </string-array>
+    <string-array name="calc_action">
+        <item>Сложить</item>
+        <item>Вычесть</item>
+        <item>Перевести в другую СС</item></string-array>
 </resources>
