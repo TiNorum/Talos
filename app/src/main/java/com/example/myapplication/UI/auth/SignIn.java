@@ -12,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.myapplication.Activities.Activity_Main;
 import com.example.myapplication.ClientLauncher.ClientManager;
 import com.example.myapplication.Instruments.Constants;
-import com.example.myapplication.Instruments.ShowToast;
 import com.example.myapplication.R;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
@@ -21,7 +20,7 @@ import java.io.DataOutputStream;
 import java.io.InputStreamReader;
 import java.net.Socket;
 import java.net.UnknownHostException;
-import java.util.Date;
+
 
 
 public class SignIn extends AppCompatActivity {
@@ -48,20 +47,7 @@ public class SignIn extends AppCompatActivity {
         tvRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btnSignIn.setClickable(false);
 
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            Thread.sleep(500);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-
-                        }
-                        btnSignIn.setClickable(true);
-                    }
-                });
                 startActivity(new Intent(SignIn.this, SignUp.class));
             }
         });
@@ -69,26 +55,26 @@ public class SignIn extends AppCompatActivity {
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 signIn();
-
             }
         });
 
     }
 
     private void signIn() {
+        //startActivity(new Intent(SignIn.this, Activity_Main.class));
+        //finish();
 
-        startActivity(new Intent(SignIn.this, Activity_Main.class));
-        finish();
         if (login.getText().toString().isEmpty()) {
             warning.setText("Введите логин!");
             warning.setVisibility(View.VISIBLE);
+
             return;
         }
         if (password.getText().toString().isEmpty()) {
             warning.setText("Введите пароль!");
             warning.setVisibility(View.VISIBLE);
+
             return;
         }
 
@@ -98,31 +84,32 @@ public class SignIn extends AppCompatActivity {
             return;
         }
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                String answer = null;
-                try {
-                    answer = ClientManager.send_server(getData());
+             new Thread(new Runnable() {
+                 @Override
+                 public void run() {
+                     String answer = null;
+                     try {
+                         answer = ClientManager.send_server(getData());
 
-                } catch (UnknownHostException e) {
-                    e.printStackTrace();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+                     } catch (UnknownHostException e) {
+                         e.printStackTrace();
+                     } catch (InterruptedException e) {
+                         e.printStackTrace();
+                     }
 
-                if (answer != null && (answer.equals("200") || answer.equals("201") || answer.equals("202"))) {
-                    startActivity(new Intent(SignIn.this, Activity_Main.class));
-                    finish();
-                }
-
-            }
-        }).start();
-
+                     if (answer != null && (answer.equals("202") || answer.equals("102"))) {
+                         startActivity(new Intent(SignIn.this, Activity_Main.class));
+                         finish();
+                     }
+                 }
+             }).start();
     }
 
     private String getData() {
-        String send = "102" + Constants.NEXT_LINE + login.getText().toString() + Constants.NEXT_LINE + password.getText().toString() ;
+        String send = "102" + Constants.NEXT_LINE + login.getText().toString() + Constants.NEXT_LINE + password.getText().toString() + "+";
         return send;
+
     }
+
+
 }

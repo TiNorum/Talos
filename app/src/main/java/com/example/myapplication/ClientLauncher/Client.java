@@ -14,14 +14,12 @@ public class Client extends Thread {
      private final InetAddress host;
      private final int port;
      private resource res ;
-
     private Socket socket;
 
     public Client(InetAddress host, int port, resource res) {
         this.host = host;
         this.port = port;
         this.res = res;
-
     }
 
     public void connection() throws InterruptedException {
