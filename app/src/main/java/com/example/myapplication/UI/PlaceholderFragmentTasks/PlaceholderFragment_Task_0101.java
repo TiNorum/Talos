@@ -182,26 +182,30 @@ public class PlaceholderFragment_Task_0101 extends Fragment {
             if (countZero.getText().toString().isEmpty() && zero.isChecked()) {
                 ShowToast.showToast(getContext(), "Введите количество нулей!");
                 return true;
+            }else if( zero.isChecked() && Integer.parseInt(countZero.getText().toString()) == 0 ){
+                ShowToast.showToast(getContext(), "Введите количество нулей отличное от 0!");
+
             }
 
             if (countOne.getText().toString().isEmpty() && one.isChecked()) {
                 ShowToast.showToast(getContext(), "Введите количество единиц!");
                 return true;
+            }else if(one.isChecked() && Integer.parseInt(countOne.getText().toString()) == 0 ){
+                ShowToast.showToast(getContext(), "Введите количество единиц отличное от 0!");
+
             }
 
-            if (countOne.getText().toString().isEmpty() == false && countZero.getText().toString().isEmpty() == false && Integer.parseInt(countOne.getText().toString()) != 0 && Integer.parseInt(countZero.getText().toString()) != 0) {
-                ShowToast.showToast(getContext(), "Введите количество единиц и нулей отличное от 0!");
-                return true;
-            }
+
+
 
             if (cc.getText().toString().isEmpty()) {
                 ShowToast.showToast(getContext(), "Введите систему счисления!");
                 return true;
             }
             int c = Integer.parseInt(cc.getText().toString());
-            if(!(c>1 && c<11 || c==16))
+            if(!(c>2 && c<11 || c==16))
             {
-                ShowToast.showToast(getContext(), "Введите систему счисления (2-10 и 16)");
+                ShowToast.showToast(getContext(), "Введите систему счисления (3-10 и 16)");
                 return true;
             }
 
