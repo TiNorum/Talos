@@ -23,7 +23,7 @@ public class Activity_task_14 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // вывставляю layout для отображения
+        // вставляю layout для отображения
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tasks);
         // объявляем адаптер для того, чтобы отображать наш view_pager

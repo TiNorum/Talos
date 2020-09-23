@@ -146,7 +146,7 @@ public class PlaceholderFragment_Task_0101 extends Fragment {
         }
 
         private String getData() {
-            String data = "100" + Constants.NEXT_LINE + "1" + Constants.NEXT_LINE;
+            String data = "103" + Constants.NEXT_LINE + "1" + Constants.NEXT_LINE;
 
             if (one.isChecked() && zero.isChecked()) {
                 data += "2" + Constants.NEXT_LINE;

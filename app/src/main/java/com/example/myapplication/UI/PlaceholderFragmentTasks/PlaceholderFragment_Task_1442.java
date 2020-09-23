@@ -1,7 +1,6 @@
 package com.example.myapplication.UI.PlaceholderFragmentTasks;
 
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,13 +18,10 @@ import com.example.myapplication.Instruments.ShowToast;
 import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageViewModel;
 
-/**
- * A placeholder fragment containing a simple view.
- */
+
 public class PlaceholderFragment_Task_1442 extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
-
     private PageViewModel pageViewModel;
 
     public static PlaceholderFragment_Task_1442 newInstance(int index) {
@@ -38,7 +34,8 @@ public class PlaceholderFragment_Task_1442 extends Fragment {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         pageViewModel = ViewModelProviders.of(this).get(PageViewModel.class);
         int index = 1;
@@ -50,21 +47,12 @@ public class PlaceholderFragment_Task_1442 extends Fragment {
 
     private Button button_answer;
     private TextView text_answer;
-    private EditText number;
-    private EditText number1;
-    private EditText number2;
-    private EditText number3;
-    private EditText number4;
-    private EditText number5;
-    private EditText number6;
-    private EditText number7;
-    private EditText number8;
-    private EditText quantity;
+    private EditText number, count_number, find_first, find_second, find_if, replace, replace_yes, replace_else, replace_no;
 
     @Override
     public View onCreateView(
-            @NonNull LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
+            @NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+    {
         View root = inflater.inflate(R.layout.fragment_task_1442, container, false);
 
         // находим кнопку с которой работает
@@ -72,23 +60,24 @@ public class PlaceholderFragment_Task_1442 extends Fragment {
         button_answer.setOnClickListener(oclBtn);
 
         number = root.findViewById(R.id.edittext_number);
-        number1 = root.findViewById(R.id.edittext_number1);
-        number2 = root.findViewById(R.id.edittext_number2);
-        number3 = root.findViewById(R.id.edittext_number3);
-        number4 = root.findViewById(R.id.edittext_number4);
-        number5 = root.findViewById(R.id.edittext_number5);
-        number6 = root.findViewById(R.id.edittext_number6);
-        number7 = root.findViewById(R.id.edittext_number7);
-        number8 = root.findViewById(R.id.edittext_number8);
-        quantity = root.findViewById(R.id.edittext_quantity);
+        find_first = root.findViewById(R.id.edittext_find_first);
+        find_second = root.findViewById(R.id.edittext_find_second);
+        find_if = root.findViewById(R.id.edittext_find_if);
+        replace = root.findViewById(R.id.edittext_replace);
+        replace_yes = root.findViewById(R.id.edittext_replace_yes);
+        replace_else = root.findViewById(R.id.edittext_replace_else);
+        replace_no = root.findViewById(R.id.edittext_replace_no);
+        count_number = root.findViewById(R.id.edittext_count_number);
 
         text_answer = root.findViewById(R.id.task1442_textview_answer);
         return root;
     }
 
-    private View.OnClickListener oclBtn = new View.OnClickListener() {
+    private View.OnClickListener oclBtn = new View.OnClickListener()
+    {
         @Override
-        public void onClick(View v) {
+        public void onClick(View v)
+        {
             if (checkData()) return;
 
             String data = getData();
@@ -104,54 +93,99 @@ public class PlaceholderFragment_Task_1442 extends Fragment {
             text_answer.setVisibility(View.VISIBLE);
         }
 
-        private String getData() {
+        private String getData()
+        {
             String data = "100" + Constants.NEXT_LINE + "42" + Constants.NEXT_LINE;
             data += number.getText().toString() + Constants.NEXT_LINE;
-            data += quantity.getText().toString() + Constants.NEXT_LINE;
-            data += number1.getText().toString() + Constants.NEXT_LINE;
-            data += number2.getText().toString() + Constants.NEXT_LINE;
-            data += number3.getText().toString() + Constants.NEXT_LINE;
-            data += number4.getText().toString() + Constants.NEXT_LINE;
-            data += number5.getText().toString() + Constants.NEXT_LINE;
-            data += number6.getText().toString() + Constants.NEXT_LINE;
-            data += number7.getText().toString() + Constants.NEXT_LINE;
-            data += number8.getText().toString();
+            data += count_number.getText().toString() + Constants.NEXT_LINE;
+            data += find_if.getText().toString() + Constants.NEXT_LINE;
+            data += replace_yes.getText().toString() + Constants.NEXT_LINE;
+            data += replace_no.getText().toString();
 
             return data;
         }
 
-        private boolean checkData() {
-            if (number.getText().toString().isEmpty() || Integer.parseInt(number.getText().toString()) == 0) {
+        private boolean checkData()
+        {
+            if (number.getText().toString().isEmpty())
+            {
                 ShowToast.showToast(getContext(), "Введите из каких цифр состоит строка!");
                 return true;
             }
-
-            if (quantity.getText().toString().isEmpty() || Integer.parseInt(quantity.getText().toString()) == 0) {
-                ShowToast.showToast(getContext(), "Введите количество этих цифр!");
+            else if (count_number.getText().toString().isEmpty())
+            {
+                ShowToast.showToast(getContext(), "Введите количество цифр из которых состоит строка!");
                 return true;
             }
-
-            if (number1.getText().toString().isEmpty() || number2.getText().toString().isEmpty() || number3.getText().toString().isEmpty() ||
-                    number4.getText().toString().isEmpty() || number5.getText().toString().isEmpty() || number6.getText().toString().isEmpty() ||
-                    number7.getText().toString().isEmpty() || number8.getText().toString().isEmpty()) {
-
+            else if (Integer.parseInt(count_number.getText().toString()) == 0)
+            {
+                ShowToast.showToast(getContext(), "Строка не может состоять из 0 цифр. Введите значение для количества цифр не равное 0!");
+                return true;
+            }
+            else if (find_first.length() != 3  || find_second.length() != 3)
+            {
+                ShowToast.showToast(getContext(), "Проверьте введённые данные. ПОКА нашлось () — это условие должно состоять из 3-ёх цифр!");
+                return true;
+            }
+            else if (find_if.length() != 3)
+            {
+                ShowToast.showToast(getContext(), "Проверьте введённые данные. ПОКА нашлось () — это условие должно состоять из 3-ёх цифр!");
+                return true;
+            }
+            else if (replace.length() != 3)
+            {
+                ShowToast.showToast(getContext(), "Проверьте введённые данные. ТО заменить (____,  ) — первая часть скобки должна состоять из 3-ёх цифр!");
+                return true;
+            }
+            else if (replace_else.length() != 3)
+            {
+                ShowToast.showToast(getContext(), "Проверьте введённые данные. ИНАЧЕ заменить (____,  ) — первая часть скобки должна состоять из 3-ёх цифр!");
+                return true;
+            }
+            else if (find_first.getText().toString().equals(find_second.getText().toString()))
+            {
+                ShowToast.showToast(getContext(), "Проверьте введённые данные. Первое и второе условия в ПОКА не должны совпадать!");
+                return true;
+            }
+            else if (!find_first.getText().toString().equals(find_if.getText().toString()) || !find_second.getText().toString().equals(find_if.getText().toString()))
+            {
+                ShowToast.showToast(getContext(), "Проверьте введённые данные. Условия в первых двух строчках не совпадают, все цифры разные!");
+                return true;
+            }
+            else if (!find_first.getText().toString().equals(replace_else.getText().toString()) || !find_second.getText().toString().equals(replace_else.getText().toString()))
+            {
+                ShowToast.showToast(getContext(), "Проверьте введённые данные. Условия в ПОКА() и ИНАЧЕ () не совпадают!");
+                return true;
+            }
+            else if (!find_if.getText().toString().equals(replace.getText().toString()))
+            {
+                ShowToast.showToast(getContext(), "Проверьте введённые данные. Условия в ЕСЛИ не совпадает с условием в ЗАМЕНИТЬ, все цифры разные!");
+                return true;
+            }
+            else if (find_first.getText().toString().charAt(0) != replace_yes.getText().toString().charAt(0)  || find_second.getText().toString().charAt(0) != replace_yes.getText().toString().charAt(0))
+            {
+                ShowToast.showToast(getContext(), "Проверьте введённые данные. Условия в ТО заменить ().");
+                return true;
+            }
+            else if (find_first.getText().toString().charAt(0) != replace_no.getText().toString().charAt(0)  || find_second.getText().toString().charAt(0) != replace_no.getText().toString().charAt(0))
+            {
+                ShowToast.showToast(getContext(), "Проверьте введённые данные. Условия в ИНАЧЕ заменить ().");
+                return true;
+            }
+            else if (replace_yes.getText().toString().equals(replace_no.getText().toString()))
+            {
+                ShowToast.showToast(getContext(), "Проверьте введённые данные. Условия в ТО заменить () и ИНАЧЕ заменить().");
+                return true;
+            }
+            else if (find_first.getText().toString().isEmpty() || find_second.getText().toString().isEmpty() || find_if.getText().toString().isEmpty() ||
+                    replace.getText().toString().isEmpty() || replace_yes.getText().toString().isEmpty() || replace_else.getText().toString().isEmpty() || replace_no.getText().toString().isEmpty())
+            {
                 ShowToast.showToast(getContext(), "Заполните все параметры!");
-
-                return true;
-            }
-
-            if (Integer.parseInt(number1.getText().toString()) == 0 || Integer.parseInt(number2.getText().toString()) == 0 || Integer.parseInt(number3.getText().toString()) == 0 ||
-                    Integer.parseInt(number4.getText().toString()) == 0 || Integer.parseInt(number5.getText().toString()) == 0 || Integer.parseInt(number6.getText().toString()) == 0 ||
-                    Integer.parseInt(number7.getText().toString()) == 0 || Integer.parseInt(number8.getText().toString()) == 0) {
-                ShowToast.showToast(getContext(), "Параметры не должны равняться 0!");
-
                 return true;
             }
 
             return false;
         }
     };
-
-
 }
 
