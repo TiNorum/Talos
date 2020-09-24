@@ -125,7 +125,6 @@ public class PlaceholderFragment_Task_1341 extends Fragment {
             return false;
         }
 
-
         private String getData() {
             String data = "100" + "\n\r" + "41" + "\n\r";
 
