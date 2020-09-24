@@ -2,6 +2,7 @@ package com.example.myapplication.UI.auth;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -31,7 +32,7 @@ public class SignUp extends AppCompatActivity {
     private MaterialEditText email;
     private MaterialEditText login;
     private MaterialEditText password;
-
+    Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +42,7 @@ public class SignUp extends AppCompatActivity {
         email = findViewById(R.id.registration_mail);
         login = findViewById(R.id.registration_login);
         password = findViewById(R.id.registration_password);
-
+        context = getApplicationContext();
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,10 +73,10 @@ public class SignUp extends AppCompatActivity {
                         finish();
                         break;
                     case "910":
-                        ShowToast.showToast(SignUp.this,"Пользователь с таким логином уже существует");
+//                        ShowToast.showToast(getApplicationContext(),"Пользователь с таким логином уже существует");
                         break;
                     case "911":
-                        ShowToast.showToast(SignUp.this,"Пользователь с такой почтой уже существует");
+//                        ShowToast.showToast(getApplicationContext(),"Пользователь с такой почтой уже существует");
                         break;
                     default:
                         return;

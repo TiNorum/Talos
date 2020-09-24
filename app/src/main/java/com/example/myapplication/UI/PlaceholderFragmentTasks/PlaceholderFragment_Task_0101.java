@@ -123,7 +123,7 @@ public class PlaceholderFragment_Task_0101 extends Fragment {
     View.OnClickListener oclBtn = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            final String LOG_TAG = "SOCKET";
+
 
             if (checkData()) return;
 
@@ -133,12 +133,12 @@ public class PlaceholderFragment_Task_0101 extends Fragment {
             //*****************
             try {
                 String answer = ClientManager.send_server(getData());
+                tAnswer.setText(answer);
             } catch (UnknownHostException e) {
                 e.printStackTrace();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
 
             tAnswer.setVisibility(View.VISIBLE);
 
@@ -146,7 +146,7 @@ public class PlaceholderFragment_Task_0101 extends Fragment {
         }
 
         private String getData() {
-            String data = "100" + Constants.NEXT_LINE + "1" + Constants.NEXT_LINE;
+            String data = "103" + Constants.NEXT_LINE + "1" + Constants.NEXT_LINE;
 
             if (one.isChecked() && zero.isChecked()) {
                 data += "2" + Constants.NEXT_LINE;

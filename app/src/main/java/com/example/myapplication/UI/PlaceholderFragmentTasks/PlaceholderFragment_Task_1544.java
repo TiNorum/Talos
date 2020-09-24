@@ -1,25 +1,60 @@
-package com.example.myapplication.Activities.Tasks;
+package com.example.myapplication.UI.PlaceholderFragmentTasks;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
 
+import com.example.myapplication.Instruments.Check_Input;
 import com.example.myapplication.Instruments.Constants;
 import com.example.myapplication.Instruments.ShowToast;
 import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.CanvasView;
+import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageViewModel;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
-public class Activity_task_15 extends AppCompatActivity {
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * A placeholder fragment containing a simple view.
+ */
+public class PlaceholderFragment_Task_1544 extends Fragment {
+
+    private static final String ARG_SECTION_NUMBER = "section_number";
+
+    private PageViewModel pageViewModel;
+
+    public static PlaceholderFragment_Task_1544 newInstance(int index) {
+        // юзает фрагмент
+        PlaceholderFragment_Task_1544 fragment = new PlaceholderFragment_Task_1544();
+        Bundle bundle = new Bundle();
+        bundle.putInt(ARG_SECTION_NUMBER, index);
+        fragment.setArguments(bundle);
+        return fragment;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        pageViewModel = ViewModelProviders.of(this).get(PageViewModel.class);
+        int index = 1;
+        if (getArguments() != null) {
+            index = getArguments().getInt(ARG_SECTION_NUMBER);
+        }
+        pageViewModel.setIndex(index);
+    }
+
 
 
     CanvasView canvasView;
@@ -32,29 +67,32 @@ public class Activity_task_15 extends AppCompatActivity {
     Dialog dialog;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_task_1544);
+    public View onCreateView(
+            @NonNull LayoutInflater inflater, ViewGroup container,
+            Bundle savedInstanceState) {
 
-        ad = new AlertDialog.Builder(this);
+        View root = inflater.inflate(R.layout.fragment_task_1544, container, false);
 
-        LayoutInflater inflater = LayoutInflater.from(this);
-        View view = inflater.inflate(R.layout.alert_dialog_task44, null);
+
+        ad = new AlertDialog.Builder(getContext());
+
+        LayoutInflater inflater1 = LayoutInflater.from(getContext());
+        View view = inflater1.inflate(R.layout.alert_dialog_task44, null);
         ad.setView(view);
 
         end_point = view.findViewById(R.id.task44_edittext_end);
         start_point = view.findViewById(R.id.task44_edittext_start);
         skip_point = view.findViewById(R.id.task44_edittext_skip);
 
-         dialog = ad.create();
-        canvasView = findViewById(R.id.task1544_graph);
+        dialog = ad.create();
+        canvasView = root.findViewById(R.id.task1544_graph);
 
-        bAnswer = findViewById(R.id.task1544_btn_answer);
+        bAnswer = root.findViewById(R.id.task1544_btn_answer);
         bAnswer.setOnClickListener(oclBtn);
 
-        findViewById(R.id.task1544_btn_choose).setOnClickListener(onClickListener_Dialog);
+        root.findViewById(R.id.task1544_btn_choose).setOnClickListener(onClickListener_Dialog);
         view.findViewById(R.id.task44_btn_close).setOnClickListener(onClickListener_Dialog);
-
+        return root;
     }
 
 
@@ -69,9 +107,9 @@ public class Activity_task_15 extends AppCompatActivity {
                     dialog.show();
                     return;
 
-                }
             }
-        };
+        }
+    };
 
 
     View.OnClickListener oclBtn = new View.OnClickListener() {
@@ -82,7 +120,7 @@ public class Activity_task_15 extends AppCompatActivity {
 
 
             String data = getData();
-            ShowToast.showToast(getApplicationContext(), data);
+            ShowToast.showToast(getContext(), data);
 
         }
 
@@ -93,17 +131,17 @@ public class Activity_task_15 extends AppCompatActivity {
 
 
             if (start_point.getText().toString().isEmpty()) {
-                ShowToast.showToast(getApplicationContext(), "Введите начальную точку!");
+                ShowToast.showToast(getContext(), "Введите начальную точку!");
                 return true;
             }
 
             if (end_point.getText().toString().isEmpty()) {
-                ShowToast.showToast(getApplicationContext(), "Введите конечную точку!");
+                ShowToast.showToast(getContext(), "Введите конечную точку!");
                 return true;
             }
 
             if (canvasView.isEmpty()) {
-                ShowToast.showToast(getApplicationContext(), "Нарисуйте граф!");
+                ShowToast.showToast(getContext(), "Нарисуйте граф!");
                 return true;
             }
 
@@ -111,7 +149,7 @@ public class Activity_task_15 extends AppCompatActivity {
         }
 
         private String getData() {
-            String data = "100" + "\n\r" + "44" + "\n\r";
+            String data = "103" + "\n\r" + "44" + "\n\r";
 
             data += canvasView.toString();
             data += start_point.getText().toString() + Constants.NEXT_LINE;
@@ -124,4 +162,7 @@ public class Activity_task_15 extends AppCompatActivity {
             return data;
         }
     };
+
+
 }
+

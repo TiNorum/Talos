@@ -1,6 +1,7 @@
 package com.example.myapplication.Activities.Tasks;
 
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.widget.TextView;
 
 import com.example.myapplication.R;
@@ -15,10 +16,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.SectionsPagerAdapter;
 
-public class Activity_task_01 extends AppCompatActivity {
+import java.util.ArrayList;
 
-    private static final Fragment[] fragments = {PlaceholderFragment_Task_0101.newInstance(0), PlaceholderFragment_Task_0102.newInstance(1), PlaceholderFragment_Task_0103.newInstance(2)};
-    private static final String[] tab_titles = {"Мин/Макс", "Поиск 0/1", "Решить уравнение"};
+public class Activity_task extends AppCompatActivity {
+
+    private Fragment[] fragments;
+    private Parcelable[] parcelables;
+
+    private String[] tab_titles;
 
     private TextView type_name;
 
@@ -27,15 +32,21 @@ public class Activity_task_01 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         // вывставляю layout для отображения
         setContentView(R.layout.activity_tasks);
+
+        Bundle arguments = getIntent().getExtras();
+        tab_titles = arguments.getStringArray("tab_titles");
+        int index = arguments.getInt("index");
+
         // объявляем адаптер для того, чтобы отображать наш view_pager
-        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager(),fragments, tab_titles);
+        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager(), tab_titles, index-1);
         ViewPager viewPager = findViewById(R.id.view_pager);
         viewPager.setAdapter(sectionsPagerAdapter);
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
 
+
         // заменяем имя в app:bar
         type_name = findViewById(R.id.textview_task_all);
-        type_name.setText("  Задание №1");
+        type_name.setText("  Задание №" + index);
     }
 }

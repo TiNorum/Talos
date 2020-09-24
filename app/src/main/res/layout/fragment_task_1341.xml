@@ -71,7 +71,7 @@
             android:layout_height="wrap_content"/>
 
         <Button
-            android:id="@+id/task1341_btn_answer"
+            android:id="@+id/button_answer"
             android:layout_width="match_parent"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="80dp"
