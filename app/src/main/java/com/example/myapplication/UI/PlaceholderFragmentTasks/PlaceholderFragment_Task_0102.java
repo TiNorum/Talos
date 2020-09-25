@@ -13,10 +13,13 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.myapplication.ClientLauncher.ClientManager;
 import com.example.myapplication.Instruments.ShowToast;
 import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageViewModel;
 import com.rengwuxian.materialedittext.MaterialEditText;
+
+import java.net.UnknownHostException;
 
 public class PlaceholderFragment_Task_0102 extends Fragment {
 
@@ -77,20 +80,29 @@ public class PlaceholderFragment_Task_0102 extends Fragment {
         @Override
         public void onClick(View v) {
 
-            if( checkData()) return;
+            final String LOG_TAG = "SOCKET";
 
-            String data = getData();
-            Toast toast = Toast.makeText(getContext(),
-                    data, Toast.LENGTH_SHORT);
-            toast.show();
+         if (checkData()) return;
+
+
+            //отправка на сервер
+            //*****************
+            //*****************
+            try {
+                String answer = ClientManager.send_server(getData());
+                tAnswer.setText(answer);
+            } catch (UnknownHostException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
 
             tAnswer.setVisibility(View.VISIBLE);
-            tAnswer.setText(data);
 
         }
 
         private String getData() {
-            String data = "100" + "\n\r" + "2" + "\n\r";
+            String data = "103" + "\n\r" + "2" + "\n\r";
 
             data += number.getText().toString() + "\n\r";
 

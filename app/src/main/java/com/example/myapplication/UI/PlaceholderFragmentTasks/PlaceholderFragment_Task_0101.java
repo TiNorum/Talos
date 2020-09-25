@@ -1,39 +1,26 @@
 package com.example.myapplication.UI.PlaceholderFragmentTasks;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.text.InputType;
-import android.text.method.DigitsKeyListener;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.example.myapplication.Activities.Activity_Main;
 import com.example.myapplication.ClientLauncher.ClientManager;
 import com.example.myapplication.Instruments.Constants;
 import com.example.myapplication.Instruments.ShowToast;
 import com.example.myapplication.R;
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.PageViewModel;
-import com.example.myapplication.UI.auth.SignIn;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
-import java.io.BufferedReader;
-import java.io.DataOutputStream;
-import java.io.InputStreamReader;
-import java.net.Socket;
 import java.net.UnknownHostException;
 
 
@@ -66,7 +53,7 @@ public class PlaceholderFragment_Task_0101 extends Fragment {
 
 
     private Button btnAnswer;
-    private TextView tAnswer;
+    private TextView textView_solution;
     private MaterialEditText countZero;
     private MaterialEditText countOne;
     private MaterialEditText cc;
@@ -74,7 +61,7 @@ public class PlaceholderFragment_Task_0101 extends Fragment {
     private CheckBox one;
     private RadioButton max;
     private RadioButton min;
-
+    private LinearLayout solution_linear;
 
 
     @Override
@@ -83,6 +70,7 @@ public class PlaceholderFragment_Task_0101 extends Fragment {
             Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_task_0101, container, false);
 
+        solution_linear = root.findViewById(R.id.solution_linearLayout);
         // находим кнопку с которой работает
         btnAnswer = root.findViewById(R.id.task0101_btn_answer);
         btnAnswer.setOnClickListener(oclBtn);
@@ -115,7 +103,7 @@ public class PlaceholderFragment_Task_0101 extends Fragment {
         max = root.findViewById(R.id.task0101_rbtn_max_number);
         min = root.findViewById(R.id.task0101_rbtn_min_number);
 
-        tAnswer = root.findViewById(R.id.task0101_textview_answer);
+        textView_solution = root.findViewById(R.id.textview_answer);
         return root;
     }
 
@@ -123,25 +111,20 @@ public class PlaceholderFragment_Task_0101 extends Fragment {
     View.OnClickListener oclBtn = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            final String LOG_TAG = "SOCKET";
+
 
             if (checkData()) return;
 
-
-            //отправка на сервер
-            //*****************
-            //*****************
             try {
                 String answer = ClientManager.send_server(getData());
+                textView_solution.setText(answer);
+                solution_linear.setVisibility(View.VISIBLE);
+
             } catch (UnknownHostException e) {
                 e.printStackTrace();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
-
-            tAnswer.setVisibility(View.VISIBLE);
-
 
         }
 
