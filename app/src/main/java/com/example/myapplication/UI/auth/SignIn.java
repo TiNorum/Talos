@@ -79,8 +79,8 @@ public class SignIn extends AppCompatActivity {
 
     private void signIn() {
 
-//        startActivity(new Intent(SignIn.this, Activity_Main.class));
-//        finish();
+        startActivity(new Intent(SignIn.this, Activity_Main.class));
+        finish();
         if (login.getText().toString().isEmpty()) {
             warning.setText("Введите логин!");
             warning.setVisibility(View.VISIBLE);
