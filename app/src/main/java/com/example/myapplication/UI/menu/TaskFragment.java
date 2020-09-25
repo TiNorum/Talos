@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import com.example.myapplication.Activities.Tasks.Activity_task;
+import com.example.myapplication.Activities.Activity_task;
 import com.example.myapplication.R;
 
 import java.util.HashMap;

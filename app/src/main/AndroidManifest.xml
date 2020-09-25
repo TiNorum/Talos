@@ -27,7 +27,7 @@
 
         <activity android:name=".UI.auth.SignUp" />
         <activity android:name=".Activities.Activity_Main" />
-        <activity android:name=".Activities.Tasks.Activity_task" />
+        <activity android:name=".Activities.Activity_task" />
 
         <activity android:name=".UI.PlaceholderFragmentTasks.GraphView" />
 

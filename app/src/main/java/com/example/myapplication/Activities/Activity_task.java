@@ -1,4 +1,4 @@
-package com.example.myapplication.Activities.Tasks;
+package com.example.myapplication.Activities;
 
 import android.os.Bundle;
 import android.os.Parcelable;
