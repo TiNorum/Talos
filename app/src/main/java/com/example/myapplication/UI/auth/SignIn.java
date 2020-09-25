@@ -62,8 +62,8 @@ public class SignIn extends AppCompatActivity {
     }
 
     private void signIn() {
-        //startActivity(new Intent(SignIn.this, Activity_Main.class));
-        //finish();
+        startActivity(new Intent(SignIn.this, Activity_Main.class));
+        finish();
 
         if (login.getText().toString().isEmpty()) {
             warning.setText("Введите логин!");
@@ -97,7 +97,7 @@ public class SignIn extends AppCompatActivity {
                          e.printStackTrace();
                      }
 
-                     if (answer != null && (answer.equals("202") || answer.equals("102"))) {
+                     if (answer != null && (answer.equals("200") || answer.equals("201") || answer.equals("202"))) {
                          startActivity(new Intent(SignIn.this, Activity_Main.class));
                          finish();
                      }
@@ -106,7 +106,7 @@ public class SignIn extends AppCompatActivity {
     }
 
     private String getData() {
-        String send = "102" + Constants.NEXT_LINE + login.getText().toString() + Constants.NEXT_LINE + password.getText().toString() + "+";
+        String send = "102" + Constants.NEXT_LINE + login.getText().toString() + Constants.NEXT_LINE + password.getText().toString();
         return send;
 
     }
