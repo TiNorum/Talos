@@ -29,7 +29,8 @@
                     android:id="@+id/spinner_calc_first_num"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:entries="@array/cc" />
+                    android:entries="@array/cc"
+                    />
 
                 <TextView
                     android:id="@+id/textview_first_num"
@@ -133,7 +134,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0"
-            android:text="Подробное решение" />
+            android:text="Решение" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -342,11 +343,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="0"
             android:text="калькулятор" />
+
         <TextView
             android:id="@+id/solution"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="0000"/>
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="14sp" />
 
     </LinearLayout>
 </LinearLayout>

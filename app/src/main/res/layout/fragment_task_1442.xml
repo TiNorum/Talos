@@ -40,7 +40,7 @@
             android:text="Введите количество этих цифр:" />
 
         <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/edittext_count_number"
+            android:id="@+id/edittext_quantity"
             style="@style/task_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -88,7 +88,7 @@
                     android:text="ПОКА нашлось (" />
 
                 <EditText
-                    android:id="@+id/edittext_find_first"
+                    android:id="@+id/edittext_number1"
                     style="@style/task_input"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -115,7 +115,7 @@
                     android:text="" />
 
                 <EditText
-                    android:id="@+id/edittext_find_second"
+                    android:id="@+id/edittext_number2"
                     style="@style/task_input"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -143,11 +143,50 @@
                     style="@style/task_question"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="ЕСЛИ нашлось ("
+                    android:layout_gravity="center"
+                    android:textSize="12sp"
+                    android:text="ПОКА нашлось (" />
+
+                <EditText
+                    android:id="@+id/edittext_number3"
+                    style="@style/task_input"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="3"
+                    android:inputType="number"
+                    android:maxLength="6"
+                    android:textSize="12sp" />
+
+                <TextView
+                    style="@style/task_question"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text=")"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/task_question"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="КОНЕЦ ПОКА"
+                android:textSize="12sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/task_question"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ПОКА нашлось ("
                     android:textSize="12sp" />
 
                 <EditText
-                    android:id="@+id/edittext_find_if"
+                    android:id="@+id/edittext_number4"
                     style="@style/task_input"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -163,6 +202,54 @@
                     android:text=")"
                     android:textSize="12sp" />
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/task_question"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="заменить ("
+                        android:textSize="12sp" />
+
+                    <EditText
+                        android:id="@+id/edittext_number5"
+                        style="@style/task_input"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="3"
+                        android:inputType="number"
+                        android:maxLength="6"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        style="@style/task_question"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text=" , " />
+
+                    <EditText
+                        android:id="@+id/edittext_number6"
+                        style="@style/task_input"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="3"
+                        android:inputType="number"
+                        android:maxLength="3"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        style="@style/task_question"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text=" )"
+                        android:textSize="12sp" />
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -174,29 +261,11 @@
                     style="@style/task_question"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="ТО заменить ("
+                    android:text="заменить ("
                     android:textSize="12sp" />
 
                 <EditText
-                    android:id="@+id/edittext_replace"
-                    style="@style/task_input"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="3"
-                    android:inputType="number"
-                    android:maxLength="6"
-                    android:textSize="12sp" />
-
-                <TextView
-                    style="@style/task_question"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text=" , " />
-
-                <EditText
-                    android:id="@+id/edittext_replace_yes"
+                    android:id="@+id/edittext_number7"
                     style="@style/task_input"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -209,41 +278,10 @@
                     style="@style/task_question"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text=" )"
-                    android:textSize="12sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    style="@style/task_question"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="ИНАЧЕ заменить ("
-                    android:textSize="12sp" />
-
-                <EditText
-                    android:id="@+id/edittext_replace_else"
-                    style="@style/task_input"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="3"
-                    android:inputType="number"
-                    android:maxLength="3"
-                    android:textSize="12sp" />
-
-                <TextView
-                    style="@style/task_question"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:text=" , " />
 
                 <EditText
-                    android:id="@+id/edittext_replace_no"
+                    android:id="@+id/edittext_number8"
                     style="@style/task_input"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -264,7 +302,7 @@
                 style="@style/task_question"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="КОНЕЦ ЕСЛИ"
+                android:text="КОНЕЦ ПОКА"
                 android:textSize="12sp" />
 
             <TextView

@@ -70,34 +70,28 @@ public class PlaceholderFragment_Task_0101 extends Fragment {
             Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_task_0101, container, false);
 
-        solution_linear = root.findViewById(R.id.solution_linearLayout);
+        solution_linear = root.findViewById(R.id.linearlayout_solution);
         // находим кнопку с которой работает
         btnAnswer = root.findViewById(R.id.task0101_btn_answer);
         btnAnswer.setOnClickListener(oclBtn);
 
-        countOne = (MaterialEditText) root.findViewById(R.id.task0101_edittext_count_values_one);
-        countZero = (MaterialEditText) root.findViewById(R.id.task0101_edittext_count_values_zero);
-        cc = (MaterialEditText) root.findViewById(R.id.task0101_edittext_cc);
+        countOne =  root.findViewById(R.id.task0101_edittext_count_values_one);
+        countZero =  root.findViewById(R.id.task0101_edittext_count_values_zero);
+        cc = root.findViewById(R.id.task0101_edittext_cc);
 
         zero = root.findViewById(R.id.checkBox_task0101_null);
-        zero.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (zero.isChecked())
-                    countZero.setVisibility(View.VISIBLE);
-                else
-                    countZero.setVisibility(View.GONE);
-            }
+        zero.setOnClickListener(v -> {
+            if (zero.isChecked())
+                countZero.setVisibility(View.VISIBLE);
+            else
+                countZero.setVisibility(View.GONE);
         });
         one = root.findViewById(R.id.checkBox_task0101_one);
-        one.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (one.isChecked())
-                    countOne.setVisibility(View.VISIBLE);
-                else
-                    countOne.setVisibility(View.GONE);
-            }
+        one.setOnClickListener(v -> {
+            if (one.isChecked())
+                countOne.setVisibility(View.VISIBLE);
+            else
+                countOne.setVisibility(View.GONE);
         });
 
         max = root.findViewById(R.id.task0101_rbtn_max_number);

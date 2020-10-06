@@ -84,10 +84,10 @@ public class PlaceholderFragment_Task_0102 extends Fragment {
 
          if (checkData()) return;
 
-
             //отправка на сервер
             //*****************
             //*****************
+
             try {
                 String answer = ClientManager.send_server(getData());
                 tAnswer.setText(answer);

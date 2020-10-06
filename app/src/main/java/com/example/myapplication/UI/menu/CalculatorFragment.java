@@ -177,7 +177,7 @@ public class CalculatorFragment extends Fragment {
         stringBuilder.append(first_num + lower_index[first_num_cc] + " -> X" + lower_index[answer_num_cc]);
 
         if (first_num_cc != 10) {
-            stringBuilder.append("\n1. Переводим число" + first_num + lower_index[first_num_cc] + " в " + "10-ую систему счисления:\n\n");
+            stringBuilder.append("\n1. Переводим число " + first_num + lower_index[first_num_cc] + " в " + "10-ую систему счисления:\n\n");
             stringBuilder.append("\t" + first_num + lower_index[first_num_cc] + " = ");
 
             for (int i = 1; i <= first_num.length(); i++) {
@@ -199,7 +199,7 @@ public class CalculatorFragment extends Fragment {
 
 
         while (num > 0) {
-            stringBuilder.append("\t" + num + " / 2 = " + num / 2 + "\tОстаток " + num % 2 + "\n");
+            stringBuilder.append("\t" + num + " / 2 = " + num / 2 + ", \tОстаток " + num % 2 + "\n");
             num /= 2;
         }
 
@@ -219,6 +219,10 @@ public class CalculatorFragment extends Fragment {
                     linearLayout_calc.setVisibility(View.VISIBLE);
                     break;
                 case R.id.detailed_solution_button:
+
+                    if (R.id.button_calc_equally != action.getId() || first_num_cc == answer_num_cc )
+                        break;
+
                     linearLayout_btn.setVisibility(View.VISIBLE);
                     linearLayout_calc.setVisibility(View.GONE);
                     solution.setText(detailed_solution());
@@ -231,8 +235,10 @@ public class CalculatorFragment extends Fragment {
         @Override
         public void onClick(View v) {
 
-            if (id_selection_spinner.getSelectedItemPosition() + 2 <= Integer.parseInt(new BigInteger(((Button) v).getText().toString(), 16).toString(10)))
+            if (id_selection_spinner.getSelectedItemPosition() + 2 <= Integer.parseInt(new BigInteger(((Button) v).getText().toString(), 16).toString(10))) {
+                ShowToast.showToast(getContext(), "Неправильная система счисления!\n Цифры в числе не должны быть больше или равняться  системе счисления.");
                 return;
+            }
 
 
             StringBuilder stringBuilder = new StringBuilder(id_selection_tv.getText());
@@ -247,7 +253,11 @@ public class CalculatorFragment extends Fragment {
 
             stringBuilder.append(((Button) v).getText());
 
+            if (1048575 <= Integer.parseInt(new BigInteger(((Button) v).getText().toString(), 16).toString(10)))
+                return;
+
             if (id_selection_tv.equals(first_num_tv)) {
+
                 first_num = stringBuilder;
             } else
                 second_num = stringBuilder;
