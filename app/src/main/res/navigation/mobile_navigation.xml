@@ -6,7 +6,11 @@
     <fragment
         android:id="@+id/nav_user_profile"
         android:name="com.example.myapplication.UI.menu.ProfileFragment"
-        android:label="ProfileFragment" />
+        android:label="ProfileFragment" >
+        <action
+            android:id="@+id/action_nav_user_profile_to_profileRedactFragment"
+            app:destination="@id/profileRedactFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_task_list"
@@ -17,5 +21,9 @@
         android:id="@+id/nav_calculator"
         android:name="com.example.myapplication.UI.menu.CalculatorFragment"
         android:label="CalculatorFragment" />
+    <fragment
+        android:id="@+id/profileRedactFragment"
+        android:name="com.example.myapplication.UI.menu.ProfileRedactFragment"
+        android:label="ProfileRedactFragment" />
 
 </navigation>

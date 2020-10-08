@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment;
 import com.example.myapplication.Instruments.ShowToast;
 import com.example.myapplication.R;
 
+import java.lang.reflect.Field;
 import java.math.BigInteger;
 import java.text.AttributedString;
 
@@ -86,6 +87,15 @@ public class CalculatorFragment extends Fragment {
         Spinner first_num_spinner = root.findViewById(R.id.spinner_calc_first_num);
         Spinner second_num_spinner = root.findViewById(R.id.spinner_calc_second_num);
         Spinner answer_spinner = root.findViewById(R.id.spinner_calc_answer);
+
+
+        try {
+            Field popup = Spinner.class.getDeclaredField("mPopup");
+            popup.setAccessible(true); // Get private mPopup member variable and try cast to ListPopupWindow
+            android.widget.ListPopupWindow popupWindow = (android.widget.ListPopupWindow) popup.get(first_num_spinner); // Set popupWindow height to 500px
+            popupWindow.setHeight(150);
+        } catch (NoClassDefFoundError | ClassCastException | NoSuchFieldException | IllegalAccessException e) {
+        }
 
         first_num = new StringBuilder("0");
         second_num = new StringBuilder("0");
@@ -220,7 +230,7 @@ public class CalculatorFragment extends Fragment {
                     break;
                 case R.id.detailed_solution_button:
 
-                    if (R.id.button_calc_equally != action.getId() || first_num_cc == answer_num_cc )
+                    if (R.id.button_calc_equally != action.getId() || first_num_cc == answer_num_cc)
                         break;
 
                     linearLayout_btn.setVisibility(View.VISIBLE);
@@ -253,14 +263,21 @@ public class CalculatorFragment extends Fragment {
 
             stringBuilder.append(((Button) v).getText());
 
-            if (1048575 <= Integer.parseInt(new BigInteger(((Button) v).getText().toString(), 16).toString(10)))
+            int cc = id_selection_tv == first_num_tv ? first_num_cc : second_num_cc;
+
+            if (1048575 <= Integer.parseInt(new BigInteger(stringBuilder.toString(),cc).toString(10)))
+            {
+                ShowToast.showToast(getContext(), "Число не должно быть больше " + new BigInteger("1048575",10).toString(cc));
+
                 return;
+            }
+
 
             if (id_selection_tv.equals(first_num_tv)) {
-
                 first_num = stringBuilder;
             } else
                 second_num = stringBuilder;
+
 
 
             id_selection_tv.setText(stringBuilder);

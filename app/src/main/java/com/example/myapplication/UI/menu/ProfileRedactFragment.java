@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,7 +13,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
@@ -26,8 +24,7 @@ import com.example.myapplication.R;
 
 import java.net.UnknownHostException;
 
-
-public class ProfileFragment extends Fragment {
+public class ProfileRedactFragment extends Fragment {
 
     private Button btn_save;
     private EditText name;
@@ -38,7 +35,7 @@ public class ProfileFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_profile_redact, container, false);
+        View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
         name = view.findViewById(R.id.name);
         school_class = view.findViewById(R.id.class_);
@@ -48,17 +45,17 @@ public class ProfileFragment extends Fragment {
         btn_save = view.findViewById(R.id.save);
 
         btn_save.setOnClickListener(v -> {
-            String data = "104" + Constants.NEXT_LINE + "TNorum" + Constants.NEXT_LINE + name.getText().toString() + Constants.NEXT_LINE;
+            String data = "104" + Constants.NEXT_LINE + "TNorum" + Constants.NEXT_LINE;
 
-            data += school_class.getText().toString() + Constants.NEXT_LINE;
-
-            data += id_vk.getText() + Constants.NEXT_LINE;
-            data += id_inst.getText() + Constants.NEXT_LINE;
-            data += about.getText() + Constants.NEXT_LINE;
+            data += (name.getText().toString().isEmpty() ? name.getText().toString() : "null")  +  Constants.NEXT_LINE;
+            data += (school_class.getText().toString().isEmpty() ? school_class.getText().toString() : "null")  +  Constants.NEXT_LINE;
+            data += (id_vk.getText().toString().isEmpty() ? id_vk.getText().toString() : "null")  +  Constants.NEXT_LINE;
+            data += (id_inst.getText().toString().isEmpty() ? id_inst.getText().toString() : "null")  +  Constants.NEXT_LINE;
+            data += (about.getText().toString().isEmpty() ? about.getText().toString() : "null")  +  Constants.NEXT_LINE;
 
             try {
                 String answer = ClientManager.send_server(data);
-                if (answer.equals("400"))
+                if (answer == "400")
                     ShowToast.showToast(getContext(), "Сохранено!");
                 else
                     ShowToast.showToast(getContext(), "Ошибка!");
@@ -71,8 +68,6 @@ public class ProfileFragment extends Fragment {
         });
         return view;
     }
-
-
 
 
 }

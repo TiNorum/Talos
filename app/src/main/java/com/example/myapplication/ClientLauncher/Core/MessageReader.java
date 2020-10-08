@@ -14,7 +14,12 @@ public class MessageReader {
     public String readMessage() throws IOException {
 
         //Считываем сообщение
-        String message = dis.readLine();
+        String message = dis.readLine(),temp;
+        while((temp = dis.readLine())!=null)
+        {
+            message += temp + '\n';
+        };
+
 
         System.out.println("Message " + message + " received.");
 
