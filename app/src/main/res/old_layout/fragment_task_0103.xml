@@ -1,47 +1,47 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<RelativeLayout-->
+<!--    xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    android:orientation="vertical">-->
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_margin="15dp">
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="vertical"-->
+<!--        android:layout_margin="15dp">-->
 
-    <com.rengwuxian.materialedittext.MaterialEditText
-        android:id="@+id/task0103_edittext_equation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="text"
-        android:maxLength="25"
-        android:hint="Введите уравнение"
-        app:met_floatingLabelText="Уравнение"
-        style="@style/task_question" />
+<!--    <com.rengwuxian.materialedittext.MaterialEditText-->
+<!--        android:id="@+id/task0103_edittext_equation"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:inputType="text"-->
+<!--        android:maxLength="25"-->
+<!--        android:hint="Введите уравнение"-->
+<!--        app:met_floatingLabelText="Уравнение"-->
+<!--        style="@style/task_question" />-->
 
-    <TextView
-        android:id="@+id/task0103_text_answer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:visibility="gone" />
+<!--    <TextView-->
+<!--        android:id="@+id/task0103_text_answer"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:visibility="gone" />-->
 
-    <Button
-        android:id="@+id/task0103_btn_answer"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="80dp"
-        android:layout_marginRight="80dp"
-        android:gravity="center"
-        android:layout_gravity="center"
-        android:background="@drawable/btn_task_send"
-        style="@style/task_buttons_field"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/decide" />
-    </LinearLayout>
+<!--    <Button-->
+<!--        android:id="@+id/task0103_btn_answer"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:layout_marginLeft="80dp"-->
+<!--        android:layout_marginRight="80dp"-->
+<!--        android:gravity="center"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:background="@drawable/btn_task_send"-->
+<!--        style="@style/task_buttons_field"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/decide" />-->
+<!--    </LinearLayout>-->
 
-</RelativeLayout>
+<!--</RelativeLayout>-->
