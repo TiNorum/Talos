@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    tools:context=".UI.PlaceholderFragmentTasks.OldTask.PlaceholderFragment_Task_0102">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="15dp">
+
+        <TextView
+            style="@style/task_question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Укажите число и систему счисления:" />
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/task0102_edittext_number"
+            style="@style/task_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Введите число"
+            android:inputType="number"
+            android:maxLength="10"
+            android:layout_marginTop="5dp"
+            app:met_floatingLabel="highlight"
+            app:met_floatingLabelText="Число" />
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/task0102_edittext_cc"
+            style="@style/task_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Введите систему счисления"
+            android:maxLength="2"
+            android:inputType="number"
+            app:met_floatingLabel="highlight"
+            android:layout_marginTop="5dp"
+            app:met_floatingLabelText="Система счисления" />
+
+        <TextView
+            style="@style/task_question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Что нужно найти:" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+
+            <RadioButton
+                android:id="@+id/task0102_rbtn_one"
+                style="@style/task_question"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Количество единиц" />
+
+            <RadioButton
+                android:id="@+id/task0102_rbtn_zero"
+                style="@style/task_question"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="Количество значащих нулей" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/task0102_txt_answer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/task0102_btn_answer"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginRight="80dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:background="@drawable/btn_task_send"
+            style="@style/task_buttons_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/decide"/>
+    </LinearLayout>
+
+</RelativeLayout>

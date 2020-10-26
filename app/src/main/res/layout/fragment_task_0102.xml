@@ -1,98 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:paddingLeft="15dp"
+    android:paddingTop="20dp"
+    android:paddingRight="15dp">
 
-    tools:context=".UI.PlaceholderFragmentTasks.PlaceholderFragment_Task_0102">
-
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_margin="15dp">
+        android:layout_height="wrap_content">
 
-        <TextView
-            style="@style/task_question"
+        <LinearLayout
+            android:id="@+id/task0307_ll"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Укажите число и систему счисления:" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/task0102_edittext_number"
-            style="@style/task_input"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Введите число"
-            android:inputType="number"
-            android:maxLength="10"
-            android:layout_marginTop="5dp"
-            app:met_floatingLabel="highlight"
-            app:met_floatingLabelText="Число" />
-
-        <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/task0102_edittext_cc"
-            style="@style/task_input"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Введите систему счисления"
-            android:maxLength="2"
-            android:inputType="number"
-            app:met_floatingLabel="highlight"
-            android:layout_marginTop="5dp"
-            app:met_floatingLabelText="Система счисления" />
-
-        <TextView
-            style="@style/task_question"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Что нужно найти:" />
-
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-
-            <RadioButton
-                android:id="@+id/task0102_rbtn_one"
-                style="@style/task_question"
-                android:layout_width="wrap_content"
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/task0307_edittext_count_roads"
+                style="@style/task_input"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Количество единиц" />
+                android:hint="Введите количество дорог"
+                android:inputType="number"
+                android:digits="3456789"
+                android:maxLength="1"
+                android:layout_marginTop="5dp"
+                app:met_floatingLabel="highlight"
+                app:met_floatingLabelText="Количество дорог" />
 
-            <RadioButton
-                android:id="@+id/task0102_rbtn_zero"
-                style="@style/task_question"
-                android:layout_width="wrap_content"
+
+            <TableLayout
+                android:id="@+id/task0307_table"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:text="Количество значащих нулей" />
-        </RadioGroup>
+                android:background="@color/black" />
 
-        <TextView
-            android:id="@+id/task0102_txt_answer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone" />
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/task0307_edittext_start"
+                style="@style/task_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Начальная точка"
+                android:digits="АБВГДЕКЛМНабвгдеклмн"
+                android:maxLength="1"
+                android:layout_marginTop="5dp"
+                app:met_floatingLabel="highlight"
+                app:met_floatingLabelText="Начальная точка" />
 
-        <Button
-            android:id="@+id/task0102_btn_answer"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="80dp"
-            android:layout_marginRight="80dp"
-            android:gravity="center"
-            android:layout_gravity="center"
-            android:background="@drawable/btn_task_send"
-            style="@style/task_buttons_field"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/decide"/>
-    </LinearLayout>
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/task0307_edittext_end"
+                style="@style/task_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Конечная точка"
+                android:digits="АБВГДЕКЛМНабвгдеклмн"
+                android:maxLength="1"
+                android:layout_marginTop="5dp"
+                app:met_floatingLabel="highlight"
+                app:met_floatingLabelText="Конечная точка" />
 
+
+            <TextView
+                android:id="@+id/task0307_text_answer"
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" />
+
+
+            <Button
+                android:id="@+id/task0307_btn_graph"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Нарисовать граф"/>
+
+            <Button
+                android:id="@+id/task0307_btn_answer"
+                style="@style/task_buttons_field"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="80dp"
+                android:layout_marginRight="80dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/btn_task_send"
+                android:text="@string/decide" />
+
+        </LinearLayout>
+    </ScrollView>
 </RelativeLayout>
+
+

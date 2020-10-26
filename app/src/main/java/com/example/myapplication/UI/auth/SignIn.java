@@ -1,6 +1,9 @@
 package com.example.myapplication.UI.auth;
 
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -11,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.Activities.Activity_Main;
 import com.example.myapplication.ClientLauncher.ClientManager;
+import com.example.myapplication.ClientLauncher.DataBase.DBHelper;
 import com.example.myapplication.Instruments.Constants;
 import com.example.myapplication.Instruments.ShowToast;
 import com.example.myapplication.R;
@@ -31,11 +35,48 @@ public class SignIn extends AppCompatActivity {
     private MaterialEditText login;
     private MaterialEditText password;
     private TextView warning;
+    private DBHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sign_in_window);
+        dbHelper = new DBHelper(this);
+        // Проверка данных пользователя, если он вводил данные, то  пропускаем ввод пароля и логина для авторизации - начало
+
+        SQLiteDatabase database = dbHelper.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+
+        Cursor cursor = database.query(DBHelper.TABLE_USER, null, null, null, null, null, null);
+
+        if (cursor.moveToFirst()) {
+            int name, password;
+            name = cursor.getColumnIndex(DBHelper.KEY_NAME);
+            password = cursor.getColumnIndex(DBHelper.KEY_PASSWORD);
+
+
+            try {
+                String answer = ClientManager.send_server("102" + Constants.NEXT_LINE + cursor.getString(name) + Constants.NEXT_LINE + cursor.getString(password));
+
+                if (answer != null && (answer.equals("200") || answer.equals("201") || answer.equals("202"))) {
+
+                    contentValues.put(DBHelper.PERMISSIONS, answer);
+                    database.insert(DBHelper.TABLE_USER,null,contentValues);
+                    cursor.close();
+                    database.close();
+
+                    startActivity(new Intent(SignIn.this, Activity_Main.class));
+                    finish();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
+
+        cursor.close();
+        database.close();
+        // Проверка данных пользователя, если он вводил данные, то  пропускаем ввод пароля и логина для авторизации - конец
 
 
         btnSignIn = findViewById(R.id.btnSignIn);
@@ -43,7 +84,6 @@ public class SignIn extends AppCompatActivity {
         login = findViewById(R.id.sign_in_login);
         password = findViewById(R.id.sign_in_password);
         warning = findViewById(R.id.signIn_warning_notification);
-
 
         tvRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,6 +103,7 @@ public class SignIn extends AppCompatActivity {
                     }
                 });
                 startActivity(new Intent(SignIn.this, SignUp.class));
+                finish();
             }
         });
 
@@ -77,10 +118,9 @@ public class SignIn extends AppCompatActivity {
 
     }
 
+
     private void signIn() {
 
-//        startActivity(new Intent(SignIn.this, Activity_Main.class));
-//        finish();
         if (login.getText().toString().isEmpty()) {
             warning.setText("Введите логин!");
             warning.setVisibility(View.VISIBLE);
@@ -98,6 +138,7 @@ public class SignIn extends AppCompatActivity {
             return;
         }
 
+
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -112,6 +153,17 @@ public class SignIn extends AppCompatActivity {
                 }
 
                 if (answer != null && (answer.equals("200") || answer.equals("201") || answer.equals("202"))) {
+
+                    SQLiteDatabase database = dbHelper.getReadableDatabase();
+                    ContentValues contentValues = new ContentValues();
+
+                    contentValues.put(DBHelper.KEY_NAME, login.getText().toString());
+                    contentValues.put(DBHelper.KEY_PASSWORD, password.getText().toString());
+                    contentValues.put(DBHelper.PERMISSIONS, answer);
+                    database.insert(DBHelper.TABLE_USER,null,contentValues);
+
+                    database.close();
+
                     startActivity(new Intent(SignIn.this, Activity_Main.class));
                     finish();
                 }
@@ -122,7 +174,9 @@ public class SignIn extends AppCompatActivity {
     }
 
     private String getData() {
-        String send = "102" + Constants.NEXT_LINE + login.getText().toString() + Constants.NEXT_LINE + password.getText().toString() ;
+        String send = "102" + Constants.NEXT_LINE + login.getText().toString() + Constants.NEXT_LINE + password.getText().toString();
         return send;
     }
+
+
 }

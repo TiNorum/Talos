@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -19,6 +20,8 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.myapplication.Instruments.ShowToast;
 import com.example.myapplication.R;
+import com.example.myapplication.UI.auth.SignIn;
+import com.example.myapplication.UI.auth.SignUp;
 import com.google.android.material.navigation.NavigationView;
 
 
@@ -44,14 +47,21 @@ public class Activity_Main extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_user_profile, R.id.nav_task_list, R.id.nav_calculator)
+                R.id.nav_user_profile, R.id.nav_task_list, R.id.nav_calculator,R.id.nav_exit)
                 .setDrawerLayout(drawer)
                 .build();
 
         NavController navController = Navigation.findNavController(Activity_Main.this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+
     }
+
+
+
+
+
 
 
 
@@ -60,5 +70,6 @@ public class Activity_Main extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+
     }
 }

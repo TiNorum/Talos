@@ -26,14 +26,14 @@ public class TaskFragment extends Fragment {
 
         View root = inflater.inflate(R.layout.fragment_task, container, false);
 
-
-        tab_titles.put(R.id.buttonType1, new String[]{"Мин/Макс", "Поиск 0/1", "Решить уравнение","1"});
+        //графы
+        tab_titles.put(R.id.buttonType1, new String[]{"Type1", "Type2","1"});
         root.findViewById(R.id.buttonType1).setOnClickListener(oclBtn);
 
         tab_titles.put(R.id.buttonType2, new String[]{"Таблица истинности без пропусков", "Таблица истинности с пропусками","2"});
         root.findViewById(R.id.buttonType2).setOnClickListener(oclBtn);
 
-        tab_titles.put(R.id.buttonType3, new String[] {"Type1", "Type2","3"});
+        tab_titles.put(R.id.buttonType3, new String[] {"Type1", "Type2","Type3","Type4","3"});
         root.findViewById(R.id.buttonType3).setOnClickListener(oclBtn);
 
         tab_titles.put(R.id.buttonType4, new String[] {"Type1", "Type2","Type3","Type4","4"});

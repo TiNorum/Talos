@@ -1,16 +1,25 @@
 package com.example.myapplication.UI.menu;
 
+import android.content.Context;
+import android.graphics.Color;
+import android.graphics.Point;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.myapplication.Instruments.ShowToast;
@@ -19,6 +28,7 @@ import com.example.myapplication.R;
 import java.lang.reflect.Field;
 import java.math.BigInteger;
 import java.text.AttributedString;
+import java.util.List;
 
 public class CalculatorFragment extends Fragment {
 
@@ -68,7 +78,6 @@ public class CalculatorFragment extends Fragment {
         root.findViewById(R.id.button_calc_D).setOnClickListener(oclBtn);
         root.findViewById(R.id.button_calc_E).setOnClickListener(oclBtn);
         root.findViewById(R.id.button_calc_F).setOnClickListener(oclBtn);
-
         root.findViewById(R.id.button_calc_c).setOnClickListener(button_listener);
 
         root.findViewById(R.id.button_calc_plus).setOnClickListener(button_listener);
@@ -89,18 +98,23 @@ public class CalculatorFragment extends Fragment {
         Spinner answer_spinner = root.findViewById(R.id.spinner_calc_answer);
 
 
-        try {
-            Field popup = Spinner.class.getDeclaredField("mPopup");
-            popup.setAccessible(true); // Get private mPopup member variable and try cast to ListPopupWindow
-            android.widget.ListPopupWindow popupWindow = (android.widget.ListPopupWindow) popup.get(first_num_spinner); // Set popupWindow height to 500px
-            popupWindow.setHeight(150);
-        } catch (NoClassDefFoundError | ClassCastException | NoSuchFieldException | IllegalAccessException e) {
-        }
 
         first_num = new StringBuilder("0");
         second_num = new StringBuilder("0");
         second_num_cc = 2;
+        try {
+            Field popup = Spinner.class.getDeclaredField("mPopup");
+            popup.setAccessible(true);
 
+            // Get private mPopup member variable and try cast to ListPopupWindow
+            android.widget.ListPopupWindow popupWindow = (android.widget.ListPopupWindow) popup.get(first_num_spinner);
+
+            // Set popupWindow height to 500px
+            popupWindow.setHeight(500);
+        }
+        catch (NoClassDefFoundError | ClassCastException | NoSuchFieldException | IllegalAccessException e) {
+            // silently fail...
+        }
         first_num_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             @Override
@@ -265,9 +279,8 @@ public class CalculatorFragment extends Fragment {
 
             int cc = id_selection_tv == first_num_tv ? first_num_cc : second_num_cc;
 
-            if (1048575 <= Integer.parseInt(new BigInteger(stringBuilder.toString(),cc).toString(10)))
-            {
-                ShowToast.showToast(getContext(), "Число не должно быть больше " + new BigInteger("1048575",10).toString(cc));
+            if (1048575 <= Integer.parseInt(new BigInteger(stringBuilder.toString(), cc).toString(10))) {
+                ShowToast.showToast(getContext(), "Число не должно быть больше " + new BigInteger("1048575", 10).toString(cc));
 
                 return;
             }
@@ -277,7 +290,6 @@ public class CalculatorFragment extends Fragment {
                 first_num = stringBuilder;
             } else
                 second_num = stringBuilder;
-
 
 
             id_selection_tv.setText(stringBuilder);
@@ -341,4 +353,6 @@ public class CalculatorFragment extends Fragment {
 
         }
     };
+
+
 }

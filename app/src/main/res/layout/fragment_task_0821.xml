@@ -8,7 +8,7 @@
     android:paddingLeft="15dp"
     android:paddingTop="20dp"
     android:paddingRight="15dp"
-    tools:context=".UI.PlaceholderFragmentTasks.PlaceholderFragment_Task_0821">
+    tools:context=".UI.PlaceholderFragmentTasks.Task6.PlaceholderFragment_Task_0612">
 
 
     <LinearLayout

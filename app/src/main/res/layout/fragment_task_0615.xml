@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".UI.PlaceholderFragmentTasks.PlaceholderFragment_Task_0615">
+    tools:context=".UI.PlaceholderFragmentTasks.Task5.PlaceholderFragment_Task_0511">
 
     <LinearLayout
         android:layout_width="match_parent"

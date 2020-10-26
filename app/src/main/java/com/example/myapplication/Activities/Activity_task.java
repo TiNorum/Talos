@@ -5,9 +5,6 @@ import android.os.Parcelable;
 import android.widget.TextView;
 
 import com.example.myapplication.R;
-import com.example.myapplication.UI.PlaceholderFragmentTasks.PlaceholderFragment_Task_0101;
-import com.example.myapplication.UI.PlaceholderFragmentTasks.PlaceholderFragment_Task_0102;
-import com.example.myapplication.UI.PlaceholderFragmentTasks.PlaceholderFragment_Task_0103;
 import com.google.android.material.tabs.TabLayout;
 
 import androidx.fragment.app.Fragment;
@@ -15,8 +12,6 @@ import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.UI.PlaceholderFragmentTasks.Instruments.SectionsPagerAdapter;
-
-import java.util.ArrayList;
 
 public class Activity_task extends AppCompatActivity {
 
